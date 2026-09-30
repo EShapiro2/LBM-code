@@ -63,8 +63,9 @@ class Dynamic:
         self.pending = set()        # dispatchers woken since their last turn
         self.sim = P.Sim(np.array(centres, float), city, np.zeros((0, 2)), rng)
         self.stats = {k: 0 for k in STATS}
-        self.metrics = dict(calls=0, invented=0, lost=0, events_with_moves=0, quiescent=0, capped=0, turns=0, woken=0)
+        self.metrics = dict(calls=0, invented=0, lost=0, events_with_moves=0, quiescent=0, capped=0, turns=0, woken=0, nonoptimal=0, invented_with_free=0)
         self.dist = []              # pickup distance of every served call
+        self.opt = []               # for every served call, the distance of the closest free car anywhere at the time (the optimal dispatch)
         self.calls_log = []         # per-call records not yet written
 
     # ---- the load ----
@@ -93,22 +94,29 @@ class Dynamic:
         return int(np.argmin(((self.sim.cfg.c - p) ** 2).sum(1)))
 
     def serve(self, p):
-        """The closest free car in the caller's cell or an adjacent one takes the call; none: a car is invented.  Returns the pickup distance, or None."""
+        """The closest free car in the caller's cell or an adjacent one takes the call; none: a car is invented.  Returns the pickup
+        distance, or None, and beside it the distance of the closest free car anywhere at the time, the optimal dispatch, or None
+        when there is no free car; the optimal distance is recorded and does not affect the dispatch."""
         cfg = self.sim.cfg
         p = np.asarray(p, float)
         i = self.cell_of(p)
         allowed = {i} | cfg.nb(i)
+        opt = None
         if self.free:
             F = np.array(self.free)
+            dall = np.hypot(*(F - p).T)
+            opt = float(dall.min())
             owner = np.argmin(((F[:, None, :] - cfg.c[None, :, :]) ** 2).sum(2), axis=1)
             cand = np.flatnonzero(np.isin(owner, list(allowed)))
             if len(cand):
-                d = np.hypot(*(F[cand] - p).T)
+                d = dall[cand]
                 j = int(np.argmin(d)); k = int(cand[j])
                 self.free.pop(k)
-                return float(d[j])
+                return float(d[j]), opt
         self.metrics["invented"] += 1
-        return None
+        if opt is not None:
+            self.metrics["invented_with_free"] += 1
+        return None, opt
 
     def do_returns(self, now):
         while self.returns and self.returns[0][0] <= now:
@@ -159,15 +167,17 @@ class Dynamic:
         self.window.append([now, r["p"][0], r["p"][1]])
         self.rebuild()
         cell = self.cell_of(r["p"])
-        dist = self.serve(r["p"])
+        dist, opt = self.serve(r["p"])
         if dist is not None:
-            self.dist.append(dist)
+            self.dist.append(dist); self.opt.append(opt)
+            if dist > opt + 1e-9:
+                self.metrics["nonoptimal"] += 1
         if r["d_in"]:
             heapq.heappush(self.returns, (r["te"], r["d"][0], r["d"][1]))
         else:
             self.metrics["lost"] += 1
         moves, sweeps, turns, woken, quiescent = self.settle()
-        self.calls_log.append(dict(t=hms(now), cell=cell, dist=None if dist is None else round(dist, 4), invented=dist is None,
+        self.calls_log.append(dict(t=hms(now), cell=cell, dist=None if dist is None else round(dist, 4), opt=None if opt is None else round(opt, 4), invented=dist is None,
                                    moves=moves["accepted"], departures=moves["departure"], splits=moves["split"],
                                    sweeps=sweeps, turns=turns, woken=woken, quiescent=quiescent, content=self.content(),
                                    free=len(self.free), min_load=int(self.sim.cfg.load.min()), max_load=int(self.sim.cfg.load.max())))
@@ -182,17 +192,21 @@ class Dynamic:
                    moves=self.stats["accepted"], departures=self.stats["departure"], splits=self.stats["split"],
                    turns=self.metrics["turns"], woken=self.metrics["woken"])
         if self.dist:
-            d = np.array(self.dist)
-            rep.update(mean_dist_km=round(float(d.mean()), 3), p50_dist_km=round(float(np.median(d)), 3), p90_dist_km=round(float(np.percentile(d, 90)), 3))
+            d = np.array(self.dist); o = np.array(self.opt)
+            rep.update(mean_dist_km=round(float(d.mean()), 4), p50_dist_km=round(float(np.median(d)), 4), p90_dist_km=round(float(np.percentile(d, 90)), 4),
+                       mean_opt_km=round(float(o.mean()), 4), p50_opt_km=round(float(np.median(o)), 4), p90_opt_km=round(float(np.percentile(o, 90)), 4),
+                       nonoptimal=self.metrics["nonoptimal"], invented_with_free=self.metrics["invented_with_free"],
+                       ratio_of_means=round(float(d.mean() / o.mean()), 4) if o.mean() > 0 else None,
+                       mean_ratio=round(float((d[o > 0] / o[o > 0]).mean()), 4) if (o > 0).any() else None)
         return rep
 
     def state(self, now, k):
         return dict(time=now, next_call=k, centres=self.sim.cfg.c.tolist(), window=self.window, free=self.free, returns=sorted(self.returns),
-                    stats=self.stats, metrics=self.metrics, dist=self.dist, rng=self.rng.bit_generator.state)
+                    stats=self.stats, metrics=self.metrics, dist=self.dist, opt=self.opt, rng=self.rng.bit_generator.state)
 
     def restore(self, s):
         self.window = s["window"]; self.free = s["free"]; self.returns = [tuple(x) for x in s["returns"]]; heapq.heapify(self.returns)
-        self.stats = s["stats"]; self.metrics = s["metrics"]; self.dist = s["dist"]
+        self.stats = s["stats"]; self.metrics = s["metrics"]; self.dist = s["dist"]; self.opt = s["opt"]
         self.rng.bit_generator.state = s["rng"]
         self.sim.req = self.req(); self.sim.cfg = self.sim.make(np.array(s["centres"], float)); self.sim.cfg.adopt()
         return s["time"], s["next_call"]
