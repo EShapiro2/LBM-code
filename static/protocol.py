@@ -5,7 +5,8 @@ The simulation computes globally what each dispatcher computes from its two-hop 
 import json, sys, time, argparse, os
 import numpy as np
 from scipy.spatial import Voronoi, cKDTree
-from shapely.geometry import Polygon, Point, LineString
+from shapely.geometry import Polygon, Point, LineString, GeometryCollection
+import shapely
 
 import geometry as G
 
@@ -28,41 +29,125 @@ COMPACT = "neighbourhood"  # "cell": each cell compact; "neighbourhood": each ce
 
 
 class Config:
-    """A configuration of centres; cells, loads and neighbours are computed on demand and cached."""
+    """A configuration of centres; cells, loads and neighbours are computed on demand and cached.
 
-    def __init__(self, centres, city, req, far):
+    A configuration made from a parent by moving a few centres, or by changing the requests, inherits from the parent whatever
+    the change leaves the same, rather than recomputing it: a cell whose Voronoi region is the same polygon, the neighbours
+    of a cell whose ridges are the same, the ratio of a cell whose cell and neighbours' cells are the same, and the owner of a
+    request that no moved centre is nearer to than its owner was.  The numbers are exactly those of a computation from scratch.
+    The parent is kept only until this configuration has a child of its own, so at most two configurations are ever live."""
+
+    def __init__(self, centres, city, req, far, parent=None):
         self.c = np.asarray(centres, float)
         self.n = len(self.c)
-        self.city = city
+        self.city = city   # prepared by Sim, so shapely's containment tests on it are fast
         self.req = req
         self.vor = Voronoi(np.vstack([self.c, far]))
         self.ridges = {}
         for (i, j), rv in zip(self.vor.ridge_points, self.vor.ridge_vertices):
             if i < self.n and j < self.n:
                 self.ridges.setdefault(i, []).append((j, rv)); self.ridges.setdefault(j, []).append((i, rv))
-        _, idx = cKDTree(self.c).query(req)
-        self.owner = idx
-        self.load = np.bincount(idx, minlength=self.n)
-        self._cell = {}
-        self._nb = {}
+        self._cell = {}; self._nb = {}; self._ratio = {}; self._key = {}; self._rkey = {}
+        if parent is not None and parent._p is not None:
+            parent.adopt()
+        self._p = parent if parent is not None and parent.n == self.n else None
+        if self._p is not None and req is parent.req:
+            self.owner, self.dist = parent.owners_after(self.c)
+        elif len(req):
+            self.dist, self.owner = cKDTree(self.c).query(req)
+        else:
+            self.dist, self.owner = np.zeros(0), np.zeros(0, int)
+        self.load = np.bincount(self.owner, minlength=self.n)
 
+    # ---- inheritance ----
+    def region_key(self, k):
+        """The Voronoi region of k as a hashable set of vertices; None when unbounded."""
+        if k not in self._key:
+            reg = self.vor.regions[self.vor.point_region[k]]
+            self._key[k] = None if -1 in reg or len(reg) == 0 else frozenset(map(tuple, np.round(self.vor.vertices[reg], 9)))
+        return self._key[k]
+
+    def ridge_key(self, k):
+        """The ridges of k as a hashable set of (neighbour, vertices); None when a ridge is unbounded."""
+        if k not in self._rkey:
+            out = set()
+            for j, rv in self.ridges.get(k, []):
+                if -1 in rv:
+                    out = None; break
+                out.add((j, frozenset(map(tuple, np.round(self.vor.vertices[rv], 9)))))
+            self._rkey[k] = None if out is None else frozenset(out)
+        return self._rkey[k]
+
+    def adopt(self):
+        """Take from the parent every cell, neighbour set and ratio still the same here, and let the parent go."""
+        p = self._p
+        if p is None:
+            return
+        for k in p._cell:
+            if k not in self._cell and self.region_key(k) is not None and self.region_key(k) == p.region_key(k):
+                self._cell[k] = p._cell[k]
+        for k in p._nb:
+            if k not in self._nb and self.ridge_key(k) is not None and self.ridge_key(k) == p.ridge_key(k):
+                self._nb[k] = p._nb[k]
+        for k in p._ratio:
+            if k not in self._ratio and self._cell.get(k) is p._cell.get(k) and k in self._nb and self._nb[k] is p._nb.get(k) and all(self._cell.get(j) is p._cell.get(j) for j in self._nb[k]):
+                self._ratio[k] = p._ratio[k]
+        self._p = None
+
+    def owners_after(self, new_c):
+        """The owners of the requests, and their distances, with the centres moved to new_c: exact, from this configuration's owners.
+
+        A request keeps its owner unless its owner moved, in which case its nearest centre is found afresh, or a moved centre is
+        now nearer than its owner, in which case that centre takes it."""
+        moved = np.flatnonzero(np.any(self.c != new_c, axis=1))
+        owner = self.owner.copy(); dist = self.dist.copy()
+        if len(self.req) and len(moved):
+            mask = np.isin(owner, moved)
+            if mask.any():
+                dist[mask], owner[mask] = cKDTree(new_c).query(self.req[mask])
+            for m in moved:
+                dm = np.hypot(*(self.req - new_c[m]).T)
+                better = dm < dist
+                owner[better] = m; dist[better] = dm[better]
+        return owner, dist
+
+    def gain(self, new_c):
+        """The change of the squares objective when the centres move to new_c: the sum over every cell of the new load squared less the
+        old, which is the change over the cells the move touches, since every other cell keeps its load.  No geometry is computed."""
+        owner, _ = self.owners_after(new_c)
+        new_load = np.bincount(owner, minlength=self.n)
+        return float((new_load.astype(np.int64) ** 2).sum() - (self.load.astype(np.int64) ** 2).sum())
+
+    # ---- geometry ----
     def cell(self, i):
         if i not in self._cell:
+            p = self._p
+            if p is not None and i in p._cell and self.region_key(i) is not None and self.region_key(i) == p.region_key(i):
+                self._cell[i] = p._cell[i]
+                return self._cell[i]
             reg = self.vor.regions[self.vor.point_region[i]]
             if -1 in reg or len(reg) == 0:
                 self._cell[i] = G.halfplane_cell(i, self.c, self.city)
             else:
-                self._cell[i] = Polygon(self.vor.vertices[reg]).intersection(self.city)
+                poly = Polygon(self.vor.vertices[reg])
+                # a region inside the city is its own cell; only a region crossing the shore is clipped
+                self._cell[i] = poly if shapely.contains(self.city, poly) else poly.intersection(self.city)
         return self._cell[i]
 
     def nb(self, i):
         if i not in self._nb:
+            p = self._p
+            if p is not None and i in p._nb and self.ridge_key(i) is not None and self.ridge_key(i) == p.ridge_key(i):
+                self._nb[i] = p._nb[i]
+                return self._nb[i]
             s = set()
             for j, rv in self.ridges.get(i, []):
                 if -1 in rv:
                     ok = self.cell(i).boundary.intersection(self.cell(j).boundary).length > G.TOL
                 else:
-                    ok = LineString(self.vor.vertices[rv]).intersection(self.city).length > G.TOL
+                    v = self.vor.vertices[rv]
+                    # a ridge of positive length with an end inside the city has positive length in it; only one with both ends outside is clipped
+                    ok = np.hypot(*(v[1] - v[0])) > G.TOL and (shapely.contains_xy(self.city, v[0][0], v[0][1]) or shapely.contains_xy(self.city, v[1][0], v[1][1]) or LineString(v).intersection(self.city).length > G.TOL)
                 if ok:
                     s.add(j)
             self._nb[i] = s
@@ -84,13 +169,19 @@ class Config:
         return all(abs(Li - int(self.load[j])) <= CONTENT * max(Li, int(self.load[j])) for j in self.nb(i))
 
     def ratio(self, k):
-        if COMPACT == "neighbourhood":
-            from shapely.ops import unary_union
-            u = unary_union([self.cell(k)] + [self.cell(j) for j in self.nb(k)])
-            d, w = G.width_and_diameter(u)
-        else:
-            d, w = G.width_and_diameter(self.cell(k))
-        return d / w if w > G.TOL else np.inf
+        if k not in self._ratio:
+            p = self._p
+            if p is not None and k in p._ratio and self.cell(k) is p._cell.get(k) and self.nb(k) == p._nb.get(k) and all(self.cell(j) is p._cell.get(j) for j in self.nb(k)):
+                self._ratio[k] = p._ratio[k]   # the same cell with the same neighbours' cells has the same ratio
+                return self._ratio[k]
+            if COMPACT == "neighbourhood":
+                # the convex hull of the union of the cells is the hull of the cells together, so no union is computed
+                u = GeometryCollection([self.cell(k)] + [self.cell(j) for j in self.nb(k)])
+                d, w = G.width_and_diameter(u)
+            else:
+                d, w = G.width_and_diameter(self.cell(k))
+            self._ratio[k] = d / w if w > G.TOL else np.inf
+        return self._ratio[k]
 
     def compact(self, S, bound=RATIO, before=None):
         """Every cell of S within the bound, except a cell already beyond it in `before` that has not got worse."""
@@ -119,18 +210,19 @@ class Sim:
         self.far = np.array([[minx - pad, miny - pad], [maxx + pad, miny - pad], [maxx + pad, maxy + pad], [minx - pad, maxy + pad]])
         self.evals = 0
         self.blocked = {}
+        shapely.prepare(city)   # in place: shapely's containment tests on the city are then fast
         self.cfg = self.make(centres)
 
     def make(self, centres):
         self.evals += 1
-        return Config(centres, self.city, self.req, self.far)
+        return Config(centres, self.city, self.req, self.far, parent=self.cfg if hasattr(self, 'cfg') else None)
 
     def with_centre(self, i, p):
         c = self.cfg.c.copy(); c[i] = p
         return self.make(c)
 
     def inside(self, p):
-        return self.city.contains(Point(p))
+        return bool(shapely.contains_xy(self.city, p[0], p[1]))
 
     def collides(self, c, p, i):
         d = np.hypot(*(c - p).T); d[i] = np.inf
@@ -182,7 +274,17 @@ class Sim:
         for u in dirs:
             for h_, s2 in enumerate(lengths):
                 p = cfg.c[i] + s2 * u
-                if self.inside(p) and not self.collides(cfg.c, p, i):
+                if not (self.inside(p) and not self.collides(cfg.c, p, i)):
+                    continue
+                if OBJECTIVE == "squares":
+                    # the change of the objective needs no geometry; the configuration is built only for a candidate that lowers it
+                    c = cfg.c.copy(); c[i] = p
+                    gain = cfg.gain(c)
+                    if not gain < -1e-12:
+                        continue
+                    new = self.make(c)
+                    nb1 = new.nb(i)
+                else:
                     new = self.with_centre(i, p)
                     nb1 = new.nb(i)
                     if nb1 == nb0:
@@ -191,16 +293,19 @@ class Sim:
                         S2 = S | nb1
                         b, a = cfg.objective(S2), new.objective(S2)
                     else:
-                        s2 = None
-                    if s2 is not None and a < b - 1e-12 and new.compact({i} | nb1, RATIO, cfg):
-                        if best is None or a - b < best[0]:
-                            best = (a - b, new, nb1 != nb0, h_)
-                        break
+                        continue
+                    gain = a - b
+                    if not gain < -1e-12:
+                        continue
+                if new.compact({i} | nb1, RATIO, cfg):
+                    if best is None or gain < best[0]:
+                        best = (gain, new, nb1 != nb0, h_)
+                    break
         if best is None:
             stats["rejected"] += 1
             return False
         gain, new, changed, h_ = best
-        self.cfg = new
+        self.cfg = new; new.adopt()
         stats["accepted"] += 1
         stats["cut"] += int(changed)
         stats["halved"] += h_
@@ -315,22 +420,34 @@ class Sim:
             tried += 1
             if not all(self.inside(new[t]) for t in touched):
                 continue
-            newcfg = self.make(new)
-            S2 = set(touched)
-            for t in list(touched):
-                S2 |= cfg.nb(t) | newcfg.nb(t)
-            before = cfg.objective(S2)
-            after = newcfg.objective(S2)
-            comp = newcfg.compact(S2, RELOC_RATIO, cfg)
-            if after < before - 1e-12 and comp:
-                self.cfg = newcfg
+            if OBJECTIVE == "squares":
+                # the change of the objective needs no geometry.  The compactness of a candidate is computed when it lowers the
+                # objective, since it may then be taken, and otherwise only until one compact candidate has been seen, since all
+                # a candidate that does not lower the objective can do is mark, once, that a compact candidate exists
+                dec = cfg.gain(new) < -1e-12
+                if not dec and why == "objective_seen":
+                    continue
+                newcfg = self.make(new)
+                S2 = set(touched)
+                for t in list(touched):
+                    S2 |= cfg.nb(t) | newcfg.nb(t)
+                comp = newcfg.compact(S2, RELOC_RATIO, cfg)
+            else:
+                newcfg = self.make(new)
+                S2 = set(touched)
+                for t in list(touched):
+                    S2 |= cfg.nb(t) | newcfg.nb(t)
+                dec = newcfg.objective(S2) < cfg.objective(S2) - 1e-12
+                comp = newcfg.compact(S2, RELOC_RATIO, cfg)
+            if dec and comp:
+                self.cfg = newcfg; newcfg.adopt()
                 self.blocked.pop(i, None)
                 stats[kind] += 1
                 stats["restarts"] += tried - 1
                 return True
             if depart and not comp and why != "objective_seen":
                 why = "compact"
-            if after < before - 1e-12 and not comp:
+            if dec and not comp:
                 pass
             elif comp:
                 why = "objective_seen"
@@ -355,7 +472,7 @@ class Sim:
                 continue
             new = self.with_centre(i, p)
             if new.compact({i} | new.nb(i), RATIO, cfg):
-                self.cfg = new
+                self.cfg = new; new.adopt()
                 stats["random"] += 1
                 return True
         stats["random_failed"] += 1
@@ -455,7 +572,8 @@ def lab_colour(t):
     return _lab_to_rgb(93 - 71 * t, a, bb)
 
 
-def render(sim, path, title, vmax=None):
+def render(sim, path, title, vmax=None, cars=None):
+    """The map: cells coloured by load, with the load at each centre; `cars`, if given, are drawn as small blue dots (the dynamic case)."""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -481,6 +599,9 @@ def render(sim, path, title, vmax=None):
         ax.text(cx, cy, str(int(cfg.load[i])), fontsize=5, ha="center", va="center", color="w" if cfg.load[i] > 0.6 * vmax else "k")
     x, y = cfg.city.exterior.xy
     ax.plot(x, y, "k-", lw=0.6)
+    if cars is not None and len(cars):
+        cars = np.asarray(cars, float)
+        ax.plot(cars[:, 0], cars[:, 1], ".", ms=1.5, color="royalblue", alpha=0.7, lw=0)
     ax.set_aspect("equal"); ax.set_title(title, fontsize=9)
     b = cfg.city.bounds
     ax.set_xlim(b[0] - 0.2, b[2] + 0.2); ax.set_ylim(b[1] - 0.2, b[3] + 0.2)
