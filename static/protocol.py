@@ -12,12 +12,14 @@ import geometry as G
 CONTENT = 0.05          # a dispatcher is content when its load is within 5% of each neighbour's
 RATIO = 2.0             # compactness: diameter / width <= 2
 RW_TRIES = 10           # random-walk directions tried before giving up
-HALVINGS = 3            # if the proposed step is rejected, try s/2, s/4, s/8
+HALVINGS = 3            # (superseded by LENGTHS)
+LENGTHS = 6             # step lengths tried per direction: dist/2, dist/4, ..., dist/64, where dist is the distance to the heaviest neighbour
 RELOC_RATIO = 3.0       # compactness bound on the cells a departure or split makes; the moves round them off
 RW_RETRIES = 1          # after a failed departure or split: one random walk, which takes no time, and one more attempt in the same turn
 DIRECTIONS = 16         # directions scanned for the move (1 = toward the heaviest neighbour only)
 LOOKAHEAD = True        # the walk of a departure or split looks one hop ahead (two-hop knowledge)
 OBJECTIVE = "squares"   # "gap": sum of the neighbourhood mean absolute gaps; "squares": sum of squared loads of the cells whose loads change
+BLOCKED_CONTENT = True  # a dispatcher lighter than its neighbours whose departure is blocked by compactness is content
 
 
 class Config:
@@ -76,8 +78,22 @@ class Config:
         Li = int(self.load[i])
         return all(abs(Li - int(self.load[j])) <= CONTENT * max(Li, int(self.load[j])) for j in self.nb(i))
 
-    def compact(self, S):
-        return all(G.compact(self.cell(k), RATIO) for k in S if not self.cell(k).is_empty)
+    def ratio(self, k):
+        d, w = G.width_and_diameter(self.cell(k))
+        return d / w if w > G.TOL else np.inf
+
+    def compact(self, S, bound=RATIO, before=None):
+        """Every cell of S within the bound, except a cell already beyond it in `before` that has not got worse."""
+        for k in S:
+            if self.cell(k).is_empty:
+                continue
+            r = self.ratio(k)
+            if r <= bound + 1e-9:
+                continue
+            if before is not None and r <= before.ratio(k) + 1e-9:
+                continue
+            return False
+        return True
 
     def median_nb(self, i):
         return float(np.median([self.load[j] for j in self.nb(i)]))
@@ -92,6 +108,7 @@ class Sim:
         pad = 10 * max(maxx - minx, maxy - miny)
         self.far = np.array([[minx - pad, miny - pad], [maxx + pad, miny - pad], [maxx + pad, maxy + pad], [minx - pad, maxy + pad]])
         self.evals = 0
+        self.blocked = {}
         self.cfg = self.make(centres)
 
     def make(self, centres):
@@ -151,19 +168,18 @@ class Sim:
             a0 = np.arctan2(u0[1], u0[0])
             dirs = [np.array([np.cos(a0 + 2 * np.pi * k / DIRECTIONS), np.sin(a0 + 2 * np.pi * k / DIRECTIONS)]) for k in range(DIRECTIONS)]
         best = None
+        lengths = [dist / 2 ** k for k in range(1, LENGTHS + 1)]   # dist/2, dist/4, ..., independent of the load difference
         for u in dirs:
-            s2 = s
-            for h_ in range(HALVINGS + 1):
+            for h_, s2 in enumerate(lengths):
                 p = cfg.c[i] + s2 * u
                 if self.inside(p) and not self.collides(cfg.c, p, i):
                     new = self.with_centre(i, p)
                     if new.nb(i) == nb0:
                         after = new.objective(S)
-                        if after < before - 1e-12 and new.compact({i} | new.nb(i)):
+                        if after < before - 1e-12 and new.compact({i} | new.nb(i), RATIO, cfg):
                             if best is None or after < best[0]:
                                 best = (after, new, h_ > 0, h_)
                             break
-                s2 /= 2
         if best is None:
             stats["rejected"] += 1
             return False
@@ -251,10 +267,13 @@ class Sim:
             S2 |= cfg.nb(t) | newcfg.nb(t)
         before = cfg.objective(S2)
         after = newcfg.objective(S2)
-        if after < before - 1e-12 and all(G.compact(newcfg.cell(k), RELOC_RATIO) for k in S2 if not newcfg.cell(k).is_empty):
+        comp = newcfg.compact(S2, RELOC_RATIO, cfg)
+        if after < before - 1e-12 and comp:
             self.cfg = newcfg
+            self.blocked.pop(i, None)
             stats[kind] += 1
             return True
+        self.blocked[i] = "compact" if (kind == "departure" and not comp) else "objective"
         stats[kind + "_rejected"] += 1
         return False
 
@@ -274,7 +293,7 @@ class Sim:
             if not self.inside(p) or self.collides(cfg.c, p, i):
                 continue
             new = self.with_centre(i, p)
-            if new.compact({i} | new.nb(i)):
+            if new.compact({i} | new.nb(i), RATIO, cfg):
                 self.cfg = new
                 stats["random"] += 1
                 return True
@@ -287,6 +306,9 @@ class Sim:
             return
         for _ in range(RW_RETRIES + 1):
             r = self.relocate(i, stats)
+            if r is False and BLOCKED_CONTENT and self.blocked.get(i) == "compact":
+                stats["blocked"] += 1
+                return
             if r is None:
                 self.move(i, stats)
                 return
@@ -299,7 +321,7 @@ class Sim:
     # ---- reporting ----
     def report(self):
         cfg = self.cfg; n = cfg.n
-        cont = sum(cfg.content(i) for i in range(n))
+        cont = sum(cfg.content(i) or (BLOCKED_CONTENT and self.blocked.get(i) == "compact") for i in range(n))
         dw = []
         for i in range(n):
             d, w = G.width_and_diameter(cfg.cell(i)); dw.append(d / w if w > G.TOL else np.inf)
@@ -400,7 +422,7 @@ def main():
         render(sim, f"{a.out}/round_000.png", f"round 0: {rep['content']} content, loads {rep['min_load']}-{rep['max_load']}")
     t0 = time.time()
     for r in range(r0 + 1, a.rounds + 1):
-        stats = dict(accepted=0, cut=0, halved=0, rejected=0, departure=0, departure_rejected=0, split=0, split_rejected=0, random=0, random_failed=0)
+        stats = dict(accepted=0, cut=0, halved=0, rejected=0, blocked=0, departure=0, departure_rejected=0, split=0, split_rejected=0, random=0, random_failed=0)
         sim.evals = 0
         for i in rng.permutation(sim.cfg.n):
             sim.turn(int(i), stats)
