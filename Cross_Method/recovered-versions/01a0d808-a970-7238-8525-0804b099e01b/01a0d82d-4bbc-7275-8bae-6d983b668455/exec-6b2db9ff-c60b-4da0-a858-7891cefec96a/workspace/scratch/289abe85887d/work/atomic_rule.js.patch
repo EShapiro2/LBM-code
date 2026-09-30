@@ -1,0 +1,28 @@
+@@ -19,3 +19,3 @@
+   const patterns=[[1,...near.map(()=>0)]];
+-  for(let k=0;k<near.length;k++) patterns.push([1,...near.map((_,j)=>+(j===k))]);
++  for(let k=0;k<near.length;k++)patterns.push([1,...near.map((_,j)=>+(j===k))]);
+   patterns.push([1,...near.map(()=>0.55)]);
+@@ -31,5 +31,20 @@
+     if(d>0.45*N.s)break;
+-    for(let a=0;a<8;a++)for(const weights of patterns){
++    for(let a=0;a<8;a++)for(let pat=0;pat<patterns.length+2*near.length+2;pat++){
+       const angle=a*Math.PI/4,dx=d*Math.cos(angle),dy=d*Math.sin(angle);
+-      for(let j=0;j<verts.length;j++){N.VX[verts[j]]=xx[j]+weights[j]*dx;N.VY[verts[j]]=yy[j]+weights[j]*dy}
++      const ux=[dx],uy=[dy];
++      for(let j=0;j<near.length;j++){
++        let mx=0,my=0;
++        if(pat<patterns.length){mx=patterns[pat][j+1]*dx;my=patterns[pat][j+1]*dy}
++        else if(pat<patterns.length+2*near.length){
++          const k=(pat-patterns.length)>>1,sgn=(pat-patterns.length)%2?1:-1;
++          if(j===k){mx=sgn*0.65*dy;my=-sgn*0.65*dx}
++        }else{
++          // All three neighbours may move in different directions.
++          const q=j+pat;
++          mx=0.45*d*Math.cos(angle+(q%3-1)*Math.PI/3);
++          my=0.45*d*Math.sin(angle+(q%3-1)*Math.PI/3);
++        }
++        ux.push(mx);uy.push(my);
++      }
++      for(let j=0;j<verts.length;j++){N.VX[verts[j]]=xx[j]+ux[j];N.VY[verts[j]]=yy[j]+uy[j]}
+       N.attempts++;

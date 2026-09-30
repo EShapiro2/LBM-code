@@ -1,0 +1,160 @@
+{
+  "status": "COMPLETED_25_FULL_ROUNDS_NOT_CONVERGENCE",
+  "completed_rounds": 25,
+  "updates": 2500,
+  "last_checkpoint": "2026-09-28T19:38:44.757363+00:00",
+  "seed": 20260928,
+  "records": 5986,
+  "model": "frozen density during each move; actual counts only between moves and for reported gaps",
+  "initial": {
+    "max_Gmax": 298.0,
+    "max_Gavg": 201.33333333333334,
+    "max_Gmed": 200.0,
+    "median_Gmax": 87.5,
+    "median_Gavg": 42.06666666666666,
+    "median_Gmed": 35.75
+  },
+  "final": {
+    "max_Gmax": 182.0,
+    "max_Gavg": 118.66666666666667,
+    "max_Gmed": 125.0,
+    "median_Gmax": 59.0,
+    "median_Gavg": 29.65,
+    "median_Gmed": 25.0
+  },
+  "circularity_initial": {
+    "min": 0.5763856263886816,
+    "mean": 0.8465262793423289,
+    "median": 0.8850381677596433
+  },
+  "circularity_final": {
+    "min": 0.6781761037859644,
+    "mean": 0.8285836172549931,
+    "median": 0.8282649777608759
+  },
+  "choices_and_status": {
+    "circularity": {
+      "skipped": 1060,
+      "moved": 234
+    },
+    "gap": {
+      "moved": 120,
+      "skipped": 1086
+    }
+  },
+  "reasons": {
+    "zero_numerical_gradient": 87,
+    "accepted": 354,
+    "modeled_gap_increases_immediately": 1053,
+    "circularity_decreases_immediately": 1006
+  },
+  "geometric_caps": {
+    "not_searched": 2146,
+    "none": 354
+  },
+  "initial_empty": 19,
+  "final_empty": 14,
+  "final_load_range": [
+    0,
+    251
+  ],
+  "validation": {
+    "round_audits": 26,
+    "transitions": 2500,
+    "permutations_and_coins_replayed": true,
+    "accepted_endpoints_recomputed": 354,
+    "independent_path_samples": [
+      {
+        "round": 1,
+        "kind": "gap",
+        "site": 83,
+        "samples": 33,
+        "Cdrop": 6.208815683805824e-10,
+        "modeledGincrease": 0.0
+      },
+      {
+        "round": 1,
+        "kind": "circularity",
+        "site": 58,
+        "samples": 33,
+        "Cdrop": 0.0,
+        "modeledGincrease": 0.0
+      },
+      {
+        "round": 5,
+        "kind": "gap",
+        "site": 61,
+        "samples": 33,
+        "Cdrop": 0.0,
+        "modeledGincrease": 0.0
+      },
+      {
+        "round": 5,
+        "kind": "circularity",
+        "site": 93,
+        "samples": 33,
+        "Cdrop": 0.0,
+        "modeledGincrease": 0.0
+      },
+      {
+        "round": 10,
+        "kind": "gap",
+        "site": 64,
+        "samples": 33,
+        "Cdrop": 0.0,
+        "modeledGincrease": 0.0
+      },
+      {
+        "round": 10,
+        "kind": "circularity",
+        "site": 66,
+        "samples": 33,
+        "Cdrop": 0.0,
+        "modeledGincrease": 0.0
+      },
+      {
+        "round": 15,
+        "kind": "circularity",
+        "site": 90,
+        "samples": 33,
+        "Cdrop": 0.0,
+        "modeledGincrease": 0.0
+      },
+      {
+        "round": 20,
+        "kind": "circularity",
+        "site": 96,
+        "samples": 33,
+        "Cdrop": 0.0,
+        "modeledGincrease": 0.0
+      },
+      {
+        "round": 25,
+        "kind": "circularity",
+        "site": 96,
+        "samples": 33,
+        "Cdrop": 0.0,
+        "modeledGincrease": 0.0
+      }
+    ],
+    "maximum_observed_C_drop": 7.064657747690717e-10,
+    "maximum_observed_modeled_G_increase": 0.0,
+    "max_coverage_missing": 0.0,
+    "max_abs_overlap_residual": 5.684341886080802e-14,
+    "continuous_path_formally_certified": false,
+    "numerical_path_method": "topology events, sampling and bounded extrema search",
+    "all_records_assigned": true,
+    "independent_adjacency": [
+      {
+        "round": 0,
+        "edges": 247,
+        "match": true
+      },
+      {
+        "round": 25,
+        "edges": 247,
+        "match": true
+      }
+    ]
+  }
+}

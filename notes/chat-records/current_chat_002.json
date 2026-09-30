@@ -1,0 +1,689 @@
+{
+  "schemaVersion": 1,
+  "thread": {
+    "id": "01a0eea5-3e28-7570-872c-69b22d1f8c0b",
+    "kind": "codex",
+    "hostId": "local",
+    "title": "voronoi chat #3",
+    "preview": "cab we continue chat #2?",
+    "status": {
+      "type": "active",
+      "activeFlags": []
+    },
+    "cwd": "/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2",
+    "createdAt": 1790710201,
+    "updatedAt": 1790760676
+  },
+  "page": {
+    "order": "newest_first",
+    "limit": 10,
+    "nextCursor": "{\"requestedThreadId\":\"01a0eea5-3e28-7570-872c-69b22d1f8c0b\",\"rolloutOrdinal\":66,\"includeAnchor\":false,\"scope\":{\"kind\":\"turns\"}}",
+    "hasMore": true
+  },
+  "turns": [
+    {
+      "id": "01a0ef18-9a4e-7823-8386-1f31af8bf191",
+      "status": "completed",
+      "error": null,
+      "startedAt": 1790717762,
+      "completedAt": 1790717770,
+      "durationMs": 8310,
+      "items": [
+        {
+          "type": "userMessage",
+          "id": "01a0ef18-9a7f-74f0-b507-bb568220622e",
+          "content": [
+            {
+              "type": "text",
+              "text": "no, it #2 stalled, and trying new chats in this project is broken\n"
+            }
+          ]
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_0bbae55dc4ffb185016abc2f46bb6487d2be90fcc14da42ed9",
+          "text": "Understood—we’ll continue **here**. There’s no need to move this chat or create another project chat.\n\nThe next useful step is to download **`Voronoi_Depart_Insert_100.zip`** from the existing message in #2 and attach it here; that doesn’t require #2 to respond. It contains the simulation source and checkpoints.\n\nWe’ll use the **end-of-round-59 starting state** for both runs. The execution failure here remains a separate blocker—I’ll need to resolve that before claiming the simulations can run.",
+          "phase": "final_answer"
+        }
+      ]
+    },
+    {
+      "id": "01a0ef17-2ffe-72f1-bbe3-c6aa9cc575ab",
+      "status": "completed",
+      "error": null,
+      "startedAt": 1790717669,
+      "completedAt": 1790717712,
+      "durationMs": 42578,
+      "items": [
+        {
+          "type": "userMessage",
+          "id": "01a0ef17-308a-7d63-a005-c112b4123736",
+          "content": [
+            {
+              "type": "text",
+              "text": "actually i prefer to start from 150 or whatever the simulation that produced 258 started.  i cannot see how to add this conversation to the location based project, any suggestion?\n"
+            }
+          ]
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_0bbae55dc4ffb185016abc2eea0b6087d2952614c7c5d0f6e7",
+          "text": "I’ll check where that run began and whether I can move this chat into your location-based project. I’m using the OpenAI documentation skill to check the app’s project options.",
+          "phase": "commentary"
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-fee0d77e-4552-467c-9c6d-50f959615a21",
+          "command": "/bin/zsh -c 'cat /Users/udi/.codex/skills/.system/openai-docs/SKILL.md'",
+          "cwd": "/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2",
+          "status": "failed",
+          "exitCode": 134,
+          "durationMs": 0
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-c4af37e1-2226-47fc-b5c9-ca3c8b7bf5e0",
+          "server": "codex_app",
+          "tool": "list_projects",
+          "arguments": {},
+          "status": "completed",
+          "durationMs": 867
+        },
+        {
+          "type": "webSearch",
+          "id": "exec-ab5c143c-dfdf-4c09-bb3d-823c68b5b7f8",
+          "query": "site.help.openai.com projects move existing chat project ChatGPT",
+          "action": {
+            "type": "search",
+            "query": "site.help.openai.com projects move existing chat project ChatGPT",
+            "queries": null
+          }
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-66edc531-b928-496d-9fc2-cdc27a7df34a",
+          "server": "codex_app",
+          "tool": "read_thread",
+          "arguments": {
+            "threadId": "6ab96e30-9208-83ed-8ed2-09fc67055c70",
+            "cursor": "78f4354b-436e-43b8-a367-9f6279533028",
+            "turnLimit": 10,
+            "maxOutputCharsPerItem": 7000
+          },
+          "status": "completed",
+          "durationMs": 5607
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-a63dfe92-5e45-4eda-844b-b1f1461e0e31",
+          "server": "codex_app",
+          "tool": "read_thread",
+          "arguments": {
+            "threadId": "6ab96e30-9208-83ed-8ed2-09fc67055c70",
+            "cursor": "672bce20-173c-4e5b-ae86-1f77cca3094f",
+            "turnLimit": 10,
+            "maxOutputCharsPerItem": 7000
+          },
+          "status": "completed",
+          "durationMs": 50
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-204d0a00-8560-4391-988d-9086fd4a3169",
+          "server": "codex_app",
+          "tool": "read_thread",
+          "arguments": {
+            "threadId": "6ab96e30-9208-83ed-8ed2-09fc67055c70",
+            "cursor": "26ecb376-fe14-4fbd-b3d9-e72143201173",
+            "turnLimit": 10,
+            "maxOutputCharsPerItem": 7000
+          },
+          "status": "completed",
+          "durationMs": 42
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-a4b08c73-36b1-4e07-96b0-dc427e328480",
+          "server": "codex_app",
+          "tool": "read_thread",
+          "arguments": {
+            "threadId": "6ab96e30-9208-83ed-8ed2-09fc67055c70",
+            "cursor": "225c3915-eef6-48af-b9e9-4110c9327a80",
+            "turnLimit": 10,
+            "maxOutputCharsPerItem": 7000
+          },
+          "status": "completed",
+          "durationMs": 41
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-3169a4be-2df8-4fcd-85ec-84c63250aab9",
+          "server": "codex_app",
+          "tool": "read_thread",
+          "arguments": {
+            "threadId": "6ab96e30-9208-83ed-8ed2-09fc67055c70",
+            "cursor": "bd45aa4c-86cd-4180-b01e-0709ee9cc9c7",
+            "turnLimit": 10,
+            "maxOutputCharsPerItem": 7000
+          },
+          "status": "completed",
+          "durationMs": 45
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-3f87e13b-f07f-497a-b84e-b2096c87977a",
+          "server": "codex_app",
+          "tool": "read_thread",
+          "arguments": {
+            "threadId": "6ab96e30-9208-83ed-8ed2-09fc67055c70",
+            "cursor": "909a60a1-636b-4019-a42d-a8a1b66955e5",
+            "turnLimit": 10,
+            "maxOutputCharsPerItem": 10000
+          },
+          "status": "completed",
+          "durationMs": 57
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_0bbae55dc4ffb185016abc2f08349887d2aa1fe606904447de",
+          "text": "I checked: **the run that produced 258 began from the saved end-of-round-59 state**, followed by 100 selections and then another 500. We’ll use that original starting state for the comparison.\n\nYour **location based** project exists, and **#2 working voronoi** is already inside it. This conversation is a local Codex chat; I don’t have a tool to move it into that ChatGPT project.\n\nFor eligible ChatGPT chats, the usual options are **chat menu → Move to project**, or dragging the chat onto the project. If that option is absent, starting inside the project is the documented alternative. [OpenAI instructions](https://help.openai.com/en/articles/10169521-projects-in-chatgpt)\n\nMy suggestion is to continue in **#2 working voronoi** and attach the [new-rule LaTeX supplement](/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2/outputs/voronoi_balance_step_update.tex). That chat previously produced **Voronoi_Depart_Insert_100.zip**, containing the source, checkpoints, and results needed for the comparison.",
+          "phase": "final_answer"
+        }
+      ]
+    },
+    {
+      "id": "01a0ef0b-3ec9-78a0-bf9d-719158aeb0da",
+      "status": "completed",
+      "error": null,
+      "startedAt": 1790716886,
+      "completedAt": 1790716911,
+      "durationMs": 24680,
+      "items": [
+        {
+          "type": "userMessage",
+          "id": "01a0ef0b-3f27-77e2-b4c3-ad1b30602266",
+          "content": [
+            {
+              "type": "text",
+              "text": "ok, can we repeat the simulation from same place, but with the new rule?\n"
+            }
+          ]
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_0bbae55dc4ffb185016abc2bd97b9887d2a8f0385efb503031",
+          "text": "I’ll check the previous chat for the exact starting checkpoint and simulation files, then identify what needs changing to run the new rule.",
+          "phase": "commentary"
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-1d20a7b9-c881-4624-a0f3-9214ba4758bf",
+          "server": "codex_app",
+          "tool": "read_thread",
+          "arguments": {
+            "threadId": "6ab96e30-9208-83ed-8ed2-09fc67055c70",
+            "turnLimit": 10,
+            "maxOutputCharsPerItem": 9000
+          },
+          "status": "completed",
+          "durationMs": 4912
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-a1c98ef7-beef-4ee6-8221-5f2837261b45",
+          "command": "/bin/zsh -c pwd",
+          "cwd": "/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2",
+          "status": "failed",
+          "exitCode": 134,
+          "durationMs": 0
+        },
+        {
+          "type": "userMessage",
+          "id": "01a0ef0b-6ad7-7510-8bb4-9b2bced17bcf",
+          "content": [
+            {
+              "type": "text",
+              "text": "and compare\n"
+            }
+          ]
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_0bbae55dc4ffb185016abc2beb150c87d2881372be74f5b346",
+          "text": "Yes—compare the old and new rules from **saved state 258**, tracking:\n\n- Median and worst neighbor-weight gaps.\n- Median circularity.\n- Accepted moves, unchanged turns, and departures.\n- Matching maps with **ID (weight)** labels.\n\nFor a controlled comparison, we should use the same cell-selection sequence.\n\n**I haven’t started:** this chat cannot access the previous simulation’s checkpoint/code, and its execution runtime still fails to start. The new circularity-step rule also remains unspecified; a balance-only comparison would isolate the rule we just agreed on.",
+          "phase": "final_answer"
+        }
+      ]
+    },
+    {
+      "id": "01a0eeb7-ab9b-7cb0-9ced-9e752bd17037",
+      "status": "completed",
+      "error": null,
+      "startedAt": 1790711409,
+      "completedAt": 1790711522,
+      "durationMs": 112573,
+      "items": [
+        {
+          "type": "userMessage",
+          "id": "01a0eeb7-abd3-79e1-9a03-7bb211997847",
+          "content": [
+            {
+              "type": "text",
+              "text": "can you produce a file for me to download?\n"
+            }
+          ]
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_0bbae55dc4ffb185016abc1679091487d2bb24c3aa3153d16f",
+          "text": "I’ll create a downloadable LaTeX document containing the updated rule and check whether it compiles.",
+          "phase": "commentary"
+        },
+        {
+          "type": "fileChange",
+          "id": "exec-735e493a-17d7-4e99-842c-eb456e350e43",
+          "status": "completed",
+          "changes": [
+            {
+              "path": "/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2/outputs/voronoi_balance_step_update.tex",
+              "kind": {
+                "type": "add"
+              },
+              "diff": {
+                "text": "\\documentclass[11pt]{article}\n\\usepackage[margin=1in]{geometry}\n\\usepackage{amsmath,amssymb}\n\\usepackage[T1]{fontenc}\n\\title{An Analytical Balance Step for One Selected Voronoi Cell}\n\\author{Working research note: supplement to the recovered protocol}\n\\date{29 September 2026}\n\\begin{document}\n\\maketitle\n\n\\paragraph{Status.}\nThis supplement records the agreed ordinary balance step. It supersedes\nthe preceding combined-badness acceptance rule for balance moves in the\nrecovered research note. It does not replace that note's historical\nexperiments or its departure, migration, and insertion protocol.\nNo implementation or simulation of this revised balance rule is claimed.\nAssume cell $i$ has already been selected; selection and scheduling remain\ndeferred.\n\n\\section{High-level rule}\n\\begin{enumerate}\n\\item Compute current cell densities and use them to predict weights as\ncenter $i$ moves. All other centers remain fixed.\n\\item Measure imbalance by summing the mean absolute neighbor-weight gaps\nfor $i$ and its original neighbors.\n\\item Compute analytically the direction of fastest first-order decrease\nof this neighborhood objective.\n\\item Compute a conservative safe distance analytically, certifying decrease\nthroughout the segment, preserving adjacency and valid geometry, keeping\nthe center in the domain, and avoiding collisions.\n\\item Move once by that distance and end the step. If no strictly decreasing\nfeasible direction exists, stay put. Do not execute an uncertified segment.\n\\end{enumerate}\n\n\\section{Computed densities and neighborhood objective}\nLet $P$ be the fixed bounded convex polygonal domain. Let $p_i$ be the\ninitial position of the selected center and $q$ its candidate position.\nWrite $W_j^0$ and $A_j^0>0$ for each cell's current weight and area.\nCompute\n\\[\n \\rho_j=\\frac{W_j^0}{A_j^0},\\qquad\n \\widehat W_j(q)=\\rho_j A_j(q).\n\\]\nThe computed densities are parameters of this step's weight model.\nCandidate weights are modeled weights, not recounted pickups. For an\nordinary count-based starting state, $W_j^0$ is the current pickup count;\nweight accounting following departure or insertion remains a separate\nimplementation question in the preceding protocol.\n\nLet $N_j^0$ contain the initial neighbors sharing a positive-length edge,\nand fix $\\mathcal S_i=\\{i\\}\\cup N_i^0$. On a segment preserving adjacency,\ndefine\n\\[\n \\widehat G_j(q)=\\frac{1}{|N_j^0|}\\sum_{k\\in N_j^0}\n |\\widehat W_j(q)-\\widehat W_k(q)|,\n \\qquad E_i(q)=\\sum_{j\\in\\mathcal S_i}\\widehat G_j(q).\n\\]\nAn empty neighbor set is an invalid scoring state. This is a sum of\nlocal mean gaps, not a median and not a combined balance--circularity\nscore. It protects the neighborhood aggregate, not every individual\nscore or the global median.\n\n\\section{Analytical direction}\nFor each initial shared edge of $i$ and $j$, let $\\ell_{ij}$ denote its\nlength and $m_{ij}$ its midpoint. Define\n\\[\n b_{ij}=\\frac{\\ell_{ij}}{\\|p_j-p_i\\|}(m_{ij}-p_i),\\qquad\n a_i=\\sum_{j\\in N_i^0}b_{ij},\\qquad\n a_j=-b_{ij}\\quad(j\\in N_i^0).\n\\]\nSet $a_j=0$ for other cells. In a nondegenerate configuration with fixed\ndomain boundary, $a_j=\\nabla_{p_i}A_j$. Thus a small displacement $v$\nhas area differential $dA_j=a_j\\cdot v$. Put $z_j=\\rho_j a_j$.\n\nIf every compared weight difference is nonzero, the objective gradient is\n\\[\n g=\\sum_{j\\in\\mathcal S_i}\\frac{1}{|N_j^0|}\n \\sum_{k\\in N_j^0}\\operatorname{sgn}(W_j^0-W_k^0)(z_j-z_k).\n\\]\nFor an interior center with $g\\ne0$, the steepest direction per unit\ndistance is $u=-g/\\|g\\|$. If $g=0$, no strictly decreasing first-order\ndirection exists; this does not establish optimality against finite moves.\n\nAt equal weights, use the exact directional derivative\n\\[\n D E_i(u)=\\sum_{j\\in\\mathcal S_i}\\frac{1}{|N_j^0|}\n \\sum_{k\\in N_j^0}\n \\begin{cases}\n \\operatorname{sgn}(W_j^0-W_k^0)(z_j-z_k)\\cdot u,\n       &W_j^0\\ne W_k^0,\\\\\n |(z_j-z_k)\\cdot u|,&W_j^0=W_k^0.\n \\end{cases}\n\\]\nChoose a feasible unit direction minimizing this expression and require\na negative minimum. In two dimensions, the sign boundaries partition\nthe direction circle into finitely many arcs; on each arc the expression\nis linear in $u$, allowing analytical candidate evaluation. Boundary\ncenters require directions admitting a positive segment inside $P$.\nTie-breaking between equally minimizing directions requires a\ndeterministic implementation convention.\n\n\\section{One analytically certified safe segment}\nSet $f(t)=E_i(p_i+tu)$ and $a=-f'(0+)>0$. Obtain $R>0$ such that the\nentire interval preserves valid geometry, the domain constraint,\nnoncollision, the current geometric structure, and the relevant\none-sided weight-order branches. Choose $R$ strictly before any positive\nevent that would invalidate these conditions. Obtain a bound $M\\ge0$ with\n\\[\n |f''(t)|\\le M\\qquad(0<t\\le R).\n\\]\nUse\n\\[\n h=\\begin{cases}\\min\\{R,a/(2M)\\},&M>0,\\\\R,&M=0,\\end{cases}\n \\qquad p_i^{\\mathrm{new}}=p_i+hu.\n\\]\nFor $0<t\\le h$, $f'(t)\\le-a+Mt\\le-a/2<0$. Consequently,\n\\[\n E_i(p_i^{\\mathrm{new}})\\le E_i(p_i)-ah/2.\n\\]\nThis certifies decrease throughout the segment, rather than checking only\nits endpoint. It is conservative and need not be the longest safe move.\nThe step ends after this single segment: there are no repeated direction\nor distance recalculations within the selected cell's turn.\n\n\\subsection{Obtaining analytical bounds}\nFor a fixed polygonal domain and nondegenerate combinatorial structure,\nVoronoi vertices are intersections of lines whose coefficients are\npolynomial in $t$. Their coordinates, cell areas, and the objective on\na fixed absolute-value branch are rational functions of $t$.\nGeometric event predicates and denominator conditions can therefore be\nexpressed as polynomial sign conditions.\n\nA conservative sign-preserving radius can be computed without root\nsearch. For $Q(t)=\\sum_{k=0}^d c_k t^k$ with $c_0\\ne0$, choose a\nreference distance $T>0$ and set $B=\\sum_{k=1}^d|c_k|T^k$. Use\n\\[\n r_Q=\\begin{cases}\n T\\min\\{1,|c_0|/(2B)\\},&B>0,\\\\T,&B=0.\n \\end{cases}\n\\]\nFor $0\\le t\\le r_Q$, the nonconstant terms have total magnitude at most\n$|c_0|/2$. A minimum of such radii over sufficient event and denominator\nconditions gives a conservative $R$. When a polynomial vanishes at zero,\nfactor out its initial power of $t$ to determine the right-hand sign;\nidentically zero predicates require separate handling. Bounding the\nrational second derivative using numerator bounds and denominators\nbounded away from zero gives $M$. No trial movements or numerical\nline search are required by this construction.\n\n\\subsection{Scope of certification}\nEqual-weight ties require the right-hand branches described above.\nInitial geometric degeneracies require an explicit one-sided convention\nbefore a positive segment can be certified. Enumerating sufficient event\npredicates, deterministic conventions, and rigorous numerical bounds\nremain implementation work. Ordinary floating-point estimates without\nerror bounds are not mathematical certificates; exact or outward-rounded\ncalculations are needed for a numerical guarantee.\n\nTwo-hop information suffices to evaluate the neighborhood objective,\ngiven the relevant cell geometry and weights. This alone does not prove\nthat all geometric event certificates can be obtained from only two-hop\ninformation. Additional local information exchange may be required.\n\n\\section{Separate circularity and deferred decisions}\nThe agreed intended mixture among ordinary moves is 90\\% balance and\n10\\% circularity. Circularity steps should improve\n$C_i=4\\pi A_i/L_i^2$ without increasing $E_i$ throughout the move.\nTheir precise direction and certified-distance rule remains to be\nspecified. There is no combined badness or balance--circularity exchange\ncoefficient in the revised ordinary movement rule.\n\nCell selection, including whether to sample in proportion to current\n$G_i$, replacement, and score-refresh timing, remains deferred. Earlier\nbadness-weighted selection is historical, not an adopted scheduler for\nthis revision. The computed per-cell densities can differ, so total\nmodeled weight need not be conserved as areas change. Descent of $E_i$\ndoes not guarantee improvement of refreshed pickup-count imbalance or\nconvergence. The departure--migration--insertion protocol and its\nremaining weight-accounting questions are unchanged.\n\\end{document}\n",
+                "truncated": false
+              }
+            }
+          ]
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-754135da-7869-4605-b35f-ba12dfb7b927",
+          "server": "codex_app",
+          "tool": "open_in_codex",
+          "arguments": {
+            "target": {
+              "type": "file",
+              "path": "/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2/outputs/voronoi_balance_step_update.tex"
+            }
+          },
+          "status": "completed",
+          "durationMs": 60
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-e6308331-5bf5-419e-b04b-ade85e5ccfd3",
+          "server": "codex_app",
+          "tool": "compile_latex_document",
+          "arguments": {
+            "path": "/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2/outputs/voronoi_balance_step_update.tex"
+          },
+          "status": "completed",
+          "durationMs": 1155
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_0bbae55dc4ffb185016abc16df90a087d2a9cbfe07d3ae6075",
+          "text": "[Download the LaTeX update](/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2/outputs/voronoi_balance_step_update.tex).\n\nIt contains the agreed rule as a standalone supplement, rather than the full historical document. Compilation checked successfully.",
+          "phase": "final_answer"
+        }
+      ]
+    },
+    {
+      "id": "01a0eeb1-5a5b-7c20-8566-398625a3c681",
+      "status": "completed",
+      "error": null,
+      "startedAt": 1790710995,
+      "completedAt": 1790711397,
+      "durationMs": 402142,
+      "items": [
+        {
+          "type": "userMessage",
+          "id": "01a0eeb1-5aa1-7ab0-807e-eb45ac6199c8",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n# Files pasted by the user:\n\n## \"\\\\documentclass[11pt]{article} \\\\usepackage[margin=1in]{geometry} \\\\usepackage{ams…\": /Users/udi/.codex/attachments/6fd4df2b-3d0a-4463-b95e-e1cd32808847/Pasted text.txt\n\n# Selected text:\n\n## Selection 1: /Users/udi/Grassroots/tmp/local_mesh_balancing_merged_recovered.tex (lines 1-1319)\n\\documentclass[11pt]{article}\n\\usepackage[margin=1in]{geometry}\n\\usepackage{amsmath,amssymb,booktabs,longtable,hyperref}\n\\usepackage[T1]{fontenc}\n\\usepackage{xurl}\n\\setlength{\\emergencystretch}{3em}\n\\title{Local Load Balancing on a Fixed Honeycomb Mesh\\\\Discussion, Decisions, and Preliminary Experiments}\n\\author{Working research note}\n\\date{27 September 2026}\n\\begin{document}\n\\maketitle\n\n\\paragraph{Reading this evolving note (updated 29 September 2026).}\nThe earlier sections preserve the historical discussion of 100 vertex agents,\nincluding statements of what was then final or still untested. The appended\ncompact-cell protocol and Section~\\ref{sec:compact-cell-annealing} describe a\ndifferent experiment with 100 cell loads and shared mesh vertices. The latter\nsection documents the implemented movement and acceptance rules and the latest\nManhattan run, which was manually stopped without reaching its termination target.\nSections~\\ref{sec:method-catalog}--\\ref{sec:source-catalog} add the recovered\nexperimental alternatives, including Manhattan tests performed after the historical\nvertex discussion. Historical statements that Manhattan had not yet been tested\napply to that earlier discussion, not to the entire updated record.\nSection~\\ref{sec:merge-migrate-split} records the agreed Voronoi departure,\nfree-center migration, and analytical geometric insertion protocol, separately\nfrom implemented methods; remaining implementation choices are identified.\n\n\\section{Purpose and current status}\nThe objective is to distribute geographic dots among 100 movable vertices, obtaining balanced loads while retaining geographic locality and a simple local update. Manhattan pickup locations are the intended application.\n\nThe final approach uses \\textbf{vertices and dots only: no disks, radii, coverage requirement, or disk-overlap constraints}. The graph is a fixed honeycomb mesh. Each interior vertex has three neighbours. A local update pools the dots of a vertex and its three neighbours, moves that vertex toward the pooled centroid subject to the neighbours' triangle constraint, then reallocates the pooled dots among those four vertices.\n\nThis note distinguishes agreed rules from implementation choices and unproved properties. Preliminary simulations were performed on synthetic dots. \\textbf{No simulation on the actual Manhattan data was completed in this discussion.}\n\n\\section{Notation and initialization}\nLet $P=\\{p_1,\\ldots,p_N\\}\\subset\\mathbb R^2$ be the dot locations and $G=(V,E)$ the fixed honeycomb graph, with $|V|=100$. Vertex $v$ stores\n\\[\n(c_v,D_v,w_v),\\qquad c_v=(x_v,y_v),\\qquad w_v=|D_v|.\n\\]\nThe sets $D_v$ form a partition of the dots. Write $N(v)$ for the graph neighbours of $v$. Interior vertices have $|N(v)|=3$; finite-mesh boundary vertices may have fewer neighbours.\n\nInitially, place the vertices at equally spaced honeycomb positions covering the region of interest and allocate every dot to its globally closest vertex. Resolve distance ties consistently, for example by vertex identifier.\n\nThe intended Manhattan initialization has not yet been constructed or validated. Geographic coordinates should be converted into suitable planar distance coordinates before using Euclidean distances; raw longitude and latitude should not be treated as equal-length Cartesian units.\n\nThe user explicitly allowed a directory containing all 100 vertex locations, which an external dot can query for initial or external assignment. Thus global nearest-center lookup for such dots is compatible with the intended system. Subsequent local redistribution is a separate rule.\n\n\\section{The final local update}\nFor an interior vertex $v$, let $N(v)=\\{a,b,c\\}$ and define\n\\[\nU_v=\\{v,a,b,c\\},\\qquad S_v=\\bigcup_{u\\in U_v}D_u.\n\\]\nUse the state at the start of the update. The three neighbour positions remain fixed during the update.\n\n\\subsection{Compute the pooled centroid}\nIf $S_v$ is nonempty, calculate\n\\[\nq_v=\\frac{1}{|S_v|}\\sum_{p\\in S_v}p.\n\\]\nThere is no preliminary transfer of $v$'s dots to its neighbours. Such a transfer would not change the union $S_v$, so it is unnecessary for this proposal.\n\nIf $S_v$ is empty, skip the update. This is a natural implementation convention, not a separately discussed objective choice.\n\n\\subsection{Constrain the new position to the neighbours' triangle}\nLet\n\\[\nT_v=\\operatorname{conv}\\{c_a,c_b,c_c\\}.\n\\]\nSet\n\\[\nc_v^{\\mathrm{new}}=\\operatorname{proj}_{T_v}(q_v)\n=\\arg\\min_{z\\in T_v}\\|z-q_v\\|^2.\n\\]\nIf $q_v$ is inside the triangle, use $q_v$ directly. Otherwise use the closest point on its boundary. No checks against other mesh edges are performed.\n\nThe formula uses the closed triangle, so boundary positions are allowed. Degenerate triangles can be treated as their closed convex hull, a segment or point. Whether to require a positive interior margin, or to forbid coincident centers, remains an open implementation choice.\n\n\\subsection{Redistribute the pooled dots}\nAfter moving $v$, allocate each dot in $S_v$ to its closest center among $U_v$, using the new position of $v$ and the unchanged positions of $a,b,c$:\n\\[\n\\operatorname{owner}_{\\mathrm{new}}(p)\n=\\arg\\min_{u\\in U_v}\\|p-c_u^{\\mathrm{new}}\\|^2,\n\\qquad p\\in S_v.\n\\]\nHere $c_u^{\\mathrm{new}}=c_u$ for $u\\ne v$. Replace the four allocation sets with the results. All other allocations and positions remain unchanged.\n\nThis preserves the number of dots and unique ownership. It does not require the assigned owner to be globally closest among all 100 vertices.\n\n\\subsection{Scheduling and boundary convention}\nThe preliminary simulation used sequential updates, with eligible vertices shuffled each sweep. A sweep visits each interior vertex once. This avoids simultaneous overlapping updates.\n\nBoundary handling was not fully settled in the discussion. For the reported simulations, all 32 vertices with fewer than three neighbours were held fixed; the 68 interior vertices moved. Boundary vertices could still gain or lose dots when participating as neighbours in an interior vertex's update. This is a simulation convention, not a final Manhattan boundary design.\n\n\\section{What the update optimizes, and what it does not}\nFor the fixed pooled set $S_v$,\n\\[\n\\sum_{p\\in S_v}\\|p-z\\|^2\n=\\sum_{p\\in S_v}\\|p-q_v\\|^2+|S_v|\\|z-q_v\\|^2.\n\\]\nTherefore the projected centroid minimizes total squared distance from all pooled dots to a \\emph{single} candidate position constrained to $T_v$.\n\nThe actual allocation uses four competing centers. Consequently, the projected pooled centroid is a proposal heuristic, not a demonstrated minimizer of the four-center assignment cost or of load imbalance.\n\nStandard k-means moves each center to the centroid of its own assigned dots and reassigns dots globally. Our rule uses a four-vertex pool, a triangle constraint, and local reassignment. It is k-means-inspired but is not a standard Lloyd update.\n\n\\subsection{Optional acceptance score discussed but not adopted}\nA possible local balance score is\n\\[\nB_v=\\sum_{u\\in U_v}(w_u-\\bar w_v)^2,\n\\qquad\n\\bar w_v=\\frac{1}{4}\\sum_{u\\in U_v}w_u.\n\\]\nBecause the four loads have a constant sum during the update, the change in $B_v$ equals the change in the global sum $\\sum_{u\\in V}w_u^2$. Accepting only strict decreases would therefore give monotone global progress for that scalar score. It would not guarantee a balanced final state.\n\nA distance term could be added:\n\\[\nJ_v=B_v+\\mu\\sum_{u\\in U_v}\\sum_{p\\in D_u}\\|p-c_u\\|^2.\n\\]\nIts change also equals the corresponding global score change when only these four allocation sets and $v$'s position change. The coefficient $\\mu$ depends on distance units.\n\nNeither this acceptance filter nor a value of $\\mu$ was adopted. The reported synthetic experiments accepted every projected-centroid update.\n\n\\section{Locality and geometric limitations}\nEach proposal and redistribution needs only the state of $v$ and its three graph neighbours. The graph connections are fixed; no triangulation rebuilding or global edge checks are part of the final rule.\n\nThe triangle constraint is a local position restriction. It is \\textbf{not a proved global guarantee} that a deformed honeycomb has no edge crossings. Moreover, as neighbours move, a vertex need not remain inside the triangle of its current neighbours between its own updates. No theorem establishing preserved mesh embedding or convergence was obtained.\n\nThe final projected position is constrained; the discussion did not establish a separate continuous-motion path condition.\n\n\\section{Alternatives considered}\n\\subsection{Original disk formulation: superseded}\nThe discussion began with non-intersecting disks, no full-coverage requirement, and an objective trading off covered dots against neighbour-load balance. Initially, two disks were neighbours when the segment connecting their centers passed through no third disk. A dot inside a disk belonged to it; otherwise it belonged to the nearest center.\n\nAn illustrative objective rewarded the number of covered dots and penalized squared load differences on neighbour edges. This entire disk formulation was subsequently abandoned. It is recorded here only to explain the progression; none of its geometric constraints belongs to the final algorithm.\n\n\\subsection{Honeycomb versus triangular lattice}\nAn early interpretation incorrectly treated the requested mesh as a triangular lattice with six neighbours. The user clarified that vertices are the corners of a honeycomb, giving three neighbours per interior vertex. The final model follows that clarification.\n\n\\subsection{Temporary removal and a lifted 3D triangle}\nAn earlier proposal first allocated $v$'s dots to its three neighbours. Using their updated loads, it formed\n\\[\nA=(x_a,y_a,w_a),\\quad B=(x_b,y_b,w_b),\\quad C=(x_c,y_c,w_c).\n\\]\nIt intersected this triangle with a horizontal plane $z=w'$, took the midpoint of the intersection segment, and used its horizontal coordinates to reposition $v$. A reclamation step then transferred eligible dots back to $v$.\n\nThe arithmetic mean was considered for $w'$; a geometric mean was mentioned but not selected. With the arithmetic mean and loads $(100,10,10)$, $w'=40$, and the intersection endpoints are\n\\[\nP=\\tfrac13 A+\\tfrac23 B,\\qquad Q=\\tfrac13 A+\\tfrac23 C.\n\\]\nThus their midpoint is $(A+B+C)/3$. Its horizontal position is the spatial centroid, independent of which vertex carries the high load. This is a calculation in the lifted 3D triangle, not an approximation made by ignoring height.\n\nOther limitations of the arithmetic-mean construction were noted: all equal heights give an entire triangle rather than a unique intersection segment; nearly equal heights can yield a discontinuous midpoint limit; and a positive affine transformation of all heights leaves the horizontal proposal unchanged.\n\n\\subsection{Load-weighted neighbour centroid}\nAnother proposed rule was\n\\[\nc_v'=\\frac{w_a c_a+w_b c_b+w_c c_c}{w_a+w_b+w_c},\n\\]\nusing loads after temporary redistribution. This biases the proposal toward loaded neighbour centers but does not account for where their dots lie. It was superseded by the centroid of the actual pooled dots.\n\n\\subsection{Rebuilding the mesh and Delaunay triangulation}\nRebuilding connections after a move was considered. Maintaining degree three alone does not ensure a planar honeycomb with hexagonal faces. Delaunay triangulation provides a standard geometric neighbour graph with variable degree, roughly six on average for large planar point sets. Updates can use local edge flips, but are not guaranteed to remain confined to the original neighbours.\n\nThe user chose to retain the original mesh, and then explicitly chose the neighbours' triangle constraint to avoid checking additional edges. Dynamic triangulation is therefore not part of the final method.\n\n\\section{Synthetic experiments actually performed}\nThe simulation ran in an available JavaScript execution tool. It used:\n\\begin{itemize}\n\\item 100 equally spaced honeycomb vertices, with initial edge length one;\n\\item 68 movable interior vertices and 32 fixed boundary vertices;\n\\item 4,000 dots in the rectangle $[0,5.5]\\times[0,21.65]$;\n\\item uniform dots, or a clustered distribution with a 20\\% uniform component;\n\\item three seeds: 11, 22, and 33;\n\\item identical initial positions and nearest-center allocations across methods for each dataset;\n\\item 80 sweeps, without an acceptance filter.\n\\end{itemize}\nThe clustered proposal distribution used Gaussian components centered at $(1.5,5)$, $(3.7,12)$, and $(2.4,19)$, with relative component probabilities $0.55,0.30,0.15$ within the clustered component. Standard deviations were $0.65$ horizontally and $1.25$ vertically. Samples outside the rectangle were rejected.\n\nFor reproducibility of the initial mesh geometry, for $i=0,1,2,3$ and $b=0,1$, positions were\n\\[\n\\left(1.5i+b,\\sqrt{3}\\left(j+\\tfrac12(i\\bmod2)\\right)\\right),\n\\]\nwhere $j=0,\\ldots,12$ for $i<2$ and $j=0,\\ldots,11$ otherwise. Initial pairs at distance one were connected.\n\n\\subsection{Metrics}\nLoad imbalance was measured by the coefficient of variation,\n\\[\n\\mathrm{CV}=\\frac{\\sqrt{|V|^{-1}\\sum_v(w_v-N/|V|)^2}}{N/|V|}.\n\\]\nAssignment distance was\n\\[\n\\mathrm{RMS}=\\sqrt{\\frac1N\\sum_{p\\in P}\\|p-c_{\\operatorname{owner}(p)}\\|^2}.\n\\]\nLower is better for both. Distances are in initial mesh-edge units, not meters.\n\n\\subsection{Results}\nThe following are averages over the three runs:\n\\begin{center}\n\\begin{tabular}{llrr}\n\\toprule\nDots & Method & Load CV & RMS distance\\\\\n\\midrule\nUniform & Initial allocation & 0.304 & 0.545\\\\\nUniform & Local triangle rule & 0.218 & 0.543\\\\\nUniform & K-means, fixed boundary & 0.361 & 0.497\\\\\nUniform & K-means, all centers movable & 0.198 & 0.432\\\\\n\\midrule\nClustered & Initial allocation & 1.530 & 0.513\\\\\nClustered & Local triangle rule & 0.642 & 0.438\\\\\nClustered & K-means, fixed boundary & 0.983 & 0.396\\\\\nClustered & K-means, all centers movable & 0.874 & 0.358\\\\\n\\bottomrule\n\\end{tabular}\n\\end{center}\nThe k-means comparisons used global reassignment and no triangle constraints. Even the fixed-boundary comparison therefore gave interior centers more freedom than the proposed local rule.\n\nOn clustered data, the local rule reduced load CV by approximately 58\\% and RMS distance by approximately 15\\% from initialization. It had better final load CV than either tested k-means variant, but longer assignment distances.\n\nExtending the three clustered runs to 320 sweeps left the reported metrics unchanged from sweep 40 onward. This is empirical stabilization for these cases, not a convergence theorem.\n\nAfter local updates, approximately 1.225\\% of clustered dots and 0.15\\% of uniform dots were not assigned to their globally closest center, averaged over the runs. This is allowed by the local reassignment rule. Projection altered fewer than 1.4\\% of proposals in each reported 80-sweep run.\n\nChecks confirmed 100 initial vertices, 68 degree-three vertices, reciprocal adjacency and unit initial edge lengths. Extended clustered runs retained all 4,000 owner entries with valid vertex identifiers and unchanged boundary positions. No global no-crossing property was certified.\n\n\\section{Manhattan data: what is known and what remains undone}\nEarlier conversations referred to a dataset of 5,986 Manhattan pickup dots. A prior task exposed an attachment named \\path{Manhattan_Taxi_Regions.zip}. The user subsequently supplied \\path{Manhattan_Project_Files.zip}.\n\nThe latter archive's contents were not successfully inspected. Local command and file-reading runtimes repeatedly failed to start, reporting exit code 134. The available JavaScript tool could perform the synthetic computation but did not provide filesystem access to these archives.\n\nConsequently, no claims are made here about the new archive's precise contents, the actual Manhattan initialization, or performance on Manhattan dots. Requests to upload again did not resolve the execution problem. The pending work is to access the archive in a working file-analysis environment and run the real-data comparison.\n\n\\section{Next experiment}\nOnce the coordinates are accessible:\n\\begin{enumerate}\n\\item Verify the pickup count, coordinate units, duplicates, and geographic extent.\n\\item Construct and record one 100-vertex equally spaced honeycomb initialization and its fixed adjacency.\n\\item Specify boundary handling and use the same initial allocation for all methods.\n\\item Run the local triangle rule with several shuffled update orders.\n\\item Compare against the initial allocation and both k-means baselines above.\n\\item Report load CV, minimum and maximum loads, empty vertices, RMS distance, nearest-center disagreement, and evolution by sweep.\n\\item Inspect geometry as a diagnostic without silently adding global checks to the local algorithm.\n\\end{enumerate}\nThe current proposal is a fully local heuristic with encouraging synthetic balancing results. Its Manhattan performance and general convergence remain open.\n\n\\section{Compact hexagonal cells: simulation protocol}\n\\label{sec:compact-hexagon-protocol}\n\nThe next experiment uses 100 cells. The earlier choice of 38 matched\nthe clustering baseline; it was not an optimized cell count.\nKeep the same data, movement proposals, acceptance rule, and geometric\nconstraints. Use a finer initial mesh. The median score below controls\ntermination only, not acceptance of movements.\n\n\\paragraph{Data and coverage.}\nUse the original 5,986 taxi pickups from 15 January 2015,\n08:00--08:15, and the verified Manhattan main-island boundary with\nits hole retained. Assign the 5,983 inside-domain records exactly once.\nRetain and flag the three outside records. Record input identifiers,\nboundary version, coordinate transform, and random seeds.\n\nLet $D$ denote the island, $H_i$ an underlying convex six-sided cell\nin the shared-vertex mesh, and $S_i=H_i\\cap D$ its service region.\nAll 100 service regions must have positive area, cover $D$ completely,\nand have no positive-area overlaps. Shared borders are allowed.\nUse a documented deterministic assignment convention for pickups on\nshared borders. Require, for every underlying and clipped cell,\n\\[\n \\frac{\\operatorname{diam}(A)}{w_{\\min}(A)}\\leq 2,\n \\qquad A\\in\\{H_i,S_i\\},\n\\]\nwhere $w_{\\min}$ is the minimum projection width over all directions.\nClipped service regions need not have six sides.\nRepair initial geometry before balancing, without silently relaxing\nthe cell count, coverage, or shape constraints.\n\n\\paragraph{Median termination rule.}\nLet $L_i$ be the load of cell $i$, and $N_i$ its neighbors sharing a\npositive-length service-region border inside Manhattan. Point contact\nalone does not establish adjacency. For $L_i>0$, define\n\\[\n g_i=\\operatorname{median}_{j\\in N_i}\n       \\left(100\\,\\frac{|L_i-L_j|}{L_i}\\right),\n \\qquad\n M=\\operatorname{median}_{i=1,\\ldots,100} g_i.\n\\]\nEach percentage uses the focal cell's own load as denominator.\nFor an empty cell, set $g_i=+\\infty$ if any neighbor has positive\nload, and $g_i=0$ if all neighbors are empty. Report an empty neighbor\nset as an invalid adjacency state rather than excluding that cell.\nInclude all 100 cells, including infinite scores. For an even number\nof values, the median is the average of the two middle sorted values.\n\nReport the initial score separately. Stop successfully at the first\ncompleted balancing round with $M\\leq5\\%$. A manual stop, round cap,\ntime limit, or small movement does not establish convergence under\nthis rule. The median condition permits empty or poorly balanced\nindividual cells; it does not certify balance everywhere.\n\n\\paragraph{Test control before starting.}\nCheck that the execution environment works and that no unintended\nduplicate solver is running. Demonstrate a short test that produces\na map, saves a resumable checkpoint, and stops on command.\nVerify checkpoint retrieval and resumption before starting the full\nexperiment. Display the initial map before balancing.\n\n\\paragraph{Progress and snapshots every minute.}\nDuring initialization, repair, and balancing, publish progress and a\nsaved map at least once per minute. Identify the run, timestamp,\nstage, completed rounds, current score, best completed-round score\nand its round, empty-cell count, and actual solver status.\nReport coverage, overlap, assignment, and shape checks with their\naudit timestamp; distinguish older audits from current measurements.\nMap labels show loads. Captions distinguish initial, intermediate,\nmanually stopped, and converged states. If a snapshot is taken during\na round, label it and identify the last completed round used for the\ntermination score.\n\nUse short interruptible work batches so that a long round or repair\noperation cannot block reporting or stopping. Save consistent\ncheckpoints atomically, retaining geometry, ownership, random-number\nstate, update order, and the within-round position needed for exact\ncontinuation. Keep timestamped snapshots and a latest checkpoint.\nMonitoring reads saved state without restarting or duplicating the\nsolver.\n\n\\paragraph{Stop control and failure reporting.}\nProvide a stop control checked between bounded work batches.\nOn request, preserve the latest consistent state, cease further\nupdates, and return a final map with confirmed process status.\nLabel manual stopping separately from convergence.\nAn active conversation indicator is not evidence of solver progress:\nverify the process and advancing logs or checkpoints.\nIf execution, snapshot retrieval, or monitoring fails, report the\nfailure explicitly instead of claiming continued progress.\n\n\\clearpage\n\\section{Compact-cell local annealing: implemented method and results}\n\\label{sec:compact-cell-annealing}\n\nThis section records the method actually executed in the recovered\n\\texttt{work/median100/anneal.cpp}, and the bounded Stop/resume adaptation\n\\texttt{anneal\\_100\\_bounded\\_control.cpp}. It concerns cell loads in a\nshared-corner hexagonal mesh. The projected pooled-centroid rule discussed\nearlier belongs to the historical vertex-agent experiment.\n\n\\subsection{Data, mesh, and initialization}\nThe input retains all 5,986 original pickup records, including duplicates.\nThe full-resolution NYC DCP26b Manhattan main-island polygon retains its hole.\nRecords with zero-based indices 309, 4705, and 5212 lie outside this domain;\nthe remaining 5,983 records supply the cell loads. Coordinates are in the\nrecovered planar kilometre frame.\n\nThe regular initializer searches hexagon side lengths from 0.520 to 0.700 km\nin increments of 0.002 km and six offset pairs. Among meshes with exactly\n100 positive-area domain intersections, it selects the smallest sum of\nsquared clipped-shape excesses. The retained regular mesh has side length\n0.558 km, offset fractions $(0.25,0.25)$, and 257 shared vertices.\nBoundary vertices may move; mesh connectivity and the six vertex identifiers\nof each cell remain fixed.\n\nThe regular seed does not satisfy the clipped-cell shape bound. A geometry\nrepair phase, using seed 7, produced the saved feasible start after one\nrepair round. Its geometry is the initial state for balancing (balancing\nround 0); it is not the historical round-151 optimized state.\n\n\\subsection{Local activation and displacement proposals}\nEach round shuffles all 257 mesh vertices and visits each once. For active\nvertex $v$, let $U_v$ contain $v$ and its mesh-edge neighbours, and let $C_v$\ncontain every cell incident to a vertex in $U_v$. There are 24 proposal\nattempts per activation. Every attempt uses the current committed state.\nThe proposed vertex displacements are evaluated and committed together.\n\nFor each attempt, sample a displacement scale $d$ logarithmically uniformly\nbetween $0.0008s$ and $0.45s$, where $s=0.558$ km, and choose one of seven\nmodes using the generator's integer output modulo seven. Write $a$ for a\nshared Gaussian displacement and $z_u$ for the individual Gaussian\ndisplacements, each with independent coordinate standard deviation $d$.\nThe proposal modes are:\n\\begin{enumerate}\n\\item Move only the active vertex by $z_v$.\n\\item Move $v$ by $a$ and its edge neighbours by $0.65a$.\n\\item Move each vertex $u\\in U_v$ by $0.7a+0.3z_u$.\n\\item Move $v$ by $z_v$; each other vertex independently either moves by\n      $z_u$ or remains fixed, selected by the generator's output modulo two.\n\\item Move all vertices in $U_v$ independently by $z_u$.\n\\item Use the data-directed displacement described below, with noise\n      coefficient $0.2$.\n\\item Use that data-directed displacement with noise coefficient $0.6$.\n\\end{enumerate}\n\nFor either data-directed mode, choose the least-loaded cell incident to $v$\nwhose load is below 54. Compute its vertex-average centre and find the\nnearest pickup among those owned by cells in $C_v$. Replace $a$ by a vector\nof length $d$ toward that pickup when the direction is nonzero. Vertices of\nthe chosen cell receive displacement $a+\\beta z_u$; the other vertices in\n$U_v$ receive $0.35a+\\beta z_u$, with $\\beta=0.2$ or $0.6$. If no deficient\nincident cell exists, the mode falls back to moving only $v$.\n\nThese formulas describe the proposals; the retained source also fixes the\norder of random draws, including draws whose values are discarded. Exact\ncontinuation therefore preserves the generator and normal-distribution cache,\nrather than regenerating proposals from the formulas alone.\n\n\\subsection{Reallocation and feasibility}\nPool the pickups currently owned by the affected cells $C_v$, then assign\neach to the first containing proposed cell in increasing cell-identifier\norder. Initial ownership also uses the first containing cell in that order.\nThe half-plane membership test uses tolerance $10^{-10}$ in squared\nkilometre units. If any pooled pickup has no owner, reject the proposal.\nAll other pickup owners remain unchanged.\n\nFor every affected underlying hexagon, require strict convexity, area at\nleast 2\\% of its original regular area, and diameter/minimum-width ratio\nat most 2. During balancing, require the clipped service-region ratio at\nmost 2 as well. The implementation computes diameter and minimum projection\nwidth through the convex hull, which preserves both quantities for the\nclipped set. In geometry repair, the clipped ratio is instead the repair\nobjective, so that initially infeasible clipped shapes can improve.\n\nFor proposals involving outer-boundary vertices, additionally reject a\nself-intersecting outer boundary or uncovered domain area exceeding\n$10^{-10}$ km$^2$. Strictly convex shared faces and boundary checks preserve\nthe intended mesh embedding; the implementation does not perform an\nexhaustive pairwise overlap test on every proposal. Independent saved-state\naudits explicitly check underlying and clipped overlaps, full coverage,\n100 positive-area service regions, and unique pickup assignment.\n\nOnly after all acceptance and feasibility checks pass are positions and\nownership committed atomically. Equal-energy proposals undergo the same\ngeometric checks as other proposals.\n\n\\subsection{Balancing energy and local annealing acceptance}\nLet $n_i$ denote cell load and define the affected-cell energy\n\\[\n E_v=\\sum_{i\\in C_v}n_i^2.\n\\]\nSince the affected cells conserve their total pickup count, its change\nequals the change in the global squared-load sum. For a fixed total load,\nminimizing that sum is equivalent to minimizing load variance.\n\nSet\n\\[\n \\ell=\\left\\lceil0.9\\frac{5983}{100}\\right\\rceil=54,\n \\qquad u=\\left\\lfloor1.1\\frac{5983}{100}\\right\\rfloor=65,\n \\qquad e_i=\\max\\{\\ell-n_i,0,n_i-u\\}.\n\\]\nFor the current patch, put $Q_v=\\sum_{i\\in C_v}e_i^2$. If $Q_v=0$, skip\nthe proposal attempt. Otherwise use\n\\[\n T_v=0.02\\max\\{Q_v,0.01\\},\\qquad\n p_{\\mathrm{accept}}=\n \\begin{cases}\n  1,& E_v^{\\mathrm{new}}\\le E_v^{\\mathrm{old}},\\\\\n  \\exp\\bigl(-(E_v^{\\mathrm{new}}-E_v^{\\mathrm{old}})/T_v\\bigr),\n     & E_v^{\\mathrm{new}}>E_v^{\\mathrm{old}}.\n \\end{cases}\n\\]\nAcceptance remains conditional on feasibility. The band $[54,65]$ controls\nthe local temperature and deficient-cell direction; it is not a load\nconstraint or a termination criterion. There is no cooling schedule:\nthe coefficient 0.02 is fixed, while temperature depends on current local\nloads. Balancing uses seed 17.\n\nIn the repair phase, replace the cell energy by\n\\[\n E_i^{\\mathrm{repair}}=\n \\bigl(\\max\\{r(S_i)-1.98,0\\}\\bigr)^2,\n\\]\nwhere $r$ is the diameter/minimum-width ratio. Use the affected-cell repair\nenergy in place of $Q_v$ and the load energy in the acceptance formula.\nRepair ends after a full round with total repair energy below $10^{-12}$;\nthe resulting geometry is audited before balancing.\n\n\\subsection{What the termination score does and does not measure}\nThe median-of-local-median neighbour gap $M$ is defined in\nSection~\\ref{sec:compact-hexagon-protocol}, with service-border adjacency,\nthe focal cell's load as denominator, and the stated zero-load convention.\nIt is evaluated after completed balancing rounds. Success requires the\nfirst such round with $M\\le5\\%$.\n\n\\textbf{The acceptance energy is squared load, whereas the stopping score\nis the median neighbour gap.} A move reducing squared load can increase\n$M$, and annealing can also accept increases in squared load. Thus neither\n$M$ nor squared load is monotone in this execution. The protocol supplies\nno proof that the 5\\% condition will eventually be reached. Even attaining\nthat median condition would not establish good balance for every cell.\n\n\\subsection{Observed Manhattan results and manual stop}\nThe following records distinguish geometry repair, completed balancing\nrounds, and a partial round:\n\\begin{center}\n\\begin{tabular}{lrr}\n\\toprule\nState & Completed balancing round & $M$ (\\%)\\\\\n\\midrule\nFeasible initial geometry & 0 & 76.1364\\\\\nStop/resume preflight & 1 & 53.4150\\\\\nRecovered historical checkpoint & 151 & 7.6752\\\\\nBest completed round in the continuation & 158 & 6.1730\\\\\nLast completed round before manual stop & 170 & 9.6006\\\\\n\\bottomrule\n\\end{tabular}\n\\end{center}\nThe fresh initial state had 18 empty cells and maximum whole/clipped shape\nratios 1.92425 and 1.97860. The preflight round had 15 empty cells. After\nthe preflight, the user explicitly chose to continue the historical\nround-151 state; these were separate executions, not one newly replayed\ntrajectory from round 1 to round 151.\n\nThe continuation completed rounds 152--170. None reached the 5\\% target.\nOn the user's Stop request, it stopped during round 171, immediately before\nproposal trial 9 at shuffled root index 55 (both zero-based). The partial\nstate's audited median was 8.5867\\%, but this is not a completed-round\ntermination score. Its audit verified 100 positive-area service regions,\nthe shape bounds, no measured overlaps, full coverage within numerical\ntolerance, and 5,983 uniquely assigned inside pickups. The process exited\nand its consistent state was saved. \\textbf{The run is manually stopped,\nunfinished, and not converged.}\n\n\\subsection{Reproducibility and bounded stopping}\nThe controlled implementation checks Stop before each proposal trial and\nfinishes any in-progress atomic proposal before saving. Checkpoints retain\ngeometry, counts, exact ownership and member ordering, shuffled vertex\norder, generator state, cached normal variate, last completed round, and\nthe next root/trial position. Resume skips a shuffle already performed\nfor a partial round. Full-round termination semantics are retained.\n\nThe control test stopped during round 1, resumed, and completed that round.\nIts geometry and complete resume state were byte-identical to a separately\nexecuted uninterrupted round 1. The historical round-151 import appended\nonly the two new position fields to the old checkpoint header; original\nstate text was retained. A Stop-before-first-proposal test confirmed that\nthe loaded geometry and counts matched the saved round-151 state.\nOriginal files were preserved under their existing names and the\ncontinuation used a separate output prefix.\n\nThe merged document is a recovered-source cloud copy. The current Mac file\n\\path{local_mesh_balancing.tex} has not been compared or overwritten.\n\n\n\\clearpage\n\\section{Recovered alternatives: scope and comparison rules}\n\\label{sec:method-catalog}\nThis catalog spells out the alternatives identified in the recovered discussions,\nsource programs, saved results, and archive notes. It is a retrospective review;\nno experiment was restarted to prepare it. ``Implemented'' means source was\nrecovered; ``executed'' requires a saved result or an explicit archived execution\nrecord. A proposed method without a complete rule is identified as such.\nThese are not interchangeable versions of one experiment.\n\n\\paragraph{Three different objects carry load.}\nIn a cell partition, a pickup belongs to one geographic cell. In a vertex method,\nit belongs to one agent whose stored location need not be its globally nearest\nlocation after local updates. In overlapping disks, a covered pickup usually\nsplits its unit load equally among every covering disk. Covering all sampled\npoints with disks does not cover every location in Manhattan.\n\n\\paragraph{Metrics.}\nFor $K$ agents and conserved total load $N$, let $t=N/K$ and\n$\\mathrm{CV}=\\operatorname{sd}(L)/t$. Tables below express CV as a percentage.\nWorst error means $\\max_i|L_i/t-1|$. Operational RMS uses the assigned agent's\nposition; centroid RMS replaces it by the centroid of its assigned pickups.\nThese distances must not be mixed. Where coverage is lost, an RMS deviation\nfrom $t$ is not the same as CV around the remaining mean load.\nThe older shape score $4\\pi A/P^2$ is also not the current diameter/minimum-width\nratio. A good score under one definition does not certify the other.\n\n\\begin{longtable}{p{.36\\linewidth}p{.55\\linewidth}}\n\\toprule Family & Recovered status and stopping interpretation\\\\\\midrule\n\\endhead\nRecursive clustering and merging & Implemented; saved 38-region comparison.\\\\\nPressure-driven and greedy hexagons & Implemented interactive alternatives; no new execution here.\\\\\nCoordinated hexagon annealing & Executed: older 38-cell exact load target; later compact 38-cell median target; 100-cell run manually stopped.\\\\\nDisk initialization and local heat & Executed fixed-budget tests; best snapshots distinguished from terminal states.\\\\\nDisk sleep/wake & Executed 100-disk tolerance termination.\\\\\nSelf-Pareto and neighbor-harm disk rules & Executed fixed-budget tests, not balanced at termination.\\\\\nNearest-center fallback disks & Executed fixed-budget tests with uncovered points assigned externally.\\\\\nVertex Rules 2 and 3; Lloyd variants & Executed synthetic and Manhattan comparisons, with distinct stopping criteria.\\\\\nAll-movable Rule 2 & Executed, manually stopped after severe collapse.\\\\\nDriver disks and ride allocation & Different data; static disk tests and global dispatch executed; local dispatch remained a prototype.\\\\\nLifted triangle, optional objectives, Delaunay & Discussed; incomplete or unexecuted alternatives identified below.\\\\\n\\bottomrule\n\\end{longtable}\n\n\\section{Clustering and geographic-cell alternatives}\n\\subsection{Recursive k-means followed by mutual-neighbor merging}\n\\textbf{Implemented and represented in the saved 38-region comparison.}\nA region with more than $T$ pickups is recursively split into $k$ children.\nK-means++ chooses its first center randomly and later centers with probability\nproportional to the squared distance to the nearest chosen center. There cannot\nbe more centers than points. Lloyd iterations assign points to their nearest\nchild and replace nonempty child centers by their point centroids. Each split\nstops when assignments stabilize or after 80 iterations. Empty children are\nremoved; a split leaving one nonempty child above $T$ is marked unsplittable.\nThe child service polygons are Voronoi cells clipped to the parent polygon.\nThe retained tree can route a new point by nearest-child descent.\n\nMerging operates on adjacent leaf groups. A group's representative is the\npickup-count-weighted mean of its leaf centroids. Each group chooses its nearest\nadjacent group whose combined load is at most $T'$, resolving equal distances\nby lower identifier. All mutual choices merge in one round. Their polygons are\nunited and adjacency is updated. Stop when no pair is available; if a legal pair\nexists but no mutual pair is found, report a stalled state. The resulting\nconnected unions need not be hexagons or compact under the later shape rule.\n\nThe saved 5,986-pickup, 38-group comparison has variance 1,373.775623,\nCV 23.5291\\%, loads 88--200, and centroid RMS 0.446803 km.\nThe exact seed and split/merge settings of that saved comparison were not\nestablished from its result record; these numbers therefore do not define a\nfully specified rerun. The interactive serving-cost display uses the nearest\nretained leaf center within a group, which is a different distance statistic.\n\n\\subsection{Original pressure-driven shared-corner hexagons}\n\\textbf{Implemented in the original interactive program.}\nFor a movable interior vertex $v$ incident to three cells, let $n_i$ be their\nloads, $\\bar n$ their mean, and $q_i$ their polygon area centroids. Form\n\\[\n F=\\sum_{i=1}^3(n_i-\\bar n)\\frac{q_i-v}{\\|q_i-v\\|},\\qquad\n v'=v+\\eta\\frac{F}{\\max(1,\\|F\\|)}.\n\\]\nThe implementation tries successively the full displacement and factors\n$1/2,1/4,1/8$, accepting the first geometrically valid move. Validity here means\nsimple affected polygons and area above a configured fraction of initial area.\nIt is not the later convexity/compactness test. Boundary vertices are fixed.\nThe affected pickups are reassigned locally after a move. There is no\nload-energy acceptance test, so a valid move may worsen load variance.\nA sweep makes as many random activations, with replacement, as there are\nmovable vertices. It does not visit each vertex exactly once.\nThe interactive live mode uses a 900-second window, advances 20 seconds, and\ncycles its start through 2,700 seconds; the frozen comparison uses the first\n15 minutes. Run-specific slider settings and a separate quantitative terminal\nresult were not recovered sufficiently to assert a benchmark for this rule.\n\n\\subsection{Greedy single-corner hexagons}\n\\textbf{Implemented in the modified interactive program.}\nBoundary vertices remain fixed. Each sweep shuffles the interior vertices and\nvisits each once. For an activated corner, pool the pickups in its three incident\ncells and measure $E=\\sum_i n_i^2$. Test 12 equally spaced directions at each\ncandidate distance $\\eta,2\\eta,4\\eta,8\\eta,16\\eta$ not exceeding $0.45s$, where\n$s$ is the mesh side scale. If the list is empty use $0.45s$; append $0.2s$ if\nthe largest retained distance is smaller than that. All trials are relative to\nthe original corner position.\n\nEach affected cell must remain convex, exceed its configured initial-area floor,\nand satisfy $4\\pi A/P^2\\geq0.35$. Every pooled pickup must remain assigned,\nusing the first containing cell. Commit the feasible candidate with the greatest\nstrict reduction in $E$; otherwise leave the corner unchanged. There is no\nuphill acceptance. With frozen data this decreases variance at each accepted\nmove, but can stall with no improving candidate. The live-window version also\nchanges its input data, so the same monotonicity statement does not apply\nacross window changes. No independent terminal result is asserted here.\n\n\\subsection{Older coordinated 38-cell annealing with an isoperimetric bound}\n\\textbf{Executed; an exact integer load target was attained.}\nThe shared-corner and coordinated-neighbor proposal family is the seven-mode\nfamily specified in Section~\\ref{sec:compact-cell-annealing}: root plus its edge\nneighbors, 24 trials per activation, random displacement scale, and local\nreallocation. Unlike the two interactive methods above, boundary vertices can\nmove. This earlier run used all 5,986 pickups and a modeled 38-point shoreline,\nnot the later full-resolution main-island boundary.\n\nRequire convexity, area at least 2\\% of initial area, and\n$4\\pi A/P^2\\geq0.20$; the earlier 0.35 bound had been relaxed. Boundary simplicity\nand modeled shoreline coverage remain hard checks. For this run, the desired\ninteger loads are 157 or 158. Let $e_i$ be distance from that interval and use\nlocal temperature $T=0.005\\sum e_i^2$. The energy is the sum of squared affected\nloads: accept nonincreases, or an increase $\\Delta E$ with probability\n$\\exp(-\\Delta E/T)$. Skip a patch whose interval-error sum is zero.\n\nThe archived seed-11 run had a 500-round budget and reached the target at round\n162: 20 cells with 158 and 18 with 157, variance 0.249307479 and CV 0.316967\\%.\nThe minimum isoperimetric score was 0.2021501855. Its audited starting state was\na continuation with variance about 670.828 and one empty cell, after a boundary\ncrossing had been repaired; it was not a fresh regular initialization.\nThese results certify neither the later official boundary nor the later shape\nratio. Earlier invalid layouts are not counted as successes.\n\n\\subsection{Full-boundary compact 38-cell variants}\n\\textbf{Implemented interval-target variant; executed median-target variant.}\nBoth retain the coordinated proposal family but replace the old shape score by\n$\\operatorname{diam}/w_{\\min}\\leq2$ for whole and clipped cells. The full domain\nincludes its hole and uses 5,983 inside pickups, retaining three outside records\nseparately. During geometric repair, the energy is\n$\\sum_i\\max(0,r(S_i)-1.98)^2$. Underlying-cell validity and coverage are enforced;\nrepair permits clipped ratios above 2 while reducing that penalty. Balancing\nstarts only after feasible geometry is obtained, then enforces the clipped bound.\n\nThe earlier compact program terminates successfully only if every load is in\n$[\\lceil0.9N/38\\rceil,\\lfloor1.1N/38\\rfloor]=[142,173]$.\nIts presence as source alone does not establish a successful execution.\nThe later median program keeps the same movement and acceptance family but\nuses the median-of-local-medians termination test in the protocol. The median\nis not its acceptance energy.\n\nFor the saved median run, regular vertices were scaled by 1.04 about\n$(4.3677736382465335,8.64255525349333)$ km. Repair seed 7 required two rounds;\nbalancing used seed 17 and $\\alpha=0.02$. The initial median was 100\\%; its first\npassing round was 53, with $M=4.830597135\\%$. CV was about 60.6228\\% and four\ncells were empty. Maximum whole/clipped ratios were approximately\n1.999919/1.999584. This is a success under that median rule, not evidence that\nall cells were balanced. The 100-cell successor and its manual stop are already\nfully specified in Section~\\ref{sec:compact-cell-annealing}.\n\n\\section{Disk alternatives on the 5,986 pickup locations}\n\\subsection{Common fractional-load convention}\nFor disk $i$ with center $z_i$ and radius $r_i$, let\n$C(p)=\\{i:\\|p-z_i\\|\\leq r_i\\}$ and $m(p)=|C(p)|$.\nExcept for the fallback variant, a covered pickup contributes $1/m(p)$ to each\ncovering disk and an uncovered pickup contributes zero. Two disks are neighbors\nwhen their closed disks intersect. A disk's graph degree and a pickup's coverage\nmultiplicity are different quantities. Distances in these implementations are km.\n\n\\subsection{K-means cover followed by degree-reducing shrinkage}\n\\textbf{Executed initialization study, not a balancing algorithm.}\nFor $K\\in\\{40,80,150\\}$, k-means uses random state 17, three initializations,\nand at most 100 iterations. A disk is centered on each k-means center, with\nradius equal to its farthest assigned pickup distance plus $10^{-6}$.\nFor a degree cap, consider every offending intersecting pair and shrinking\neither endpoint to $\\max(0,\\|z_i-z_j\\|-r_j-10^{-7})$.\nChoose lexicographically by newly uncovered pickups, lost memberships,\nnegative disk degree, disk identifier, then radius. Stop when compliant or\nafter $K^2$ shrink iterations. Centers never move and load balance is not the\nshrink objective.\n\n\\begin{center}\\begin{tabular}{rrrrrr}\n\\toprule $K$ & No cap & Cap 2 & Cap 3 & Cap 4 & Cap 6\\\\\\midrule\n40 &0&489&148&62&0\\\\80&0&682&219&110&47\\\\150&0&430&164&41&0\\\\\\bottomrule\n\\end{tabular}\\end{center}\nEntries are uncovered pickups. Failure of this initialization does not prove\nthat a covering configuration with the requested cap cannot exist.\n\n\\subsection{Single-disk adaptive local heat with coverage and a degree cap}\n\\label{sec:disk-heat}\n\\textbf{Executed fixed-budget balancing tests.}\nChoose a disk at random. Draw scale $\\sigma$ from\n$(0.008,0.03,0.1,0.25)$ with probabilities $(0.25,0.35,0.30,0.10)$.\nPropose a center displacement with independent normal coordinates of standard\ndeviation $\\sigma r_i+0.003$. Its minimum new radius covers all pickups that\nwere uniquely covered by this disk, with $10^{-7}$ margin and a small positive\nfloor. To obey degree cap $d$, the maximum radius is just below the $(d+1)$th\nsmallest distance $\\|z'_i-z_j\\|-r_j$; also forbid a new edge to any already\nsaturated old nonneighbor. Reject incompatible bounds. Otherwise clamp\n\\[\n r_i+0.06(1-L_i/t)r_i+\\mathcal N(0,(\\sigma r_i)^2)\n\\]\nto them. Recompute coverage and degrees and reject any violation.\n\nThe affected set contains every disk whose load changed, the moving disk, and\nits old and new neighbors. With $E_i=(L_i/t-1)^2$, use\n$\\Delta E=\\sum_{i\\in A}(E'_i-E_i)$ and\n$T=0.035\\operatorname{mean}_{i\\in A}E_i$.\nAccept $\\Delta E\\leq0$; otherwise accept with probability $e^{-\\Delta E/T}$.\nAt zero temperature no worsening is accepted. There is no scheduled cooling:\n``heat'' is recomputed from local error. Initialization must cover every pickup.\nThe random seed is $921+d+K$. Budgets were 80,000 proposals for the 40- and\n150-disk tests and 200,000 for 100 disks.\n\n\\begin{center}\\begin{tabular}{rrrr}\n\\toprule Disks & Cap & Best CV (\\%) & Best load range\\\\\\midrule\n40&6&0.4764&148.6667--150.8333\\\\\n40&8&0.2044&149.0833--150.3333\\\\\n150&6&6.1480&33.5833--43.8333\\\\\n100&6&0.4393&59.2500--60.3333\\\\\\bottomrule\n\\end{tabular}\\end{center}\nThese are the \\emph{best CV configurations encountered}, not necessarily the\nterminal Markov states. All listed snapshots cover the points; connectivity was\nnot a requirement. Reloading a disk snapshot with a reset random stream is not\nexact trajectory continuation.\n\n\\subsection{Ten-percent sleep/wake quiescence}\n\\textbf{Executed and terminated with all disks asleep.}\nKeep the preceding single-disk rule, $K=100$, cap 6, and seed 1027, but begin\nfrom the original initialization rather than the best fixed-budget snapshot.\nDisk $i$ sleeps exactly when it and every current neighbor lie within 10\\% of\n$t=59.86$. At round start, shuffle the currently awake set. Skip an entry if it\nhas since fallen asleep; a newly awake disk outside that snapshot waits for the\nnext round. After acceptance notify the moving disk, old/new neighbors, every\nchanged-load disk, and neighbors of those changed-load disks, then reevaluate\nsleep status. Stop immediately when all are asleep, possibly within a round.\n\nThe saved termination occurred during round 642 after 28,110 proposals and\n8,189 acceptances. Loads were 53.9166667--65.8333333, worst error 9.97884\\%,\nCV 7.73785\\%, with full point coverage and cap 6. Individual disks received\n61--642 proposals. This is a different schedule and stopping rule from the\nfixed-budget runs; it is not their first tolerance-crossing time.\n\n\\subsection{Strict self-and-neighbor Pareto improvement}\n\\label{sec:pareto}\n\\textbf{Executed; budget exhausted without balance.}\nDefine tolerance violation $b_i=\\max(0,|L_i/t-1|-0.10)$ and degree $d_i$.\nThe moving disk may worsen neither quantity and must strictly improve at least\none (a $b$ decrease exceeding $10^{-10}$ or an integer degree decrease).\nEvery old or new neighbor must also worsen neither quantity. Coverage and graph\nconnectivity are mandatory; this variant has no degree cap.\n\nFive equiprobable proposal types are center-only, radius-only, two joint\ncenter/radius types, and direct deletion of an existing edge by shrinking to\njust below tangency. Scales and the center offset floor follow the earlier disk\nrule; radius proposals include its 0.06 load drift and are clamped to retain\nuniquely covered points. There is no annealing in this strict variant.\nThe initially disconnected 100-disk cover was connected by expanding disks\n13 and 20 by about 0.08067046 km each, adding an edge without changing loads.\nSeed 1027 shuffles all 100 disks each round, including balanced disks that may\nstill lower degree. The budget is 200,000 proposals; success requires worst\nload error at most 10\\%.\n\nOnly 277 proposals were accepted. Worst error decreased from 189.01\\% to\n170.07\\%, CV from 53.99\\% to 47.46\\%, and mean degree from 3.94 to 3.56;\nmaximum degree remained 6. Coverage and connectivity held. A new neighbor\nwould suffer an increased degree, so strict neighbor Pareto protection prevents\nadding any edge. This can lock the graph into a restrictive topology.\n\n\\subsection{Allow neighbor harm through fixed-temperature annealing}\n\\textbf{Executed low-, medium-, and high-temperature tests; all capped.}\nRetain the moving disk's strict self-Pareto requirement and coverage/connectivity.\nFor old/new neighbors define\n\\[\n h_b=\\max_j(b'_j-b_j)_+,\\quad h_d=\\max_j(d'_j-d_j)_+,\\quad\n p_{\\rm accept}=\\exp[-\\max(h_b/T_b,h_d/T_d)].\n\\]\nUse $(T_b,T_d)=(0.02,0.25),(0.10,1),(0.50,5)$, respectively.\nThese are fixed temperatures, with the proposal family and seed of the strict\ntest; they are not the adaptive energy heat in Section~\\ref{sec:disk-heat}.\nNeighbors can now suffer harm and edges can be exchanged, but total edge count\ncannot increase because the moving disk's degree cannot increase.\n\n\\begin{center}\\begin{tabular}{lrrrr}\n\\toprule Setting & Accepted & Worst error (\\%) & CV (\\%) & Mean/max degree\\\\\\midrule\nLow&1082&144.74&41.60&3.22/6\\\\\nMedium&910&177.31&42.24&3.12/5\\\\\nHigh&858&159.49&43.48&3.04/5\\\\\\bottomrule\n\\end{tabular}\\end{center}\nThese are final states at 200,000 proposals, not convergence claims or the\nseparately retained best-worst-error snapshots.\n\n\\subsection{Nearest-center fallback outside every disk}\n\\textbf{Executed, capped at 200,000 proposals.}\nKeep fractional allocation inside disks. If $m(p)=0$, assign the pickup's full\nunit to the nearest disk center, with lower identifier resolving ties.\nRequire a connected disk graph and degree at most 6, but do not require point\ncoverage. Use the strict self-Pareto condition and the same three neighbor-harm\ntemperature pairs. There are 100 disks, seed 1027, and 2,000 rounds.\n\nThe five proposal types again comprise center-only, radius-only, two joint\nmoves, and direct edge deletion. Center scale is $\\sigma r+0.003$, the radius\nhas 0.06 load drift and Gaussian noise, but the unique-coverage lower bound is\nremoved; retain only a $10^{-5}$ positive radius floor. For edge deletion,\npropose $\\|z_i-z_j\\|-r_j-10^{-7}$ when positive and below the current radius.\nA move can change fallback ownership and therefore loads of nonneighbors.\nThe neighbor-harm test still examines only old/new disk neighbors, not every\ndisk whose fallback load changes.\n\n\\begin{center}\\begin{tabular}{lrrrrr}\n\\toprule & Accepted & Worst (\\%) & CV (\\%) & Mean/max degree & Fallback points\\\\\\midrule\nLow&2403&141.40&39.35&2.22/5&1966\\\\\nMedium&3448&182.33&42.37&2.28/5&2477\\\\\nHigh&4342&151.42&40.23&2.26/6&2469\\\\\\bottomrule\n\\end{tabular}\\end{center}\nAccepted moves harming a nonneighbor numbered 670, 1,400, and 1,848.\nThe best worst-error values encountered were 133.88\\%, 102.14\\%, and 118.84\\%,\nrespectively. None met the all-disk 10\\% criterion; this was not a median test.\n\n\\section{Vertex alternatives and later Manhattan comparisons}\n\\subsection{Rule 2: remove, move to a load-weighted neighbor centroid, reclaim}\n\\textbf{Executed; distinct from the pooled-point centroid rule.}\nUse a fixed 100-vertex honeycomb with 68 degree-three interior vertices and\n32 fixed boundary vertices. For an activated interior vertex, pool its own and\nits neighbors' stored pickups; skip an empty pool. First transfer its own\npickups to their nearest neighbor. With the resulting neighbor loads $w_j$, set\n\\[\n c'_v=\\frac{\\sum_{j\\in N(v)} w_jc_j}{\\sum_{j\\in N(v)} w_j}.\n\\]\nThen reclaim from each neighbor only those pickups whose nearest location among\n$v$ and its neighbors is $v$. Do \\emph{not} redistribute pickups between two\nneighbors merely because one of them is now closer. Squared-distance ties\nwithin $10^{-14}$ use the lower identifier. Accept every update. There is no\nbalance filter, global reassignment, or separate geometry test.\n\nEach sweep shuffles eligible vertices, using seeds 11, 22, 33 with the archived\nshuffle generator initialized by seed plus 999. The stopping test is five\nconsecutive sweeps with no net per-update ownership changes and maximum movement\nbelow $10^{-6}$ initial edge lengths, with a 320-sweep cap. The saved PCA-fitted\ninitial mesh uses scale 0.8007194245 and rotation 1.0938725761 radians.\nAll 5,986 points were included, including the three later flagged outside points.\n\n\\begin{center}\\begin{tabular}{rrrrrr}\n\\toprule Seed & Sweeps & CV (\\%) & Operational RMS & Centroid RMS & Empty\\\\\\midrule\n11&320&97.5593&0.502964&0.353815&13\\\\\n22&320&96.1198&0.505681&0.359120&15\\\\\n33&320&99.5138&0.504958&0.359696&16\\\\\\bottomrule\n\\end{tabular}\\end{center}\nDistances are km. All three runs hit the cap. Tests on the first 400 records\nalso hit 320 sweeps, with CV 111.018\\%, 106.478\\%, and 92.804\\%.\nThese are not successful balance terminations.\n\n\\subsection{Rule 3: pooled-point centroid projected to the neighbors' triangle}\n\\textbf{Executed on Manhattan after the original discussion.}\nThe full rule is given in the earlier local-update section: pool the four stored\npickup sets, project their point centroid to the three neighbors' closed\ntriangle, and reassign all pooled pickups among those four positions. There is\nno preliminary transfer and every proposal is accepted. It differs from Rule 2\nboth in the point centroid used for motion and in full four-way redistribution.\nThe fixed mesh, initial assignments, shuffled seeds, 320-sweep cap, and\nfive-stable-sweep test are as in the preceding comparison.\n\nInitial CV was 136.4873\\%, operational RMS 0.397645 km, with 30 empty vertices.\n\\begin{center}\\begin{tabular}{rrrrr}\n\\toprule Seed & Stable at sweep & CV (\\%) & Operational RMS (km) & Empty\\\\\\midrule\n11&73&80.0520&0.322642&18\\\\\n22&66&79.7785&0.322446&18\\\\\n33&67&80.1074&0.321531&17\\\\\\bottomrule\n\\end{tabular}\\end{center}\nGlobal nearest-center disagreement was 1.3197\\%, 1.1861\\%, and 1.1193\\%.\nStability does not imply balanced loads or convergence under the later median\ncriterion. First-400-record checks stabilized at sweeps 43 and 24 for seeds 11\nand 33; seed 22 hit the 320-sweep cap. The earlier synthetic comparisons remain\nseparate experiments with their own generated data and units.\n\n\\subsection{Ordinary Lloyd comparisons, with and without fixed boundary}\n\\textbf{Executed.} Assign every pickup to its globally nearest center; move each\neligible nonempty center to its own assigned-point centroid. Empty centers\nremain where they are. No triangle constraint, local pool, or balance acceptance\nis used. The fixed-boundary comparison holds the same 32 boundary centers fixed;\nthe all-free comparison allows all 100 nonempty centers to move. Use the same\ninitialization and stability test for the 5,986-point comparison.\nThe fixed-boundary run stabilized at sweep 53 with CV 114.6078\\%, RMS\n0.289736 km and 31 empty centers. The all-free run stabilized at sweep 54 with\nCV 105.1562\\%, RMS 0.268392 km and 29 empty centers. Lloyd optimizes assignment\ndistance, not load equality, so the two criteria need not improve together.\n\n\\subsection{Lloyd with farthest-point reseeding of empty centers}\n\\textbf{Executed improved baseline.} After ordinary centroid updates and global\nreassignment, repeatedly choose the lowest-identifier empty center. Move it to\nthe pickup having greatest distance from its current assigned center, resolving\nties by the lowest input index; reassign globally after each reseed. Permit at\nmost 100 reseeds per sweep. Nearest-center squared-distance ties within\n$10^{-14}$ use lower center identifier. Stop after five stable sweeps or 320.\nStarting with the same saved mesh, this stabilized after 27 sweeps and 30 reseeds:\nCV 74.9754\\%, RMS 0.220041 km, loads 1--198, no empty centers.\nWith the separate all-movable experiment's initialization below, it stabilized\nafter 32 sweeps, with CV 69.7400\\%, RMS 0.216862 km, loads 1--189, no empties.\nNeither is an equal-load result.\n\n\\subsection{Rule 2 with every vertex movable: collapse experiment}\n\\textbf{Executed, then manually stopped.}\nConstruct a complete-cell patch of 35 hexagons in columns 11, 13, 11: 100\nvertices, 134 edges, 32 degree-two and 68 degree-three vertices. All vertices\nare eligible. Use PCA-fitted scale 0.83091156475 and the preceding rotation.\nGeneralize Rule 2 to each vertex's two or three neighbors, retaining its\nremove/weighted-centroid/reclaim operations. There is no fixed rim, coverage\ncondition, or geometry acceptance check. Initial CV was 148.7686\\% and RMS\n0.404079 km. Success would require every load in 54--65 after a completed sweep;\nan exact immobile unbalanced state is separately classified as absorbing.\n\n\\begin{center}\\begin{tabular}{rrrrrr}\n\\toprule Seed & Last sweep & CV (\\%) & RMS (km) & Mesh diameter (km) & Empty\\\\\\midrule\n11&11700&672.7866&2.858818&0.392908&34\\\\\n22&11700&692.0420&2.930854&0.244342&41\\\\\n33&11600&673.3917&2.820690&0.341206&32\\\\\\bottomrule\n\\end{tabular}\\end{center}\nTransverse widths had fallen to roughly $10^{-14}$ km. These are manually\nstopped collapsed states, not convergence. Every weighted-average move lies\ninside the current convex hull, so the hull cannot expand; that observation\nalone is not a proof about all possible infinite-precision trajectories.\n\n\\section{Different-data experiment: drivers, disks, and ride allocation}\n\\subsection{Global nearest-free-driver construction}\n\\textbf{Executed.} This uses taxi trips, not the 5,986 static pickups.\nOn 15 January 2015, use 12:00--13:00 as warm-up and 13:00--14:00 as the next\nhour. From 42,002 raw city records, the recovered processing retains 20,110 and\n19,171 valid rides, respectively. Remove invalid/zero/nonfinite coordinates and\nnonpositive duration; quarantine trips longer than six hours or straight-line\ndistance above 100 km. A current official Manhattan polygon selects historical\npickups; retain dropoffs outside it. Coordinates use a fixed equirectangular\ntransform around latitude 40.75 degrees. Driver identities are synthetic,\nnot inferred taxi identities.\n\nProcess requests by pickup time with deterministic ties; process simultaneous\ndropoffs first. Assign the nearest free driver globally; create one if none is\nfree. Pickup travel takes zero time. A driver is busy for the recorded trip\nduration and then located at its recorded endpoint. Warm-up creates 4,587\ndrivers, of whom 4,211 are busy and 376 free at its end. The second global hour\nadds 45, giving 4,632. This is the peak-concurrency requirement under the\nzero-pickup-travel assumption, not a realistic fleet-size guarantee.\n\nThe proposed local dispatch chooses the nearest free driver sharing a disk\nwith the request, otherwise creates one; disk load targets are fleet size/100\nand relaxation is triggered by pickups/dropoffs. The recovered second-hour\nlocal-dispatch code is a prototype, not a completed comparison result.\n\n\\subsection{Driver disks with cap six: stalled original rule}\n\\textbf{Executed.} Apply the single-disk squared-error adaptive heat rule with\nfull coverage and sleep/wake activation to the 4,587-driver snapshot. At one\nmillion proposals it remained outside tolerance, with worst error about 18.83\\%.\nThere were two graph components: 91 disks with total weight 4,233, and nine\nwith weight 354. At target $45.87$, those nine would need at least 371.547\nweight to all reach the lower tolerance bound. Their mean deficit already\nimplies about 14.25\\% error unless weight can cross components. An enormous\nradius, about 21.7 million km, also demonstrates the absence of useful spatial\ncompactness control. This was a stalled budget-limited run, not success.\n\n\\subsection{Exploratory hinge objective and coordinated disk proposals}\n\\textbf{Implemented and reported to reach tolerance before interruption; rejected\nas a substitute for the requested original method.}\nReplace ordinary squared error by\n$\\sum_i\\max(|L_i/t-1|-0.10,0)^2$. Keep temperature based on the affected disks'\nordinary squared errors, multiplied by 0.035. After 20,000 proposals, use a\ncoordinated block with probability 0.25: a root disk plus one or two randomly\nchosen neighbors. Move their centers with independent Gaussian increments;\npropose radii with 0.10 rather than 0.06 load drift and Gaussian scale noise,\nclamped below by $10^{-5}$.\n\nProtect points whose current covering disks are all in the block. If any lose\ncoverage, expand a selected block disk using the smallest required expansion\nrelative to its old radius, with denominator floor 0.01. Reject remaining\ncoverage or degree-cap violations. Apply the hinge-energy Metropolis test to\nthe block, its old/new neighbors and all changed-load disks. This changes both\nproposal and acceptance rules. The archive narrative reports reaching tolerance,\nbut an exact terminal metric and unambiguous execution trace for that exploratory\nrevision were not recovered; no numerical success benchmark is inferred.\n\n\\subsection{Connected driver disks with no degree cap}\n\\textbf{Executed controlled return to the original squared-error rule.}\nUse only single-disk proposals, full coverage, ordinary squared-error adaptive\nheat, and seed 1027. Remove the degree cap; require connectedness instead.\nInitially connect components by repeatedly finding the closest intercomponent\ndisk boundaries and expanding both radii by half their positive gap plus\n$10^{-7}$. During balancing, the minimum proposed radius covers uniquely\ncovered points (positive floor $10^{-5}$ plus margin); there is no upper bound.\nReject a proposed edge removal if it disconnects the graph. There is no\ncoordinated motion, hinge objective, radius penalty, or cooling schedule.\n\nAt each round shuffle the disks that are themselves outside 10\\% tolerance or\nhave an outside-tolerance neighbor. Recheck each before activation. Termination\nis tested at round boundaries; the attempt budget is one million. Recompute\nloads independently at the end and check coverage and connectedness.\nA fresh initialization reached tolerance after 195 rounds and 13,442 proposals:\nworst error 9.9121\\%, mean/max degree 24.32/55, mean/max point multiplicity\n7.96/23, median radius 1.34 km and maximum radius 22.05 km.\nRestarting from the stalled configuration reached tolerance after 90 rounds and\n2,150 proposals, worst error 9.9993\\%, mean/max degree 6.4/16, but retained an\napproximately 20.9-million-km maximum radius. These load successes do not\nestablish geographical locality, nor do they validate the unexecuted local\nride-allocation proposal.\n\n\\section{Discussed alternatives without a complete executed specification}\n\\subsection{Nonintersecting disks and line-of-sight adjacency}\nThe earlier concept used nonintersecting disks, no full-domain coverage\nrequirement, and adjacency when the center-to-center segment passed through no\nthird disk. A pickup inside a disk belonged to it; an outside pickup went to\nthe nearest center. An illustrative objective rewarded covered dots and\npenalized squared neighbor-load differences. No definitive objective coefficient,\nproposal distribution, acceptance test, or scheduler was adopted in the recovered\ndiscussion. This concept cannot be represented as a fully specified tested\nalgorithm. It differs from the later intersecting fractional-load disks.\n\n\\subsection{Lifted three-dimensional triangle and geometric-mean suggestion}\nTemporarily give the active vertex's dots to its three neighbors. Lift neighbor\npositions to $A=(x_a,y_a,w_a)$, $B=(x_b,y_b,w_b)$, $C=(x_c,y_c,w_c)$, intersect\ntheir triangle with a plane $z=w'$, and use the horizontal coordinates of the\nintersection segment's midpoint as the proposed position. A subsequent\nreclamation operation was discussed. For $(100,10,10)$ and arithmetic mean\n$w'=40$, the endpoints are $(A+2B)/3$ and $(A+2C)/3$, giving midpoint\n$(A+B+C)/3$. This cancellation is a special calculation, not a general identity\nfor every height triple. Equal heights can give the entire triangle rather\nthan a unique segment; plane/end-point degeneracies require additional rules.\nThe geometric mean was mentioned as another height but never selected.\nNo complete execution convention or independent result is recovered for either\nlifted-plane variant. The later weighted-centroid Rule 2 is a separate,\nfully implemented method, documented above.\n\n\\subsection{Optional local variance or variance-plus-distance acceptance}\nFor a fixed four-agent pool, the proposed score\n$B_v=\\sum_{u\\in U_v}(w_u-\\bar w)^2$ changes by the same amount as the global\nsum of squared loads, since the pool's total load is conserved. Requiring strict\nimprovement would therefore make that scalar monotone. The alternative\n$J_v=B_v+\\mu\\sum_{u\\in U_v}\\sum_{p\\in D_u}\\|p-c_u\\|^2$ adds assignment distance;\nits change also matches the corresponding global score when only the pool is\nupdated. No $\\mu$ or acceptance filter was adopted for the reported vertex\nexperiments. These are discussed modifications, not tests whose outcomes can\nbe attached to Rule 2 or Rule 3.\n\n\\subsection{Triangular lattice, dynamic mesh, and Delaunay}\nAn initial six-neighbor triangular-lattice interpretation was corrected to a\nthree-neighbor honeycomb. No separate triangular-lattice result is established.\nRebuilding adjacency after motion and using Delaunay triangulation were discussed\nbut not adopted. Maintaining degree three alone does not ensure planar\nhexagonal faces; Delaunay yields variable degree and can require nonlocal edge\nchanges. There is no recovered implementation or executed benchmark for these\nalternatives. Discussion of distributed or balanced k-means likewise does not\nsupply an additional specified algorithm beyond the concrete Lloyd and\nrecursive-clustering programs documented above.\n\n\\section{Source inventory and remaining reproducibility limits}\n\\label{sec:source-catalog}\nThe following are paths within recovered archives, not promises that original\nMac paths are accessible. The merged document is a recovered-source cloud copy;\ncomparison and writeback to the Mac remain pending. Source inspection and\nsaved results, rather than new runs, support the added catalog.\n\\begin{description}\n\\item[Interactive cell methods:] \\path{Manhattan_Taxi_Regions.html} in original\nand local-rule archives; \\path{disk_experiment.py} for the shrink study.\n\\item[Older cell annealing:] \\path{Manhattan_Balanced_Hexagons/local_anneal.cpp}.\n\\item[Later compact cells:] \\path{work/compact38/anneal.cpp},\n\\path{work/median38/anneal.cpp}, \\path{work/median38/transfer.json}, and\n\\path{work/median100/anneal.cpp}, with their input and checkpoint files.\n\\item[Adaptive disks:] \\path{Disks_100/disk_local.py} and the\n\\path{Balanced_Disks} archive; \\path{Disks_100_Quiescence} for sleep/wake.\n\\item[Pareto disks:] \\path{Original_Local_Annealing/test_local_rule.py},\n\\path{LOCAL_RULE.md}, and saved result files.\n\\item[Fallback:] \\path{Nearest_Fallback/simulate.py} and its saved results.\n\\item[Vertices:] \\path{work/rule2/run.js}, \\path{work/vertex_only},\n\\path{work/four_compare}, \\path{work/all_movable/run.js}, and their results.\n\\item[Lloyd reseeding:] \\path{Manhattan_Comparison/lloyd.js} and\n\\path{lloyd.json}.\n\\item[Driver experiment:] \\path{Ride_Allocation/README.md},\n\\path{disks.py}, \\path{test_connected_unbounded.py}, and saved driver snapshots\nand result records.\n\\end{description}\n\nThe recovered historical discussion came from chat\n\\path{01a0ddd5-d823-78f3-8007-4e6affbc3f0b}, turn\n\\path{01a0e248-be23-7c00-b6f6-8998d8156940}; the protocol supplement came from chat\n\\path{01a0e288-2186-7bf0-9df7-4ecf938cb3c6}, turn\n\\path{01a0e446-20fc-7712-ab87-a13b33a6983a}.\nThe later compact recovery bundle has persistent identifier\n\\path{libfile_dc84879b89c08191b3fb5efe83d086ad}.\nThe catalog cannot fill missing run-specific GUI settings, unrecorded proposal\nchoices, or missing exploratory terminal traces by inference. Those gaps are\nexplicitly marked above. ``All alternatives'' here means all identifiable\nalternatives in these recovered records, not proof that every past conversation\nor transient implementation has survived.\n\n\\clearpage\n\\section{Agreed extension: center departure, migration, and geometric insertion}\n\\label{sec:merge-migrate-split}\n\\textbf{Protocol revised 29 September 2026; not implemented or tested.}\nThis extension concerns the later bounded Voronoi experiment, not the historical\nshared-vertex hexagon annealer. It records the agreed parameter-free departure\nrule, distributed migration concept, and analytical geometric insertion.\nEarlier merge and numerical split-optimization proposals are superseded as\nspecified below. No results from older runs establish its performance.\n\n\\subsection{Context: the current Voronoi weight and grade}\nThe domain $P$ is the convex hull of the verified Manhattan main-island region.\nThe current experiment uses 100 sites and all 5,986 pickup records in that hull,\nretaining coincident records as separate observations. Cells are Euclidean\nVoronoi regions clipped to $P$. Neighbors share a positive-length edge.\nAt the start of a movement calculation, let $M_j$ be the current pickup count,\n$A_j^0$ the current cell area, and\n\\[\n \\rho_j=\\frac{M_j}{A_j^0},\\qquad\n \\widehat W_j(q)=\\rho_j A_j(q).\n\\]\nDensities are frozen throughout that calculation. Candidate weights are real-valued\nmodeled weights; they are not post-move pickup counts. Counts can be refreshed\nfor the next selection, but must not be substituted into acceptance tests along\nthe current move.\n\nFor area $A_j$ and perimeter $L_j$, circularity and mean neighbor gap are\n\\[\n C_j=\\frac{4\\pi A_j}{L_j^2},\\qquad\n \\widehat G_j=\\frac{1}{|N_j|}\\sum_{k\\in N_j}\n          |\\widehat W_j-\\widehat W_k|.\n\\]\nThe current combined badness, with fixed reference weight\n$\\overline W=5986/100=59.86$, is\n\\[\n B_j=1-C_j+\\frac{\\widehat G_j}{59.86}.\n\\]\nLower badness is better. This puts circularity loss and normalized weight gap\non a common dimensionless scale, with equal coefficients. Existing movement\nchoices seek circularity improvement or modeled-gap improvement, selected with\nequal probability, and use the moving cell's combined grade for acceptance.\nNew neighbors are allowed in this later experiment.\n\nThe current selection rule samples with replacement, with probability\n$B_j/\\sum_k B_k$ after refreshing the selection grades; use uniform selection\nif all badness values vanish. A batch comprises 100 selections, so it may select\nsome centers repeatedly and omit others. This differs from the earlier rounds\nof random permutations, which gave every center exactly one turn.\n\n\\subsection{Agreed departure rule: neighbor information only}\nFor a cell $i$ considering departure, write $W_i$ for its current weight,\n$N_i$ for its adjacent cells, $d_i=|N_i|$, and\n\\[\n m_i=\\operatorname{median}_{j\\in N_i} W_j.\n\\]\nThe median excludes $i$; for an even number of neighbors it is the average\nof the two middle weights. The center departs when both conditions hold:\n\\[\n \\boxed{W_i<\\min_{j\\in N_i}W_j\\quad\\hbox{and}\\quad\n W_i<\\frac{d_i}{d_i+1}m_i.}\n\\]\nThus it must be strictly lighter than every neighbor. Equality does not trigger\ndeparture. No tunable coefficient $\\alpha$ remains. An empty neighbor set is\nan invalid decision state and does not authorize departure.\n\nThe second condition is equivalent to\n\\[\n m_i-W_i>\\frac{W_i}{d_i}.\n\\]\nIt compares the departing cell's deficit below the neighbor median with the\naverage added weight per neighbor if its weight were shared equally. Actual\nVoronoi redistribution is not generally equal, so this motivates the threshold\nwithout guaranteeing improved balance. The decision requires only the cell's\nown weight and adjacent weights; no global ranking or global median is used.\nWeights retain their density-model meaning. Candidate geometric changes are\nnot accepted or rejected by recounting pickup records.\n\n\\subsection{Committed departure and neighbor-to-neighbor migration}\nThe center notifies its neighbors and becomes inactive in the Voronoi diagram.\nIts former territory redistributes among surviving sites. This is site deletion,\n\\emph{not} a requirement that its cell merge exactly with one particular neighbor.\nThe inactive center is a free-center token that can be passed between hosts;\nit does not generate a cell while migrating.\n\nThe discussed routing rule starts at a heaviest former neighbor. Each host\ncompares its weight with those of its own adjacent cells and forwards the token\nto a heaviest neighbor only if that neighbor is strictly heavier than itself.\nOtherwise it is a local maximum, including a plateau maximum, and accepts the\nfree center for insertion. Every routing decision uses one-hop information.\nFor fixed weights and adjacency, strict increase prevents cycles and gives\ntermination on a finite graph. Changing weights during concurrent routing do\nnot have that guarantee. Tie-breaking between equally heavy eligible hosts,\nconcurrency, and a local synchronization or cycle-handling convention remain\nimplementation details to settle; a global freeze is not assumed.\n\nDeparture and insertion are committed. There is no tentative relocation,\nobjective-based veto, or rollback to the original location. One inactive center\nmeans one fewer active Voronoi site temporarily; insertion restores the count.\nThis logical rule does not remove the need for reliable token delivery and\nlocal coordination in a distributed implementation.\n\n\\subsection{Agreed insertion: analytical geometry, no optimization}\nLet $H$ be the destination host's bounded convex Voronoi cell, with positive\narea $A$. Use its uniform frozen density. Compute its area centroid and\narea covariance:\n\\[\n \\mu=\\frac{1}{A}\\int_H x\\,dx,\\qquad\n \\Sigma=\\frac{1}{A}\\int_H (x-\\mu)(x-\\mu)^{\\mathsf T}\\,dx.\n\\]\nPolygon area and moment formulas evaluate these quantities using only the\ncell's boundary vertices, not individual pickup locations. Let $u$ be a unit\neigenvector of the $2\\times2$ matrix $\\Sigma$ corresponding to its largest\neigenvalue. This is the long-axis direction. If both eigenvalues are equal,\nuse the fixed coordinate $x$-axis; reversing $u$ only exchanges the two halves.\n\nFind the unique offset $t$ such that the line perpendicular to $u$ divides\n$H$ into equal areas:\n\\[\n H_- = H\\cap\\{x:u^{\\mathsf T}x\\leq t\\},\\qquad\n H_+ = H\\cap\\{x:u^{\\mathsf T}x\\geq t\\},\\qquad\n |H_-|=|H_+|=A/2.\n\\]\nThere is no search over cut orientation: covariance determines it. To compute\n$t$ analytically, sort the vertex projections onto $u$. Between consecutive\ndistinct projections the cross-section length is linear in the offset, so\ncumulative area is quadratic (possibly linear). Evaluate the area at the\ninterval endpoints, identify the interval containing $A/2$, and solve its\nlinear or quadratic equation for the root in that interval. This is finite\ngeometric calculation, not numerical objective optimization. Degenerate\nprojection intervals are skipped; floating-point tolerances must be recorded.\n\nPlace the existing and arriving centers at the geometric centroids\n\\[\n c_- = \\frac{2}{A}\\int_{H_-}x\\,dx,\\qquad\n c_+ = \\frac{2}{A}\\int_{H_+}x\\,dx.\n\\]\nAssign the two center identities deterministically to these positions. For a\nfull-dimensional convex host, both centroids lie inside the host and are\ndistinct, on opposite sides of the cut. Recompute the affected Voronoi cells\nand adjacency. This completes insertion; there is no gradient search,\nbacktracking, multistart search, or optimization of center separation.\n\n\\paragraph{What the construction does and does not guarantee.}\nThe two geometric halves have equal modeled weight under the host's frozen\nuniform density. Their centroid sites need not have the chosen cut as their\nperpendicular bisector. In addition, boundaries with other cells change.\nTherefore the resulting Voronoi cells are generally not those two halves and\nneed not have equal weights or optimal circularity. The construction supplies\na deterministic geometric placement, not a claim of optimal balance.\nOrdinary local moves may improve the inserted cells afterward.\n\nThe user specified that any split-specific grade concern only the two split\ncells, not a sum over neighboring grades. The final insertion rule performs\nno grade optimization or grade-based acceptance at all; the earlier proposed\njoint optimization has been withdrawn.\n\n\\subsection{Distributed scope, superseded proposals, and status}\nHost geometry is available from its clipped cell and adjacent-center data;\ndeparture weights and routing decisions are likewise local. Maintaining a\ncorrect Voronoi diagram after deleting or inserting sites can create new\nadjacencies. A distributed implementation must discover and exchange these\nthrough local messages, possibly over several hops. Knowledge of the old\nneighbor list alone must not be assumed sufficient for every resulting\nneighbor's complete geometry. No global directory or global optimization is\npart of the agreed decision rule.\n\nThis revision supersedes the earlier lightest-pair merge test, tunable\n$\\alpha d_i m_i$ threshold, search over all equal-area cuts, joint split-grade\noptimization, and tentative rollback proposal. Those were discussion\nalternatives, not implemented results. A spatial frozen-density integration\nmodel was also discussed, but its adoption for redistribution has not been\nsettled. In particular, the ordinary per-cell formula $\\rho_j A_j$ does not\nby itself specify how to initialize densities after identities disappear or\nare created. Weight/density transfer and refresh conventions must be made\nexplicit before implementation, without substituting post-move dot counts\nfor modeled candidate weights.\n\nThe intended new experiment returns to the saved end-of-round-59 state,\nbefore badness-weighted selection began, preserving all later runs and files.\n\\textbf{This update changes the document only. No departure, migration,\ninsertion, restart, or simulation has been implemented or run.}\nThe geometric insertion and parameter-free departure condition are agreed;\ndistributed concurrency, tie conventions, and weight accounting still require\nprecise implementation definitions.\n\n\\end{document}\n\n\n## My request:\ndo you mean this?\n\n\n"
+            }
+          ]
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_0bbae55dc4ffb185016abc14d7e9a487d2b2fc614f305ae3c1",
+          "text": "Yes, this is the complete source. I’ll update it to include the agreed balance step, replace “freeze densities” with “compute densities,” and mark the older combined-score and selection rules as historical.",
+          "phase": "commentary"
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_0bbae55dc4ffb185016abc164221b087d29c5b73af9476d958",
+          "text": "Yes—this is the complete source. I can now work from its contents, but filesystem access still blocks saving changes despite the granted permissions. **The file remains unchanged, and compilation is unverified.**\n\nThe update should mark the existing combined-badness and selection rules as historical, replace “frozen density” with “computed density,” and insert the following before `\\end{document}`:\n\n```latex\n\\clearpage\n\\section{Agreed single-cell balance step}\n\\label{sec:analytic-balance-step}\n\\textbf{Updated 29 September 2026; not implemented or tested.}\n\nThis section supersedes the preceding combined-badness rule for ordinary\nbalance moves. Assume cell $i$ has already been selected.\nCell selection and scheduling remain deferred.\nThe departure, migration, and insertion protocol is unchanged.\n\n\\subsection{Compute densities and the neighborhood objective}\nOnly center $i$ moves; all other centers remain fixed.\nFrom each cell's current weight $W_j^0$ and area $A_j^0>0$, compute\n\\[\n \\rho_j=\\frac{W_j^0}{A_j^0},\n \\qquad \\widehat W_j(q)=\\rho_j A_j(q).\n\\]\nUse these computed densities throughout the step.\nCandidate weights are modeled weights, not recounted pickups.\n\nLet $N_j^0$ be the initial neighbors of cell $j$, and fix\n$\\mathcal S_i=\\{i\\}\\cup N_i^0$. Define\n\\[\n E_i(q)=\\sum_{j\\in\\mathcal S_i}\n \\frac{1}{|N_j^0|}\n \\sum_{k\\in N_j^0}\n |\\widehat W_j(q)-\\widehat W_k(q)|.\n\\]\nThe safe segment preserves adjacency. Empty neighbor sets are invalid.\nThe objective protects the neighborhood sum, not each individual score\nor the global median.\n\n\\subsection{Compute the direction analytically}\nFor each shared edge of $i$ and $j$, let $\\ell_{ij}$ be its length,\n$m_{ij}$ its midpoint, and $p_i,p_j$ the center positions. Put\n\\[\n b_{ij}=\\frac{\\ell_{ij}}{\\|p_j-p_i\\|}(m_{ij}-p_i).\n\\]\nIn a nondegenerate configuration in the fixed polygonal domain,\nthe area gradients with respect to the moving center are\n\\[\n \\nabla A_i=\\sum_{j\\in N_i^0}b_{ij},\n \\qquad \\nabla A_j=-b_{ij}\\quad(j\\in N_i^0),\n\\]\nand zero for other cells. Thus\n$\\nabla\\widehat W_j=\\rho_j\\nabla A_j$.\n\nWhen all compared weights differ, differentiate $E_i$ and use\n\\[\n u=-\\frac{\\nabla E_i}{\\|\\nabla E_i\\|}.\n\\]\nAt equal weights, use the exact directional derivative:\na tied pair contributes\n$|(\\rho_j\\nabla A_j-\\rho_k\\nabla A_k)\\cdot u|$.\nChoose a feasible unit direction minimizing the directional derivative.\nIf no strictly negative directional derivative exists, stay put.\nFor a center on the domain boundary, restrict to directions admitting\na segment inside the domain.\n\n\\subsection{Compute one safe distance analytically}\nWrite $f(t)=E_i(p_i+tu)$ and $a=-f'(0+)>0$.\nCompute a certified radius $R>0$ preserving valid geometry, adjacency,\nand the relevant one-sided weight-order branches, while keeping the\ncenter inside the domain and avoiding collisions.\nCompute a curvature bound\n\\[\n |f''(t)|\\le M,\\qquad 0<t\\le R.\n\\]\nThen take\n\\[\n h=\n \\begin{cases}\n \\min\\{R,a/(2M)\\},&M>0,\\\\\n R,&M=0.\n \\end{cases}\n\\]\nThroughout the segment, $f'(t)\\le-a/2<0$, so\n\\[\n E_i(p_i+hu)\\le E_i(p_i)-ah/2.\n\\]\nMove once to $p_i+hu$ and end the step.\nThere are no repeated substeps within this turn.\n\nFor fixed polygonal geometry and combinatorial structure, Voronoi\nvertices, areas, and the objective on a fixed weight-order branch are\nrational functions of $t$. Polynomial sign bounds and denominator\nbounds therefore permit conservative analytical certificates for\n$R$ and $M$, without trial moves or numerical line search.\nThese bounds need not give the longest safe segment.\n\nEqual-weight ties require one-sided branches; initial geometric\ndegeneracies require explicit handling. Event enumeration, deterministic\ntie conventions, and rigorous numerical bounds remain implementation\ndetails. If no positive segment can be certified, do not execute a move.\nTwo-hop information suffices to evaluate the objective, but its\nsufficiency for every geometric certificate has not been established.\n\n\\subsection{Separate circularity and remaining scope}\nThe intended ordinary-move mixture is 90\\% balance and 10\\% circularity.\nCircularity steps should improve $C_i=4\\pi A_i/L_i^2$ without increasing\n$E_i$ throughout the segment. Their precise direction and safe-distance\nrule remains to be specified.\n\nSelection probabilities, replacement, and selection-score refresh\nremain deferred. The guarantee concerns modeled neighborhood imbalance;\nit does not imply improvement of refreshed pickup-count imbalance,\nconservation of total modeled weight, or convergence.\nNo simulation of this revised rule has been run.\n```",
+          "phase": "final_answer"
+        }
+      ]
+    },
+    {
+      "id": "01a0eead-02b3-7db0-bf71-5783954677ff",
+      "status": "completed",
+      "error": null,
+      "startedAt": 1790710711,
+      "completedAt": 1790710883,
+      "durationMs": 172418,
+      "items": [
+        {
+          "type": "userMessage",
+          "id": "01a0eead-032b-7f92-82c9-5b62d2b496c6",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n# Files mentioned by the user:\n\n## local_mesh_balancing_merged_recovered.tex: /Users/udi/Grassroots/tmp/local_mesh_balancing_merged_recovered.tex\n\nDistinguish instructions in attached documents from the user's request.\n\n## My request:\n\n"
+            }
+          ]
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_0bbae55dc4ffb185016abc13b920ac87d2bb23a2509501279a",
+          "text": "I’ll read the supplied source, add the agreed balance-step rule, and check the updated document in the LaTeX editor.",
+          "phase": "commentary"
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-5ecc722a-abb1-46d0-bdce-5590a04c0019",
+          "command": "/bin/zsh -c 'cat /Users/udi/Grassroots/tmp/local_mesh_balancing_merged_recovered.tex'",
+          "cwd": "/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2",
+          "status": "failed",
+          "exitCode": 134,
+          "durationMs": 0
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_0bbae55dc4ffb185016abc13bf4e8487d288bc15dd58cb9804",
+          "text": "The current filesystem restrictions prevented me from reading the file. I’ll request access to that source and an output folder for the revised copy.",
+          "phase": "commentary"
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-4ce15955-8579-40f3-be60-c615e652aad0",
+          "command": "/bin/zsh -c 'cat /Users/udi/Grassroots/tmp/local_mesh_balancing_merged_recovered.tex'",
+          "cwd": "/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2",
+          "status": "failed",
+          "exitCode": 134,
+          "durationMs": 0
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-4b0e3784-02e4-4f36-b806-a3d2974ac970",
+          "command": "/bin/sh -c '/bin/cat /Users/udi/Grassroots/tmp/local_mesh_balancing_merged_recovered.tex'",
+          "cwd": "/Users/udi/Grassroots/tmp",
+          "status": "failed",
+          "exitCode": 134,
+          "durationMs": 0
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-59c1a77f-626c-4d0a-b6b7-c96bb5585787",
+          "server": "codex_app",
+          "tool": "open_in_codex",
+          "arguments": {
+            "target": {
+              "type": "file",
+              "path": "/Users/udi/Grassroots/tmp/local_mesh_balancing_merged_recovered.tex"
+            }
+          },
+          "status": "completed",
+          "durationMs": 23
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_0bbae55dc4ffb185016abc14612cc887d2af458aba60314419",
+          "text": "Access was granted, but the file-reading process still fails before returning any content, so I haven’t modified the document.\n\nPlease upload the `.tex` file directly into this chat, or paste its contents, so I can update the existing text accurately.",
+          "phase": "final_answer"
+        }
+      ]
+    },
+    {
+      "id": "01a0eeaa-39a0-7561-90a0-5afacda359fb",
+      "status": "completed",
+      "error": null,
+      "startedAt": 1790710528,
+      "completedAt": 1790710568,
+      "durationMs": 40205,
+      "items": [
+        {
+          "type": "userMessage",
+          "id": "01a0eeaa-39d6-7e51-9ab9-7a575a879619",
+          "content": [
+            {
+              "type": "text",
+              "text": "ok, can you update the latex file so that it is up to date?\n"
+            }
+          ]
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_0bbae55dc4ffb185016abc1302290887d2938904d53315fa46",
+          "text": "I’ll locate the LaTeX file and update it with the agreed single-cell balance step and density wording.",
+          "phase": "commentary"
+        },
+        {
+          "type": "commandExecution",
+          "id": "exec-49eb3361-ec8b-43d3-8cb3-d77c8881f7b6",
+          "command": "/bin/zsh -lc \"rg --files /Users/udi/Documents/Codex -g '*.tex' -g 'AGENTS.md'\"",
+          "cwd": "/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2",
+          "status": "failed",
+          "exitCode": 134,
+          "durationMs": 0
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-86a25b5e-05b6-4f80-86e5-5ae9199fc6aa",
+          "server": "codex_app",
+          "tool": "read_thread",
+          "arguments": {
+            "threadId": "6ab96e30-9208-83ed-8ed2-09fc67055c70",
+            "cursor": "1c159eac-fc16-41e2-9f5f-c3ef56251317",
+            "turnLimit": 8,
+            "maxOutputCharsPerItem": 5000
+          },
+          "status": "completed",
+          "durationMs": 5488
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-cea5118d-7c2c-4b68-9a26-2a8b84945091",
+          "server": "codex_app",
+          "tool": "read_thread",
+          "arguments": {
+            "threadId": "6ab96e30-9208-83ed-8ed2-09fc67055c70",
+            "cursor": "d218d2b9-8f17-4b3e-9d77-cb851644cf18",
+            "turnLimit": 50,
+            "maxOutputCharsPerItem": 2500
+          },
+          "status": "failed",
+          "durationMs": 15
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-37de5b0b-a1c8-4ec1-a93e-a996d596ae93",
+          "server": "codex_app",
+          "tool": "read_thread",
+          "arguments": {
+            "threadId": "6ab96e30-9208-83ed-8ed2-09fc67055c70",
+            "cursor": "d218d2b9-8f17-4b3e-9d77-cb851644cf18",
+            "turnLimit": 10,
+            "maxOutputCharsPerItem": 1800
+          },
+          "status": "completed",
+          "durationMs": 56
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-0da790d5-7450-4da0-a1cc-6266d45b3e24",
+          "server": "codex_app",
+          "tool": "read_thread",
+          "arguments": {
+            "threadId": "6ab96e30-9208-83ed-8ed2-09fc67055c70",
+            "cursor": "909a60a1-636b-4019-a42d-a8a1b66955e5",
+            "turnLimit": 10,
+            "maxOutputCharsPerItem": 10000
+          },
+          "status": "completed",
+          "durationMs": 139
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-92544f6d-9362-44ae-83f5-915b2566dea7",
+          "server": "codex_app",
+          "tool": "read_thread",
+          "arguments": {
+            "threadId": "6ab96e30-9208-83ed-8ed2-09fc67055c70",
+            "cursor": "26ab029e-0f2d-47b8-8774-714b4f8af099",
+            "turnLimit": 10,
+            "maxOutputCharsPerItem": 10000
+          },
+          "status": "completed",
+          "durationMs": 41
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-e7af4c6e-d886-4713-85b2-24a584bcade0",
+          "server": "codex_app",
+          "tool": "read_thread",
+          "arguments": {
+            "threadId": "6ab96e30-9208-83ed-8ed2-09fc67055c70",
+            "cursor": "5b66116c-cc93-4ffe-8d0c-d4c24e9f15bb",
+            "turnLimit": 10,
+            "maxOutputCharsPerItem": 10000
+          },
+          "status": "completed",
+          "durationMs": 41
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-8aeee19b-8449-4896-b1ed-c438726c3345",
+          "server": "codex_app",
+          "tool": "read_thread",
+          "arguments": {
+            "threadId": "6ab96e30-9208-83ed-8ed2-09fc67055c70",
+            "cursor": "e2e67c21-3f20-404d-824a-fbf41048755f",
+            "turnLimit": 10,
+            "maxOutputCharsPerItem": 10000
+          },
+          "status": "completed",
+          "durationMs": 40
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-a051df63-2886-48cd-ae5b-07b2a113d8e8",
+          "server": "codex_app",
+          "tool": "read_thread",
+          "arguments": {
+            "threadId": "6ab96e30-9208-83ed-8ed2-09fc67055c70",
+            "cursor": "b0836178-d87f-4c90-9615-2cefbca6bf14",
+            "turnLimit": 10,
+            "maxOutputCharsPerItem": 10000
+          },
+          "status": "completed",
+          "durationMs": 40
+        },
+        {
+          "type": "mcpToolCall",
+          "id": "exec-57a6ca51-1f67-4653-824e-9db5185cad21",
+          "server": "codex_app",
+          "tool": "read_thread",
+          "arguments": {
+            "threadId": "6ab96e30-9208-83ed-8ed2-09fc67055c70",
+            "cursor": "8902e064-5d75-42a7-b537-ee79c2ff5577",
+            "turnLimit": 10,
+            "maxOutputCharsPerItem": 10000
+          },
+          "status": "completed",
+          "durationMs": 38
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_0bbae55dc4ffb185016abc1325886487d2ac29ff0a4c4f3643",
+          "text": "I found the latest source referenced in chat #2: **`local_mesh_balancing_merged_recovered.tex`**, through Section 19. It’s stored in that chat’s workspace, which I can’t access from here.\n\nPlease attach the `.tex` file. I’ll update it with the agreed balance step, use “compute densities,” keep cell selection deferred, and check that it compiles.",
+          "phase": "final_answer"
+        }
+      ]
+    },
+    {
+      "id": "01a0eea9-d82b-7581-bf0f-19b90d13a5ab",
+      "status": "completed",
+      "error": null,
+      "startedAt": 1790710503,
+      "completedAt": 1790710509,
+      "durationMs": 6434,
+      "items": [
+        {
+          "type": "userMessage",
+          "id": "01a0eea9-d85e-76a1-916c-4f4852a40ddc",
+          "content": [
+            {
+              "type": "text",
+              "text": "Good, but I don't like the term \"freeze densities\"  Is it not mathematics.  We computer densities\n"
+            }
+          ]
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_0bbae55dc4ffb185016abc12ea25b887d2b5783e1b2cc5426f",
+          "text": "Yes—we **compute densities** at the start of the step:\n\\[\n\\rho_j=\\frac{W_j}{A_j}.\n\\]\nWe then use these computed densities to model weights during the move:\n\\[\n\\widehat W_j(q)=\\rho_j A_j(q).\n\\]\n\nSo the first instruction should be: **Compute the current cell densities and use them to predict how weights change as center \\(i\\) moves.**",
+          "phase": "final_answer"
+        }
+      ]
+    },
+    {
+      "id": "01a0eea8-ef31-7930-97e4-2d16ad52ae9a",
+      "status": "completed",
+      "error": null,
+      "startedAt": 1790710443,
+      "completedAt": 1790710452,
+      "durationMs": 8983,
+      "items": [
+        {
+          "type": "userMessage",
+          "id": "01a0eea8-ef65-71f0-bf2f-646159bddbf0",
+          "content": [
+            {
+              "type": "text",
+              "text": "ok, so please explain to me the rule for one selected cell i step in a concise and high level way\n"
+            }
+          ]
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_0bbae55dc4ffb185016abc12af754087d2b48d42b3a9233c3b",
+          "text": "For an already selected cell \\(i\\):\n\n1. **Freeze densities.** Predict each cell’s weight as its current density times its changing area. Only center \\(i\\) moves.\n2. **Define neighborhood imbalance.** Sum the mean absolute neighbor-weight gaps for \\(i\\) and its original neighbors.\n3. **Choose the direction analytically:** the direction that decreases this imbalance fastest.\n4. **Compute a conservative safe distance analytically**, guaranteeing that imbalance decreases throughout the segment, without an adjacency change, leaving the domain, or colliding with another center.\n5. **Move once by that distance and end the step.** If no decreasing direction exists, stay put.\n\nThis describes a **balance step**; the occasional circularity step still needs its own precise rule.",
+          "phase": "final_answer"
+        }
+      ]
+    },
+    {
+      "id": "01a0eea8-231d-7741-88b9-585934fec5e2",
+      "status": "completed",
+      "error": null,
+      "startedAt": 1790710391,
+      "completedAt": 1790710398,
+      "durationMs": 6825,
+      "items": [
+        {
+          "type": "userMessage",
+          "id": "01a0eea8-234a-71a2-a935-6f4d75050ffb",
+          "content": [
+            {
+              "type": "text",
+              "text": "Select cell \\(i\\) with probability proportional to its current \\(G_i\\), with replacement. - recompute what?\n"
+            }
+          ]
+        },
+        {
+          "type": "agentMessage",
+          "id": "msg_0bbae55dc4ffb185016abc127ada7087d28ca134a02912e44d",
+          "text": "I meant **recompute the geometry, the analytic descent direction, and the safe distance bound** at the new position—not select another cell.\n\nBut that would introduce multiple substeps within one turn, which we have not agreed on. The simpler proposal is: **one selected cell takes one analytically certified safe segment, and its turn ends.**\n\nCell selection—including whether probabilities are proportional to \\(G_i\\), and when those values are refreshed—remains deferred, as you requested.",
+          "phase": "final_answer"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Shape summaries and shape-specific before/after view.
+fig,axs=plt.subplots(1,3,figsize=(12,3.6))
+for ax,k in zip(axs,['min','mean','median']):
+ ax.plot([z['round'] for z in states],[z['circularity_summary'][k] for z in states],marker='o',ms=3);ax.set(title=k.title()+' circularity',xlabel='Completed round',ylabel='4π area / perimeter²',ylim=(0,1));ax.grid(alpha=.3)
+fig.tight_layout();fig.savefig(O/'circularity_measures.png',dpi=180);plt.close(fig)
+if states[-1]['round']==25:
+ fig,axs=plt.subplots(1,2,figsize=(12,13),sharex=True,sharey=True)
+ for ax,z,title in zip(axs,[states[0],states[-1]],['Initial circularity','Circularity after 25 full rounds']):
+  polys=[np.array(p) for p in z['cells']];c=np.array(z['centers']);pc=PolyCollection(polys,array=np.array(z['circularities']),cmap='viridis',clim=(0,1),edgecolors='#334455',linewidths=.5);ax.add_collection(pc);ax.scatter(c[:,0],c[:,1],c='white',edgecolors='#123455',linewidths=.2,s=8,zorder=3)
+  for poly,val in zip(polys,z['circularities']):
+   q=np.array(Polygon(poly).centroid.coords)[0];ax.annotate(f'{val:.2f}',q,fontsize=5.4,ha='center',va='center',bbox=dict(facecolor='white',alpha=.7,pad=.1,edgecolor='none'))
+  ax.plot(P[:,0],P[:,1],c='black',lw=1);ax.set(xlim=(P[:,0].min()-.3,P[:,0].max()+.3),ylim=(P[:,1].min()-.3,P[:,1].max()+.3),xlabel='x (km)',ylabel='y (km)',title=title);ax.set_aspect('equal')
+ fig.colorbar(pc,ax=axs,fraction=.025,pad=.025,label='Circularity (higher is more circle-like)');fig.savefig(O/'circularity_maps.png',dpi=180,bbox_inches='tight');plt.close(fig)

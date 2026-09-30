@@ -1,0 +1,54 @@
+<div id="round59replay">
+<h3>Round 59 — recorded turn-by-turn replay</h3>
+<div class="viz-controls">
+<button type="button" class="btn btn-primary" id="r59play">Play</button>
+<button type="button" class="btn" id="r59prev">Previous</button>
+<button type="button" class="btn" id="r59next">Next</button>
+<label class="form-label">Pace<select class="form-select" id="r59pace"><option value="1600">Slow</option><option value="800" selected>Normal</option><option value="300">Fast</option></select></label>
+</div>
+<label class="form-label" for="r59turn">Turn <span id="r59number" class="tabular-nums">0 / 100</span></label>
+<input class="form-range" id="r59turn" type="range" min="0" max="100" step="1" value="0">
+<div id="r59status" aria-live="polite">Start of round 59</div>
+<div id="r59detail" class="text-small">Labels: pickup counts, for reporting only.</div>
+<svg id="r59map" role="img" aria-label="Manhattan convex-hull Voronoi cells after each recorded turn; selected center highlighted"></svg>
+<div class="text-small">Filled marker: selected center. Ring: center 48, previously labeled 62. Labels are pickup counts; acceptance used modeled weights.</div>
+<script type="application/json" id="r59data">__FRAME_DATA__</script>
+<style>
+#round59replay svg {display:block;width:100%;height:auto;color:var(--foreground)}
+#round59replay svg text {fill:var(--foreground);font-size:11px}
+#round59replay #r59detail {min-height:2.5em}
+</style>
+<script>
+(()=>{
+const root=document.getElementById('round59replay'),data=JSON.parse(root.querySelector('#r59data').textContent),svg=root.querySelector('#r59map'),slider=root.querySelector('#r59turn'),play=root.querySelector('#r59play'),prev=root.querySelector('#r59prev'),next=root.querySelector('#r59next'),pace=root.querySelector('#r59pace');
+let at=0,timer=null;const ns='http://www.w3.org/2000/svg',states=[];let pp={},ll={},cc=[];
+for(const f of data.frames){pp={...pp,...f.polys};ll={...ll,...f.labels};cc=cc.map(x=>x.slice());if(f.centers)cc=f.centers.map(x=>x.slice());if(f.site!==undefined)cc[f.site]=f.center.slice();states.push({polys:pp,labels:ll,centers:cc,frame:f});}
+function el(tag,attrs,parent=svg){const e=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,v);parent.appendChild(e);return e;}
+function draw(){
+const width=Math.max(300,root.clientWidth),height=Math.min(850,Math.max(620,width*1.24));svg.setAttribute('viewBox',`0 0 ${width} ${height}`);svg.replaceChildren();
+const s=states[at],f=s.frame,scale=Math.min((width-38)/9.1,(height-30)/19.1),xoff=(width-8.9*scale)/2,yoff=height-16;
+const xy=p=>[xoff+p[0]*scale,yoff-p[1]*scale],path=points=>'M'+points.map(p=>xy(p).join(',')).join('L')+'Z';
+for(let i=0;i<100;i++){
+ const a=.08+.68*f.counts[i]/data.maxCount;const p=el('path',{d:path(s.polys[i]),fill:`color-mix(in srgb,var(--viz-series-1) ${a*100}%,var(--background))`,stroke:'var(--border)','stroke-width':1});
+ const title=el('title',{},p);title.textContent=`Center ${i+1}: ${f.counts[i]} pickups; circularity ${f.C[i].toFixed(3)}`;
+}
+if(f.site!==undefined){el('path',{d:path(s.polys[f.site]),fill:'none',stroke:'var(--viz-series-1)','stroke-width':3});}
+for(let i=0;i<100;i++){
+ const [cx,cy]=xy(s.centers[i]);el('circle',{cx,cy,r:i===f.site?4.5:1.9,fill:i===f.site?'var(--viz-series-1)':'var(--foreground)'});
+ const [lx,ly]=xy(s.labels[i]);const t=el('text',{x:lx,y:ly,'text-anchor':'middle','dominant-baseline':'central','paint-order':'stroke',stroke:'var(--background)','stroke-width':2.5});t.textContent=f.counts[i];
+}
+const [tx,ty]=xy(s.centers[data.tracked]);el('circle',{cx:tx,cy:ty,r:8,fill:'none',stroke:'var(--viz-series-2)','stroke-width':2});
+if(f.status==='moved'){
+ const a=xy(f.old),b=xy(f.center);el('line',{x1:a[0],y1:a[1],x2:b[0],y2:b[1],stroke:'var(--viz-series-1)','stroke-width':3});el('circle',{cx:a[0],cy:a[1],r:3.5,fill:'var(--background)',stroke:'var(--viz-series-1)','stroke-width':1.5});
+}
+slider.value=at;root.querySelector('#r59number').textContent=`${at} / 100`;prev.disabled=at===0;next.disabled=at===100;
+root.querySelector('#r59status').textContent=at?`Turn ${at} · Center ${f.site+1} · ${f.kind==='gap'?'Modeled-gap direction':'Circularity direction'} · ${f.status==='moved'?'Moved':'Rejected / skipped'}`:'Start of round 59';
+const ac=f.acceptance;root.querySelector('#r59detail').textContent=ac?`Move ${(1000*f.distance).toFixed(1)} m · Circularity ${ac.C0.toFixed(3)} → ${ac.C1.toFixed(3)} · Modeled gap ${ac.modeled_G0.toFixed(2)} → ${ac.modeled_G1.toFixed(2)} · ΔF +${(ac.F1-ac.F0).toFixed(4)}`:at?({'combined_score_decreases_immediately':'Chosen direction initially lowers the combined score.','zero_numerical_gradient':'No numerical gradient.','no_strict_combined_improvement':'No strictly improving step found.','path_combined_constraint':'Combined score would fall below its starting value along the move.'}[f.reason]||f.reason||'No movement.'):'Labels: pickup counts, for reporting only.';
+}
+function stop(){if(timer!==null)clearTimeout(timer);timer=null;play.textContent='Play';}
+function tick(){if(at>=100){stop();return;}at++;draw();if(at===100)stop();else timer=setTimeout(tick,Number(pace.value));}
+play.onclick=()=>{if(timer!==null){stop();return;}if(at===100){at=0;draw();}play.textContent='Pause';timer=setTimeout(tick,Number(pace.value));};
+prev.onclick=()=>{stop();at=Math.max(0,at-1);draw();};next.onclick=()=>{stop();at=Math.min(100,at+1);draw();};slider.oninput=()=>{stop();at=Number(slider.value);draw();};new ResizeObserver(draw).observe(root);draw();
+})();
+</script>
+</div>

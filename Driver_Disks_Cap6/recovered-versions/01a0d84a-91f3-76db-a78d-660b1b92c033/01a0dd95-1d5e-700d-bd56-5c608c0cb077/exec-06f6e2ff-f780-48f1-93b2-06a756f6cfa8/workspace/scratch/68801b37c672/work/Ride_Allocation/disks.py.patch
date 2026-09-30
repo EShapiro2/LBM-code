@@ -1,0 +1,30 @@
+@@ -149,3 +149,28 @@
+                     choices.append((distances[i]-self.r[i],i,distances[i]))
+-            if not choices:return False
++            if not choices:
++                # Atomic expansion plus neighbor shrinkage. The expanded disk can
++                # take over points, freeing neighboring radii to remove excess edges.
++                original_z=self.z.copy();original_r=self.r.copy();found=False
++                for expand in np.argsort(distances-self.r):
++                    self.z=original_z.copy();self.r=original_r.copy();self.r[expand]=distances[expand]
++                    self.refresh()
++                    for _ in range(self.k*self.cap):
++                        if self.d.max()<=self.cap:found=True;break
++                        trim=[]
++                        for a in np.flatnonzero(self.d>self.cap):
++                            for b in np.flatnonzero(self.e[a]):
++                                for x,y in [(a,b),(b,a)]:
++                                    rad=max(0.,np.linalg.norm(self.z[x]-self.z[y])-self.r[y]-1e-7)
++                                    if rad>=self.r[x] or (x==expand and rad<distances[expand]):continue
++                                    lost=self.c[:self.fleet.n,x]&(np.linalg.norm(self.pts-self.z[x],axis=1)>rad)
++                                    if np.any(lost&(self.m[:self.fleet.n]==1)):continue
++                                    trim.append((int(lost.sum()),x,rad))
++                        if not trim:break
++                        _,x,rad=min(trim);self.r[x]=rad;self.refresh()
++                    if found:break
++                if found:
++                    self.repairs+=1
++                    continue
++                self.z=original_z;self.r=original_r;self.refresh()
++                return False
+             _,i,rad=min(choices);self.r[i]=rad;self.refresh();self.repairs+=1

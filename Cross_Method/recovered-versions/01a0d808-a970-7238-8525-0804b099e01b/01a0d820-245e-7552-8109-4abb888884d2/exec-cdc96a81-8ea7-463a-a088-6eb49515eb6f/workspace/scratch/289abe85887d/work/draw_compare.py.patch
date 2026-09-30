@@ -1,0 +1,8 @@
+@@ -31,4 +31,5 @@
+     ax.set_axis_off()
+-fig.suptitle(f"Manhattan taxi pickups, 8:00–8:15 · {len(pts):,} pickups · {len(d['cells'])} regions",fontsize=17,weight='bold')
+-fig.text(.5,.03,f"Population variance: merging {d['variance']['merge']:,.0f}  ·  hexagons {d['variance']['hex']:,.0f}     |     Lowest hexagon shape score: {d['shape']:.3f}",ha='center',fontsize=11)
++fig.suptitle(f"Manhattan taxi pickups, 8:00–8:15 · {len(pts):,} pickups · {len(d['cells'])} regions\n"
++             f"Population variance: merging {d['variance']['merge']:,.0f} · hexagons {d['variance']['hex']:,.0f} · lowest hexagon shape score {d['shape']:.3f}",
++             fontsize=14,weight='bold')
+ fig.savefig('Manhattan_Taxi_Regions_Local_Rule_Comparison.png',dpi=200,facecolor='#f8fafb')

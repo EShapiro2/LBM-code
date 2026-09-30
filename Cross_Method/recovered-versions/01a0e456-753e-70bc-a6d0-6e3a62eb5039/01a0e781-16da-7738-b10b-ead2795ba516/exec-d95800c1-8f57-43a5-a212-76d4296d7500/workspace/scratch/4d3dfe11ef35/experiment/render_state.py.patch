@@ -1,0 +1,7 @@
+@@ -18,3 +18,5 @@
+ status=sys.argv[4] if len(sys.argv)>4 else 'intermediate, unfinished'
+-ax.set_title(f'100 cells, {status}, completed round {a["round"]}\nM={a["M"]:.3f}%; empty={a["counts"].count(0)}; {datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")}',fontsize=9)
++round_label=(f'last completed round {a["round"]}' if 'during round' in status else f'completed round {a["round"]}')
++score_label=('partial-state M' if 'during round' in status else 'M')
++ax.set_title(f'100 cells, {status}, {round_label}\n{score_label}={a["M"]:.3f}%; empty={a["counts"].count(0)}; {datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")}',fontsize=9)
+ ax.set_xlabel('x (km)');ax.set_ylabel('y (km)');fig.tight_layout();fig.savefig(out);plt.close(fig)

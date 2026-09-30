@@ -1,0 +1,183 @@
+\clearpage
+\section{Proposed extension: merge, migrate a free center, and split}
+\label{sec:merge-migrate-split}
+\textbf{Discussion recorded 29 September 2026; not implemented or tested.}
+This extension concerns the later bounded Voronoi experiment, not the historical
+shared-vertex hexagon annealer. The user proposed the merge trigger and migration
+mechanism below and requested that they be documented before implementation.
+The split optimization and geometric conventions remain proposals for discussion.
+No results from older runs establish the performance of this extension.
+
+\subsection{Context: the current Voronoi weight and grade}
+The domain $P$ is the convex hull of the verified Manhattan main-island region.
+The current experiment uses 100 sites and all 5,986 pickup records in that hull,
+retaining coincident records as separate observations. Cells are Euclidean
+Voronoi regions clipped to $P$. Neighbors share a positive-length edge.
+At the start of a movement calculation, let $M_j$ be the current pickup count,
+$A_j^0$ the current cell area, and
+\[
+ \rho_j=\frac{M_j}{A_j^0},\qquad
+ \widehat W_j(q)=\rho_j A_j(q).
+\]
+Densities are frozen throughout that calculation. Candidate weights are real-valued
+modeled weights; they are not post-move pickup counts. Counts can be refreshed
+for the next selection, but must not be substituted into acceptance tests along
+the current move.
+
+For area $A_j$ and perimeter $L_j$, circularity and mean neighbor gap are
+\[
+ C_j=\frac{4\pi A_j}{L_j^2},\qquad
+ \widehat G_j=\frac{1}{|N_j|}\sum_{k\in N_j}
+          |\widehat W_j-\widehat W_k|.
+\]
+The current combined badness, with fixed reference weight
+$\overline W=5986/100=59.86$, is
+\[
+ B_j=1-C_j+\frac{\widehat G_j}{59.86}.
+\]
+Lower badness is better. This puts circularity loss and normalized weight gap
+on a common dimensionless scale, with equal coefficients. Existing movement
+choices seek circularity improvement or modeled-gap improvement, selected with
+equal probability, and use the moving cell's combined grade for acceptance.
+New neighbors are allowed in this later experiment.
+
+The current selection rule samples with replacement, with probability
+$B_j/\sum_k B_k$ after refreshing the selection grades; use uniform selection
+if all badness values vanish. A batch comprises 100 selections, so it may select
+some centers repeatedly and omit others. This differs from the earlier rounds
+of random permutations, which gave every center exactly one turn.
+
+\subsection{User-proposed merge trigger}
+For a selected cell $i$, choose a lightest neighbor
+\[
+ j_*\in\operatorname*{arg\,min}_{j\in N_i} W_j,\qquad
+ T_i=\operatorname{median}\{W_k:k\in\{i\}\cup N_i\}.
+\]
+The proposed trigger is the strict inequality
+\[
+ \boxed{W_i+W_{j_*}<T_i.}
+\]
+The median includes $i$ and all its neighbors, and averages the two middle
+values when their number is even. Equality does not trigger a merge. Here $W$
+denotes the current weight state used to make this decision, consistent with
+the density-based model above; a separate rule for refreshing that state during
+a multi-stage relocation still needs to be fixed.
+
+When triggered, the user's proposal is to combine these two cells into one,
+keep one center active, and mark the other as a \emph{free center}. The free
+center does not generate a Voronoi cell while migrating. Which center survives,
+and whether the surviving center moves during merging, remain undecided.
+A deterministic tie convention is also needed for equally light neighbors.
+
+\paragraph{Geometric issue that must be settled before implementation.}
+The exact union of two adjacent Voronoi cells is generally not itself a cell
+of an ordinary Euclidean Voronoi diagram; it may even be nonconvex. Simply
+deleting one site can give portions of its old region to several surviving
+neighbors, not exclusively to $j_*$. Thus there are two distinct possibilities:
+retain ordinary Voronoi geometry and interpret the merge as site deletion with
+local redistribution, or require an exact two-cell union and introduce a
+representation that can retain it. Neither choice has been adopted here.
+The implementation must not silently equate deletion with an exact merge.
+
+\subsection{User-proposed migration to a local maximum}
+Associate the free center with a host cell and repeatedly route it to the
+host's heaviest neighbor, until it reaches a local maximum in weight. This is
+a discrete routing operation; it need not move an active site or change any
+cell boundary during the route.
+
+A proposed precise convention is to move from host $h$ to a heaviest neighbor
+only when that neighbor has strictly greater weight than $h$, stopping when
+\[
+ W_h\geq \max_{k\in N_h}W_k.
+\]
+With fixed weights and adjacency, every hop then strictly increases weight,
+so a finite graph cannot contain a routing cycle. This guarantee does not
+apply if weights or adjacency change while routing. The initial host, whether
+to freeze the routing state, tie handling, and treatment of equal-weight
+plateaus must be agreed. Routing several free centers concurrently would also
+require a conflict rule; sequential processing is a possible implementation,
+not an adopted requirement.
+
+\subsection{Proposed local optimization of the split}
+At the destination cell $h$, reactivate the free center. The existing center
+and the free center become two distinct sites $p,q$ generating the two child
+cells. Keep all other site positions fixed while optimizing these four scalar
+coordinates jointly. Optimizing only the new site's position would leave out
+half of the requested placement problem.
+
+A candidate initialization is a small symmetric separation around the old
+center, trying several directions, including the destination cell's longest
+direction. Both sites must remain distinct and inside $P$. Separation size,
+clearance, direction sampling, and handling of a center close to the boundary
+are still numerical design choices. Symmetric placement is an initialization
+proposal, not a constraint on the optimized pair.
+
+\paragraph{Candidate local objective, not yet adopted.}
+Let $\mathcal S$ include the two children and the neighboring cells whose
+grades are to be protected. One proposed objective is
+\[
+ \Phi(p,q)=\sum_{j\in\mathcal S}
+ \left(1-C_j(p,q)+\frac{\widehat G_j(p,q)}{59.86}\right).
+\]
+Minimizing this sum allows a loss in one component when the improvement in the
+other is larger on the agreed scale. Including neighbors extends acceptance
+beyond the previous moving-cell-only rule and therefore requires explicit
+agreement. All neighbors needed to evaluate each $\widehat G_j$ must be
+included in the evaluation data, even when their sites remain fixed. Fixed
+sites can still have changing cell areas and grades.
+
+The affected neighborhood must be defined consistently when topology changes:
+either optimize within a fixed local scope with appropriate event restrictions,
+or expand and re-evaluate the scope when another cell becomes affected. It is
+not valid to compare objective sums over different sets without accounting for
+the added terms. This locality convention remains open.
+
+\paragraph{Candidate conservative density model for the split.}
+The existing formula $\widehat W_j=\rho_j A_j$ attaches density to a cell's
+identity. Merging and creating identities make its extension ambiguous; it
+also does not generally conserve the total modeled weight when adjacent
+cells with different densities exchange area. A proposed alternative for this
+operation freezes a \emph{spatial} density field on the pre-operation regions:
+\[
+ \rho_0(x)=\rho_k\quad(x\in V_k^0),\qquad
+ \widehat W_j(p,q)=\int_{V_j(p,q)}\rho_0(x)\,dx
+   =\sum_k\rho_k\,|V_j(p,q)\cap V_k^0|.
+\]
+This conserves modeled total weight when the candidate regions partition $P$.
+It uses geometry and frozen densities rather than post-move pickup counts.
+It is a proposed model change, not a description of the implemented
+$\rho_j A_j$ rule. Whether to freeze the field before merging or only before
+splitting, and whether to use it for later ordinary moves, must be decided.
+
+\paragraph{Numerical optimization.}
+Once the objective, density model, and scope are fixed, use joint numerical
+gradients and a decreasing-step search, accepting only feasible decreases in
+$\Phi$. Absolute weight gaps and Voronoi topology changes make the objective
+potentially nonsmooth, so a gradient alone does not establish improvement;
+evaluate the candidate objective explicitly, without recounting pickups for
+acceptance. Multiple initial split directions can reduce sensitivity to one
+starting arrangement. This is a local optimization proposal, with no claim of
+a global optimum or convergence of the full merge--migrate--split process.
+Search tolerances and stopping conditions have not yet been specified.
+
+\subsection{Restart point, safeguards, and decision status}
+The intended comparison starts again from the saved end-of-round-59 state,
+before badness-weighted selection began. Preserve that checkpoint and all
+later runs, figures, and documents; do not overwrite them or label a later
+state as the restart. No restart or simulation change is performed by this
+document update.
+
+A completed merge-and-split transaction removes one active site and restores
+one, returning to 100 active centers. There would be 99 during the inactive
+interval unless the entire operation is committed atomically. Choose that
+policy explicitly and preserve the pre-operation state if the split fails.
+Validate distinct in-region sites, complete nonoverlapping coverage, positive
+cell areas, weight accounting, and the selected geometric representation.
+
+Before implementation, settle: exact union versus Voronoi deletion; surviving
+center and initial routing host; weight refresh and routing ties; sequential
+versus concurrent free centers; the split density model; the local objective
+and affected scope; and numerical search/rollback rules. The merge trigger and
+migration idea above record the user's proposed addition. The remaining
+choices are documented alternatives, not silently agreed rules or tested
+results.

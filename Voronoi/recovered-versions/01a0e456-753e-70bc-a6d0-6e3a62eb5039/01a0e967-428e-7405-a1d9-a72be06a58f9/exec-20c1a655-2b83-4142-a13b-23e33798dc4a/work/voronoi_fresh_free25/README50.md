@@ -1,0 +1,7 @@
+# Continuation of fresh unrestricted-neighbor Voronoi trial: rounds26–50
+
+Exact continuation of the saved fresh-start run at completed round25. No reinitialization or RNG reset. Existing movement and local-density formulas unchanged; new neighbors allowed, region and forward-ray collision caps retained. Every new round uses a fresh uniformly random permutation of all100 sites.25 additional rounds =2500 additional center activations; total50 rounds =5000 activations.
+
+Data, initialization and code provenance remain as in README.md and manifest.json. Checkpoints0–50 and complete step logs are in outputs/voronoi_fresh_free25. Continuation figures and summary are in outputs/voronoi_fresh_free50. Summary initial means round25, original_initial means regular-lattice round0, final means round50. Step statistics in this continuation summary cover rounds26–50 only. Verification covers all51 checkpoints,5000 transitions,50 permutations and independent all-pair adjacency at rounds0,25,50.
+
+Run verify50.py and render50.py to reproduce audits/figures. To reproduce the continuation, use a separate copy, set latest.json to checkpoint_25.json and trim steps.jsonl to rounds<=25, remove partial.json if present, then run `python3 work/voronoi_fresh_free25/run.py run --until 50`. Do not overwrite the delivered copy. Stop behavior and numerical tolerances are unchanged. Completion at50 is not convergence; additional rounds require new authorization.

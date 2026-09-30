@@ -1,0 +1,2642 @@
+[
+  {
+    "file": "notes/local/Users/udi/Grassroots/LBM/main.tex",
+    "source": "/Users/udi/Grassroots/LBM/main.tex",
+    "run": "See source chat/date in original path; no inferred round",
+    "status": "byte-for-byte local copy",
+    "record": "",
+    "bytes": 78445,
+    "sha256": "7bf2b014d20eff6bccf7059fe89a62b97a566e0c946bee905f2f5f61b879adce",
+    "run_directory_or_context": "See source chat/date in original path; no inferred round"
+  },
+  {
+    "file": "notes/local/Users/udi/Grassroots/LBM/CLAUDE.md",
+    "source": "/Users/udi/Grassroots/LBM/CLAUDE.md",
+    "run": "See source chat/date in original path; no inferred round",
+    "status": "byte-for-byte local copy",
+    "record": "",
+    "bytes": 375,
+    "sha256": "6e17ff55f1efd03fd8ba98c3afb13eebba3a1339dd6804119d15f3f7d176e312",
+    "run_directory_or_context": "See source chat/date in original path; no inferred round"
+  },
+  {
+    "file": "notes/local/Users/udi/Documents/Codex/2026-09-26/i-want-to-try-a-different/outputs/local_mesh_balancing.tex",
+    "source": "/Users/udi/Documents/Codex/2026-09-26/i-want-to-try-a-different/outputs/local_mesh_balancing.tex",
+    "run": "See source chat/date in original path; no inferred round",
+    "status": "byte-for-byte local copy",
+    "record": "",
+    "bytes": 15825,
+    "sha256": "e6eaf03e303f222adc51e2497807229e963aef57f3012c92f9700ff8d1cc3a1b",
+    "run_directory_or_context": "See source chat/date in original path; no inferred round"
+  },
+  {
+    "file": "Median100/local/Users/udi/Documents/Codex/2026-09-27/do-you-have-access-to-the/outputs/compact-hexagons-original-outline.svg",
+    "source": "/Users/udi/Documents/Codex/2026-09-27/do-you-have-access-to-the/outputs/compact-hexagons-original-outline.svg",
+    "run": "See source chat/date in original path; no inferred round",
+    "status": "byte-for-byte local copy",
+    "record": "",
+    "bytes": 12357,
+    "sha256": "bb4621c5dae06f6c81ab91e484e98efaf185ae9a38c158748a16cdcb2cb24327",
+    "run_directory_or_context": "See source chat/date in original path; no inferred round"
+  },
+  {
+    "file": "Shared_Inputs/local/Users/udi/Documents/Codex/2026-09-27/do-you-have-access-to-the/outputs/manhattan-verified-boundary.svg",
+    "source": "/Users/udi/Documents/Codex/2026-09-27/do-you-have-access-to-the/outputs/manhattan-verified-boundary.svg",
+    "run": "See source chat/date in original path; no inferred round",
+    "status": "byte-for-byte local copy",
+    "record": "",
+    "bytes": 15558,
+    "sha256": "dd1f1207973a837fe7de80e354ee882bc8e2d16ec1e35d49ccb56d0c4cf6fb3e",
+    "run_directory_or_context": "See source chat/date in original path; no inferred round"
+  },
+  {
+    "file": "Median100/local/Users/udi/Documents/Codex/2026-09-27/do-you-have-access-to-the/outputs/manhattan-median-termination.json",
+    "source": "/Users/udi/Documents/Codex/2026-09-27/do-you-have-access-to-the/outputs/manhattan-median-termination.json",
+    "run": "See source chat/date in original path; no inferred round",
+    "status": "byte-for-byte local copy",
+    "record": "",
+    "bytes": 30911,
+    "sha256": "2a93dfe9f2102988c47fcaf156694d9419d0aeb6228a6b30ee321f135befd7e3",
+    "run_directory_or_context": "See source chat/date in original path; no inferred round"
+  },
+  {
+    "file": "notes/local/Users/udi/Documents/Codex/2026-09-27/do-you-have-access-to-the/outputs/hexagon_simulation_protocol.tex",
+    "source": "/Users/udi/Documents/Codex/2026-09-27/do-you-have-access-to-the/outputs/hexagon_simulation_protocol.tex",
+    "run": "See source chat/date in original path; no inferred round",
+    "status": "byte-for-byte local copy",
+    "record": "",
+    "bytes": 4636,
+    "sha256": "b5d3896695689d849f8c148bd2c325eb9d94d2e8ce811cb92e0a8f16a5fbf2b2",
+    "run_directory_or_context": "See source chat/date in original path; no inferred round"
+  },
+  {
+    "file": "Median100/local/Users/udi/Documents/Codex/2026-09-27/do-you-have-access-to-the/outputs/manhattan-median-termination.svg",
+    "source": "/Users/udi/Documents/Codex/2026-09-27/do-you-have-access-to-the/outputs/manhattan-median-termination.svg",
+    "run": "See source chat/date in original path; no inferred round",
+    "status": "byte-for-byte local copy",
+    "record": "",
+    "bytes": 37110,
+    "sha256": "9f8c7d2e883d3f04bfc79a29f72b55ad345fad2c6dd462d045e07e3519a6ca2c",
+    "run_directory_or_context": "See source chat/date in original path; no inferred round"
+  },
+  {
+    "file": "notes/local/Users/udi/Documents/Codex/2026-09-27/mo/outputs/CHATGPT.md",
+    "source": "/Users/udi/Documents/Codex/2026-09-27/mo/outputs/CHATGPT.md",
+    "run": "See source chat/date in original path; no inferred round",
+    "status": "byte-for-byte local copy",
+    "record": "",
+    "bytes": 6701,
+    "sha256": "296d9abab8037080a37e1a30d7d75d9a4c24e039a0f0fae1611f340499c72d5d",
+    "run_directory_or_context": "See source chat/date in original path; no inferred round"
+  },
+  {
+    "file": "notes/local/Users/udi/Documents/Codex/2026-09-28/assume-a-finite-set-of-dots/outputs/local-voronoi-balancing.tex",
+    "source": "/Users/udi/Documents/Codex/2026-09-28/assume-a-finite-set-of-dots/outputs/local-voronoi-balancing.tex",
+    "run": "See source chat/date in original path; no inferred round",
+    "status": "byte-for-byte local copy",
+    "record": "",
+    "bytes": 4326,
+    "sha256": "acb2180cc432e606bf9855ae593bc2e716377e73057d78a7a4dba13d0e9ac29f",
+    "run_directory_or_context": "See source chat/date in original path; no inferred round"
+  },
+  {
+    "file": "notes/local/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2/outputs/voronoi_balance_step_update.tex",
+    "source": "/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2/outputs/voronoi_balance_step_update.tex",
+    "run": "See source chat/date in original path; no inferred round",
+    "status": "byte-for-byte local copy",
+    "record": "",
+    "bytes": 8276,
+    "sha256": "b961952b7cea7bcb165be8f37799b8410af2a4e332daa99190fa04b481e9b8fe",
+    "run_directory_or_context": "See source chat/date in original path; no inferred round"
+  },
+  {
+    "file": "notes/local/Users/udi/.codex/attachments/6fd4df2b-3d0a-4463-b95e-e1cd32808847/Pasted text.txt",
+    "source": "/Users/udi/.codex/attachments/6fd4df2b-3d0a-4463-b95e-e1cd32808847/Pasted text.txt",
+    "run": "See source chat/date in original path; no inferred round",
+    "status": "byte-for-byte local copy",
+    "record": "",
+    "bytes": 78444,
+    "sha256": "a44e28d065def06bd3f0316ccd8676bcbdc3a536d78f35a1e914540b53037fa7",
+    "run_directory_or_context": "See source chat/date in original path; no inferred round"
+  },
+  {
+    "file": "Neighbor_Annealing/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddec-7cac-704d-99a7-913e32754af3/exec-9a344541-e420-41f0-b0ac-e72ceb0b63e0/work/Original_Local_Annealing/test_neighbor_annealing.py",
+    "source": "work/Original_Local_Annealing/test_neighbor_annealing.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddec-7cac-704d-99a7-913e32754af3",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 6818,
+    "sha256": "c264f728a9925908e177661336ca1d1929ab7df7cceef7eceb8e755af73bef89",
+    "run_directory_or_context": "Original_Local_Annealing (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Nearest_Fallback/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddec-7cac-704d-99a7-913e32754af3/exec-85f4fd54-40e1-497e-944d-1bb55ba6ee88/workspace/scratch/68801b37c672/work/Nearest_Fallback/simulate.py",
+    "source": "/workspace/scratch/68801b37c672/work/Nearest_Fallback/simulate.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddec-7cac-704d-99a7-913e32754af3",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 9359,
+    "sha256": "597dd3652789544189cdb23ef43ba7b768a4593d16d450841ca4fdd9f2f8e361",
+    "run_directory_or_context": "Nearest_Fallback (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Nearest_Fallback/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddec-7cac-704d-99a7-913e32754af3/exec-c43057f5-7905-43af-82dc-c31cce9f3852/workspace/scratch/68801b37c672/work/Nearest_Fallback/README.md",
+    "source": "/workspace/scratch/68801b37c672/work/Nearest_Fallback/README.md",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddec-7cac-704d-99a7-913e32754af3",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 5342,
+    "sha256": "6c38f074f21b835f8c676d405ce1e39ae574ea03e78d4d24da73ee52cd1078a7",
+    "run_directory_or_context": "Nearest_Fallback (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Nearest_Fallback/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddec-7cac-704d-99a7-913e32754af3/exec-c43057f5-7905-43af-82dc-c31cce9f3852/workspace/scratch/68801b37c672/work/Nearest_Fallback/requirements.txt",
+    "source": "/workspace/scratch/68801b37c672/work/Nearest_Fallback/requirements.txt",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddec-7cac-704d-99a7-913e32754af3",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 12,
+    "sha256": "1978c5330a34a48fac00c1107de3949b8c8da3bd11517f59ca9b4510363c6c8a",
+    "run_directory_or_context": "Nearest_Fallback (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Nearest_Fallback/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddec-7cac-704d-99a7-913e32754af3/exec-c43057f5-7905-43af-82dc-c31cce9f3852/workspace/scratch/68801b37c672/work/Nearest_Fallback/verify_results.py",
+    "source": "/workspace/scratch/68801b37c672/work/Nearest_Fallback/verify_results.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddec-7cac-704d-99a7-913e32754af3",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 1302,
+    "sha256": "e1ee29537557ac3b1eca09efd4676de5e84397f5c34078e0e48f5af9e68cde8a",
+    "run_directory_or_context": "Nearest_Fallback (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Driver_Disks_Cap6/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddbc-c46d-751e-b563-02e4732055f2/exec-6f75e5ee-3c46-4cb6-a429-950a06589159/work/Ride_Allocation/test_local_rule.py",
+    "source": "work/Ride_Allocation/test_local_rule.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddbc-c46d-751e-b563-02e4732055f2",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 6324,
+    "sha256": "0408d0ffdf176112666fcaa077bf563c880a18c954dcb05697e1be1e961d693a",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Driver_Disks_Cap6/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddbc-c46d-751e-b563-02e4732055f2/exec-6716530d-15ea-4a0d-be1e-2164aa448294/work/Ride_Allocation/LOCAL_RULE.md",
+    "source": "work/Ride_Allocation/LOCAL_RULE.md",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddbc-c46d-751e-b563-02e4732055f2",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 1804,
+    "sha256": "c197007c440d42d60ee0cd410d908b528ea61f85cd0f072acacdd1a1e29df66b",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Ride_Allocation/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddbc-c46d-751e-b563-02e4732055f2/exec-08861e7e-83c2-4dbb-b1fe-4015f42b3b44/workspace/scratch/68801b37c672/work/Ride_Allocation/NEIGHBOR_ANNEALING_RULE.md",
+    "source": "/workspace/scratch/68801b37c672/work/Ride_Allocation/NEIGHBOR_ANNEALING_RULE.md",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddbc-c46d-751e-b563-02e4732055f2",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 2682,
+    "sha256": "f3b561615e80ded423afddfa20060762221a306b8b12fd0107380fa333079c11",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Ride_Allocation/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddbc-c46d-751e-b563-02e4732055f2/exec-08861e7e-83c2-4dbb-b1fe-4015f42b3b44/workspace/scratch/68801b37c672/work/Ride_Allocation/test_neighbor_annealing.py",
+    "source": "/workspace/scratch/68801b37c672/work/Ride_Allocation/test_neighbor_annealing.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddbc-c46d-751e-b563-02e4732055f2",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 6818,
+    "sha256": "c264f728a9925908e177661336ca1d1929ab7df7cceef7eceb8e755af73bef89",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Original_Local_Annealing/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddbc-c46d-751e-b563-02e4732055f2/exec-9f45027f-2228-4127-bf99-d829b98bdc46/work/Original_Local_Annealing/requirements.txt",
+    "source": "work/Original_Local_Annealing/requirements.txt",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddbc-c46d-751e-b563-02e4732055f2",
+    "status": "literal write content statically recovered from successful command",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 23,
+    "sha256": "e13491531df6eeb59d6420ef04d4b5651adec77439da3bccd7409e90f0988035",
+    "run_directory_or_context": "Original_Local_Annealing (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Original_Local_Annealing/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddbc-c46d-751e-b563-02e4732055f2/exec-0d0d62cd-4947-4af7-9f76-97cc5c5aac00/workspace/scratch/68801b37c672/work/Original_Local_Annealing/README.md",
+    "source": "/workspace/scratch/68801b37c672/work/Original_Local_Annealing/README.md",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddbc-c46d-751e-b563-02e4732055f2",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 4963,
+    "sha256": "446a4863422aa085b826861c1a61615f0634b58cf3e75e39ed2d165bf31b72dd",
+    "run_directory_or_context": "Original_Local_Annealing (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Original_Local_Annealing/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddbc-c46d-751e-b563-02e4732055f2/exec-0d0d62cd-4947-4af7-9f76-97cc5c5aac00/workspace/scratch/68801b37c672/work/Original_Local_Annealing/plot_results.py",
+    "source": "/workspace/scratch/68801b37c672/work/Original_Local_Annealing/plot_results.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddbc-c46d-751e-b563-02e4732055f2",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 1406,
+    "sha256": "2aa33a9163066ecbda39d9b940445cb93eb108dd363a8983cb83a419d642fc83",
+    "run_directory_or_context": "Original_Local_Annealing (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Original_Local_Annealing/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddbc-c46d-751e-b563-02e4732055f2/exec-0d0d62cd-4947-4af7-9f76-97cc5c5aac00/workspace/scratch/68801b37c672/work/Original_Local_Annealing/verify_results.py",
+    "source": "/workspace/scratch/68801b37c672/work/Original_Local_Annealing/verify_results.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddbc-c46d-751e-b563-02e4732055f2",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 1428,
+    "sha256": "967579419d16f75f554b9f7323ad4e93d140cbd8a296fb791e0a545e03b730ca",
+    "run_directory_or_context": "Original_Local_Annealing (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Driver_Disks_Cap6/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddb7-358f-7743-bc53-3f18c1dd0f93/exec-ef8fed22-1ab6-4111-84ec-6f1c899cdf68/workspace/scratch/68801b37c672/work/Ride_Allocation/LOCAL_RULE.md",
+    "source": "/workspace/scratch/68801b37c672/work/Ride_Allocation/LOCAL_RULE.md",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddb7-358f-7743-bc53-3f18c1dd0f93",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 1804,
+    "sha256": "c197007c440d42d60ee0cd410d908b528ea61f85cd0f072acacdd1a1e29df66b",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Driver_Disks_Cap6/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddb7-358f-7743-bc53-3f18c1dd0f93/exec-ef8fed22-1ab6-4111-84ec-6f1c899cdf68/workspace/scratch/68801b37c672/work/Ride_Allocation/test_local_rule.py",
+    "source": "/workspace/scratch/68801b37c672/work/Ride_Allocation/test_local_rule.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddb7-358f-7743-bc53-3f18c1dd0f93",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 5897,
+    "sha256": "8b69a2197fe793a4a1e41517eb67de1bb157df0ef28cddef48dd5dc4ffaac783",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Driver_Disks_Cap6/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddb7-358f-7743-bc53-3f18c1dd0f93/exec-6183ff1d-8d4a-49f6-b11e-855af57c1a80/workspace/scratch/68801b37c672/work/Ride_Allocation/test_local_rule.py.patch",
+    "source": "/workspace/scratch/68801b37c672/work/Ride_Allocation/test_local_rule.py.patch",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddb7-358f-7743-bc53-3f18c1dd0f93",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 831,
+    "sha256": "3f76f99d950f90c6e8703e5b66d5ce442f528eea6f80607d450badedf9b98c71",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Ride_Allocation/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddb7-358f-7743-bc53-3f18c1dd0f93/exec-bf326d28-1e71-4c99-ae63-f2d31e5f4e8b/work/Ride_Allocation/pareto_original_setup.json",
+    "source": "work/Ride_Allocation/pareto_original_setup.json",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddb7-358f-7743-bc53-3f18c1dd0f93",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 1092,
+    "sha256": "73e94beae0147265dc251579b3ba875cedc86fd9baaf3777de321218b2a0ab7b",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Disks_100_Quiescence/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddb7-358f-7743-bc53-3f18c1dd0f93/exec-e88086a5-477f-43b7-9aba-b1c8173dc39c/work/Disks_100_Quiescence/quiescence_result.json",
+    "source": "work/Disks_100_Quiescence/quiescence_result.json",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0ddb7-358f-7743-bc53-3f18c1dd0f93",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/circle_covering_cloud_001.json",
+    "bytes": 573,
+    "sha256": "7fdde018057137fc37ded99896f57c06f7bd2cced142c72f09a8460704f66022",
+    "run_directory_or_context": "Disks_100_Quiescence (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Driver_Disks_Connected/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dda9-0f01-7234-b67a-b7427b3da83b/exec-6edca0d6-24ec-4b9d-b61a-8f608eebe8b8/workspace/scratch/68801b37c672/work/Ride_Allocation/test_connected_unbounded.py",
+    "source": "/workspace/scratch/68801b37c672/work/Ride_Allocation/test_connected_unbounded.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dda9-0f01-7234-b67a-b7427b3da83b",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_002.json",
+    "bytes": 6030,
+    "sha256": "0d5f2295d211ddc5363f7ab197a0d9c74cfdd3324d674cc7182065cd2b69fd9c",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Ride_Allocation/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dda9-0f01-7234-b67a-b7427b3da83b/exec-1f3a2b3a-73b3-4526-89de-69ab55db0cca/work/Ride_Allocation/unbounded_from_stall.log",
+    "source": "work/Ride_Allocation/unbounded_from_stall.log",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dda9-0f01-7234-b67a-b7427b3da83b",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/circle_covering_cloud_002.json",
+    "bytes": 1952,
+    "sha256": "aaa1aa24cf736f62928a2f9992bb11e46d8cfe1164ae9e9cb23549d21d438e67",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Ride_Allocation/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dda9-0f01-7234-b67a-b7427b3da83b/exec-b9602b07-751c-47ae-bc5e-87472bd07d44/workspace/scratch/68801b37c672/work/Ride_Allocation/README.md",
+    "source": "/workspace/scratch/68801b37c672/work/Ride_Allocation/README.md",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dda9-0f01-7234-b67a-b7427b3da83b",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_002.json",
+    "bytes": 7508,
+    "sha256": "2788c1d6cfb7ca4e406b940265194cad2ab47c7d9882271ffcbc39aadf23133f",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Ride_Allocation/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dda9-0f01-7234-b67a-b7427b3da83b/exec-b9602b07-751c-47ae-bc5e-87472bd07d44/workspace/scratch/68801b37c672/work/Ride_Allocation/plot_unbounded.py",
+    "source": "/workspace/scratch/68801b37c672/work/Ride_Allocation/plot_unbounded.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dda9-0f01-7234-b67a-b7427b3da83b",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_002.json",
+    "bytes": 1775,
+    "sha256": "9ae97cafdf0715a206e939d4bf0552c213927306294ae61d9d39fdda243d8f36",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Disks_100_Quiescence/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd95-1d5e-700d-bd56-5c608c0cb077/exec-dd343430-b881-489e-a8af-0388e3c029f6/work/Disks_100_Quiescence/disk_local.py",
+    "source": "work/Disks_100_Quiescence/disk_local.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd95-1d5e-700d-bd56-5c608c0cb077",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/circle_covering_cloud_003.json",
+    "bytes": 5931,
+    "sha256": "c66c6459bc15300bdc45624398fa9086f65f3de567d7d2a2b773af50d502fe26",
+    "run_directory_or_context": "Disks_100_Quiescence (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Disks_100_Quiescence/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd95-1d5e-700d-bd56-5c608c0cb077/exec-8f8b3411-aa3d-48b7-ac08-4b1b6306aa2b/work/Disks_100_Quiescence/run_quiescence.py",
+    "source": "work/Disks_100_Quiescence/run_quiescence.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd95-1d5e-700d-bd56-5c608c0cb077",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/circle_covering_cloud_003.json",
+    "bytes": 4230,
+    "sha256": "fecef122df258fd6a099665f30a5a799851cc65900afe937adc0b351c83ca9cf",
+    "run_directory_or_context": "Disks_100_Quiescence (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Ride_Allocation/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd95-1d5e-700d-bd56-5c608c0cb077/exec-a708947c-5d24-4e3d-95e8-a3c6a3df5730/workspace/scratch/68801b37c672/work/Ride_Allocation/prepare.py",
+    "source": "/workspace/scratch/68801b37c672/work/Ride_Allocation/prepare.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd95-1d5e-700d-bd56-5c608c0cb077",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_003.json",
+    "bytes": 3328,
+    "sha256": "4312f4a8427243574f99d867aa4842783aaebcf319247367bf8a40eb8c83f778",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Ride_Allocation/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd95-1d5e-700d-bd56-5c608c0cb077/exec-a708947c-5d24-4e3d-95e8-a3c6a3df5730/workspace/scratch/68801b37c672/work/Ride_Allocation/simulation.py",
+    "source": "/workspace/scratch/68801b37c672/work/Ride_Allocation/simulation.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd95-1d5e-700d-bd56-5c608c0cb077",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_003.json",
+    "bytes": 3098,
+    "sha256": "bfbe3ba32c44c8ee23feb55229f287d317b5b5a58a8225efd3d259de35793c5a",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Driver_Disks_Cap6/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd95-1d5e-700d-bd56-5c608c0cb077/exec-90e461c9-dfbb-4fe7-a2a2-2889a4b6f85d/workspace/scratch/68801b37c672/work/Ride_Allocation/disks.py",
+    "source": "/workspace/scratch/68801b37c672/work/Ride_Allocation/disks.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd95-1d5e-700d-bd56-5c608c0cb077",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_003.json",
+    "bytes": 7486,
+    "sha256": "32d9b7f44d84efde063ae47f83d8e8439bf2611d9626b5c0359a309426c0f287",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Ride_Allocation/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd95-1d5e-700d-bd56-5c608c0cb077/exec-d253b705-7011-4673-a900-6f69685cc734/workspace/scratch/68801b37c672/work/Ride_Allocation/retrieve.py",
+    "source": "/workspace/scratch/68801b37c672/work/Ride_Allocation/retrieve.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd95-1d5e-700d-bd56-5c608c0cb077",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_003.json",
+    "bytes": 980,
+    "sha256": "868fd9ccfcaf54ca57b6c6d08cfc78733c827848198caadf6e8735acd809b986",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Ride_Allocation/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd95-1d5e-700d-bd56-5c608c0cb077/exec-d253b705-7011-4673-a900-6f69685cc734/workspace/scratch/68801b37c672/work/Ride_Allocation/run_local.py",
+    "source": "/workspace/scratch/68801b37c672/work/Ride_Allocation/run_local.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd95-1d5e-700d-bd56-5c608c0cb077",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_003.json",
+    "bytes": 1896,
+    "sha256": "db474b13879b6db8495eadbc02d05572cf9f64051b33c0f8c15b328d641882b1",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Driver_Disks_Cap6/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd95-1d5e-700d-bd56-5c608c0cb077/exec-02ee03bf-fc56-4acb-ad51-2c9ee7a28c45/workspace/scratch/68801b37c672/work/Ride_Allocation/disks.py.patch",
+    "source": "/workspace/scratch/68801b37c672/work/Ride_Allocation/disks.py.patch",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd95-1d5e-700d-bd56-5c608c0cb077",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/circle_covering_cloud_003.json",
+    "bytes": 2567,
+    "sha256": "e64f3c46d1fab151c7a4ca9fa3a91fda362e9843f1a53c7b21f573e36d568f2c",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Ride_Allocation/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd95-1d5e-700d-bd56-5c608c0cb077/exec-1a00bdbd-a092-41b0-ac50-bf30befdb9e3/workspace/scratch/68801b37c672/work/Ride_Allocation/balance_initial.py",
+    "source": "/workspace/scratch/68801b37c672/work/Ride_Allocation/balance_initial.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd95-1d5e-700d-bd56-5c608c0cb077",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_003.json",
+    "bytes": 528,
+    "sha256": "9ca30235400920f34b3b6bac944ff2572c0de8373206576362bf288bbc73e1c8",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Driver_Disks_Cap6/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd95-1d5e-700d-bd56-5c608c0cb077/exec-1a00bdbd-a092-41b0-ac50-bf30befdb9e3/workspace/scratch/68801b37c672/work/Ride_Allocation/disks.py.patch",
+    "source": "/workspace/scratch/68801b37c672/work/Ride_Allocation/disks.py.patch",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd95-1d5e-700d-bd56-5c608c0cb077",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/circle_covering_cloud_003.json",
+    "bytes": 740,
+    "sha256": "0a8e07ff520703a3b6968d2b8b66fd4c4fa87d49386c7e2e1348404a8dd4c6e6",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Driver_Disks_Cap6/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd95-1d5e-700d-bd56-5c608c0cb077/exec-06f6e2ff-f780-48f1-93b2-06a756f6cfa8/workspace/scratch/68801b37c672/work/Ride_Allocation/disks.py.patch",
+    "source": "/workspace/scratch/68801b37c672/work/Ride_Allocation/disks.py.patch",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd95-1d5e-700d-bd56-5c608c0cb077",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/circle_covering_cloud_003.json",
+    "bytes": 1868,
+    "sha256": "97139044577f98cf9ef399700ea95792cfd3794c1b2b555bd97c681278fa5f91",
+    "run_directory_or_context": "Ride_Allocation (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Shared_Inputs/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd64-4c32-7201-8601-c5d0ef34c52e/exec-cb77347a-59c4-4978-b604-d20c2003e376/workspace/scratch/68801b37c672/work/Full_Rides/match_and_clean.py",
+    "source": "/workspace/scratch/68801b37c672/work/Full_Rides/match_and_clean.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd64-4c32-7201-8601-c5d0ef34c52e",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_004.json",
+    "bytes": 5150,
+    "sha256": "92071ebc0844ed2b385320f6be01d627b4a5ab51f5cbafaec58bf0384937697c",
+    "run_directory_or_context": "Full_Rides (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Shared_Inputs/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd64-4c32-7201-8601-c5d0ef34c52e/exec-c78eec58-6c30-436d-a691-6c7378f08083/workspace/scratch/68801b37c672/work/Full_Rides/match_and_clean.py.patch",
+    "source": "/workspace/scratch/68801b37c672/work/Full_Rides/match_and_clean.py.patch",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd64-4c32-7201-8601-c5d0ef34c52e",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/circle_covering_cloud_004.json",
+    "bytes": 1249,
+    "sha256": "e621b8a649e35412bd181c43cd556a71317277eecdceb4868753aed47e9a2526",
+    "run_directory_or_context": "Full_Rides (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Shared_Inputs/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd5f-7fdc-7544-af94-4a7888cc032a/exec-043234cb-4bb6-46de-846a-57c03e7ae1c5/workspace/scratch/68801b37c672/work/Full_Rides/README.md",
+    "source": "/workspace/scratch/68801b37c672/work/Full_Rides/README.md",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd5f-7fdc-7544-af94-4a7888cc032a",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_004.json",
+    "bytes": 1919,
+    "sha256": "675c93a476cc0cf9080d1fe6277857e9460121869832967209f5e35645b562ec",
+    "run_directory_or_context": "Full_Rides (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Shared_Inputs/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd5f-7fdc-7544-af94-4a7888cc032a/exec-043234cb-4bb6-46de-846a-57c03e7ae1c5/workspace/scratch/68801b37c672/work/Full_Rides/retrieve.py",
+    "source": "/workspace/scratch/68801b37c672/work/Full_Rides/retrieve.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd5f-7fdc-7544-af94-4a7888cc032a",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/circle_covering_cloud_004.json",
+    "bytes": 988,
+    "sha256": "5a24e3d0eb7de71f0e3a77174d4aa958bc1a5988698d4d06eb6d458f0d0e4f8a",
+    "run_directory_or_context": "Full_Rides (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Disks_100_Quiescence/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd5b-1b56-7623-9131-70d98b5abf99/exec-1579aa09-edc1-4f06-96d4-ab00878cbddd/work/Disks_100_Quiescence/run_quiescence.py",
+    "source": "work/Disks_100_Quiescence/run_quiescence.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd5b-1b56-7623-9131-70d98b5abf99",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/circle_covering_cloud_004.json",
+    "bytes": 4230,
+    "sha256": "fecef122df258fd6a099665f30a5a799851cc65900afe937adc0b351c83ca9cf",
+    "run_directory_or_context": "Disks_100_Quiescence (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Disks_100_Quiescence/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd5b-1b56-7623-9131-70d98b5abf99/exec-90997e1f-034f-4229-bb46-3345f8b7253d/work/Disks_100_Quiescence/plot_quiescence.py",
+    "source": "work/Disks_100_Quiescence/plot_quiescence.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd5b-1b56-7623-9131-70d98b5abf99",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/circle_covering_cloud_004.json",
+    "bytes": 1284,
+    "sha256": "b8db0707627be60349a119e8a7acb15bb560d84779d206f1fac2522ec56cba8f",
+    "run_directory_or_context": "Disks_100_Quiescence (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Disks_100_Quiescence/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd5b-1b56-7623-9131-70d98b5abf99/exec-90997e1f-034f-4229-bb46-3345f8b7253d/work/Disks_100_Quiescence/README.md",
+    "source": "work/Disks_100_Quiescence/README.md",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0dd5b-1b56-7623-9131-70d98b5abf99",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/circle_covering_cloud_004.json",
+    "bytes": 3788,
+    "sha256": "2f6adac80ae1dae5f8a31e203a8a050fb040b6c2a20817c66d4ccc14c6512874",
+    "run_directory_or_context": "Disks_100_Quiescence (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Balanced_Disks/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0d893-228b-7371-b261-06280abc0c7f/exec-65833f68-41b6-47f9-9680-12b4779e43bf/work/Disks_100/README.md",
+    "source": "work/Disks_100/README.md",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0d893-228b-7371-b261-06280abc0c7f",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/circle_covering_cloud_006.json",
+    "bytes": 2913,
+    "sha256": "ed22b1b7159d29c9c52855222f7527b1b8343244441a839e767f466238816c82",
+    "run_directory_or_context": "Disks_100 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Balanced_Disks/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0d893-228b-7371-b261-06280abc0c7f/exec-cbc2e217-e070-4ddd-8538-62190dc654a9/work/Disks_100/plot_overlap.py",
+    "source": "work/Disks_100/plot_overlap.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0d893-228b-7371-b261-06280abc0c7f",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/circle_covering_cloud_006.json",
+    "bytes": 1359,
+    "sha256": "eba75bda74c306eec01decc278218fa7832e240cf1178507474116f0670e1b9f",
+    "run_directory_or_context": "Disks_100 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0d870-3d69-72e9-979e-17a350ef8bd1/exec-c2e417bf-8b49-4eec-beee-422cbf766091/work/render_compact_disks.py",
+    "source": "work/render_compact_disks.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0d870-3d69-72e9-979e-17a350ef8bd1",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/circle_covering_cloud_006.json",
+    "bytes": 2141,
+    "sha256": "045a5e7672c935605ba64c27332d0d81b955de7b422f4582916360786ed73bd0",
+    "run_directory_or_context": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0d870-3d69-72e9-979e-17a350ef8bd1"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0d85d-dd57-71e2-b218-2fc50f895921/exec-fdfc231a-1963-40fb-9b81-dff7f5a1155e/work/Manhattan_Taxi_Regions/plot_disks.py",
+    "source": "work/Manhattan_Taxi_Regions/plot_disks.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0d85d-dd57-71e2-b218-2fc50f895921",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/circle_covering_cloud_006.json",
+    "bytes": 2496,
+    "sha256": "13dc4419ead40e545d2cdad56320b4da909240b8c6274431c9af10ac658e2479",
+    "run_directory_or_context": "Manhattan_Taxi_Regions (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0d85d-dd57-71e2-b218-2fc50f895921/exec-3c641b45-c6b4-4965-ad1f-f54f7ed06906/work/build_clean_package.py",
+    "source": "work/build_clean_package.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0d85d-dd57-71e2-b218-2fc50f895921",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/circle_covering_cloud_006.json",
+    "bytes": 1534,
+    "sha256": "d8434f115d0de27df9aa7a722b18cc9dc8dbf1569a25ccbc53c8105d24375629",
+    "run_directory_or_context": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0d85d-dd57-71e2-b218-2fc50f895921"
+  },
+  {
+    "file": "Balanced_Disks/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0d85d-dd57-71e2-b218-2fc50f895921/exec-0c0360b9-9501-4e2d-a66a-3d012d7cab89/work/Balanced_Disks/README.md",
+    "source": "work/Balanced_Disks/README.md",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0d85d-dd57-71e2-b218-2fc50f895921",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/circle_covering_cloud_006.json",
+    "bytes": 3631,
+    "sha256": "006bac7a658dd10612dd0ea8c73f6dceb7fee7fcdb0b0a2b1526b6bfafb03fd9",
+    "run_directory_or_context": "Balanced_Disks (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Balanced_Disks/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0d85d-dd57-71e2-b218-2fc50f895921/exec-0c0360b9-9501-4e2d-a66a-3d012d7cab89/work/Balanced_Disks/verify_results.py",
+    "source": "work/Balanced_Disks/verify_results.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0d85d-dd57-71e2-b218-2fc50f895921",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/circle_covering_cloud_006.json",
+    "bytes": 1261,
+    "sha256": "f0b2a1ec91a86714c390fd903c124ce4f16bfd83056b0b2f1c43f5d535cdb49a",
+    "run_directory_or_context": "Balanced_Disks (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Balanced_Disks/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0d85d-dd57-71e2-b218-2fc50f895921/exec-56a4974b-ff07-494b-b210-414c90bd1803/work/Manhattan_Taxi_Regions/disk_local.py",
+    "source": "work/Manhattan_Taxi_Regions/disk_local.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0d85d-dd57-71e2-b218-2fc50f895921",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/circle_covering_cloud_006.json",
+    "bytes": 4474,
+    "sha256": "3e252a5f9d53b21966b7355d6b1effc7284d28a8d28a2cc951dcc22e24df08f4",
+    "run_directory_or_context": "Manhattan_Taxi_Regions (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Disk_Initialization/recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0d850-e641-76b7-8a63-b46343375d0d/exec-3fbd5752-d2b6-4cd7-9d1f-9993b9bd9749/work/disk_experiment.py",
+    "source": "work/disk_experiment.py",
+    "run": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0d850-e641-76b7-8a63-b46343375d0d",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/circle_covering_cloud_007.json",
+    "bytes": 3692,
+    "sha256": "98d6803083d5690508389fd565a271e4d45ced4e3dafc2ee441ab0d2ca9905fa",
+    "run_directory_or_context": "01a0d84a-91f3-76db-a78d-660b1b92c033; turn 01a0d850-e641-76b7-8a63-b46343375d0d"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e44e-1809-75c3-80e7-f820bd866668/01a0e455-a0b6-7b53-a68c-06dccc5d3efb/exec-8667b20e-1c88-42f3-96ea-5942466bb654/Users/udi/Documents/Codex/2026-09-27/mo/outputs/CHATGPT.md",
+    "source": "/Users/udi/Documents/Codex/2026-09-27/mo/outputs/CHATGPT.md",
+    "run": "01a0e44e-1809-75c3-80e7-f820bd866668; turn 01a0e455-a0b6-7b53-a68c-06dccc5d3efb",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/compact100_local_001.json",
+    "bytes": 6701,
+    "sha256": "296d9abab8037080a37e1a30d7d75d9a4c24e039a0f0fae1611f340499c72d5d",
+    "run_directory_or_context": "01a0e44e-1809-75c3-80e7-f820bd866668; turn 01a0e455-a0b6-7b53-a68c-06dccc5d3efb"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0eea5-3e28-7570-872c-69b22d1f8c0b/01a0ef1e-a340-7e41-8745-bbff6bc6d87f/exec-d9a377ec-793f-4ec9-b4da-ce5ad118f8d9/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2/outputs/local-chat-permissions-repair.toml",
+    "source": "/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2/outputs/local-chat-permissions-repair.toml",
+    "run": "01a0eea5-3e28-7570-872c-69b22d1f8c0b; turn 01a0ef1e-a340-7e41-8745-bbff6bc6d87f",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/current_chat_001.json",
+    "bytes": 1257,
+    "sha256": "00e7cee3ffd3c8cc39452dd799ee5af61c776e0d1b7590be248a425c74b4fae1",
+    "run_directory_or_context": "01a0eea5-3e28-7570-872c-69b22d1f8c0b; turn 01a0ef1e-a340-7e41-8745-bbff6bc6d87f"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0eea5-3e28-7570-872c-69b22d1f8c0b/01a0eeb7-ab9b-7cb0-9ced-9e752bd17037/exec-735e493a-17d7-4e99-842c-eb456e350e43/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2/outputs/voronoi_balance_step_update.tex",
+    "source": "/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2/outputs/voronoi_balance_step_update.tex",
+    "run": "01a0eea5-3e28-7570-872c-69b22d1f8c0b; turn 01a0eeb7-ab9b-7cb0-9ced-9e752bd17037",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/current_chat_002.json",
+    "bytes": 8276,
+    "sha256": "b961952b7cea7bcb165be8f37799b8410af2a4e332daa99190fa04b481e9b8fe",
+    "run_directory_or_context": "01a0eea5-3e28-7570-872c-69b22d1f8c0b; turn 01a0eeb7-ab9b-7cb0-9ced-9e752bd17037"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d83c-657d-7393-8450-ec0c37e47afb/exec-68e47d86-f1b6-433a-9172-7ebea5d8913b/workspace/scratch/289abe85887d/work/atomic_localtemp.js.patch",
+    "source": "/workspace/scratch/289abe85887d/work/atomic_localtemp.js.patch",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d83c-657d-7393-8450-ec0c37e47afb",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 329,
+    "sha256": "44408e35d858990542d0bcf40ca2f0d62c57cfbd1af1b3b34b4251c1bf66ac6c",
+    "run_directory_or_context": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d83c-657d-7393-8450-ec0c37e47afb"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d83c-657d-7393-8450-ec0c37e47afb/exec-ddb1cb61-d98f-4a0d-b59d-3df532d82c8a/workspace/scratch/289abe85887d/work/movable_rim.js.patch",
+    "source": "/workspace/scratch/289abe85887d/work/movable_rim.js.patch",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d83c-657d-7393-8450-ec0c37e47afb",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 350,
+    "sha256": "c4041607491730af2a1540d7df14e6218be64193729f53185c9db73a2304fd9d",
+    "run_directory_or_context": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d83c-657d-7393-8450-ec0c37e47afb"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d83c-657d-7393-8450-ec0c37e47afb/exec-24f0317d-b500-416d-9472-980da1000346/workspace/scratch/289abe85887d/work/inspect_state.js",
+    "source": "/workspace/scratch/289abe85887d/work/inspect_state.js",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d83c-657d-7393-8450-ec0c37e47afb",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 1822,
+    "sha256": "47cc998593dc57424e60497af1922ee079a78b159d1b3cb42edc943b4f168b26",
+    "run_directory_or_context": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d83c-657d-7393-8450-ec0c37e47afb"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d82d-4bbc-7275-8bae-6d983b668455/exec-6b2db9ff-c60b-4da0-a858-7891cefec96a/workspace/scratch/289abe85887d/work/atomic_rule.js.patch",
+    "source": "/workspace/scratch/289abe85887d/work/atomic_rule.js.patch",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d82d-4bbc-7275-8bae-6d983b668455",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 1394,
+    "sha256": "cee2f1a18f3694e265e6023baa0b99569eff1ede2ca2a9d1f20a12cd3862a310",
+    "run_directory_or_context": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d82d-4bbc-7275-8bae-6d983b668455"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d82a-6ab9-7213-89b5-b331b259bd86/exec-8bf4dd83-31f6-424b-a021-ea1abb4a53ae/workspace/scratch/289abe85887d/work/atomic_rule.js.patch",
+    "source": "/workspace/scratch/289abe85887d/work/atomic_rule.js.patch",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d82a-6ab9-7213-89b5-b331b259bd86",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 926,
+    "sha256": "8e99def0004553a20259d94d22ff082625f6b18647fd6b65869c7778fc00fdd1",
+    "run_directory_or_context": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d82a-6ab9-7213-89b5-b331b259bd86"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d823-f5d2-7614-bee7-3b847174b3f3/exec-76b51deb-c0d2-48b6-b719-223132d441e7/workspace/scratch/289abe85887d/work/relax_experiment.js",
+    "source": "/workspace/scratch/289abe85887d/work/relax_experiment.js",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d823-f5d2-7614-bee7-3b847174b3f3",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 2189,
+    "sha256": "fb6cb18570f009f7ab38c05d092ad886a48015f766addd10690b335ef45f612f",
+    "run_directory_or_context": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d823-f5d2-7614-bee7-3b847174b3f3"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d823-f5d2-7614-bee7-3b847174b3f3/exec-62ef7eb7-de94-490f-beac-5e0f91da346c/workspace/scratch/289abe85887d/work/relax_experiment.js.patch",
+    "source": "/workspace/scratch/289abe85887d/work/relax_experiment.js.patch",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d823-f5d2-7614-bee7-3b847174b3f3",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 381,
+    "sha256": "51d7c7241e18081e38af241550f25215c69ee66af86a30eebc53e3cc6f0dc173",
+    "run_directory_or_context": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d823-f5d2-7614-bee7-3b847174b3f3"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d823-f5d2-7614-bee7-3b847174b3f3/exec-96bc2757-8f72-4949-be71-6d478af9282e/workspace/scratch/289abe85887d/work/atomic_rule.js",
+    "source": "/workspace/scratch/289abe85887d/work/atomic_rule.js",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d823-f5d2-7614-bee7-3b847174b3f3",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 3799,
+    "sha256": "001db9b9f64705fe28c7f412f8564c2da7115baa846e2dda89bcad794047c667",
+    "run_directory_or_context": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d823-f5d2-7614-bee7-3b847174b3f3"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d820-245e-7552-8109-4abb888884d2/exec-3f47e620-e2dc-4e7b-8d81-52ee9bfa1481/workspace/scratch/289abe85887d/work/generate_compare.js",
+    "source": "/workspace/scratch/289abe85887d/work/generate_compare.js",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d820-245e-7552-8109-4abb888884d2",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 2894,
+    "sha256": "84d81f4b9a14f81364056286d0d7b56d457c4a2e1c7a0a5b8beeeab0aeb3c5a9",
+    "run_directory_or_context": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d820-245e-7552-8109-4abb888884d2"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d820-245e-7552-8109-4abb888884d2/exec-2132cd35-d59c-43ab-9582-4facf2c0d58c/workspace/scratch/289abe85887d/work/draw_compare.py",
+    "source": "/workspace/scratch/289abe85887d/work/draw_compare.py",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d820-245e-7552-8109-4abb888884d2",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 2007,
+    "sha256": "bd8099007d74d129548480833b8bf7e9601a5d51f018906e662ad8ffc791a927",
+    "run_directory_or_context": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d820-245e-7552-8109-4abb888884d2"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d820-245e-7552-8109-4abb888884d2/exec-0ece6c27-9805-4cde-80ac-30d79546cc3f/workspace/scratch/289abe85887d/work/generate_compare.js.patch",
+    "source": "/workspace/scratch/289abe85887d/work/generate_compare.js.patch",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d820-245e-7552-8109-4abb888884d2",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 225,
+    "sha256": "843cc92f8ede8d4e22786253219c69fa8094411d4d18a89034a2e8a803e99b4c",
+    "run_directory_or_context": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d820-245e-7552-8109-4abb888884d2"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d820-245e-7552-8109-4abb888884d2/exec-cdc96a81-8ea7-463a-a088-6eb49515eb6f/workspace/scratch/289abe85887d/work/draw_compare.py.patch",
+    "source": "/workspace/scratch/289abe85887d/work/draw_compare.py.patch",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d820-245e-7552-8109-4abb888884d2",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 781,
+    "sha256": "bdf671dbbe15692eadfa7723ef216856df230652d458f2f579520b9320b18f1b",
+    "run_directory_or_context": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d820-245e-7552-8109-4abb888884d2"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d81c-33ba-7512-9659-e584ba8e48b7/exec-8d4b5a37-00a9-4829-bbbe-db397c7c837a/work/Manhattan_Taxi_Regions/README.txt",
+    "source": "work/Manhattan_Taxi_Regions/README.txt",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d81c-33ba-7512-9659-e584ba8e48b7",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 1873,
+    "sha256": "b5fad8640825a66ed0318967bcf02e08bddd1e646d3321f55f893be392299e68",
+    "run_directory_or_context": "Manhattan_Taxi_Regions (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d81c-33ba-7512-9659-e584ba8e48b7/exec-300eb773-5646-4252-b31a-18227cab36cd/workspace/scratch/289abe85887d/work/patch_local.py",
+    "source": "/workspace/scratch/289abe85887d/work/patch_local.py",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d81c-33ba-7512-9659-e584ba8e48b7",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 4524,
+    "sha256": "8d9036a0ee19f762e720f3fea0b9b097fc257f2787c014924b4a9fe144eda4de",
+    "run_directory_or_context": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d81c-33ba-7512-9659-e584ba8e48b7"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d81c-33ba-7512-9659-e584ba8e48b7/exec-3c2002d6-81d4-4ce5-bdce-78884f3e4d54/workspace/scratch/289abe85887d/work/test_local.js",
+    "source": "/workspace/scratch/289abe85887d/work/test_local.js",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d81c-33ba-7512-9659-e584ba8e48b7",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 1616,
+    "sha256": "6b484a20d95a1190656b6938555491f481953d67670507d96671663ba41d1a97",
+    "run_directory_or_context": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d81c-33ba-7512-9659-e584ba8e48b7"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d81c-33ba-7512-9659-e584ba8e48b7/exec-07145244-e010-4f3f-908a-3a592700a3bf/workspace/scratch/289abe85887d/work/test_local.js.patch",
+    "source": "/workspace/scratch/289abe85887d/work/test_local.js.patch",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d81c-33ba-7512-9659-e584ba8e48b7",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 545,
+    "sha256": "0babe460e65b88b338fbb57404346fdfc944d45a64d6e309ef453f4c9342a3df",
+    "run_directory_or_context": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d81c-33ba-7512-9659-e584ba8e48b7"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d81c-33ba-7512-9659-e584ba8e48b7/exec-b3ccaee7-cf09-4888-b3b2-74ec3765c003/workspace/scratch/289abe85887d/work/Manhattan_Taxi_Regions/Manhattan_Taxi_Regions.html.patch",
+    "source": "/workspace/scratch/289abe85887d/work/Manhattan_Taxi_Regions/Manhattan_Taxi_Regions.html.patch",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d81c-33ba-7512-9659-e584ba8e48b7",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 1648,
+    "sha256": "b76fd32ed806fc48363aca698a78b393ce341c577fff13add3686db0651e0e25",
+    "run_directory_or_context": "Manhattan_Taxi_Regions (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d808-a970-7238-8525-0804b099e01b/01a0d81c-33ba-7512-9659-e584ba8e48b7/exec-66029bbe-381f-4cba-99c4-57f28eef6459/workspace/scratch/289abe85887d/work/Manhattan_Taxi_Regions/README.txt.patch",
+    "source": "/workspace/scratch/289abe85887d/work/Manhattan_Taxi_Regions/README.txt.patch",
+    "run": "01a0d808-a970-7238-8525-0804b099e01b; turn 01a0d81c-33ba-7512-9659-e584ba8e48b7",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/density_cloud_001.json",
+    "bytes": 880,
+    "sha256": "e6d648bc0fd20b1e2431a2fcef564498659ba2b39d8f41e99c41a98df54c4034",
+    "run_directory_or_context": "Manhattan_Taxi_Regions (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Median100/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e468-160b-7160-bfa8-01fc146c4609/exec-ab55c56e-e687-4bf1-8d17-31dcedc70575/work/median100/anneal.cpp",
+    "source": "work/median100/anneal.cpp",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e468-160b-7160-bfa8-01fc146c4609",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/hexagons_cloud_002.json",
+    "bytes": 13795,
+    "sha256": "1332d65836fdcc9f65f37abe5f3882d1e42a42cd61fe372d07bdd799d16e5f07",
+    "run_directory_or_context": "median100 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e468-160b-7160-bfa8-01fc146c4609/exec-a5de4e37-1466-4f9e-8dbf-43cfb71bda49/recovery_later_compact/RECOVERY_NOTES.txt",
+    "source": "recovery_later_compact/RECOVERY_NOTES.txt",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e468-160b-7160-bfa8-01fc146c4609",
+    "status": "literal write content statically recovered from successful command",
+    "record": "notes/chat-records/hexagons_cloud_002.json",
+    "bytes": 1506,
+    "sha256": "1fe427cd61da87377189a7af3ebb43dee31e042032c54670d35cb42e6032b301",
+    "run_directory_or_context": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e468-160b-7160-bfa8-01fc146c4609"
+  },
+  {
+    "file": "Median100/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e437-5a2e-7747-9b28-9076b5fda0cc/exec-26e79cbc-4323-4545-9a7e-4bc385d31b59/work/median100/interim_map.py",
+    "source": "work/median100/interim_map.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e437-5a2e-7747-9b28-9076b5fda0cc",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_004.json",
+    "bytes": 4140,
+    "sha256": "d24700d1508a59dc8d193b4cc4dd8c077443adee9f5227b3d79ace6fa3d9931f",
+    "run_directory_or_context": "median100 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Median100/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e41c-9e12-7112-bcb8-f441c17e3479/exec-6e4777e5-e12b-4996-938a-c535428455fd/work/median100/initialize.py",
+    "source": "work/median100/initialize.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e41c-9e12-7112-bcb8-f441c17e3479",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_005.json",
+    "bytes": 3646,
+    "sha256": "a293ee713ed0dc251630f99cfa36fbc6365ba3de0d9f05802f41ca9ca1c48503",
+    "run_directory_or_context": "median100 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Median100/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e41c-9e12-7112-bcb8-f441c17e3479/exec-601c1d34-b78c-492d-bb7a-b22aa15cfd9d/work/median100/build.py",
+    "source": "work/median100/build.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e41c-9e12-7112-bcb8-f441c17e3479",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_005.json",
+    "bytes": 2292,
+    "sha256": "218c90bb3776b700a5b13344e1e20ba5390164b326501a1acbffbe9101288bbf",
+    "run_directory_or_context": "median100 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Median100/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e41c-9e12-7112-bcb8-f441c17e3479/exec-979916ff-dac9-4cdd-a0e7-cbf995c131d5/work/median100/deliver.py",
+    "source": "work/median100/deliver.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e41c-9e12-7112-bcb8-f441c17e3479",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_005.json",
+    "bytes": 5627,
+    "sha256": "edeccfce9894d4297bc458648f925bf07d338a75615b4ede6a7ff36a396d251d",
+    "run_directory_or_context": "median100 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Median100/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e41c-9e12-7112-bcb8-f441c17e3479/exec-979916ff-dac9-4cdd-a0e7-cbf995c131d5/work/median100/README.txt",
+    "source": "work/median100/README.txt",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e41c-9e12-7112-bcb8-f441c17e3479",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_005.json",
+    "bytes": 2436,
+    "sha256": "8ea6bdbe8f1eedec2da37de92adcc33bf9dc3ecb46421381291b78877329dcc0",
+    "run_directory_or_context": "median100 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Median100/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e41c-9e12-7112-bcb8-f441c17e3479/exec-ee0309f2-bb6f-47ac-822c-ca417a29e40b/work/median100/snapshot.py",
+    "source": "work/median100/snapshot.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e41c-9e12-7112-bcb8-f441c17e3479",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_005.json",
+    "bytes": 1597,
+    "sha256": "e559ee40d2fbda45459b811a3e51580e806f0a0f00c2bb04a2f0f899f12fffd9",
+    "run_directory_or_context": "median100 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Median38/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e400-12f8-766d-9cf0-3585f4f3573c/exec-07669bbd-eace-48e0-a1f8-2fad4e518c78/work/median38/audit.py",
+    "source": "work/median38/audit.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e400-12f8-766d-9cf0-3585f4f3573c",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_007.json",
+    "bytes": 3192,
+    "sha256": "28a71c431159dc9dd3171fe0a47e56d890a2106236c29ee96fb24ba0f0786325",
+    "run_directory_or_context": "median38 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Median38/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e400-12f8-766d-9cf0-3585f4f3573c/exec-5d2322b5-ca6d-4418-bcd9-89c71a050547/work/median38/deliver.py",
+    "source": "work/median38/deliver.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e400-12f8-766d-9cf0-3585f4f3573c",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_007.json",
+    "bytes": 5689,
+    "sha256": "94e0e6bda354c16812dd9cdf26c38458fb9344695ccd25f40ed99381d57ffbb9",
+    "run_directory_or_context": "median38 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Median38/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e400-12f8-766d-9cf0-3585f4f3573c/exec-953de631-c814-45ac-8f91-ee1e1e9c6b22/work/median38/run.sh",
+    "source": "work/median38/run.sh",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e400-12f8-766d-9cf0-3585f4f3573c",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_007.json",
+    "bytes": 1281,
+    "sha256": "e945f231f7686dfcd18231bf9a70e15cfd7e0bd4b2c9441ae19aea4f3af3151f",
+    "run_directory_or_context": "median38 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Median38/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e400-12f8-766d-9cf0-3585f4f3573c/exec-6eca5a0a-ce9e-418f-8d29-0bf720f4bb9d/work/median38/transfer.json",
+    "source": "work/median38/transfer.json",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e400-12f8-766d-9cf0-3585f4f3573c",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/hexagons_cloud_007.json",
+    "bytes": 11768,
+    "sha256": "67963c5157672a21428dea4e8c0d704837cf2c6e95a047808d5fa03f89d3cd74",
+    "run_directory_or_context": "median38 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e3e1-950e-769b-9922-4723d3cfa0d9/exec-64382747-9ba0-4f29-a47e-d5691ab4c65a/work/verified38/check.py",
+    "source": "work/verified38/check.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e3e1-950e-769b-9922-4723d3cfa0d9",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_008.json",
+    "bytes": 3613,
+    "sha256": "7a6bf50a139b64ba176f9ec33c63850d3a0f200d2294578c7c8c20ccd03dcdcb",
+    "run_directory_or_context": "verified38 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e3e1-950e-769b-9922-4723d3cfa0d9/exec-0731b1f3-bea7-4f9f-bc76-c891d7d1e690/work/verified38/refine.py",
+    "source": "work/verified38/refine.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e3e1-950e-769b-9922-4723d3cfa0d9",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_008.json",
+    "bytes": 3015,
+    "sha256": "a1f667239bd2a71ca41324923bb435e5a3f3dd5b93d3070315f10c6222d6c0cb",
+    "run_directory_or_context": "verified38 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e3e1-950e-769b-9922-4723d3cfa0d9/exec-e99185b7-b63a-4455-a6ac-e5526962513d/work/verified38/map.py",
+    "source": "work/verified38/map.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e3e1-950e-769b-9922-4723d3cfa0d9",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_008.json",
+    "bytes": 8513,
+    "sha256": "14db80bbea5fab1bccb9a9719d0467b1481bb93ae728a65ba9806e7b10bc8018",
+    "run_directory_or_context": "verified38 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e3e1-950e-769b-9922-4723d3cfa0d9/exec-e2526934-6b43-40d2-95f0-15a85fe607ec/work/verified38/compact_svg.py",
+    "source": "work/verified38/compact_svg.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e3e1-950e-769b-9922-4723d3cfa0d9",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_008.json",
+    "bytes": 690,
+    "sha256": "d34864a99f2ac4c47119b226a259b0da386587a6e1645844cc6a87e399702ad5",
+    "run_directory_or_context": "verified38 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e3e1-950e-769b-9922-4723d3cfa0d9/exec-2131265b-57f8-4b59-b641-b77c5c384525/work/verified38/verified_map.svg",
+    "source": "work/verified38/verified_map.svg",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e3e1-950e-769b-9922-4723d3cfa0d9",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/hexagons_cloud_008.json",
+    "bytes": 15552,
+    "sha256": "672d1494beaf7cc0aa9f1a99654df807bd46fb0f0e9ce068ad6e7a3ddcf1a2a7",
+    "run_directory_or_context": "verified38 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e3e1-950e-769b-9922-4723d3cfa0d9/exec-592a84dc-88da-4842-81b6-0a57d3d5d49c/work/verified38/README.txt",
+    "source": "work/verified38/README.txt",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e3e1-950e-769b-9922-4723d3cfa0d9",
+    "status": "literal write content statically recovered from successful command",
+    "record": "notes/chat-records/hexagons_cloud_008.json",
+    "bytes": 1338,
+    "sha256": "e632a31d6bf084867a1e09b6c8b8015a8f2e9f4869dc332fb62416b475dcc985",
+    "run_directory_or_context": "verified38 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e3d7-1878-754b-83d7-5f9de74e887f/exec-7d8ece88-ba6e-489e-9ec2-0755c99cb585/tmp/certificate_inspect.py",
+    "source": "/tmp/certificate_inspect.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e3d7-1878-754b-83d7-5f9de74e887f",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_009.json",
+    "bytes": 1559,
+    "sha256": "65242e22daf3d952c2077fd6bda6d7c82ee8585ff9442a74a1bc5cd7721e751f",
+    "run_directory_or_context": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e3d7-1878-754b-83d7-5f9de74e887f"
+  },
+  {
+    "file": "Compact38/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e3c7-b1c2-7222-a1c6-2b16e4b01655/exec-115b3735-14b2-4c8d-8768-280a7edd1e5b/work/compact38/audit.py",
+    "source": "work/compact38/audit.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e3c7-b1c2-7222-a1c6-2b16e4b01655",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_010.json",
+    "bytes": 2771,
+    "sha256": "7324b8dcb243fae36c0fd826eb49707e1522d14e283672458009541948493e58",
+    "run_directory_or_context": "compact38 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Compact38/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e3c7-b1c2-7222-a1c6-2b16e4b01655/exec-e078821d-3480-4eef-a6ed-799fa8910f5c/work/compact38/prepare.py",
+    "source": "work/compact38/prepare.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e3c7-b1c2-7222-a1c6-2b16e4b01655",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_010.json",
+    "bytes": 3838,
+    "sha256": "003fb35a4b3e68aaecbee2d824f85b9df9ee654c975c33857269bc7157016bee",
+    "run_directory_or_context": "compact38 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Compact38/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e3c7-b1c2-7222-a1c6-2b16e4b01655/exec-f78339f8-701c-4917-b858-e41a3843b8de/work/compact38/deliver.py",
+    "source": "work/compact38/deliver.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e3c7-b1c2-7222-a1c6-2b16e4b01655",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_010.json",
+    "bytes": 5805,
+    "sha256": "ba142ecaa13250bd5b721f3ae270b299a8b7bcd02bf62016b7753ce17455c2a0",
+    "run_directory_or_context": "compact38 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "All_Movable_Rule2/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e2f0-cb0d-77ec-82ed-34049d415bc7/exec-3f7d1ffb-088b-418f-b056-6deb48b6308f/work/all_movable/README.txt",
+    "source": "work/all_movable/README.txt",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e2f0-cb0d-77ec-82ed-34049d415bc7",
+    "status": "literal write content statically recovered from successful command",
+    "record": "notes/chat-records/hexagons_cloud_013.json",
+    "bytes": 1307,
+    "sha256": "588f86f8686f1aae0a0a9174a82f0f997e885b2bf6d1804915a0939405c8b9f2",
+    "run_directory_or_context": "all_movable (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Rule2/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e298-79e9-727f-9017-3613f9b82976/exec-3c913d4f-5358-4d2f-9e08-1df7829603f2/work/rule2/run.js",
+    "source": "work/rule2/run.js",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e298-79e9-727f-9017-3613f9b82976",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_013.json",
+    "bytes": 6727,
+    "sha256": "34604041c5cc578feb7073e83a14b5e1991c7aab8a9282311d16fda228757948",
+    "run_directory_or_context": "rule2 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Rule2/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e298-79e9-727f-9017-3613f9b82976/exec-cea39a3b-c2d7-439a-a214-e4556e166790/work/rule2/map.py",
+    "source": "work/rule2/map.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e298-79e9-727f-9017-3613f9b82976",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_013.json",
+    "bytes": 2189,
+    "sha256": "50100a4c6cfb4123d9e74172041c5ce3f95b9f4d68ff4c0b99a395f0a21b218f",
+    "run_directory_or_context": "rule2 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e27b-50a7-73e6-a8f9-4c93c92c3b02/exec-85c46394-3a98-48fa-85d5-7ddad511cf01/work/four_compare/lloyd.js",
+    "source": "work/four_compare/lloyd.js",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e27b-50a7-73e6-a8f9-4c93c92c3b02",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_014.json",
+    "bytes": 3073,
+    "sha256": "3dc71a4e0454d2e469584b8850314a9de0ac983b9f81e23e6364b890e3b0ede2",
+    "run_directory_or_context": "four_compare (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e27b-50a7-73e6-a8f9-4c93c92c3b02/exec-1f172f11-b3a9-42f1-88b4-33b3955ab4f6/work/four_compare/build.py",
+    "source": "work/four_compare/build.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e27b-50a7-73e6-a8f9-4c93c92c3b02",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_014.json",
+    "bytes": 11310,
+    "sha256": "0573edc88a379d1b2f30aeb28f41d1c6673ea0a84dd5d9d0ff3a386573be1623",
+    "run_directory_or_context": "four_compare (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e27b-50a7-73e6-a8f9-4c93c92c3b02/exec-9f8ab744-cf15-4a8f-9b1c-3a9525690c08/work/four_compare/compact.py",
+    "source": "work/four_compare/compact.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e27b-50a7-73e6-a8f9-4c93c92c3b02",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_014.json",
+    "bytes": 1153,
+    "sha256": "6270073aae3d720578facd98e684985c4ddb8189c46102a50427468df0ee174f",
+    "run_directory_or_context": "four_compare (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e27b-50a7-73e6-a8f9-4c93c92c3b02/exec-30549076-9c9f-4f1c-8c32-9e6193e514c1/work/four_compare/comparison.svg",
+    "source": "work/four_compare/comparison.svg",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e27b-50a7-73e6-a8f9-4c93c92c3b02",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/hexagons_cloud_014.json",
+    "bytes": 14688,
+    "sha256": "02d7b5f12067c8f0ec2b61200f9f031c932a5988a84a53557d21f7c47df44d91",
+    "run_directory_or_context": "four_compare (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e27b-50a7-73e6-a8f9-4c93c92c3b02/exec-f7eaad0f-44e4-4dd6-a0a4-94a21395a117/work/four_compare/render.py",
+    "source": "work/four_compare/render.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e27b-50a7-73e6-a8f9-4c93c92c3b02",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_014.json",
+    "bytes": 954,
+    "sha256": "f315ca46746896f73f29f65ac0f0211b5632619da262fc4204c4dcec864f7fdd",
+    "run_directory_or_context": "four_compare (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Rule3/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e26d-83af-73c0-a7ee-bf8050686c86/exec-1ef9cd48-c238-4a8b-9195-f7b5ce5bc355/work/vertex_only/calculate.js",
+    "source": "work/vertex_only/calculate.js",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e26d-83af-73c0-a7ee-bf8050686c86",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_014.json",
+    "bytes": 5387,
+    "sha256": "5fbefec6975eeaa4d7bae407cde07a87f3798101a0784a1fe487a212ad7c9a91",
+    "run_directory_or_context": "vertex_only (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Rule3/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e26d-83af-73c0-a7ee-bf8050686c86/exec-1ef9cd48-c238-4a8b-9195-f7b5ce5bc355/work/vertex_only/run.js",
+    "source": "work/vertex_only/run.js",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e26d-83af-73c0-a7ee-bf8050686c86",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_014.json",
+    "bytes": 1902,
+    "sha256": "31c55e9570db792c53e04b21924833444b9adcacdfef730305efb2fefb4590a6",
+    "run_directory_or_context": "vertex_only (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Shared_Inputs/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0e252-6444-72cf-97f8-06161c0c64b2/exec-8a5d523d-fa51-46f4-8361-f2c1ba2fa599/work/extract_pickups.py",
+    "source": "work/extract_pickups.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e252-6444-72cf-97f8-06161c0c64b2",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_014.json",
+    "bytes": 2477,
+    "sha256": "0b3a2537b3093f5d9abc780ae3bace24caa93ed0e11084537e53fd6e638738e6",
+    "run_directory_or_context": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0e252-6444-72cf-97f8-06161c0c64b2"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0d85e-bb73-762d-9bf8-f4477d9d36b1/exec-472895f4-d14d-4a65-9ca0-0f283861791e/workspace/scratch/289abe85887d/work/movable_rim.js.patch",
+    "source": "/workspace/scratch/289abe85887d/work/movable_rim.js.patch",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d85e-bb73-762d-9bf8-f4477d9d36b1",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/hexagons_cloud_014.json",
+    "bytes": 607,
+    "sha256": "704c2ec1eee09205dfa6b34949ee24e698d38c317c3c10dcd1e381791a8c1a2d",
+    "run_directory_or_context": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d85e-bb73-762d-9bf8-f4477d9d36b1"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0d85e-bb73-762d-9bf8-f4477d9d36b1/exec-8fb3ba8b-6287-4411-ba58-5b8c32ae75d0/work/audit_solution.py",
+    "source": "work/audit_solution.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d85e-bb73-762d-9bf8-f4477d9d36b1",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_014.json",
+    "bytes": 2826,
+    "sha256": "d18fe2f4db881331caf232438874945aa5279ecf11d12809951847aafae2c460",
+    "run_directory_or_context": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d85e-bb73-762d-9bf8-f4477d9d36b1"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0d85e-bb73-762d-9bf8-f4477d9d36b1/exec-cd647666-2ca5-4fba-ab8d-32d5e6fc7240/work/make_deliverables.py",
+    "source": "work/make_deliverables.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d85e-bb73-762d-9bf8-f4477d9d36b1",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_014.json",
+    "bytes": 3344,
+    "sha256": "6d5dad30de8745fde06bf56237df06292ddfdf3747b022f1e7da97157c36ecf5",
+    "run_directory_or_context": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d85e-bb73-762d-9bf8-f4477d9d36b1"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0d85e-bb73-762d-9bf8-f4477d9d36b1/exec-a1ba6349-37b5-4f63-acdc-1cdb2b1e1b6f/work/build_replay.py",
+    "source": "work/build_replay.py",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d85e-bb73-762d-9bf8-f4477d9d36b1",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_014.json",
+    "bytes": 6741,
+    "sha256": "95cb7a13e7b14536cad23507c567a50852e321e79d973dff8b88612e57920ae0",
+    "run_directory_or_context": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d85e-bb73-762d-9bf8-f4477d9d36b1"
+  },
+  {
+    "file": "Manhattan_Balanced_Hexagons/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0d85e-bb73-762d-9bf8-f4477d9d36b1/exec-52f62acc-5985-48bd-9d26-c28fa8f68716/work/Manhattan_Balanced_Hexagons/README.md",
+    "source": "work/Manhattan_Balanced_Hexagons/README.md",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d85e-bb73-762d-9bf8-f4477d9d36b1",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_014.json",
+    "bytes": 5517,
+    "sha256": "bc7d9d3613d502e8fd177f2d3da94eba6b5b6a49fc8383ec9b3af53d1b3ff992",
+    "run_directory_or_context": "Manhattan_Balanced_Hexagons (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0d852-33e7-76f9-bb4e-f7c78607e172/exec-8c9e76f4-7333-4460-8377-0d326cbd01a2/workspace/scratch/289abe85887d/work/movable_rim.js.patch",
+    "source": "/workspace/scratch/289abe85887d/work/movable_rim.js.patch",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d852-33e7-76f9-bb4e-f7c78607e172",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/hexagons_cloud_015.json",
+    "bytes": 1123,
+    "sha256": "2b4cbd9873738eff6564b8ea482f25cd71b7b1a02883c9db860ef46a8dee7b2a",
+    "run_directory_or_context": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d852-33e7-76f9-bb4e-f7c78607e172"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0d852-33e7-76f9-bb4e-f7c78607e172/exec-f9846f48-7bd3-4e09-89a8-1ec42439ab16/workspace/scratch/289abe85887d/work/verify_coverage.js",
+    "source": "/workspace/scratch/289abe85887d/work/verify_coverage.js",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d852-33e7-76f9-bb4e-f7c78607e172",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/hexagons_cloud_015.json",
+    "bytes": 2483,
+    "sha256": "f3fdf4e1e8705cb7beb49bd92d62bb2050f8d1b1c4d5f4d8409ffd182791ea5b",
+    "run_directory_or_context": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d852-33e7-76f9-bb4e-f7c78607e172"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0d852-33e7-76f9-bb4e-f7c78607e172/exec-64c0f4a7-aeef-438b-96ab-dcfa63eea91e/workspace/scratch/289abe85887d/work/verify_coverage.js.patch",
+    "source": "/workspace/scratch/289abe85887d/work/verify_coverage.js.patch",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d852-33e7-76f9-bb4e-f7c78607e172",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/hexagons_cloud_015.json",
+    "bytes": 1511,
+    "sha256": "d9a04e6efc66fde1f0fcf1c1989a29c935051f4127d5e400ef54d889b69eb69f",
+    "run_directory_or_context": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d852-33e7-76f9-bb4e-f7c78607e172"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0d852-33e7-76f9-bb4e-f7c78607e172/exec-327a2e90-ce22-4012-bb72-40d5e3a4be20/workspace/scratch/289abe85887d/work/verify_coverage.js.patch",
+    "source": "/workspace/scratch/289abe85887d/work/verify_coverage.js.patch",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d852-33e7-76f9-bb4e-f7c78607e172",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/hexagons_cloud_015.json",
+    "bytes": 1334,
+    "sha256": "ad7d406c3a621ccd456039f5da4a55ba025a7871bd658ef08e6e5b9af0c3ef89",
+    "run_directory_or_context": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d852-33e7-76f9-bb4e-f7c78607e172"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0d852-33e7-76f9-bb4e-f7c78607e172/exec-438dcd74-652f-490c-9e0d-538946fd5dde/>",
+    "source": ">",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d852-33e7-76f9-bb4e-f7c78607e172",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/hexagons_cloud_015.json",
+    "bytes": 2665,
+    "sha256": "2776c7ac241cce2ee66c35191c7a91974d4467578ea6490b4d6f616ec09e21de",
+    "run_directory_or_context": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d852-33e7-76f9-bb4e-f7c78607e172"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0d852-33e7-76f9-bb4e-f7c78607e172/exec-cb90b312-f00a-4981-99c4-3e3ca078cf79/workspace/scratch/289abe85887d/work/movable_rim.js.patch",
+    "source": "/workspace/scratch/289abe85887d/work/movable_rim.js.patch",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d852-33e7-76f9-bb4e-f7c78607e172",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/hexagons_cloud_015.json",
+    "bytes": 1743,
+    "sha256": "71357fe3307195030bad7ec69756c9947bc1a60dc9f81508ea348ecc9204de6e",
+    "run_directory_or_context": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d852-33e7-76f9-bb4e-f7c78607e172"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0d852-26a4-76bf-ba08-aa33d93c8010/01a0d852-33e7-76f9-bb4e-f7c78607e172/exec-137aebb6-6ce3-42b7-9630-d987899132f3/workspace/scratch/289abe85887d/work/movable_rim.js.patch",
+    "source": "/workspace/scratch/289abe85887d/work/movable_rim.js.patch",
+    "run": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d852-33e7-76f9-bb4e-f7c78607e172",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/hexagons_cloud_015.json",
+    "bytes": 1384,
+    "sha256": "54382941ca50f8003c964ab94aeca6b1bd66f6593a7d0e81a1ca2dbb22a810b1",
+    "run_directory_or_context": "01a0d852-26a4-76bf-ba08-aa33d93c8010; turn 01a0d852-33e7-76f9-bb4e-f7c78607e172"
+  },
+  {
+    "file": "Median100/recovered-versions/01a0e288-2186-7bf0-9df7-4ecf938cb3c6/01a0e446-20fc-7712-ab87-a13b33a6983a/exec-5a1cc54a-0616-4abf-9467-5199049b3362/Users/udi/Documents/Codex/2026-09-27/do-you-have-access-to-the/outputs/hexagon_simulation_protocol.tex",
+    "source": "/Users/udi/Documents/Codex/2026-09-27/do-you-have-access-to-the/outputs/hexagon_simulation_protocol.tex",
+    "run": "01a0e288-2186-7bf0-9df7-4ecf938cb3c6; turn 01a0e446-20fc-7712-ab87-a13b33a6983a",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/protocol_local_001.json",
+    "bytes": 4636,
+    "sha256": "b5d3896695689d849f8c148bd2c325eb9d94d2e8ce811cb92e0a8f16a5fbf2b2",
+    "run_directory_or_context": "01a0e288-2186-7bf0-9df7-4ecf938cb3c6; turn 01a0e446-20fc-7712-ab87-a13b33a6983a"
+  },
+  {
+    "file": "Median100/recovered-versions/01a0e288-2186-7bf0-9df7-4ecf938cb3c6/01a0e3e0-8a55-7621-a741-298703c30ead/exec-6be1596d-4021-4461-96b4-66114176f011/Users/udi/Documents/Codex/2026-09-27/do-you-have-access-to-the/outputs/compact-hexagons-original-outline.svg",
+    "source": "/Users/udi/Documents/Codex/2026-09-27/do-you-have-access-to-the/outputs/compact-hexagons-original-outline.svg",
+    "run": "01a0e288-2186-7bf0-9df7-4ecf938cb3c6; turn 01a0e3e0-8a55-7621-a741-298703c30ead",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/protocol_local_002.json",
+    "bytes": 12357,
+    "sha256": "bb4621c5dae06f6c81ab91e484e98efaf185ae9a38c158748a16cdcb2cb24327",
+    "run_directory_or_context": "01a0e288-2186-7bf0-9df7-4ecf938cb3c6; turn 01a0e3e0-8a55-7621-a741-298703c30ead"
+  },
+  {
+    "file": "Shared_Inputs/recovered-versions/01a0e288-2186-7bf0-9df7-4ecf938cb3c6/01a0e3e0-8a55-7621-a741-298703c30ead/exec-29050fe0-398a-4eea-b0bb-dc30b9ffda03/Users/udi/Documents/Codex/2026-09-27/do-you-have-access-to-the/outputs/manhattan-verified-boundary.svg",
+    "source": "/Users/udi/Documents/Codex/2026-09-27/do-you-have-access-to-the/outputs/manhattan-verified-boundary.svg",
+    "run": "01a0e288-2186-7bf0-9df7-4ecf938cb3c6; turn 01a0e3e0-8a55-7621-a741-298703c30ead",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/protocol_local_002.json",
+    "bytes": 15558,
+    "sha256": "dd1f1207973a837fe7de80e354ee882bc8e2d16ec1e35d49ccb56d0c4cf6fb3e",
+    "run_directory_or_context": "01a0e288-2186-7bf0-9df7-4ecf938cb3c6; turn 01a0e3e0-8a55-7621-a741-298703c30ead"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0ddd5-d823-78f3-8007-4e6affbc3f0b/01a0e248-be23-7c00-b6f6-8998d8156940/exec-e0210a81-8886-4f4b-8455-f6b243eede6a/Users/udi/Documents/Codex/2026-09-26/i-want-to-try-a-different/outputs/local_mesh_balancing.tex",
+    "source": "/Users/udi/Documents/Codex/2026-09-26/i-want-to-try-a-different/outputs/local_mesh_balancing.tex",
+    "run": "01a0ddd5-d823-78f3-8007-4e6affbc3f0b; turn 01a0e248-be23-7c00-b6f6-8998d8156940",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/vertices_local_001.json",
+    "bytes": 15825,
+    "sha256": "e6eaf03e303f222adc51e2497807229e963aef57f3012c92f9700ff8d1cc3a1b",
+    "run_directory_or_context": "01a0ddd5-d823-78f3-8007-4e6affbc3f0b; turn 01a0e248-be23-7c00-b6f6-8998d8156940"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ed3e-87d3-767d-bf98-2f4f55a6b935/exec-7d6e517f-7537-4a93-b128-f7c975841d76/tmp/fix_viewer.py",
+    "source": "/tmp/fix_viewer.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ed3e-87d3-767d-bf98-2f4f55a6b935",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_002.json",
+    "bytes": 3083,
+    "sha256": "d3628357356fe4f2688971b8c9d15218e5e4863bc94ee26b998dbf3cf941a38a",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ed3e-87d3-767d-bf98-2f4f55a6b935"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ed38-2bcb-75e9-9ae0-8b8d801f5d07/exec-88fea4f9-33d0-4dac-9f53-918d3a05d79d/work/voronoi_migrate600/step_viewer.py",
+    "source": "work/voronoi_migrate600/step_viewer.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ed38-2bcb-75e9-9ae0-8b8d801f5d07",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_002.json",
+    "bytes": 6295,
+    "sha256": "ddaf87999e3fae880dcf51055ed5dfd67b88d3bee286497bdfa577d2976f88ea",
+    "run_directory_or_context": "voronoi_migrate600 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ed2b-a3f9-77fe-a441-8f52f9e36712/exec-d969f431-1726-450a-b27b-c7518adc6e1d/work/voronoi_migrate600/maps_258_259.py",
+    "source": "work/voronoi_migrate600/maps_258_259.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ed2b-a3f9-77fe-a441-8f52f9e36712",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_003.json",
+    "bytes": 2315,
+    "sha256": "14f107b9d02d2a34ea65a21c16945214db51ed7c23d1c8bf72414f48f0c80e79",
+    "run_directory_or_context": "voronoi_migrate600 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ed27-714c-702c-876a-e94d6c2f3b77/exec-39543724-1998-4603-9189-d2dc1ab73be3/work/voronoi_migrate600/plot_zoom.py",
+    "source": "work/voronoi_migrate600/plot_zoom.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ed27-714c-702c-876a-e94d6c2f3b77",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_003.json",
+    "bytes": 2100,
+    "sha256": "6e2f06b381540c04b3df55c9272abe1fe67023fc8d6f5404fc8f0cb0b4209047",
+    "run_directory_or_context": "voronoi_migrate600 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ed1a-3bd8-73ae-b012-e71eff6f0ab0/exec-dbf9702f-fb10-473a-8130-0a52ee12c52d/work/voronoi_migrate600/finish.py",
+    "source": "work/voronoi_migrate600/finish.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ed1a-3bd8-73ae-b012-e71eff6f0ab0",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_003.json",
+    "bytes": 4092,
+    "sha256": "eb01d68de91f663e6268692dc88a3f167c2cce22c1d6a51e7cad035ec46dc8bd",
+    "run_directory_or_context": "voronoi_migrate600 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ed1a-3bd8-73ae-b012-e71eff6f0ab0/exec-8cf83c30-5e97-4d0a-8047-b3aafe693d41/work/voronoi_migrate600/plot_progress.py",
+    "source": "work/voronoi_migrate600/plot_progress.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ed1a-3bd8-73ae-b012-e71eff6f0ab0",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_003.json",
+    "bytes": 3702,
+    "sha256": "b2521e87a3bb3a93f295cdf5affe937c16fd5500dd7fd099a6243a9980f724d3",
+    "run_directory_or_context": "voronoi_migrate600 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ed0e-ed3a-7297-a53f-8bc089723ad4/exec-53c60701-20be-4e8e-b774-160c82084e89/work/voronoi_migrate100/run.py",
+    "source": "work/voronoi_migrate100/run.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ed0e-ed3a-7297-a53f-8bc089723ad4",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_003.json",
+    "bytes": 9770,
+    "sha256": "d945ed3c60a4a52087feaca74c471661eecbd2a2ba2ec579cdde4fbdb69a0343",
+    "run_directory_or_context": "voronoi_migrate100 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ed0e-ed3a-7297-a53f-8bc089723ad4/exec-c941e681-ac15-44be-847c-fd2d34c27952/work/voronoi_migrate100/test.py",
+    "source": "work/voronoi_migrate100/test.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ed0e-ed3a-7297-a53f-8bc089723ad4",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_003.json",
+    "bytes": 1522,
+    "sha256": "29fb76bfaf82192e382a79befb2b7dbe5e4bc291b02c1ddeb3d703ec844a7a0b",
+    "run_directory_or_context": "voronoi_migrate100 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ed0e-ed3a-7297-a53f-8bc089723ad4/exec-4dda7658-3b7c-425c-96ad-47c94e9cc790/work/voronoi_migrate100/render.py",
+    "source": "work/voronoi_migrate100/render.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ed0e-ed3a-7297-a53f-8bc089723ad4",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_003.json",
+    "bytes": 9672,
+    "sha256": "d3f5a71e440af4feebde979b37d4737931fc668b1933befd7dd69c5297e6c5af",
+    "run_directory_or_context": "voronoi_migrate100 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ed0e-ed3a-7297-a53f-8bc089723ad4/exec-e7b78b2d-d43b-4601-a589-5dba35eaf6e0/work/voronoi_migrate100/verify.py",
+    "source": "work/voronoi_migrate100/verify.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ed0e-ed3a-7297-a53f-8bc089723ad4",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_003.json",
+    "bytes": 2085,
+    "sha256": "f82e1e98e6acb01684c01fbaa6515b7548599101ec1f7a2b9adc128dd56f749d",
+    "run_directory_or_context": "voronoi_migrate100 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ed0e-ed3a-7297-a53f-8bc089723ad4/exec-e7b78b2d-d43b-4601-a589-5dba35eaf6e0/outputs/voronoi_migrate100/CHATGPT.md",
+    "source": "outputs/voronoi_migrate100/CHATGPT.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ed0e-ed3a-7297-a53f-8bc089723ad4",
+    "status": "literal write content statically recovered from successful command",
+    "record": "notes/chat-records/voronoi_cloud_003.json",
+    "bytes": 1571,
+    "sha256": "01c5d06165b25d02f4a64bfc22cc3f69cc7c3c6831982a000fc12f456876df66",
+    "run_directory_or_context": "voronoi_migrate100 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ed0e-ed3a-7297-a53f-8bc089723ad4/exec-af4fada1-b823-4fd1-95f2-4b63d7e80485/outputs/voronoi_migrate100/README.md",
+    "source": "outputs/voronoi_migrate100/README.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ed0e-ed3a-7297-a53f-8bc089723ad4",
+    "status": "literal write content statically recovered from successful command",
+    "record": "notes/chat-records/voronoi_cloud_003.json",
+    "bytes": 1109,
+    "sha256": "24ea93885ff78dbcff9b204ca2ae759d98813d6ef8a211706ea5d0cbd0273f3b",
+    "run_directory_or_context": "voronoi_migrate100 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ed0b-8bd5-777f-96e5-3ede3b49ac66/exec-d9fa9f61-88f2-4039-b966-61e0518fbdb3/outputs/document_update/agreed_extension.tex",
+    "source": "outputs/document_update/agreed_extension.tex",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ed0b-8bd5-777f-96e5-3ede3b49ac66",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_003.json",
+    "bytes": 7510,
+    "sha256": "efa41c730e00ae621bb293aece97fa087cf6cf1b39c977c75f12883a57e52b2a",
+    "run_directory_or_context": "document_update (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ecf7-dfd9-772d-ae2c-886db2f84b20/exec-22f62e0f-bc9a-4940-8238-dd1bce99005f/workspace/scratch/4d3dfe11ef35/latex_download_request.json",
+    "source": "/workspace/scratch/4d3dfe11ef35/latex_download_request.json",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ecf7-dfd9-772d-ae2c-886db2f84b20",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/voronoi_cloud_005.json",
+    "bytes": 3010,
+    "sha256": "e46770748aec4767991821af094073f3e569dc192163f7d9d507b3f2e36e4ae0",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ecf7-dfd9-772d-ae2c-886db2f84b20"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ecf7-dfd9-772d-ae2c-886db2f84b20/exec-ae6a14c6-f7f4-42ad-8008-9d37a185d75a/root/.codex/plugins/cache/openai-curated-remote/openai-library/0.1.59/skills/library/references/prepared-uploads.md",
+    "source": "/root/.codex/plugins/cache/openai-curated-remote/openai-library/0.1.59/skills/library/references/prepared-uploads.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ecf7-dfd9-772d-ae2c-886db2f84b20",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/voronoi_cloud_005.json",
+    "bytes": 4614,
+    "sha256": "218425a48ff5a59c072471b69f2dcd245947d97874c91ad942e315e61dff193a",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ecf7-dfd9-772d-ae2c-886db2f84b20"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ecf7-dfd9-772d-ae2c-886db2f84b20/exec-cd664b90-ce1b-44a6-9cf7-7dbbac6ff561/outputs/document_update/addition.tex",
+    "source": "outputs/document_update/addition.tex",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ecf7-dfd9-772d-ae2c-886db2f84b20",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_005.json",
+    "bytes": 10055,
+    "sha256": "4786b9fa595d2f33c683d41f8d51018ab565fc133ae524ed5c976c607a428aed",
+    "run_directory_or_context": "document_update (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ece4-642d-77e9-9747-e2ce06ac30cf/exec-36760b5b-a9b6-4c05-b8c7-2f34580e88c0/work/voronoi_weighted26/test_speed.py",
+    "source": "work/voronoi_weighted26/test_speed.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ece4-642d-77e9-9747-e2ce06ac30cf",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_005.json",
+    "bytes": 1026,
+    "sha256": "69f0708fdf83b5899f09022fa016d93a20c77a54bc55424a465b1755ba4a6174",
+    "run_directory_or_context": "voronoi_weighted26 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ece4-642d-77e9-9747-e2ce06ac30cf/exec-c862c2d2-11ca-4d1d-81da-72cbc823fff3/work/voronoi_weighted26/render.py",
+    "source": "work/voronoi_weighted26/render.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ece4-642d-77e9-9747-e2ce06ac30cf",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_005.json",
+    "bytes": 2855,
+    "sha256": "c297073bc4655f36d1bb41bd3bba5ede4b7370a31c532e76fbe0f6aa64aa8ab3",
+    "run_directory_or_context": "voronoi_weighted26 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ece4-642d-77e9-9747-e2ce06ac30cf/exec-c862c2d2-11ca-4d1d-81da-72cbc823fff3/work/voronoi_weighted26/README.md",
+    "source": "work/voronoi_weighted26/README.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ece4-642d-77e9-9747-e2ce06ac30cf",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_005.json",
+    "bytes": 937,
+    "sha256": "86b3ebf1fea344dc409b929e383f02e81505fb470235fa7b2057954ed89faf73",
+    "run_directory_or_context": "voronoi_weighted26 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ece4-642d-77e9-9747-e2ce06ac30cf/exec-7f6784ae-5df0-4ebb-981c-df47b80ab389/outputs/voronoi_weighted26/CHATGPT.md",
+    "source": "outputs/voronoi_weighted26/CHATGPT.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ece4-642d-77e9-9747-e2ce06ac30cf",
+    "status": "literal write content statically recovered from successful command",
+    "record": "notes/chat-records/voronoi_cloud_005.json",
+    "bytes": 806,
+    "sha256": "6d15c81c67d8edee0a9df69f63e60024003beecc0aa2b2b0db196a1ef0fbfbad",
+    "run_directory_or_context": "voronoi_weighted26 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ecd9-3561-7458-a80e-4cbf31c91490/exec-abad51ee-cb46-43ef-8895-62d6329c7a6d/work/voronoi_weighted1/README.md",
+    "source": "work/voronoi_weighted1/README.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ecd9-3561-7458-a80e-4cbf31c91490",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_005.json",
+    "bytes": 977,
+    "sha256": "af5f2774f39d7ce30c2364fdc7e374aa52a4c450737eb4884fb8ac06e3115e3f",
+    "run_directory_or_context": "voronoi_weighted1 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ecd9-3561-7458-a80e-4cbf31c91490/exec-14d3f754-e126-4155-9c97-e25e2065e8a3/work/voronoi_weighted1/verify.py",
+    "source": "work/voronoi_weighted1/verify.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ecd9-3561-7458-a80e-4cbf31c91490",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_005.json",
+    "bytes": 1941,
+    "sha256": "1ed083c39d7f35a3cdfde2e8ce890401bd29a3aba3edec6154dc6005a892c71d",
+    "run_directory_or_context": "voronoi_weighted1 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ecd9-3561-7458-a80e-4cbf31c91490/exec-c66c4b4b-4b98-4f8c-ab70-d87127f4d13d/work/voronoi_weighted1/run.py",
+    "source": "work/voronoi_weighted1/run.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ecd9-3561-7458-a80e-4cbf31c91490",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_005.json",
+    "bytes": 2494,
+    "sha256": "427d49ad0110ac1099b6871b1c147ad75783e64eb22aa7a40113e71afaeeb8bb",
+    "run_directory_or_context": "voronoi_weighted1 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ecd9-3561-7458-a80e-4cbf31c91490/exec-dc799cf4-b38c-48ea-8967-db223ea70551/work/voronoi_weighted1/recover_last.py",
+    "source": "work/voronoi_weighted1/recover_last.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ecd9-3561-7458-a80e-4cbf31c91490",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_005.json",
+    "bytes": 1525,
+    "sha256": "c2d393a9c42b73bf06ae2bf79d1d9f2de5f4ba4ef9f27b26c06bf33fedf028e9",
+    "run_directory_or_context": "voronoi_weighted1 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ecd9-3561-7458-a80e-4cbf31c91490/exec-2b4eec24-28f1-4495-88c1-ba791d3c68e7/outputs/voronoi_weighted1/CHATGPT.md",
+    "source": "outputs/voronoi_weighted1/CHATGPT.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ecd9-3561-7458-a80e-4cbf31c91490",
+    "status": "literal write content statically recovered from successful command",
+    "record": "notes/chat-records/voronoi_cloud_005.json",
+    "bytes": 776,
+    "sha256": "97892c3e5fc39ef0c2996e5553baf21db0ece473e9cd0fd280a7138da9f5b581",
+    "run_directory_or_context": "voronoi_weighted1 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ec9c-55e1-77e6-9662-d112af00dd08/exec-eb670e9a-204c-4832-bb9c-d1eac8421606/workspace/round-59-replay.html",
+    "source": "/workspace/round-59-replay.html",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ec9c-55e1-77e6-9662-d112af00dd08",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_006.json",
+    "bytes": 5555,
+    "sha256": "8a7f316fe059cbcecd54a733c74a00dc8cb6a458d75708b814b5830571a61abe",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ec9c-55e1-77e6-9662-d112af00dd08"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ec99-c8d4-70ba-acc1-8409465b4adc/exec-0323c407-9515-4fb5-9375-27e8611e5a90/workspace/scratch/4d3dfe11ef35/outputs/voronoi_animation59/build_frames.py",
+    "source": "/workspace/scratch/4d3dfe11ef35/outputs/voronoi_animation59/build_frames.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ec99-c8d4-70ba-acc1-8409465b4adc",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_006.json",
+    "bytes": 1778,
+    "sha256": "a4505b0b1a107b20a797b23900284f2d686d35ca038b2858d47a7b99c5e234eb",
+    "run_directory_or_context": "voronoi_animation59 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ec8c-e7aa-7495-adfc-a2d6cb806acb/exec-9bd033a9-bfa4-46ef-8340-0b7a9359c30c/work/voronoi_tradeoff75/track59.py",
+    "source": "work/voronoi_tradeoff75/track59.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ec8c-e7aa-7495-adfc-a2d6cb806acb",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_006.json",
+    "bytes": 1219,
+    "sha256": "754c29eda72e2aca3f9448938fd6f896861ce0c0fae22610381c71e47155b46d",
+    "run_directory_or_context": "voronoi_tradeoff75 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ec8c-e7aa-7495-adfc-a2d6cb806acb/exec-37c0d282-f6d3-4459-b406-2e5f5b3b3a76/work/voronoi_tradeoff75/highlight59.py",
+    "source": "work/voronoi_tradeoff75/highlight59.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ec8c-e7aa-7495-adfc-a2d6cb806acb",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_006.json",
+    "bytes": 775,
+    "sha256": "bdd6dcaf9b85b5daf46be2482d2bef708a039328add5a70907c7d051234c51a0",
+    "run_directory_or_context": "voronoi_tradeoff75 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ec8c-e7aa-7495-adfc-a2d6cb806acb/exec-a385bdea-bc33-4f83-a190-cc9591b43357/outputs/voronoi_tradeoff59/CHATGPT.md",
+    "source": "outputs/voronoi_tradeoff59/CHATGPT.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ec8c-e7aa-7495-adfc-a2d6cb806acb",
+    "status": "literal write content statically recovered from successful command",
+    "record": "notes/chat-records/voronoi_cloud_006.json",
+    "bytes": 656,
+    "sha256": "b3f2228e5e75ced84938a2ca045bbd01f588ff168d44fc2ecb495c415f41f3c0",
+    "run_directory_or_context": "voronoi_tradeoff59 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ec75-f8c3-7088-b3af-02ea6ed5a61f/exec-7881c0de-4f4d-4acc-a787-b6150004cee9/work/voronoi_density_pareto25/run.py",
+    "source": "work/voronoi_density_pareto25/run.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ec75-f8c3-7088-b3af-02ea6ed5a61f",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/voronoi_cloud_007.json",
+    "bytes": 9221,
+    "sha256": "4c0bbe217e6fca07c7bce0d362935a4e2cf16eb19e080dd65f1afae6ff850953",
+    "run_directory_or_context": "voronoi_density_pareto25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ec75-f8c3-7088-b3af-02ea6ed5a61f/exec-d3330532-c1a2-4ea2-953b-7d026deb2581/work/voronoi_tradeoff75/README.md",
+    "source": "work/voronoi_tradeoff75/README.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ec75-f8c3-7088-b3af-02ea6ed5a61f",
+    "status": "literal write content statically recovered from successful command",
+    "record": "notes/chat-records/voronoi_cloud_007.json",
+    "bytes": 752,
+    "sha256": "fd124bbc9603fb5657634f7a5c447dfa7cad7e07fa2f99ef53f8273ec11bd9a7",
+    "run_directory_or_context": "voronoi_tradeoff75 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ec75-f8c3-7088-b3af-02ea6ed5a61f/exec-abf5b596-d078-4c50-ae2e-e4030f57966b/work/voronoi_tradeoff75/verify.py",
+    "source": "work/voronoi_tradeoff75/verify.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ec75-f8c3-7088-b3af-02ea6ed5a61f",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_007.json",
+    "bytes": 4088,
+    "sha256": "2f2d4c0b825cbe616ed00b3bf4341121a881a82ff2f60da75aada97bba1c7986",
+    "run_directory_or_context": "voronoi_tradeoff75 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ec75-f8c3-7088-b3af-02ea6ed5a61f/exec-77b4ed87-f98f-456c-9203-f3fa9e138c06/work/voronoi_tradeoff75/test.py",
+    "source": "work/voronoi_tradeoff75/test.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ec75-f8c3-7088-b3af-02ea6ed5a61f",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_007.json",
+    "bytes": 824,
+    "sha256": "8705bbc713cee69a99da1a19dcb9995a7178408477cbd1a83d4910f41e39a05d",
+    "run_directory_or_context": "voronoi_tradeoff75 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ec75-f8c3-7088-b3af-02ea6ed5a61f/exec-0ee9df3a-0e4b-4521-a599-00eb4683c3f6/outputs/voronoi_tradeoff75/CHATGPT.md",
+    "source": "outputs/voronoi_tradeoff75/CHATGPT.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ec75-f8c3-7088-b3af-02ea6ed5a61f",
+    "status": "literal write content statically recovered from successful command",
+    "record": "notes/chat-records/voronoi_cloud_007.json",
+    "bytes": 440,
+    "sha256": "dc73fa342faa5af682f7b9e416a3c1099f53b652e39da48d8e1ae30ddba103e5",
+    "run_directory_or_context": "voronoi_tradeoff75 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ec5a-cc59-71ce-a92a-b4c98ac99c81/exec-b3ba71ff-f18b-4a62-8135-c1278d045890/outputs/voronoi_density_pareto50/CHATGPT.md",
+    "source": "outputs/voronoi_density_pareto50/CHATGPT.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ec5a-cc59-71ce-a92a-b4c98ac99c81",
+    "status": "literal write content statically recovered from successful command",
+    "record": "notes/chat-records/voronoi_cloud_007.json",
+    "bytes": 516,
+    "sha256": "02be963352fe5747abc2f12f97e5fbe1bce2778e5be474474cc75b0aa892e120",
+    "run_directory_or_context": "voronoi_density_pareto50 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0ec5a-cc59-71ce-a92a-b4c98ac99c81/exec-4c5c192d-b41d-4cde-a855-d325e30f6eb7/outputs/voronoi_density_pareto50/README.md",
+    "source": "outputs/voronoi_density_pareto50/README.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0ec5a-cc59-71ce-a92a-b4c98ac99c81",
+    "status": "literal write content statically recovered from successful command",
+    "record": "notes/chat-records/voronoi_cloud_007.json",
+    "bytes": 862,
+    "sha256": "f8915bec25f378271beae135e0762b57bd06967f6b501bd1f8b4991306aeb48f",
+    "run_directory_or_context": "voronoi_density_pareto50 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e97e-1383-756e-bf8d-9cc9ff043417/exec-8fd621e2-2add-4a1f-bebe-039a4515b164/tmp/density_path_class.txt",
+    "source": "/tmp/density_path_class.txt",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e97e-1383-756e-bf8d-9cc9ff043417",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_007.json",
+    "bytes": 3354,
+    "sha256": "316a363bc5e955d57a0fd4d6038746a4ef1f20e0d1614c7eeb379fe1872b5954",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e97e-1383-756e-bf8d-9cc9ff043417"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e97e-1383-756e-bf8d-9cc9ff043417/exec-8d641ae6-a2e5-42cb-bd5f-42841b7c50ab/work/voronoi_density_pareto25/README.md",
+    "source": "work/voronoi_density_pareto25/README.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e97e-1383-756e-bf8d-9cc9ff043417",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_007.json",
+    "bytes": 4994,
+    "sha256": "d9d09ef201541c6c9535534173345d4b84b472f7e10c07c5fa035e1ea76cf1dd",
+    "run_directory_or_context": "voronoi_density_pareto25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e97e-1383-756e-bf8d-9cc9ff043417/exec-61f14526-3d45-478b-a0d6-5165bf49f92b/work/voronoi_density_pareto25/verify.py",
+    "source": "work/voronoi_density_pareto25/verify.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e97e-1383-756e-bf8d-9cc9ff043417",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_007.json",
+    "bytes": 4342,
+    "sha256": "25dee189ef351f34e8d23890ce376c6732c8bd9ebe54f2a786ad8603c9bbdbe1",
+    "run_directory_or_context": "voronoi_density_pareto25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e97e-1383-756e-bf8d-9cc9ff043417/exec-11805a1a-2552-4596-a6e0-bda5bd355349/>",
+    "source": ">",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e97e-1383-756e-bf8d-9cc9ff043417",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_007.json",
+    "bytes": 1550,
+    "sha256": "41e53a489800af226e7f0eb2d30ff55d719dafb671ea7015eba733e85a52b92b",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e97e-1383-756e-bf8d-9cc9ff043417"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e97e-1383-756e-bf8d-9cc9ff043417/exec-1caf1773-d594-4d78-af33-0dc9b0895774/work/voronoi_density_pareto25/README.md",
+    "source": "work/voronoi_density_pareto25/README.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e97e-1383-756e-bf8d-9cc9ff043417",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/voronoi_cloud_007.json",
+    "bytes": 4994,
+    "sha256": "d9d09ef201541c6c9535534173345d4b84b472f7e10c07c5fa035e1ea76cf1dd",
+    "run_directory_or_context": "voronoi_density_pareto25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e97e-1383-756e-bf8d-9cc9ff043417/exec-471e0349-7366-416e-ba4c-da6eecdc023d/outputs/voronoi_density_pareto25/summary.json",
+    "source": "outputs/voronoi_density_pareto25/summary.json",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e97e-1383-756e-bf8d-9cc9ff043417",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/voronoi_cloud_007.json",
+    "bytes": 3648,
+    "sha256": "fe3249ab91c70ba738489141f4432afe78064b700d92eaac47f94ea7dc9987a7",
+    "run_directory_or_context": "voronoi_density_pareto25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e97e-1383-756e-bf8d-9cc9ff043417/exec-f48ff935-0fdf-466f-9619-dd35a474f539/outputs/voronoi_density_pareto25/CHATGPT.md",
+    "source": "outputs/voronoi_density_pareto25/CHATGPT.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e97e-1383-756e-bf8d-9cc9ff043417",
+    "status": "literal write content statically recovered from successful command",
+    "record": "notes/chat-records/voronoi_cloud_007.json",
+    "bytes": 1325,
+    "sha256": "a08acb45003c2158176ecb7310f0d2a6a0cd2b00624c49a74cb4177ddc17491c",
+    "run_directory_or_context": "voronoi_density_pareto25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e975-1745-779c-a0b4-f0ae9e8697d3/exec-91404704-d3fa-49dc-9dce-1cbee0b59b3e/work/voronoi_pareto25/run.py",
+    "source": "work/voronoi_pareto25/run.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e975-1745-779c-a0b4-f0ae9e8697d3",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_008.json",
+    "bytes": 298,
+    "sha256": "b1177f2875691768f222aaf782521e3968d23ca80123443ff97fd77e78ddd073",
+    "run_directory_or_context": "voronoi_pareto25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e975-1745-779c-a0b4-f0ae9e8697d3/exec-250da6ef-8da8-43bc-9a7e-43e77fa05e50/work/voronoi_pareto25/test.py",
+    "source": "work/voronoi_pareto25/test.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e975-1745-779c-a0b4-f0ae9e8697d3",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_008.json",
+    "bytes": 1753,
+    "sha256": "df2683433751ce4e03f0ae5b6f2d60631503b425131270c4caa3b4691a0a3c33",
+    "run_directory_or_context": "voronoi_pareto25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e967-428e-7405-a1d9-a72be06a58f9/exec-20c1a655-2b83-4142-a13b-23e33798dc4a/work/voronoi_fresh_free25/README50.md",
+    "source": "work/voronoi_fresh_free25/README50.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e967-428e-7405-a1d9-a72be06a58f9",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_008.json",
+    "bytes": 1459,
+    "sha256": "e5d528e7dc8d73cc24de14a715a11aa9eb1a4a2d1757ac2056ff71ced1d82975",
+    "run_directory_or_context": "voronoi_fresh_free25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e967-428e-7405-a1d9-a72be06a58f9/exec-885b393c-dd91-4e34-a66a-4639dadcdc3b/outputs/voronoi_fresh_free50/verification.log",
+    "source": "outputs/voronoi_fresh_free50/verification.log",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e967-428e-7405-a1d9-a72be06a58f9",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/voronoi_cloud_008.json",
+    "bytes": 2028,
+    "sha256": "5bb33dc397a215eaa88c8938c6d9c8e69b907fb684536cbcc78314d2808979c0",
+    "run_directory_or_context": "voronoi_fresh_free50 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e95f-f52e-724b-9496-c3db3b2113e6/exec-211b1c54-1f7c-4a80-b0b4-e163f974d6b7/work/voronoi_fresh_free25/README.md",
+    "source": "work/voronoi_fresh_free25/README.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e95f-f52e-724b-9496-c3db3b2113e6",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_008.json",
+    "bytes": 2430,
+    "sha256": "3dc12cdd1eb46d9afbdc6850b815040a64590341e71669a38a8f082c07e806e1",
+    "run_directory_or_context": "voronoi_fresh_free25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e830-9538-72e4-b53f-2086aef71d57/exec-89bc2002-699f-4d8c-8e1d-13c636339aff/outputs/voronoi_free50/README.md",
+    "source": "outputs/voronoi_free50/README.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e830-9538-72e4-b53f-2086aef71d57",
+    "status": "literal write content statically recovered from successful command",
+    "record": "notes/chat-records/voronoi_cloud_009.json",
+    "bytes": 376,
+    "sha256": "2623a26c885156a0befb01985ec39c1b5b29d68740c619a0c7d42e010359632c",
+    "run_directory_or_context": "voronoi_free50 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e828-a6b1-7725-afcb-f70b9746ce03/exec-e0998d45-c44c-4500-bf12-aed9b3464fee/work/voronoi_free25/render.py",
+    "source": "work/voronoi_free25/render.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e828-a6b1-7725-afcb-f70b9746ce03",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_009.json",
+    "bytes": 2029,
+    "sha256": "db261e883c5c3b0c7ac6cd299a57683f4f92c1b6a33df23c2ee477eaf062f204",
+    "run_directory_or_context": "voronoi_free25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e825-44be-74c9-ac96-dac1866c23d7/exec-bc5487fb-637a-4b55-93dc-037d6d7e9daa/work/voronoi_free25/run.py",
+    "source": "work/voronoi_free25/run.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e825-44be-74c9-ac96-dac1866c23d7",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_009.json",
+    "bytes": 2092,
+    "sha256": "aff3bf24d2b77325422b0c45c2f1cae76b3fa1fa67891b47cf69fa04c835392d",
+    "run_directory_or_context": "voronoi_free25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e825-44be-74c9-ac96-dac1866c23d7/exec-78800fdd-d32a-4c5e-bfbb-474abc8b2ea2/outputs/voronoi_free25/README.md",
+    "source": "outputs/voronoi_free25/README.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e825-44be-74c9-ac96-dac1866c23d7",
+    "status": "literal write content statically recovered from successful command",
+    "record": "notes/chat-records/voronoi_cloud_009.json",
+    "bytes": 595,
+    "sha256": "efd7968d133f4a0c6121000c4618efbd531979e1a76ec4f90ca8b477d50a5473",
+    "run_directory_or_context": "voronoi_free25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e819-b425-75a3-a26c-f5c6a9b6a5f6/exec-d9622f03-330a-49e8-ab59-054995232e1c/work/voronoi25/README50.md",
+    "source": "work/voronoi25/README50.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e819-b425-75a3-a26c-f5c6a9b6a5f6",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_009.json",
+    "bytes": 1459,
+    "sha256": "5ce40b9d5ceddfb53227061996abab9df66781f1b502dd6d05d7e0395bba3d33",
+    "run_directory_or_context": "voronoi25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e819-b425-75a3-a26c-f5c6a9b6a5f6/exec-d885e0d0-4648-4c72-9245-98f6e10ce65f/outputs/voronoi50/verification.log",
+    "source": "outputs/voronoi50/verification.log",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e819-b425-75a3-a26c-f5c6a9b6a5f6",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/voronoi_cloud_009.json",
+    "bytes": 2114,
+    "sha256": "ed5ac979d8920804c7e407fe8fc82a4d621c38cef43829762e61907fc3b34043",
+    "run_directory_or_context": "voronoi50 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e80b-b22d-770a-9589-fa63da13f74b/exec-22bdf6ac-74f4-461b-8f71-a0d314228c60/work/voronoi25/run.py",
+    "source": "work/voronoi25/run.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e80b-b22d-770a-9589-fa63da13f74b",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_009.json",
+    "bytes": 13949,
+    "sha256": "53f920f33cefdae437b09baed6a365962e41f5c5bf97d7281102c53d6960d370",
+    "run_directory_or_context": "voronoi25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e80b-b22d-770a-9589-fa63da13f74b/exec-1a8e1c0b-d139-4a37-b669-e0f7bf089735/work/voronoi25/render.py",
+    "source": "work/voronoi25/render.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e80b-b22d-770a-9589-fa63da13f74b",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_009.json",
+    "bytes": 2669,
+    "sha256": "63e3fc8c9d9b1504979e2ff3286352a395ff9988b1502573fcc79fb2cc28e82c",
+    "run_directory_or_context": "voronoi25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e80b-b22d-770a-9589-fa63da13f74b/exec-e30d40c7-76ca-45e1-bad1-ef1f0c7a6431/work/voronoi25/verify_results.py",
+    "source": "work/voronoi25/verify_results.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e80b-b22d-770a-9589-fa63da13f74b",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_009.json",
+    "bytes": 3861,
+    "sha256": "616ef7957219a9f5de2fae48402785b7d08a5c957aaad7d1cafdf29c0a1d38d3",
+    "run_directory_or_context": "voronoi25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e80b-b22d-770a-9589-fa63da13f74b/exec-8faa7ba8-3485-460b-beae-1293e7bff710/work/voronoi25/README.md",
+    "source": "work/voronoi25/README.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e80b-b22d-770a-9589-fa63da13f74b",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_009.json",
+    "bytes": 6088,
+    "sha256": "a3efec80f3b308107da7f58ce8c0f1c8054697968946588aafca47c6c0dde90f",
+    "run_directory_or_context": "voronoi25 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Driver_Disks_Connected/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e799-a7b6-777f-a973-d4eb09e26a22/exec-da4aae12-a5c9-40bf-ad49-6127a580d7b4/method_review/Manhattan_Ride_Allocation_Connected_Disks/Ride_Allocation/test_connected_unbounded.py",
+    "source": "method_review/Manhattan_Ride_Allocation_Connected_Disks/Ride_Allocation/test_connected_unbounded.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e799-a7b6-777f-a973-d4eb09e26a22",
+    "status": "complete cat output snapshot; recorded output not marked truncated",
+    "record": "notes/chat-records/voronoi_cloud_009.json",
+    "bytes": 6030,
+    "sha256": "0d5f2295d211ddc5363f7ab197a0d9c74cfdd3324d674cc7182065cd2b69fd9c",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e799-a7b6-777f-a973-d4eb09e26a22"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e799-a7b6-777f-a973-d4eb09e26a22/exec-0129db48-bc7d-496c-ace4-7074abb148e9/tmp/expand_methods.py",
+    "source": "/tmp/expand_methods.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e799-a7b6-777f-a973-d4eb09e26a22",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_009.json",
+    "bytes": 37223,
+    "sha256": "ebbaa45f1aad6511c740d2cb44e97beb39f5062572bc44b716367cb9f26f3254",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e799-a7b6-777f-a973-d4eb09e26a22"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e799-a7b6-777f-a973-d4eb09e26a22/exec-7cf83d1f-8b08-49e6-8a51-02114aa57dcf/>",
+    "source": ">",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e799-a7b6-777f-a973-d4eb09e26a22",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_009.json",
+    "bytes": 1258,
+    "sha256": "91597411d8801e10a9993c46126d07eaf447fe569750f207800b2c8c77976a6c",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e799-a7b6-777f-a973-d4eb09e26a22"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e792-325d-7363-a00c-d0a87c6d2d5f/exec-19d5ead9-00e4-43ee-a9b4-f8c78d66d38c/workspace/scratch/4d3dfe11ef35/outputs/local_mesh_balancing_merged_recovered.tex.patch",
+    "source": "/workspace/scratch/4d3dfe11ef35/outputs/local_mesh_balancing_merged_recovered.tex.patch",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e792-325d-7363-a00c-d0a87c6d2d5f",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/voronoi_cloud_010.json",
+    "bytes": 11345,
+    "sha256": "606cacd81933e4a5d50c468137ba250640e1e91e35d51ac8175f597bd6f131a3",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e792-325d-7363-a00c-d0a87c6d2d5f"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e781-16da-7738-b10b-ead2795ba516/exec-380b44ad-aa90-4296-91e6-647eaece27dc/render_state.py",
+    "source": "render_state.py",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e781-16da-7738-b10b-ead2795ba516",
+    "status": "literal here-document snapshot from successful command; not executed during export",
+    "record": "notes/chat-records/voronoi_cloud_010.json",
+    "bytes": 1514,
+    "sha256": "1e9cb8c033290f81e1f0f26037aa4fc2daefe7c1937e6472d4788790f1371b49",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e781-16da-7738-b10b-ead2795ba516"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e781-16da-7738-b10b-ead2795ba516/exec-d95800c1-8f57-43a5-a212-76d4296d7500/workspace/scratch/4d3dfe11ef35/experiment/render_state.py.patch",
+    "source": "/workspace/scratch/4d3dfe11ef35/experiment/render_state.py.patch",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e781-16da-7738-b10b-ead2795ba516",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/voronoi_cloud_010.json",
+    "bytes": 783,
+    "sha256": "9f1030c9a7e6cd22e965cde9ad421f75d8e3b9f445ded92a847c1728df949b58",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e781-16da-7738-b10b-ead2795ba516"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e781-16da-7738-b10b-ead2795ba516/exec-39f7caa9-bd86-42a1-8075-79a0eaea4898/workspace/scratch/4d3dfe11ef35/outputs/CHATGPT.md.patch",
+    "source": "/workspace/scratch/4d3dfe11ef35/outputs/CHATGPT.md.patch",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e781-16da-7738-b10b-ead2795ba516",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/voronoi_cloud_010.json",
+    "bytes": 2825,
+    "sha256": "cc2b4171978e1ec2e7a87d3ba4a3d1c5eeb222307fb29d16a7eabc023153b54f",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e781-16da-7738-b10b-ead2795ba516"
+  },
+  {
+    "file": "Median100/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e47c-d26b-7712-8993-e2521798f4ed/exec-5a2ce13e-1a8c-467c-acd1-4629d0a2c0db/workspace/scratch/4d3dfe11ef35/experiment/work/median100/anneal_controlled.cpp.patch",
+    "source": "/workspace/scratch/4d3dfe11ef35/experiment/work/median100/anneal_controlled.cpp.patch",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e47c-d26b-7712-8993-e2521798f4ed",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/voronoi_cloud_010.json",
+    "bytes": 4836,
+    "sha256": "eb3e6ea3eba94c29eed13cfe0461388843134923ee5c1007e966d185aaeeb6fe",
+    "run_directory_or_context": "median100 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Median100/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e47c-d26b-7712-8993-e2521798f4ed/exec-0225be06-c9a1-4cc1-82a6-391a59a85033/workspace/scratch/4d3dfe11ef35/experiment/work/median100/anneal_controlled.cpp.patch",
+    "source": "/workspace/scratch/4d3dfe11ef35/experiment/work/median100/anneal_controlled.cpp.patch",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e47c-d26b-7712-8993-e2521798f4ed",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/voronoi_cloud_010.json",
+    "bytes": 2284,
+    "sha256": "b3f8b268e14c89a77b518e574b8e2cb0d0859032509ffbedb73b3e2335d37d0d",
+    "run_directory_or_context": "median100 (source directory; exact revision may vary)"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e47c-d26b-7712-8993-e2521798f4ed/exec-f3292759-7fdf-4c2d-bcf1-392c011c38f3/workspace/scratch/4d3dfe11ef35/outputs/CHATGPT.md.patch",
+    "source": "/workspace/scratch/4d3dfe11ef35/outputs/CHATGPT.md.patch",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e47c-d26b-7712-8993-e2521798f4ed",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/voronoi_cloud_010.json",
+    "bytes": 3244,
+    "sha256": "5d6e640a1b2ba2fa03bf63b9f5b2da6a0e5fb378c62368ab4c3b1062d03fa3d0",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e47c-d26b-7712-8993-e2521798f4ed"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e47c-d26b-7712-8993-e2521798f4ed/exec-9e6d4a58-c8f5-4615-bc00-bbd54001a128/workspace/scratch/4d3dfe11ef35/outputs/CHATGPT.md.patch",
+    "source": "/workspace/scratch/4d3dfe11ef35/outputs/CHATGPT.md.patch",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e47c-d26b-7712-8993-e2521798f4ed",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/voronoi_cloud_010.json",
+    "bytes": 105,
+    "sha256": "22dc408a6f00d28993534c671f8760c060e3eb05d0184acbd4565344b1562d6f",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e47c-d26b-7712-8993-e2521798f4ed"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e461-6b2f-73e6-be32-256832d782e2/exec-3046bb85-6dfa-4c09-9b8b-c7388de93ff5/workspace/scratch/4d3dfe11ef35/outputs/CHATGPT.md.patch",
+    "source": "/workspace/scratch/4d3dfe11ef35/outputs/CHATGPT.md.patch",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e461-6b2f-73e6-be32-256832d782e2",
+    "status": "recorded patch only; not a complete source file",
+    "record": "notes/chat-records/voronoi_cloud_010.json",
+    "bytes": 2010,
+    "sha256": "ef5d598c077f3eaea938eb383485e41f25ff49ff48d22ebe8379b73a845ffd91",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e461-6b2f-73e6-be32-256832d782e2"
+  },
+  {
+    "file": "Median100/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e45c-9b4f-7154-9f92-f20d263de0d6/exec-f0171767-3fb3-4861-af03-6dfaabfcfb01/workspace/scratch/4d3dfe11ef35/outputs/compact_hexagon_protocol.tex",
+    "source": "/workspace/scratch/4d3dfe11ef35/outputs/compact_hexagon_protocol.tex",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e45c-9b4f-7154-9f92-f20d263de0d6",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/voronoi_cloud_010.json",
+    "bytes": 4739,
+    "sha256": "cfdd58c8c326d271c12adb022e3af83b9e1685a89aad979de6abaa3f3b549126",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e45c-9b4f-7154-9f92-f20d263de0d6"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e45c-9b4f-7154-9f92-f20d263de0d6/exec-75cd6baf-9ea5-4871-b3c7-9938184b9990/workspace/scratch/4d3dfe11ef35/outputs/local_mesh_balancing_recovered.tex",
+    "source": "/workspace/scratch/4d3dfe11ef35/outputs/local_mesh_balancing_recovered.tex",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e45c-9b4f-7154-9f92-f20d263de0d6",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/voronoi_cloud_010.json",
+    "bytes": 15824,
+    "sha256": "cb3b8693d88acc08536ccdb4603c0ae52df67a47adf394a4cc0cc1991e621c6a",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e45c-9b4f-7154-9f92-f20d263de0d6"
+  },
+  {
+    "file": "Cross_Method/recovered-versions/01a0e456-753e-70bc-a6d0-6e3a62eb5039/01a0e45c-9b4f-7154-9f92-f20d263de0d6/exec-845ea634-f44a-40d1-aad7-b73008e70f59/workspace/scratch/4d3dfe11ef35/outputs/CHATGPT.md",
+    "source": "/workspace/scratch/4d3dfe11ef35/outputs/CHATGPT.md",
+    "run": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e45c-9b4f-7154-9f92-f20d263de0d6",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/voronoi_cloud_010.json",
+    "bytes": 5268,
+    "sha256": "11db0b64a30f2bc87aef1b63a3aab7ff124773bc13625b63cba6e18654d86ce8",
+    "run_directory_or_context": "01a0e456-753e-70bc-a6d0-6e3a62eb5039; turn 01a0e45c-9b4f-7154-9f92-f20d263de0d6"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e7a4-606c-7b71-bf58-3f3816935802/01a0e803-c653-7831-80cf-3be3badbf560/exec-b43e7b62-90e8-475c-b257-7973d41e9d7c/Users/udi/Documents/Codex/2026-09-28/assume-a-finite-set-of-dots/outputs/local-voronoi-balancing.tex",
+    "source": "/Users/udi/Documents/Codex/2026-09-28/assume-a-finite-set-of-dots/outputs/local-voronoi-balancing.tex",
+    "run": "01a0e7a4-606c-7b71-bf58-3f3816935802; turn 01a0e803-c653-7831-80cf-3be3badbf560",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/voronoi_local_001.json",
+    "bytes": 4326,
+    "sha256": "acb2180cc432e606bf9855ae593bc2e716377e73057d78a7a4dba13d0e9ac29f",
+    "run_directory_or_context": "01a0e7a4-606c-7b71-bf58-3f3816935802; turn 01a0e803-c653-7831-80cf-3be3badbf560"
+  },
+  {
+    "file": "Voronoi/recovered-versions/01a0e7a4-606c-7b71-bf58-3f3816935802/01a0e7ef-1920-7110-b1e4-b729ad0b6833/exec-8c56a06c-94e3-44ab-8a96-0530d5518e83/Users/udi/Documents/Codex/2026-09-28/assume-a-finite-set-of-dots/outputs/local-voronoi-balancing.tex",
+    "source": "/Users/udi/Documents/Codex/2026-09-28/assume-a-finite-set-of-dots/outputs/local-voronoi-balancing.tex",
+    "run": "01a0e7a4-606c-7b71-bf58-3f3816935802; turn 01a0e7ef-1920-7110-b1e4-b729ad0b6833",
+    "status": "source snapshot from recorded successful file creation; subsequent edits may exist",
+    "record": "notes/chat-records/voronoi_local_002.json",
+    "bytes": 2681,
+    "sha256": "03b5c64c5f7f7a50d0542c1dc2693c0500a6bf49a7d54a1b12cbe77221932feb",
+    "run_directory_or_context": "01a0e7a4-606c-7b71-bf58-3f3816935802; turn 01a0e7ef-1920-7110-b1e4-b729ad0b6833"
+  },
+  {
+    "file": "notes/chat-records/hexagons_cloud_009.json",
+    "source": "read_thread: 01a0d852-26a4-76bf-ba08-aa33d93c8010",
+    "run": "hexagons_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 53355,
+    "sha256": "579fb5fa033a5a8cd6ff900eb558986ebc19c3609178561bd12692d69934b003",
+    "run_directory_or_context": "hexagons_cloud"
+  },
+  {
+    "file": "notes/chat-records/voronoi_cloud_002.json",
+    "source": "read_thread: 01a0e456-753e-70bc-a6d0-6e3a62eb5039",
+    "run": "voronoi_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 62013,
+    "sha256": "7d7b6feea2f01d2507d54b3cc877b2464835c5157ff7a93792a321f56c1ac2fd",
+    "run_directory_or_context": "voronoi_cloud"
+  },
+  {
+    "file": "notes/chat-records/hexagons_cloud_005.json",
+    "source": "read_thread: 01a0d852-26a4-76bf-ba08-aa33d93c8010",
+    "run": "hexagons_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 62966,
+    "sha256": "870ccfe5a7770a921b9f68e62b659abf48119523b9564b9127f6d57303edd3a3",
+    "run_directory_or_context": "hexagons_cloud"
+  },
+  {
+    "file": "notes/chat-records/hexagons_cloud_013.json",
+    "source": "read_thread: 01a0d852-26a4-76bf-ba08-aa33d93c8010",
+    "run": "hexagons_cloud_013.json",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 174350,
+    "sha256": "e4f62c5e31e70ef236eea1cf47130930647456b6ef4c9f38776458653144e36d",
+    "run_directory_or_context": "hexagons_cloud_013.json"
+  },
+  {
+    "file": "notes/chat-records/hexagons_cloud_012.json",
+    "source": "read_thread: 01a0d852-26a4-76bf-ba08-aa33d93c8010",
+    "run": "hexagons_cloud_012.json",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 2939,
+    "sha256": "d06a60f00eded5a6013bd101673e4bcc83c764907a019bfd78723c2736d2cb15",
+    "run_directory_or_context": "hexagons_cloud_012.json"
+  },
+  {
+    "file": "notes/chat-records/circle_covering_chat_001.json",
+    "source": "read_thread: 6ab65841-8738-83eb-8a15-074307bafcbd",
+    "run": "Geometric Circle Covering Theorem",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 8733,
+    "sha256": "932ff9f49b5b5e44690f0c399ff7af0bf30fcfcb8bad9f4c70cb104ae77fad73",
+    "run_directory_or_context": "Geometric Circle Covering Theorem"
+  },
+  {
+    "file": "notes/chat-records/hexagons_cloud_004.json",
+    "source": "read_thread: 01a0d852-26a4-76bf-ba08-aa33d93c8010",
+    "run": "hexagons_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 69193,
+    "sha256": "afbd5a6af3ed020472a53fd0a0372c3d3be8891b96037de9812205cb45b1cc4a",
+    "run_directory_or_context": "hexagons_cloud"
+  },
+  {
+    "file": "notes/chat-records/current_chat_001.json",
+    "source": "read_thread: 01a0eea5-3e28-7570-872c-69b22d1f8c0b",
+    "run": "voronoi chat #3",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 344910,
+    "sha256": "b3b3f0ba9af9b0ca558a5c6238a7dcf0e705f584a738def7eb968cc78af0d300",
+    "run_directory_or_context": "voronoi chat #3"
+  },
+  {
+    "file": "notes/chat-records/voronoi_cloud_003.json",
+    "source": "read_thread: 01a0e456-753e-70bc-a6d0-6e3a62eb5039",
+    "run": "voronoi_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 208609,
+    "sha256": "735b5839e83c35a9cea4bc80f2640c1973c34c80eabdaf418a1c8dd5d496085f",
+    "run_directory_or_context": "voronoi_cloud"
+  },
+  {
+    "file": "notes/chat-records/hexagons_cloud_008.json",
+    "source": "read_thread: 01a0d852-26a4-76bf-ba08-aa33d93c8010",
+    "run": "hexagons_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 125814,
+    "sha256": "16234a35cab98c32340769f1aecf49d3490c8fa267373ddd21e9922444f9f4ef",
+    "run_directory_or_context": "hexagons_cloud"
+  },
+  {
+    "file": "notes/chat-records/circle_covering_cloud_001.json",
+    "source": "read_thread: 01a0d84a-91f3-76db-a78d-660b1b92c033",
+    "run": "circle_covering_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 120918,
+    "sha256": "385cee671b2d944ba367f6060ea9617650719c6170001a72b00429775ace938b",
+    "run_directory_or_context": "circle_covering_cloud"
+  },
+  {
+    "file": "notes/chat-records/voronoi_local_001.json",
+    "source": "read_thread: 01a0e7a4-606c-7b71-bf58-3f3816935802",
+    "run": "#1 contour discussion compacted",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 45643,
+    "sha256": "8ba6507554b4669d13b97f2c4718d71c9fb358aa6a974cd4b3982e97edaa664f",
+    "run_directory_or_context": "#1 contour discussion compacted"
+  },
+  {
+    "file": "notes/chat-records/vertices_local_003.json",
+    "source": "read_thread: 01a0ddd5-d823-78f3-8007-4e6affbc3f0b",
+    "run": "Discuss disk objective function",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 25568,
+    "sha256": "52f3d6f1cbf3cef0e3fbb7677cbaa7db197418263afb77955b0bbd2a589f78d9",
+    "run_directory_or_context": "Discuss disk objective function"
+  },
+  {
+    "file": "notes/chat-records/hexagons_cloud_003.json",
+    "source": "read_thread: 01a0d852-26a4-76bf-ba08-aa33d93c8010",
+    "run": "hexagons_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 2402,
+    "sha256": "2619236de1f4c680a219a36ee3e191af7172419db3bc0adb43cc78e3a27e1c51",
+    "run_directory_or_context": "hexagons_cloud"
+  },
+  {
+    "file": "notes/chat-records/hexagons_cloud_015.json",
+    "source": "read_thread: 01a0d852-26a4-76bf-ba08-aa33d93c8010",
+    "run": "hexagons_cloud_015.json",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 72113,
+    "sha256": "d4ffd176a6bd1a95403479a34aed313eb4cbf340bbce0b863f37c67a74f3e0fb",
+    "run_directory_or_context": "hexagons_cloud_015.json"
+  },
+  {
+    "file": "notes/chat-records/voronoi_cloud_008.json",
+    "source": "read_thread: 01a0e456-753e-70bc-a6d0-6e3a62eb5039",
+    "run": "voronoi_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 87375,
+    "sha256": "809e5551105561e367307d828607cd1137b95b8d2f8825dcb8cb5b1bd4b15302",
+    "run_directory_or_context": "voronoi_cloud"
+  },
+  {
+    "file": "notes/chat-records/circle_covering_cloud_006.json",
+    "source": "read_thread: 01a0d84a-91f3-76db-a78d-660b1b92c033",
+    "run": "circle_covering_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 82952,
+    "sha256": "9bbb14937e35713b7ae4df6278195005d9e5e65cf51e2eb8c4ca6c23614f3084",
+    "run_directory_or_context": "circle_covering_cloud"
+  },
+  {
+    "file": "notes/chat-records/voronoi_cloud_004.json",
+    "source": "read_thread: 01a0e456-753e-70bc-a6d0-6e3a62eb5039",
+    "run": "voronoi_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 18092,
+    "sha256": "401cbabb935c4867f8b84401be51b05951719dfbfecf7b7c67cc715243fff468",
+    "run_directory_or_context": "voronoi_cloud"
+  },
+  {
+    "file": "notes/chat-records/voronoi_cloud_005.json",
+    "source": "read_thread: 01a0e456-753e-70bc-a6d0-6e3a62eb5039",
+    "run": "voronoi_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 166369,
+    "sha256": "b5361a0ae9bac07e4c62244cc600593027ecadc47334304223f172d75b98cf03",
+    "run_directory_or_context": "voronoi_cloud"
+  },
+  {
+    "file": "notes/chat-records/density_cloud_001.json",
+    "source": "read_thread: 01a0d808-a970-7238-8525-0804b099e01b",
+    "run": "density_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 228363,
+    "sha256": "4389e4e241c45e57d96cced2108c7b57f868b3a8d26f294ff9a5589b6c69d3a7",
+    "run_directory_or_context": "density_cloud"
+  },
+  {
+    "file": "notes/chat-records/circle_covering_cloud_007.json",
+    "source": "read_thread: 01a0d84a-91f3-76db-a78d-660b1b92c033",
+    "run": "circle_covering_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 56743,
+    "sha256": "44d27d7a45514865f64f1fe95701dd0c7ef3714f564b9742598f33e316f2eaa9",
+    "run_directory_or_context": "circle_covering_cloud"
+  },
+  {
+    "file": "notes/chat-records/voronoi_cloud_009.json",
+    "source": "read_thread: 01a0e456-753e-70bc-a6d0-6e3a62eb5039",
+    "run": "voronoi_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 412563,
+    "sha256": "61880bf8147d96e8ade1a51c4ef9283eb780ef13aa0b412ce53e9453af3a3e9b",
+    "run_directory_or_context": "voronoi_cloud"
+  },
+  {
+    "file": "notes/chat-records/hexagons_cloud_014.json",
+    "source": "read_thread: 01a0d852-26a4-76bf-ba08-aa33d93c8010",
+    "run": "hexagons_cloud_014.json",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 332658,
+    "sha256": "ca703268e4a623fe01776c7138158716f5ef06e86abc18e446490acb8e08569d",
+    "run_directory_or_context": "hexagons_cloud_014.json"
+  },
+  {
+    "file": "notes/chat-records/hexagons_cloud_002.json",
+    "source": "read_thread: 01a0d852-26a4-76bf-ba08-aa33d93c8010",
+    "run": "hexagons_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 50035,
+    "sha256": "02e21622f3fcd3eb97356449ce5b1840a99ff87ed218697f8d18a9e292d06329",
+    "run_directory_or_context": "hexagons_cloud"
+  },
+  {
+    "file": "notes/chat-records/vertices_local_002.json",
+    "source": "read_thread: 01a0ddd5-d823-78f3-8007-4e6affbc3f0b",
+    "run": "Discuss disk objective function",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 27270,
+    "sha256": "63ef7be730787498901b6801e031de3d2ae7a075e18ad2da905d5e78febf9529",
+    "run_directory_or_context": "Discuss disk objective function"
+  },
+  {
+    "file": "notes/chat-records/protocol_local_001.json",
+    "source": "read_thread: 01a0e288-2186-7bf0-9df7-4ecf938cb3c6",
+    "run": "Check project conversation access",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 57503,
+    "sha256": "c181835629fbff8240e442aa9de8df77ade76ebf51065281d9a15023f3e113f0",
+    "run_directory_or_context": "Check project conversation access"
+  },
+  {
+    "file": "notes/chat-records/voronoi_chat_001.json",
+    "source": "read_thread: 6ab96e30-9208-83ed-8ed2-09fc67055c70",
+    "run": "#2 working voronoi",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 8509,
+    "sha256": "a079bb644c5c98853bab0049e966687a5f2826ce58298708e165efac6ae5e1f5",
+    "run_directory_or_context": "#2 working voronoi"
+  },
+  {
+    "file": "notes/chat-records/hexagons_cloud_001.json",
+    "source": "read_thread: 01a0d852-26a4-76bf-ba08-aa33d93c8010",
+    "run": "hexagons_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 74810,
+    "sha256": "36838b10d79f37e6c8f986936297057299d196399a1319a8c43aa16fd190c92c",
+    "run_directory_or_context": "hexagons_cloud"
+  },
+  {
+    "file": "notes/chat-records/vertices_local_001.json",
+    "source": "read_thread: 01a0ddd5-d823-78f3-8007-4e6affbc3f0b",
+    "run": "Discuss disk objective function",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 76803,
+    "sha256": "35c053bb5ef624c91aa84984b17ca77673514e3f708c3fec61d4b8a2ab54c927",
+    "run_directory_or_context": "Discuss disk objective function"
+  },
+  {
+    "file": "notes/chat-records/voronoi_local_003.json",
+    "source": "read_thread: 01a0e7a4-606c-7b71-bf58-3f3816935802",
+    "run": "#1 contour discussion compacted",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 24063,
+    "sha256": "34ae5e3950529ed28ab505f963e362ff982f05df918c272dbcd0084e421842e9",
+    "run_directory_or_context": "#1 contour discussion compacted"
+  },
+  {
+    "file": "notes/chat-records/protocol_local_002.json",
+    "source": "read_thread: 01a0e288-2186-7bf0-9df7-4ecf938cb3c6",
+    "run": "Check project conversation access",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 130338,
+    "sha256": "cdf3a5c774293f8b18b4f8dce43f468fdc627f551029eb24d36b2a6bbc2c56fa",
+    "run_directory_or_context": "Check project conversation access"
+  },
+  {
+    "file": "notes/chat-records/voronoi_cloud_006.json",
+    "source": "read_thread: 01a0e456-753e-70bc-a6d0-6e3a62eb5039",
+    "run": "voronoi_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 54443,
+    "sha256": "0504b7aa5e75516c9b64c1d2a5f39e96afa0b4e03d962936cf05bc68c63c670b",
+    "run_directory_or_context": "voronoi_cloud"
+  },
+  {
+    "file": "notes/chat-records/hexagons_chat_001.json",
+    "source": "read_thread: 6ab6464f-3e98-83eb-bf91-8c62217f7c7f",
+    "run": "hexagons",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 25829,
+    "sha256": "e803b93273cc441e5dee95426ca160c67bb660ef1333278360dce46aac5a4950",
+    "run_directory_or_context": "hexagons"
+  },
+  {
+    "file": "notes/chat-records/voronoi_cloud_010.json",
+    "source": "read_thread: 01a0e456-753e-70bc-a6d0-6e3a62eb5039",
+    "run": "voronoi_cloud_010.json",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 347447,
+    "sha256": "b0d2b009adfcd7df6d1c843636a1a9a8df65e9178508a34ac8cdd3deb0386882",
+    "run_directory_or_context": "voronoi_cloud_010.json"
+  },
+  {
+    "file": "notes/chat-records/compact100_local_001.json",
+    "source": "read_thread: 01a0e44e-1809-75c3-80e7-f820bd866668",
+    "run": "Add location-based work",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 122980,
+    "sha256": "127cd167469d55e1fc8fdb6f45b92341ede945356e9f77e5087b7b45b26c567c",
+    "run_directory_or_context": "Add location-based work"
+  },
+  {
+    "file": "notes/chat-records/circle_covering_cloud_004.json",
+    "source": "read_thread: 01a0d84a-91f3-76db-a78d-660b1b92c033",
+    "run": "circle_covering_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 126284,
+    "sha256": "3973788f556087602075f50497b0b42cc2a58b61398efe12c4533414ecd392b5",
+    "run_directory_or_context": "circle_covering_cloud"
+  },
+  {
+    "file": "notes/chat-records/circle_covering_cloud_005.json",
+    "source": "read_thread: 01a0d84a-91f3-76db-a78d-660b1b92c033",
+    "run": "circle_covering_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 13361,
+    "sha256": "6ff7344a41caae7efbf7b3c799dcf2d1422e4beeedb4ca59174cb732a1ddcbf3",
+    "run_directory_or_context": "circle_covering_cloud"
+  },
+  {
+    "file": "notes/chat-records/density_chat_001.json",
+    "source": "read_thread: 6aabf38d-d30c-83eb-a2af-841dcd3cbe1d",
+    "run": "Explain Density Equalization",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 12992,
+    "sha256": "deb81d294f28e367ecf1abd95c0e929ae99327f049c8da762099d38159ed3f7c",
+    "run_directory_or_context": "Explain Density Equalization"
+  },
+  {
+    "file": "notes/chat-records/voronoi_cloud_007.json",
+    "source": "read_thread: 01a0e456-753e-70bc-a6d0-6e3a62eb5039",
+    "run": "voronoi_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 236363,
+    "sha256": "e113f3427dd2d819a74e03544d0c15192dae0cd834aa7a43877af2f516ab61ee",
+    "run_directory_or_context": "voronoi_cloud"
+  },
+  {
+    "file": "notes/chat-records/protocol_local_003.json",
+    "source": "read_thread: 01a0e288-2186-7bf0-9df7-4ecf938cb3c6",
+    "run": "Check project conversation access",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 19542,
+    "sha256": "ec180e5309357f49e8fba2f9e8a6de72266c27429dc2b76bd4b970cb22b624a8",
+    "run_directory_or_context": "Check project conversation access"
+  },
+  {
+    "file": "notes/chat-records/voronoi_local_002.json",
+    "source": "read_thread: 01a0e7a4-606c-7b71-bf58-3f3816935802",
+    "run": "#1 contour discussion compacted",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 25874,
+    "sha256": "185eb596acb85e5ee4e50fcaaaa66a32ad19a98df893d17c9765852d0d5a1a84",
+    "run_directory_or_context": "#1 contour discussion compacted"
+  },
+  {
+    "file": "notes/chat-records/circle_covering_cloud_002.json",
+    "source": "read_thread: 01a0d84a-91f3-76db-a78d-660b1b92c033",
+    "run": "circle_covering_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 60835,
+    "sha256": "30af485bb95d8dff83d0fb874679d7eb4bb668d5e9b79c853da2a0f637a4977d",
+    "run_directory_or_context": "circle_covering_cloud"
+  },
+  {
+    "file": "notes/chat-records/hexagons_cloud_011.json",
+    "source": "read_thread: 01a0d852-26a4-76bf-ba08-aa33d93c8010",
+    "run": "hexagons_cloud_011.json",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 2521,
+    "sha256": "93266f26d3cc7d89688a301a4d6703b06553f969fa4e383abc9355e37bded2c8",
+    "run_directory_or_context": "hexagons_cloud_011.json"
+  },
+  {
+    "file": "notes/chat-records/hexagons_cloud_007.json",
+    "source": "read_thread: 01a0d852-26a4-76bf-ba08-aa33d93c8010",
+    "run": "hexagons_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 118370,
+    "sha256": "e226708f19f747450454f9208e7da1eb2e8c8f6007fe47095b1adaa9c0696ba6",
+    "run_directory_or_context": "hexagons_cloud"
+  },
+  {
+    "file": "notes/chat-records/current_chat_002.json",
+    "source": "read_thread: 01a0eea5-3e28-7570-872c-69b22d1f8c0b",
+    "run": "voronoi chat #3",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 121937,
+    "sha256": "c3473eba1744a03ad272c640e52e78537d88785da0c0a076c8343364a3a1f729",
+    "run_directory_or_context": "voronoi chat #3"
+  },
+  {
+    "file": "notes/chat-records/protocol_local_004.json",
+    "source": "read_thread: 01a0e288-2186-7bf0-9df7-4ecf938cb3c6",
+    "run": "Check project conversation access",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 46090,
+    "sha256": "c7aad03c5f04e751f2a31acf53bfed9903105a7a6ce3c8a004ded315d912ff36",
+    "run_directory_or_context": "Check project conversation access"
+  },
+  {
+    "file": "notes/chat-records/protocol_local_005.json",
+    "source": "read_thread: 01a0e288-2186-7bf0-9df7-4ecf938cb3c6",
+    "run": "Check project conversation access",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 14805,
+    "sha256": "91c3124a01405d1e94f65d5ceaf1ed29ae79cd43f006ff62363a04a89eb77829",
+    "run_directory_or_context": "Check project conversation access"
+  },
+  {
+    "file": "notes/chat-records/voronoi_local_004.json",
+    "source": "read_thread: 01a0e7a4-606c-7b71-bf58-3f3816935802",
+    "run": "#1 contour discussion compacted",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 18528,
+    "sha256": "4756effd3698298c98b31f2d3f1d51e95782dc41eae8071d016d19336bd111f5",
+    "run_directory_or_context": "#1 contour discussion compacted"
+  },
+  {
+    "file": "notes/chat-records/current_chat_003.json",
+    "source": "read_thread: 01a0eea5-3e28-7570-872c-69b22d1f8c0b",
+    "run": "voronoi chat #3",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 9471,
+    "sha256": "55454755c4fd229dd979a2cb59435100d16c895406128544a8ef045a97f57724",
+    "run_directory_or_context": "voronoi chat #3"
+  },
+  {
+    "file": "notes/chat-records/hexagons_cloud_006.json",
+    "source": "read_thread: 01a0d852-26a4-76bf-ba08-aa33d93c8010",
+    "run": "hexagons_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 25568,
+    "sha256": "2042cd118d3948f33ef513b78cec4546aa4f437c97900d348ffa64e0fd6a1143",
+    "run_directory_or_context": "hexagons_cloud"
+  },
+  {
+    "file": "notes/chat-records/hexagons_cloud_010.json",
+    "source": "read_thread: 01a0d852-26a4-76bf-ba08-aa33d93c8010",
+    "run": "hexagons_cloud_010.json",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 63294,
+    "sha256": "44bd23d885d762fff975ea879961f45433f61d50d74b6b79ff18c996ce38b556",
+    "run_directory_or_context": "hexagons_cloud_010.json"
+  },
+  {
+    "file": "notes/chat-records/circle_covering_cloud_003.json",
+    "source": "read_thread: 01a0d84a-91f3-76db-a78d-660b1b92c033",
+    "run": "circle_covering_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 81220,
+    "sha256": "74485abb03aad8a2562ece6be3fa3ce4fe5297b3be8f55c6c96db218d7d7db27",
+    "run_directory_or_context": "circle_covering_cloud"
+  },
+  {
+    "file": "notes/chat-records/voronoi_cloud_001.json",
+    "source": "read_thread: 01a0e456-753e-70bc-a6d0-6e3a62eb5039",
+    "run": "voronoi_cloud",
+    "status": "retrieved conversation/tool record; output-size limits apply",
+    "record": "",
+    "bytes": 18598,
+    "sha256": "fa0d7db905b6a07a1dc6750807b8a068a053b2d3cb90af6eda56c79d06dc5231",
+    "run_directory_or_context": "voronoi_cloud"
+  },
+  {
+    "file": "export-tools/export_lbm.py",
+    "source": "/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2/work/export_lbm.py",
+    "run": "This preservation export, 2026-09-30",
+    "status": "new inventory/extraction code; not a simulation program",
+    "record": "",
+    "bytes": 10039,
+    "sha256": "0a2cca7f6ad4fc2e2fd423e9f90ff2dc748ce66f796a82ddc0b51ec2c4d3a5d7",
+    "run_directory_or_context": "This preservation export, 2026-09-30"
+  },
+  {
+    "file": "export-tools/finalize_lbm_export.py",
+    "source": "/Users/udi/Documents/Codex/2026-09-29/cab-we-continue-chat-2/work/finalize_lbm_export.py",
+    "run": "This preservation export, 2026-09-30",
+    "status": "new inventory/extraction code; not a simulation program",
+    "record": "",
+    "bytes": 13034,
+    "sha256": "57b1249c00e0948ca87e0fd6ee082166f057377d97d1b7176295da427b66662c",
+    "run_directory_or_context": "This preservation export, 2026-09-30"
+  },
+  {
+    "file": "notes/git-history/0737f02577518a45f2ecf9619b96f66eab2a2d91/CLAUDE.md",
+    "source": "/Users/udi/Grassroots/LBM git 0737f02577518a45f2ecf9619b96f66eab2a2d91:CLAUDE.md",
+    "run": "Historical LBM note revision 0737f02577518a45f2ecf9619b96f66eab2a2d91",
+    "status": "exact Git blob exported without checkout",
+    "record": "",
+    "bytes": 375,
+    "sha256": "6e17ff55f1efd03fd8ba98c3afb13eebba3a1339dd6804119d15f3f7d176e312",
+    "run_directory_or_context": "Historical LBM note revision 0737f02577518a45f2ecf9619b96f66eab2a2d91"
+  },
+  {
+    "file": "notes/git-history/ba03f656190dd8cc418331b003e90b8b0b20ec9b/main.tex",
+    "source": "/Users/udi/Grassroots/LBM git ba03f656190dd8cc418331b003e90b8b0b20ec9b:main.tex",
+    "run": "Historical LBM note revision ba03f656190dd8cc418331b003e90b8b0b20ec9b",
+    "status": "exact Git blob exported without checkout",
+    "record": "",
+    "bytes": 78445,
+    "sha256": "7bf2b014d20eff6bccf7059fe89a62b97a566e0c946bee905f2f5f61b879adce",
+    "run_directory_or_context": "Historical LBM note revision ba03f656190dd8cc418331b003e90b8b0b20ec9b"
+  }
+]

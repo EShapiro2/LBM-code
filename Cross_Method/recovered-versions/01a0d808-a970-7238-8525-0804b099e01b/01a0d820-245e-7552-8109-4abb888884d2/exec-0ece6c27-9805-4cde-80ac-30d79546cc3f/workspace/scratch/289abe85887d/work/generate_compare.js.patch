@@ -1,0 +1,5 @@
+@@ -16,3 +16,3 @@
+ const pts=ids.map(i=>[D.MAN_PTS.x[i],D.MAN_PTS.y[i]]);
+-const km=new M.Run({T:50,T2:150,k:2,seed:1},pts);
++const km=new M.Run({T:50,T2:200,k:2,seed:1},pts);
+ for(let i=0;!km.done && i<50000;i++) km.step();

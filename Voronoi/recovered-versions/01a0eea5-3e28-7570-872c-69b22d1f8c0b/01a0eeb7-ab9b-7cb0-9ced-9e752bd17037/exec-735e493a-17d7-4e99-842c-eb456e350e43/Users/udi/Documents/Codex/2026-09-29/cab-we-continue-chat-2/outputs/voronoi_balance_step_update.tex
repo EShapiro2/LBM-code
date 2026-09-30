@@ -1,0 +1,180 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[T1]{fontenc}
+\title{An Analytical Balance Step for One Selected Voronoi Cell}
+\author{Working research note: supplement to the recovered protocol}
+\date{29 September 2026}
+\begin{document}
+\maketitle
+
+\paragraph{Status.}
+This supplement records the agreed ordinary balance step. It supersedes
+the preceding combined-badness acceptance rule for balance moves in the
+recovered research note. It does not replace that note's historical
+experiments or its departure, migration, and insertion protocol.
+No implementation or simulation of this revised balance rule is claimed.
+Assume cell $i$ has already been selected; selection and scheduling remain
+deferred.
+
+\section{High-level rule}
+\begin{enumerate}
+\item Compute current cell densities and use them to predict weights as
+center $i$ moves. All other centers remain fixed.
+\item Measure imbalance by summing the mean absolute neighbor-weight gaps
+for $i$ and its original neighbors.
+\item Compute analytically the direction of fastest first-order decrease
+of this neighborhood objective.
+\item Compute a conservative safe distance analytically, certifying decrease
+throughout the segment, preserving adjacency and valid geometry, keeping
+the center in the domain, and avoiding collisions.
+\item Move once by that distance and end the step. If no strictly decreasing
+feasible direction exists, stay put. Do not execute an uncertified segment.
+\end{enumerate}
+
+\section{Computed densities and neighborhood objective}
+Let $P$ be the fixed bounded convex polygonal domain. Let $p_i$ be the
+initial position of the selected center and $q$ its candidate position.
+Write $W_j^0$ and $A_j^0>0$ for each cell's current weight and area.
+Compute
+\[
+ \rho_j=\frac{W_j^0}{A_j^0},\qquad
+ \widehat W_j(q)=\rho_j A_j(q).
+\]
+The computed densities are parameters of this step's weight model.
+Candidate weights are modeled weights, not recounted pickups. For an
+ordinary count-based starting state, $W_j^0$ is the current pickup count;
+weight accounting following departure or insertion remains a separate
+implementation question in the preceding protocol.
+
+Let $N_j^0$ contain the initial neighbors sharing a positive-length edge,
+and fix $\mathcal S_i=\{i\}\cup N_i^0$. On a segment preserving adjacency,
+define
+\[
+ \widehat G_j(q)=\frac{1}{|N_j^0|}\sum_{k\in N_j^0}
+ |\widehat W_j(q)-\widehat W_k(q)|,
+ \qquad E_i(q)=\sum_{j\in\mathcal S_i}\widehat G_j(q).
+\]
+An empty neighbor set is an invalid scoring state. This is a sum of
+local mean gaps, not a median and not a combined balance--circularity
+score. It protects the neighborhood aggregate, not every individual
+score or the global median.
+
+\section{Analytical direction}
+For each initial shared edge of $i$ and $j$, let $\ell_{ij}$ denote its
+length and $m_{ij}$ its midpoint. Define
+\[
+ b_{ij}=\frac{\ell_{ij}}{\|p_j-p_i\|}(m_{ij}-p_i),\qquad
+ a_i=\sum_{j\in N_i^0}b_{ij},\qquad
+ a_j=-b_{ij}\quad(j\in N_i^0).
+\]
+Set $a_j=0$ for other cells. In a nondegenerate configuration with fixed
+domain boundary, $a_j=\nabla_{p_i}A_j$. Thus a small displacement $v$
+has area differential $dA_j=a_j\cdot v$. Put $z_j=\rho_j a_j$.
+
+If every compared weight difference is nonzero, the objective gradient is
+\[
+ g=\sum_{j\in\mathcal S_i}\frac{1}{|N_j^0|}
+ \sum_{k\in N_j^0}\operatorname{sgn}(W_j^0-W_k^0)(z_j-z_k).
+\]
+For an interior center with $g\ne0$, the steepest direction per unit
+distance is $u=-g/\|g\|$. If $g=0$, no strictly decreasing first-order
+direction exists; this does not establish optimality against finite moves.
+
+At equal weights, use the exact directional derivative
+\[
+ D E_i(u)=\sum_{j\in\mathcal S_i}\frac{1}{|N_j^0|}
+ \sum_{k\in N_j^0}
+ \begin{cases}
+ \operatorname{sgn}(W_j^0-W_k^0)(z_j-z_k)\cdot u,
+       &W_j^0\ne W_k^0,\\
+ |(z_j-z_k)\cdot u|,&W_j^0=W_k^0.
+ \end{cases}
+\]
+Choose a feasible unit direction minimizing this expression and require
+a negative minimum. In two dimensions, the sign boundaries partition
+the direction circle into finitely many arcs; on each arc the expression
+is linear in $u$, allowing analytical candidate evaluation. Boundary
+centers require directions admitting a positive segment inside $P$.
+Tie-breaking between equally minimizing directions requires a
+deterministic implementation convention.
+
+\section{One analytically certified safe segment}
+Set $f(t)=E_i(p_i+tu)$ and $a=-f'(0+)>0$. Obtain $R>0$ such that the
+entire interval preserves valid geometry, the domain constraint,
+noncollision, the current geometric structure, and the relevant
+one-sided weight-order branches. Choose $R$ strictly before any positive
+event that would invalidate these conditions. Obtain a bound $M\ge0$ with
+\[
+ |f''(t)|\le M\qquad(0<t\le R).
+\]
+Use
+\[
+ h=\begin{cases}\min\{R,a/(2M)\},&M>0,\\R,&M=0,\end{cases}
+ \qquad p_i^{\mathrm{new}}=p_i+hu.
+\]
+For $0<t\le h$, $f'(t)\le-a+Mt\le-a/2<0$. Consequently,
+\[
+ E_i(p_i^{\mathrm{new}})\le E_i(p_i)-ah/2.
+\]
+This certifies decrease throughout the segment, rather than checking only
+its endpoint. It is conservative and need not be the longest safe move.
+The step ends after this single segment: there are no repeated direction
+or distance recalculations within the selected cell's turn.
+
+\subsection{Obtaining analytical bounds}
+For a fixed polygonal domain and nondegenerate combinatorial structure,
+Voronoi vertices are intersections of lines whose coefficients are
+polynomial in $t$. Their coordinates, cell areas, and the objective on
+a fixed absolute-value branch are rational functions of $t$.
+Geometric event predicates and denominator conditions can therefore be
+expressed as polynomial sign conditions.
+
+A conservative sign-preserving radius can be computed without root
+search. For $Q(t)=\sum_{k=0}^d c_k t^k$ with $c_0\ne0$, choose a
+reference distance $T>0$ and set $B=\sum_{k=1}^d|c_k|T^k$. Use
+\[
+ r_Q=\begin{cases}
+ T\min\{1,|c_0|/(2B)\},&B>0,\\T,&B=0.
+ \end{cases}
+\]
+For $0\le t\le r_Q$, the nonconstant terms have total magnitude at most
+$|c_0|/2$. A minimum of such radii over sufficient event and denominator
+conditions gives a conservative $R$. When a polynomial vanishes at zero,
+factor out its initial power of $t$ to determine the right-hand sign;
+identically zero predicates require separate handling. Bounding the
+rational second derivative using numerator bounds and denominators
+bounded away from zero gives $M$. No trial movements or numerical
+line search are required by this construction.
+
+\subsection{Scope of certification}
+Equal-weight ties require the right-hand branches described above.
+Initial geometric degeneracies require an explicit one-sided convention
+before a positive segment can be certified. Enumerating sufficient event
+predicates, deterministic conventions, and rigorous numerical bounds
+remain implementation work. Ordinary floating-point estimates without
+error bounds are not mathematical certificates; exact or outward-rounded
+calculations are needed for a numerical guarantee.
+
+Two-hop information suffices to evaluate the neighborhood objective,
+given the relevant cell geometry and weights. This alone does not prove
+that all geometric event certificates can be obtained from only two-hop
+information. Additional local information exchange may be required.
+
+\section{Separate circularity and deferred decisions}
+The agreed intended mixture among ordinary moves is 90\% balance and
+10\% circularity. Circularity steps should improve
+$C_i=4\pi A_i/L_i^2$ without increasing $E_i$ throughout the move.
+Their precise direction and certified-distance rule remains to be
+specified. There is no combined badness or balance--circularity exchange
+coefficient in the revised ordinary movement rule.
+
+Cell selection, including whether to sample in proportion to current
+$G_i$, replacement, and score-refresh timing, remains deferred. Earlier
+badness-weighted selection is historical, not an adopted scheduler for
+this revision. The computed per-cell densities can differ, so total
+modeled weight need not be conserved as areas change. Descent of $E_i$
+does not guarantee improvement of refreshed pickup-count imbalance or
+convergence. The departure--migration--insertion protocol and its
+remaining weight-accounting questions are unchanged.
+\end{document}

@@ -1,0 +1,5 @@
+@@ -7,3 +7,3 @@
+ vm.runInContext(first.slice(0, first.indexOf('document.querySelectorAll')), context);
+-const body = second.slice(second.indexOf('const W = '), second.indexOf('function makeWorld(){'));
++const body = second.slice(second.indexOf('const W = '), second.indexOf('function makeWorld(){')) + '\n' + second.slice(second.indexOf('function sweepNet('), second.indexOf('function doSweep(){'));
+ vm.runInContext(body + '\n globalThis.API = {buildNet, refresh, sweepNet, area, perim, convex, valid}; globalThis.DATA = {MAN_PTS};', context);

@@ -1,0 +1,3 @@
+from pathlib import Path
+exec(Path('work/voronoi_tradeoff75/render59.py').read_text().split('x=states[-1]')[0])
+x=states[-1];fig,ax=plt.subplots(figsize=(8,12));pc=draw(ax,x,'End of round 59 — all 100 turns completed',max(x['counts']));poly=np.array(x['cells'][47]);ax.plot(poly[:,0],poly[:,1],color='#0066ff',lw=3,zorder=5);c=np.array(x['centers'][47]);ax.scatter(*c,s=42,color='#0066ff',zorder=6);ax.annotate('Previously 62; now 79',xy=c,xytext=(-.1,10.4),fontsize=11,color='#0044bb',arrowprops=dict(arrowstyle='->',color='#0044bb',lw=1.5),bbox=dict(facecolor='white',alpha=.9,edgecolor='none'),zorder=7);fig.colorbar(pc,ax=ax,fraction=.035,pad=.02,label='Pickup count (reporting only)');fig.tight_layout();fig.savefig(O/'round59_highlighted.png',dpi=170);plt.close(fig)

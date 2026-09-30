@@ -1,0 +1,43 @@
+class PathCheck:
+ def __init__(self,c,i,P,counts,u,maxs,initial_cells,initial_nb):
+  self.c=c.copy();self.i=i;self.P=P;self.u=u;self.maxs=maxs
+  self.rho=counts/np.array([p.area for p in initial_cells]);self.C0=circularity(initial_cells[i]);self.N0=sorted(initial_nb);self.G0=float(np.mean(abs(counts[i]-counts[self.N0])));self.eval_count=0;self.cache={0.:(self.C0,self.G0)}
+  fixed=np.delete(c,i,axis=0);polys=list(shapely.intersection(shapely.voronoi_polygons(MultiPoint(fixed),extend_to=P.envelope,ordered=True).geoms,P));v=[];dd=[]
+  for k,p in enumerate(polys):
+   if p.geom_type=='GeometryCollection':p=shapely.union_all([part for part in p.geoms if part.area>0])
+   if p.is_empty:continue
+   assert p.geom_type=='Polygon'
+   verts=np.asarray(p.exterior.coords)[:-1];v.extend(verts);dd.extend(np.sum((verts-fixed[k])**2,axis=1))
+  self.topo_events=self.roots(np.asarray(v),np.asarray(dd))
+ def roots(self,v,ds):
+  z=self.c[self.i]-v;b=z@self.u;d=np.sum(z*z,axis=1)-ds;disc=b*b-d;mask=disc>1e-20;b=b[mask];d=d[mask];rt=np.sqrt(disc[mask]);lo=-b-rt;hi=-b+rt
+  safe=abs(hi)>1e-25;lo[safe]=d[safe]/hi[safe];t=np.r_[lo,hi];return np.unique(t[(t>1e-11)&(t<self.maxs-1e-11)])
+ def evaluate(self,t):
+  t=float(t)
+  if t not in self.cache:
+   cp=self.c.copy();cp[self.i]+=t*self.u
+   cells=list(shapely.intersection(shapely.voronoi_polygons(MultiPoint(cp),extend_to=self.P.envelope,ordered=True).geoms,self.P))
+   poly=cells[self.i]
+   if poly.geom_type=='GeometryCollection':poly=shapely.union_all([p for p in poly.geoms if p.area>0])
+   modeled=self.rho*np.array([p.area for p in cells]);ns=neighbor_ids(cp,self.i,poly)
+   g=float(np.mean(abs(modeled[self.i]-modeled[ns]))) if ns else float('inf')
+   self.cache[t]=(circularity(poly),g);self.eval_count+=1
+  return self.cache[t]
+ def check(self,s):
+  cend,gend=self.evaluate(s)
+  if cend<self.C0-CTOL:return False,{'reason':'endpoint_circularity'}
+  if gend>self.G0+GTOL:return False,{'reason':'endpoint_modeled_gap'}
+  if not (cend>self.C0+STRICT_C or gend<self.G0-STRICT_G):return False,{'reason':'no_strict_improvement'}
+  knots=np.r_[0.,self.topo_events[self.topo_events<s],s];vals=[self.evaluate(t) for t in knots];cmin=min(x[0] for x in vals);gmax=max(x[1] for x in vals);checks=0
+  for a,b in zip(knots[:-1],knots[1:]):
+   if b-a<1e-11:continue
+   grid=np.linspace(a,b,5);values=[self.evaluate(t) for t in grid];cmin=min(cmin,min(x[0] for x in values));gmax=max(gmax,max(x[1] for x in values))
+   if cmin<self.C0-CTOL or gmax>self.G0+GTOL:return False,{'reason':'path_constraint','cmin':cmin,'modeled_gmax':gmax}
+   for lo,hi in zip(grid[:-1],grid[1:]):
+    # Numerical extrema within each fixed-topology segment. No pickup data is used.
+    opts={'xatol':max(1e-11,s*1e-7),'maxiter':20}
+    rc=minimize_scalar(lambda t:self.evaluate(t)[0],bounds=(float(lo),float(hi)),method='bounded',options=opts)
+    rg=minimize_scalar(lambda t:-self.evaluate(t)[1],bounds=(float(lo),float(hi)),method='bounded',options=opts)
+    checks+=2;cmin=min(cmin,float(rc.fun));gmax=max(gmax,float(-rg.fun))
+    if cmin<self.C0-CTOL or gmax>self.G0+GTOL:return False,{'reason':'path_constraint','cmin':cmin,'modeled_gmax':gmax}
+  return True,dict(C0=self.C0,C1=cend,modeled_G0=self.G0,modeled_G1=gend,path_min_C=cmin,path_max_modeled_G=gmax,topology_events_checked=int(sum(self.topo_events<s)),extremum_searches=checks)

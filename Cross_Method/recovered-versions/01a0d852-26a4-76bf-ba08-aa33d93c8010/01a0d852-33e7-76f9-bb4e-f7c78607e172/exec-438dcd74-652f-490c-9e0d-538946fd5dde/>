@@ -1,0 +1,51 @@
+const snap=JSON.parse(fs.readFileSync('work/best_movable_rim.json','utf8'));
+N.VX.set(snap.verticesX);N.VY.set(snap.verticesY);H.refresh(N);
+vm.runInContext('globalThis.extra={valid,inCell}',context);
+const E=context.extra,outline=vm.runInContext('MAN.outline',context);
+const tally=new Map();
+for(const ring of N.cells)for(let k=0;k<6;k++){
+ const a=ring[k],b=ring[(k+1)%6],key=a<b?`${a},${b}`:`${b},${a}`;
+ const val=tally.get(key)||{a,b,n:0};val.n++;tally.set(key,val);
+}
+const bedges=[...tally.values()].filter(e=>e.n===1);
+const cross=(a,b)=>a[0]*b[1]-a[1]*b[0],sub=(a,b)=>[a[0]-b[0],a[1]-b[1]];
+function gaps(){
+ let length=0,first=null;
+ for(let i=0;i<outline.length;i++){
+  const p=outline[i],q=outline[(i+1)%outline.length],r=sub(q,p),ts=[0,1];
+  for(const e of bedges){const a=[N.VX[e.a],N.VY[e.a]],b=[N.VX[e.b],N.VY[e.b]],s=sub(b,a),den=cross(r,s);
+   if(Math.abs(den)<1e-12)continue;
+   const u=sub(a,p),t=cross(u,s)/den,v=cross(u,r)/den;
+   if(t>1e-10&&t<1-1e-10&&v>=-1e-10&&v<=1+1e-10)ts.push(t);
+  }
+  ts.sort((a,b)=>a-b);
+  for(let j=0;j<ts.length-1;j++){
+   const mid=(ts[j]+ts[j+1])/2,x=p[0]+mid*r[0],y=p[1]+mid*r[1];
+   if(H.locate(N,x,y,-1)<0){length+=Math.hypot(...r)*(ts[j+1]-ts[j]);if(!first)first=[x,y]}
+  }
+ }
+ return {length,first};
+}
+let g=gaps();console.log('START',g,'variance',variance());
+function variance(){let s=0;for(const x of N.count)s+=x*x;return s/N.m-(5986/N.m)**2}
+for(let iter=0;iter<4 && g.length>1e-9;iter++){
+ const frontier=[...new Set(bedges.flatMap(e=>[e.a,e.b]))].sort((a,b)=>Math.hypot(N.VX[a]-g.first[0],N.VY[a]-g.first[1])-Math.hypot(N.VX[b]-g.first[0],N.VY[b]-g.first[1])).slice(0,10);
+ let best={v:-1,gap:g.length,variance:Infinity};
+ for(const v of frontier){const ox=N.VX[v],oy=N.VY[v],touched=N.vcells[v];
+  for(const d of [.01,.02,.04,.08,.16,.32])for(let k=0;k<16;k++){
+   N.VX[v]=ox+d*Math.cos(k*Math.PI/8);N.VY[v]=oy+d*Math.sin(k*Math.PI/8);
+   if(!E.valid(N,touched))continue;
+   const after=gaps();if(after.length>=g.length-1e-9)continue;
+   H.refresh(N);const total=[...N.count].reduce((a,b)=>a+b,0);
+   if(total===5986){const varianceNow=variance();
+    if(after.length<best.gap-1e-8||Math.abs(after.length-best.gap)<1e-8&&varianceNow<best.variance)
+     best={v,x:N.VX[v],y:N.VY[v],gap:after.length,variance:varianceNow};
+   }
+  }
+  N.VX[v]=ox;N.VY[v]=oy;H.refresh(N);
+ }
+ if(best.v<0)break;
+ N.VX[best.v]=best.x;N.VY[best.v]=best.y;H.refresh(N);g=gaps();
+ console.log('REPAIR',iter,best,g);
+}
+if(g.length<1e-9)fs.writeFileSync('work/covered_movable_rim.json',JSON.stringify({round:snap.round,score:[...N.count].reduce((a,b)=>a+b*b,0),verticesX:[...N.VX],verticesY:[...N.VY],counts:[...N.count]}));

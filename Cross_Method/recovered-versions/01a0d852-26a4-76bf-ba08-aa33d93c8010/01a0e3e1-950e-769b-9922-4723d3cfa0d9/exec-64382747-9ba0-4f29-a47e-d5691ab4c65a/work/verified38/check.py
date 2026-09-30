@@ -1,0 +1,18 @@
+import json,numpy as np,hashlib
+from pathlib import Path
+from shapely.geometry import shape,Point,Polygon,mapping
+from shapely.ops import transform
+from scipy.spatial import ConvexHull,distance
+p=Path('work/verified38');f=p/'borough_boundaries.json';f=f if f.exists() else p/'boundary_retrieved_2026-09-26.json';B=json.load(open(f));man=next(b for b in B if b['boroname']=='Manhattan');llgeo=shape(man['the_geom']);a=np.array(json.load(open(p/'Full_Rides/matching_report.json'))['affine_lonlat_to_quantized_xy']);a=a*np.array([8.8103/65535,18.8542/65535])[:,None]
+def project(x,y,z=None):return (np.array(x)*a[0,0]+a[0,1],np.array(y)*a[1,0]+a[1,1])
+geo=transform(project,llgeo);polys=list(geo.geoms);main=max(polys,key=lambda x:x.area);mi=polys.index(main);print('components',len(polys),'main index',mi,'main area',main.area,'holes',len(main.interiors),'verts',len(main.exterior.coords),'valid',main.is_valid,'bounds',main.bounds)
+D=json.load(open('Manhattan_Pickups_2015-01-15_0800-0815.json'));P=np.array(D['points']);rides=json.load(open(p/'matched_first15_all5986.json'));LL=np.array([[float(r['pickup_longitude']),float(r['pickup_latitude'])] for r in rides]);Q=np.column_stack(project(LL[:,0],LL[:,1]));out=[]
+for i,(v,q,ll) in enumerate(zip(P,Q,LL)):
+ ins=main.covers(Point(v));src=main.covers(Point(q))
+ if not ins or not src:out.append({'index':i,'xy':v.tolist(),'lonlat':ll.tolist(),'quantized_inside_main':ins,'source_inside_main':src,'inside_borough':geo.covers(Point(q)),'source_distance_to_main_m':main.distance(Point(q))*1000,'quantized_distance_to_boundary_m':main.boundary.distance(Point(v))*1000})
+print('outside',len(out),'source outside',sum(not o['source_inside_main'] for o in out),'boroughoutside',sum(not o['inside_borough'] for o in out));print(out[:5])
+h=np.array(main.convex_hull.exterior.coords)[:-1];edges=np.roll(h,-1,axis=0)-h;n=np.column_stack([-edges[:,1],edges[:,0]]);n/=np.linalg.norm(n,axis=1)[:,None];zs=h@n.T;width=zs.max(axis=0)-zs.min(axis=0);k=width.argmin();w=width[k];ds=np.linalg.norm(P[None,:,:]-h[:,None,:],axis=2);d142=np.partition(ds,141,axis=1)[:,141];j=d142.argmax();tip=h[j];print('bound',w,tip,d142[j],d142[j]/w,'within2W',int((ds[j]<=2*w+1e-10).sum()))
+C=json.load(open('work/compact38/results.json'))['bestConstrained'];V=C['geometry']['vertices'];cells=[Polygon([V[i] for i in c]) for c in C['geometry']['cells']];from shapely.ops import unary_union
+cover=unary_union(cells);print('historical real coverage missing',main.difference(cover).area)
+report={'boundarySourceFile':str(f),'boundarySourceSha256':hashlib.sha256(f.read_bytes()).hexdigest(),'sourceURL':'https://data.cityofnewyork.us/resource/gthc-hcne.json?$limit=10','scope':'Largest land polygon of Manhattan borough, excluding other components; holes retained','components':len(polys),'mainComponentIndex':mi,'mainAreaKm2':main.area,'holes':len(main.interiors),'outlineVertices':len(main.exterior.coords),'affineLonlatToKm':a.tolist(),'outliers':out,'outsideSourceMain':sum(not o['source_inside_main'] for o in out),'outsideQuantizedMain':sum(not o['quantized_inside_main'] for o in out),'certificate':{'normal':n[k].tolist(),'domainProjectionMin':zs[:,k].min(),'domainProjectionMax':zs[:,k].max(),'W':w,'p':tip.tolist(),'radius':2*w,'distance142':d142[j],'ratioLowerBound':d142[j]/w,'withinRadiusCount':int((ds[j]<=2*w+1e-10).sum())},'historicalCellsUncoveredMainAreaKm2':main.difference(cover).area}
+json.dump(report,open(p/'assessment.json','w'),indent=2);json.dump(mapping(main),open(p/'main_island_km.geojson','w'));json.dump(mapping(llgeo.geoms[mi]),open(p/'main_island_lonlat.geojson','w'))

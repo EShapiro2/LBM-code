@@ -1,0 +1,10 @@
+@@ -128,3 +128,3 @@
+   if(after<best){best=after;bestAt=(snap.round || 0)+rounds+1;
+-    fs.writeFileSync('work/best_movable_rim.json',JSON.stringify({round:bestAt,score:best,verticesX:[...N.VX],verticesY:[...N.VY],counts:[...N.count],owners:[...N.world.owner]}));}
++    fs.writeFileSync('work/best_movable_rim_covered_run.json',JSON.stringify({round:bestAt,score:best,verticesX:[...N.VX],verticesY:[...N.VY],counts:[...N.count],owners:[...N.world.owner]}));}
+   if((rounds+1)%10===0)console.log('round',rounds+1,'current',after/N.m-(ids.length/N.m)**2,'best',best/N.m-(ids.length/N.m)**2,'moves',N.moves);
+@@ -132,3 +132,3 @@
+ const avg=ids.length/N.m,counts=[...N.count];
+-fs.writeFileSync('work/last_movable_rim.json',JSON.stringify({round:rounds,verticesX:[...N.VX],verticesY:[...N.VY],counts:[...N.count],owners:[...N.world.owner]}));
++fs.writeFileSync('work/last_movable_rim_covered_run.json',JSON.stringify({round:(snap.round||0)+rounds,verticesX:[...N.VX],verticesY:[...N.VY],counts:[...N.count],owners:[...N.world.owner]}));
+ console.log('FINAL',JSON.stringify({rounds,bestAt,baseline:baseline/N.m-avg*avg,bestVariance:best/N.m-avg*avg,finalVariance:counts.reduce((a,x)=>a+(x-avg)**2,0)/N.m,min:Math.min(...counts),max:Math.max(...counts),shape:Math.min(...N.cells.map((_,c)=>4*Math.PI*H.area(N,c)/H.perim(N,c)**2)),nonconvex:N.cells.filter((_,c)=>!H.convex(N,c)).length}));

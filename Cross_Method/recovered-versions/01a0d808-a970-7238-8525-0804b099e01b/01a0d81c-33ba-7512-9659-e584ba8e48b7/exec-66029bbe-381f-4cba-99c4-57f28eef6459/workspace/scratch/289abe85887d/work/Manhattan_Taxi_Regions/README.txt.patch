@@ -1,0 +1,16 @@
+@@ -31,3 +31,6 @@
+   Hexagon               A honeycomb of K hexagons whose corners move toward
+-                        balance for a chosen number of rounds.
++                        balance for a chosen number of rounds. Each corner
++                        evaluates only its three adjacent cells and takes
++                        the best tested move that strictly lowers pickup
++                        variance. Cells stay convex and satisfy a shape bound.
+   Compare               Both methods on the same pickups, side by side,
+@@ -38,2 +41,7 @@
+ 
++The shape bound is 4*pi*area/perimeter^2 >= 0.35. The outer rim is fixed.
++With frozen pickups, variance never increases after an accepted move, but
++the local rule can stop at a local optimum before all populations match.
++With a live moving pickup window, the input itself changes each round.
++
+ USING CLAUDE TO OPEN IT

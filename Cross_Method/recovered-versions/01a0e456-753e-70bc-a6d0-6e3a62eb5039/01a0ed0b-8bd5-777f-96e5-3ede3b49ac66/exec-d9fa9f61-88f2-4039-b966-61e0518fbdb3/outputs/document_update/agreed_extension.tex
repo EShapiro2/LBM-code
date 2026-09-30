@@ -1,0 +1,135 @@
+\subsection{Agreed departure rule: neighbor information only}
+For a cell $i$ considering departure, write $W_i$ for its current weight,
+$N_i$ for its adjacent cells, $d_i=|N_i|$, and
+\[
+ m_i=\operatorname{median}_{j\in N_i} W_j.
+\]
+The median excludes $i$; for an even number of neighbors it is the average
+of the two middle weights. The center departs when both conditions hold:
+\[
+ \boxed{W_i<\min_{j\in N_i}W_j\quad\hbox{and}\quad
+ W_i<\frac{d_i}{d_i+1}m_i.}
+\]
+Thus it must be strictly lighter than every neighbor. Equality does not trigger
+departure. No tunable coefficient $\alpha$ remains. An empty neighbor set is
+an invalid decision state and does not authorize departure.
+
+The second condition is equivalent to
+\[
+ m_i-W_i>\frac{W_i}{d_i}.
+\]
+It compares the departing cell's deficit below the neighbor median with the
+average added weight per neighbor if its weight were shared equally. Actual
+Voronoi redistribution is not generally equal, so this motivates the threshold
+without guaranteeing improved balance. The decision requires only the cell's
+own weight and adjacent weights; no global ranking or global median is used.
+Weights retain their density-model meaning. Candidate geometric changes are
+not accepted or rejected by recounting pickup records.
+
+\subsection{Committed departure and neighbor-to-neighbor migration}
+The center notifies its neighbors and becomes inactive in the Voronoi diagram.
+Its former territory redistributes among surviving sites. This is site deletion,
+\emph{not} a requirement that its cell merge exactly with one particular neighbor.
+The inactive center is a free-center token that can be passed between hosts;
+it does not generate a cell while migrating.
+
+The discussed routing rule starts at a heaviest former neighbor. Each host
+compares its weight with those of its own adjacent cells and forwards the token
+to a heaviest neighbor only if that neighbor is strictly heavier than itself.
+Otherwise it is a local maximum, including a plateau maximum, and accepts the
+free center for insertion. Every routing decision uses one-hop information.
+For fixed weights and adjacency, strict increase prevents cycles and gives
+termination on a finite graph. Changing weights during concurrent routing do
+not have that guarantee. Tie-breaking between equally heavy eligible hosts,
+concurrency, and a local synchronization or cycle-handling convention remain
+implementation details to settle; a global freeze is not assumed.
+
+Departure and insertion are committed. There is no tentative relocation,
+objective-based veto, or rollback to the original location. One inactive center
+means one fewer active Voronoi site temporarily; insertion restores the count.
+This logical rule does not remove the need for reliable token delivery and
+local coordination in a distributed implementation.
+
+\subsection{Agreed insertion: analytical geometry, no optimization}
+Let $H$ be the destination host's bounded convex Voronoi cell, with positive
+area $A$. Use its uniform frozen density. Compute its area centroid and
+area covariance:
+\[
+ \mu=\frac{1}{A}\int_H x\,dx,\qquad
+ \Sigma=\frac{1}{A}\int_H (x-\mu)(x-\mu)^{\mathsf T}\,dx.
+\]
+Polygon area and moment formulas evaluate these quantities using only the
+cell's boundary vertices, not individual pickup locations. Let $u$ be a unit
+eigenvector of the $2\times2$ matrix $\Sigma$ corresponding to its largest
+eigenvalue. This is the long-axis direction. If both eigenvalues are equal,
+use the fixed coordinate $x$-axis; reversing $u$ only exchanges the two halves.
+
+Find the unique offset $t$ such that the line perpendicular to $u$ divides
+$H$ into equal areas:
+\[
+ H_- = H\cap\{x:u^{\mathsf T}x\leq t\},\qquad
+ H_+ = H\cap\{x:u^{\mathsf T}x\geq t\},\qquad
+ |H_-|=|H_+|=A/2.
+\]
+There is no search over cut orientation: covariance determines it. To compute
+$t$ analytically, sort the vertex projections onto $u$. Between consecutive
+distinct projections the cross-section length is linear in the offset, so
+cumulative area is quadratic (possibly linear). Evaluate the area at the
+interval endpoints, identify the interval containing $A/2$, and solve its
+linear or quadratic equation for the root in that interval. This is finite
+geometric calculation, not numerical objective optimization. Degenerate
+projection intervals are skipped; floating-point tolerances must be recorded.
+
+Place the existing and arriving centers at the geometric centroids
+\[
+ c_- = \frac{2}{A}\int_{H_-}x\,dx,\qquad
+ c_+ = \frac{2}{A}\int_{H_+}x\,dx.
+\]
+Assign the two center identities deterministically to these positions. For a
+full-dimensional convex host, both centroids lie inside the host and are
+distinct, on opposite sides of the cut. Recompute the affected Voronoi cells
+and adjacency. This completes insertion; there is no gradient search,
+backtracking, multistart search, or optimization of center separation.
+
+\paragraph{What the construction does and does not guarantee.}
+The two geometric halves have equal modeled weight under the host's frozen
+uniform density. Their centroid sites need not have the chosen cut as their
+perpendicular bisector. In addition, boundaries with other cells change.
+Therefore the resulting Voronoi cells are generally not those two halves and
+need not have equal weights or optimal circularity. The construction supplies
+a deterministic geometric placement, not a claim of optimal balance.
+Ordinary local moves may improve the inserted cells afterward.
+
+The user specified that any split-specific grade concern only the two split
+cells, not a sum over neighboring grades. The final insertion rule performs
+no grade optimization or grade-based acceptance at all; the earlier proposed
+joint optimization has been withdrawn.
+
+\subsection{Distributed scope, superseded proposals, and status}
+Host geometry is available from its clipped cell and adjacent-center data;
+departure weights and routing decisions are likewise local. Maintaining a
+correct Voronoi diagram after deleting or inserting sites can create new
+adjacencies. A distributed implementation must discover and exchange these
+through local messages, possibly over several hops. Knowledge of the old
+neighbor list alone must not be assumed sufficient for every resulting
+neighbor's complete geometry. No global directory or global optimization is
+part of the agreed decision rule.
+
+This revision supersedes the earlier lightest-pair merge test, tunable
+$\alpha d_i m_i$ threshold, search over all equal-area cuts, joint split-grade
+optimization, and tentative rollback proposal. Those were discussion
+alternatives, not implemented results. A spatial frozen-density integration
+model was also discussed, but its adoption for redistribution has not been
+settled. In particular, the ordinary per-cell formula $\rho_j A_j$ does not
+by itself specify how to initialize densities after identities disappear or
+are created. Weight/density transfer and refresh conventions must be made
+explicit before implementation, without substituting post-move dot counts
+for modeled candidate weights.
+
+The intended new experiment returns to the saved end-of-round-59 state,
+before badness-weighted selection began, preserving all later runs and files.
+\textbf{This update changes the document only. No departure, migration,
+insertion, restart, or simulation has been implemented or run.}
+The geometric insertion and parameter-free departure condition are agreed;
+distributed concurrency, tie conventions, and weight accounting still require
+precise implementation definitions.

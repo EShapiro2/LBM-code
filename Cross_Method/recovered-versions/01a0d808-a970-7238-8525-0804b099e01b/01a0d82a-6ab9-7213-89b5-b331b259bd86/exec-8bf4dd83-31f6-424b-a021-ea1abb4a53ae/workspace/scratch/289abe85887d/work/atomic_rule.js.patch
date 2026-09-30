@@ -1,0 +1,19 @@
+@@ -17,3 +17,6 @@
+   const near=[...adjacent].filter(u=>N.interior[u]);
+-  const verts=[v,...near], weights=[1,...near.map(()=>0.55)];
++  const verts=[v,...near];
++  const patterns=[[1,...near.map(()=>0)]];
++  for(let k=0;k<near.length;k++) patterns.push([1,...near.map((_,j)=>+(j===k))]);
++  patterns.push([1,...near.map(()=>0.55)]);
+   const touched=[...new Set(verts.flatMap(u=>N.vcells[u]))];
+@@ -25,7 +28,7 @@
+   let best=base,bx=xx.slice(),by=yy.slice();
+-  for(const scale of [1,2,4,8,16]){
++  for(const scale of [2,4,8,16]){
+     const d=eta*scale;
+     if(d>0.45*N.s)break;
+-    for(let a=0;a<12;a++){
+-      const angle=a*Math.PI/6,dx=d*Math.cos(angle),dy=d*Math.sin(angle);
++    for(let a=0;a<8;a++)for(const weights of patterns){
++      const angle=a*Math.PI/4,dx=d*Math.cos(angle),dy=d*Math.sin(angle);
+       for(let j=0;j<verts.length;j++){N.VX[verts[j]]=xx[j]+weights[j]*dx;N.VY[verts[j]]=yy[j]+weights[j]*dy}

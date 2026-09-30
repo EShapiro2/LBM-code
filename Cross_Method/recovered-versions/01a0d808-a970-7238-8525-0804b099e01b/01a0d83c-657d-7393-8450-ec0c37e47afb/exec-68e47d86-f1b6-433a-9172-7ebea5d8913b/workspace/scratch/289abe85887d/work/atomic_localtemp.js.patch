@@ -1,0 +1,9 @@
+@@ -28,3 +28,3 @@
+   let best=base,bx=xx.slice(),by=yy.slice();
+-  const target=N.world.alive.reduce((a,b)=>a+b,0)/N.m;
++  const target=N.target;
+   const localError=touched.reduce((sum,c)=>sum+(N.count[c]-target)**2,0);
+@@ -76,2 +76,3 @@
+ H.refresh(N);
++N.target=ids.length/N.m;
+ let rounds=0,best=Infinity,bestAt=0,baseline=0;

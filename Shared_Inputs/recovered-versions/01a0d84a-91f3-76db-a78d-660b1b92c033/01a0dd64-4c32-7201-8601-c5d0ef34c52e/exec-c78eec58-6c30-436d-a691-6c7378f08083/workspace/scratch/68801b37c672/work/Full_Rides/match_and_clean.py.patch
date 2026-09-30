@@ -1,0 +1,18 @@
+@@ -67,3 +67,12 @@
+             flags.append('nonpositive_duration')
++        if duration > 6 * 3600:
++            flags.append('duration_over_6h_review')
+         drop_ll = np.array([float(ride['dropoff_longitude']), float(ride['dropoff_latitude'])])
++        if not any('coordinates' in f for f in flags):
++            lon1, lat1 = np.radians(ll[i])
++            lon2, lat2 = np.radians(drop_ll)
++            a = np.sin((lat2-lat1)/2)**2 + np.cos(lat1)*np.cos(lat2)*np.sin((lon2-lon1)/2)**2
++            distance_km = 6371 * 2 * np.arcsin(np.sqrt(np.clip(a, 0, 1)))
++            if distance_km > 100:
++                flags.append('endpoint_distance_over_100km_review')
+         drop_xy = (drop_ll * affine[:, 0] + affine[:, 1]) * [original['W'] / 65535, original['H'] / 65535]
+@@ -88,3 +97,3 @@
+                   geographic_filter='Original sample membership; no filtering of destination borough',
+-                  cleaning='Nonzero finite geographic coordinates within global bounds; positive trip duration')
++                  cleaning='Nonzero finite geographic coordinates within global bounds; positive trip duration; quarantine duration >6h or straight-line distance >100km for review')
+     save('matched_manhattan_hour.json', matched)

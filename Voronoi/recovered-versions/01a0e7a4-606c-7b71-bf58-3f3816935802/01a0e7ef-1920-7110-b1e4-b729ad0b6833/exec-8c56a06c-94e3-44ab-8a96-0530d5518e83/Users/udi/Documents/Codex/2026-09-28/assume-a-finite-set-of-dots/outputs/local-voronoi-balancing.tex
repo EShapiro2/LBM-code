@@ -1,0 +1,84 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.72in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\abovedisplayskip}{7pt}
+\setlength{\belowdisplayskip}{7pt}
+\pagestyle{empty}
+\newcommand{\area}{\operatorname{area}}
+\newcommand{\length}{\operatorname{length}}
+\newcommand{\interior}{\operatorname{int}}
+
+\begin{document}
+\begin{center}
+  {\Large\bfseries Local Voronoi Weight Balancing}
+\end{center}
+\vspace{-5pt}
+
+\textbf{Setting.}
+Let $P\subset\mathbb R^2$ be a compact convex polygon with nonempty
+interior, let $C=(c_1,\ldots,c_n)$ consist of distinct centers in
+$\interior P$, and let $D\subset P$ be a finite set of dots.
+A single step concerns a given center $c_i$.
+
+\medskip
+\textbf{1. Cells and neighbors.}
+Calculate the bounded Voronoi diagram and the local index set:
+\begin{align*}
+V_j(C)&=\{x\in P:\|x-c_j\|\leq\|x-c_k\|\text{ for every }k\},
+\\
+N_i&=\{j\ne i:\length(V_i(C)\cap V_j(C))>0\},
+\qquad S_i=\{i\}\cup N_i.
+\end{align*}
+
+\textbf{2. Densities and weights.}
+For each of these cells $j\in S_i$, let $A_j=\area(V_j(C))$ and let
+$M_j$ be its dot count. Assign a dot to its closest center, breaking
+ties by the smallest center index. Define
+\[
+\rho_j=\frac{M_j}{A_j},\qquad W_j=\rho_j A_j=M_j.
+\]
+
+\textbf{3. New center location.}
+Let $C_i(q)$ be $C$ with $c_i$ replaced by $q$, and define
+\[
+A_j(q)=\area(V_j(C_i(q))),\qquad
+E_i(q)=\frac12\sum_{j\in S_i}\rho_j A_j(q)^2.
+\]
+Assume the functions $A_j(q)$ are differentiable at $q=c_i$.
+For $j\in N_i$, let $\ell_{ij}$ and $m_{ij}$ be the length and
+midpoint of the shared edge $V_i(C)\cap V_j(C)$. Set
+\[
+b_{ij}=\frac{\ell_{ij}}{\|c_i-c_j\|}(m_{ij}-c_i),\qquad
+g_i=\nabla E_i(c_i)=\sum_{j\in N_i}(W_i-W_j)b_{ij}.
+\]
+If $g_i=0$, set $c_i'=c_i$. Otherwise, define the unit direction
+and the initial area-change rates by
+\[
+u_i=-\frac{g_i}{\|g_i\|},\qquad
+a_i=\sum_{j\in N_i}b_{ij}\cdot u_i,\qquad
+a_j=-b_{ij}\cdot u_i\quad(j\in N_i).
+\]
+Using the linearized areas $A_j(c_i+s u_i)\approx A_j+s a_j$,
+the proposed distance is
+\[
+\boxed{\displaystyle
+s_0=\underset{s\geq0}{\operatorname{arg\,min}}\;
+\frac12\sum_{j\in S_i}\rho_j(A_j+s a_j)^2
+=\frac{\|g_i\|}{\displaystyle\sum_{j\in S_i}\rho_j a_j^2}.}
+\]
+Calculate
+\[
+\boxed{c_i'=c_i+s u_i,\qquad 0\leq s\leq s_0.}
+\]
+Use the proposed distance $s_0$, stopping earlier if necessary to
+keep the center in $\interior P$, avoid reaching another center on
+the forward ray $\{c_i+t u_i:t>0\}$, or avoid acquiring a new neighbor.
+
+\medskip
+\textit{Constraint implementation and the termination criterion remain to be specified.}
+\end{document}

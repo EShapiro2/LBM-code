@@ -1,0 +1,43 @@
+{
+  "original_saved_initial": {
+    "worst_relative_error": 1.8900768459739394,
+    "cv": 0.5399239681677164,
+    "min_load": 4.999999999999999,
+    "max_load": 173.0,
+    "target": 59.86,
+    "components": 2,
+    "uncovered": 0,
+    "degree_min": 0,
+    "degree_median": 4.0,
+    "degree_mean": 3.92,
+    "degree_max": 6,
+    "multiplicity_mean": 1.4460407617774809,
+    "multiplicity_max": 4,
+    "radius_median_km": 0.36751193365313806,
+    "radius_max_km": 1.0234056583550184
+  },
+  "connecting_expansions": [
+    {
+      "i": 13,
+      "j": 20,
+      "each_radius_increase_km": 0.08067045991435812
+    }
+  ],
+  "connected_initial": {
+    "worst_relative_error": 1.8900768459739394,
+    "cv": 0.5399239681677164,
+    "min_load": 4.999999999999999,
+    "max_load": 173.0,
+    "target": 59.86,
+    "components": 1,
+    "uncovered": 0,
+    "degree_min": 1,
+    "degree_median": 4.0,
+    "degree_mean": 3.94,
+    "degree_max": 6,
+    "multiplicity_mean": 1.4460407617774809,
+    "multiplicity_max": 4,
+    "radius_median_km": 0.36751193365313806,
+    "radius_max_km": 1.1040761182693766
+  }
+}

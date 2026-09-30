@@ -1,0 +1,1 @@
+Continued the unrestricted-neighbor trial from step25 through step50 using saved permutation indices25..49 and unchanged RNG state. These are single-center steps, not rounds. 23 moves;2 zero-gradient;2 moved steps capped by region exit. All geometry and assignment audits passed. No further solver running. Final.json preserves next_position50. Prior trials remain unchanged.

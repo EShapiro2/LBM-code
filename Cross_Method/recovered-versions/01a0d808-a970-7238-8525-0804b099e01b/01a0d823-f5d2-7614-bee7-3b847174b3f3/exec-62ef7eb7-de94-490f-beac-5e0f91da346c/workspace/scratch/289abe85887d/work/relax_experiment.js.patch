@@ -1,0 +1,6 @@
+@@ -6,3 +6,4 @@
+ html=html.replace('4 * Math.PI * a / (p * p) < 0.35',`4 * Math.PI * a / (p * p) < ${threshold}`)
+-         .replaceAll('0.45 * N.s',`${radius} * N.s`);
++         .replaceAll('0.45 * N.s',`${radius} * N.s`)
++         .replace('8 * eta, 16 * eta]', '8 * eta, 16 * eta, 32 * eta, 64 * eta]');
+ if(!convexity) html=html.replace('!convex(N, c) ||','!simple(N, c) ||');

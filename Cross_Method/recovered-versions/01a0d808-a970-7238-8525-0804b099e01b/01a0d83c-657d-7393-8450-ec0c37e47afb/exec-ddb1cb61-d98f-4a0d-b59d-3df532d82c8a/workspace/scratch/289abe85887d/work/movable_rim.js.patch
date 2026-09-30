@@ -1,0 +1,9 @@
+@@ -29,3 +29,7 @@
+   const target=N.target;
+-  const localError=touched.reduce((sum,c)=>sum+(N.count[c]-target)**2,0);
++  const lo=Math.floor(target),hi=Math.ceil(target);
++  const localError=touched.reduce((sum,c)=>{
++    const n=N.count[c],gap=n<lo?lo-n:n>hi?n-hi:0;
++    return sum+gap*gap;
++  },0);
+   const temp=Math.min(1500,0.005*localError);

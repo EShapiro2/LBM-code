@@ -1,0 +1,20 @@
+@@ -81,3 +81,3 @@
+  auto best=m.energy();if(argc<=8)m.save(out,0);if(getenv("SAVE_HISTORY")&&argc<=8)m.save("work/history/round-0.json",0);long long accepted=0,tries=0,geomReject=0,coverageReject=0;int lo=ceil(.9*m.np/m.nc),hi=floor(1.1*m.np/m.nc);double target=double(m.np)/m.nc;
+- vector<int> order(m.nv);iota(order.begin(),order.end(),0);int startRound=0,nextRoot=0,nextTrial=0;
++ vector<int> order(m.nv);iota(order.begin(),order.end(),0);int startRound=0,nextRoot=-1,nextTrial=-1;
+  if(argc>8){ifstream rs(argv[8]);if(!rs){cerr<<"Missing resume state"<<endl;return 2;}int nv,nc,np;rs>>nv>>nc>>np;if(nv!=m.nv||nc!=m.nc||np!=m.np)return 3;rs>>startRound>>best>>accepted>>tries>>geomReject>>coverageReject>>nextRoot>>nextTrial;rs>>rng>>ga;for(int&i:order)rs>>i;for(P&v:m.v)rs>>v.x>>v.y;for(int&n:m.count)rs>>n;for(int&o:m.owner)rs>>o;for(auto&ms:m.members){int n;rs>>n;ms.resize(n);for(int&i:ms)rs>>i;}if(!rs){cerr<<"Invalid resume state"<<endl;return 4;}cout<<"RESUMED after completed round "<<startRound<<" next root "<<nextRoot<<" trial "<<nextTrial<<endl;}
+@@ -86,5 +86,5 @@
+  for(int round=startRound+1;round<=rounds;round++){
+-  if(nextRoot==0&&nextTrial==0)shuffle(order.begin(),order.end(),rng);
++  if(nextRoot<0)shuffle(order.begin(),order.end(),rng);
+   bool partialStop=false;
+-  for(int rootIndex=nextRoot;rootIndex<m.nv;rootIndex++){
++  for(int rootIndex=max(0,nextRoot);rootIndex<m.nv;rootIndex++){
+    int root=order[rootIndex];
+@@ -140,4 +140,4 @@
+   if(partialStop){cout<<"STOPPED WITHOUT FULL-ROUND TERMINATION CHECK"<<endl;return 0;}
+-  nextRoot=nextTrial=0;
+-  m.save(out+".checkpoint.json.tmp",round);rename((out+".checkpoint.json.tmp").c_str(),(out+".checkpoint.json").c_str());checkpoint(round,0,0);{ofstream rf(out+".rng.txt");rf<<rng<<'\n'<<ga<<'\n';}cout<<setprecision(17)<<"CHECK "<<round<<" M "<<m.medianScore()<<" energy "<<m.energy()<<endl;
++  nextRoot=nextTrial=-1;
++  m.save(out+".checkpoint.json.tmp",round);rename((out+".checkpoint.json.tmp").c_str(),(out+".checkpoint.json").c_str());checkpoint(round,-1,-1);{ofstream rf(out+".rng.txt");rf<<rng<<'\n'<<ga<<'\n';}cout<<setprecision(17)<<"CHECK "<<round<<" M "<<m.medianScore()<<" energy "<<m.energy()<<endl;
+   if(getenv("SAVE_HISTORY"))m.save("work/history/round-"+to_string(round)+".json",round);

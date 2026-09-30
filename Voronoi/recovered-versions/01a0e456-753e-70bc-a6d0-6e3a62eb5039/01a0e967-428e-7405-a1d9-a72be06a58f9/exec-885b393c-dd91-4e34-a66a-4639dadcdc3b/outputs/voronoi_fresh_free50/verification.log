@@ -1,0 +1,84 @@
+{
+  "status": "COMPLETED_50_ROUNDS_NOT_CONVERGENCE",
+  "completed_rounds": 50,
+  "continuation_rounds": 25,
+  "last_checkpoint": "2026-09-28T19:06:23.758513+00:00",
+  "records": 5986,
+  "excluded_indices": [],
+  "seed": 20260928,
+  "original_initial": {
+    "max_Gmax": 298.0,
+    "max_Gavg": 201.33333333333334,
+    "max_Gmed": 200.0,
+    "median_Gmax": 87.5,
+    "median_Gavg": 42.06666666666666,
+    "median_Gmed": 35.75
+  },
+  "initial": {
+    "max_Gmax": 60.0,
+    "max_Gavg": 42.55555555555556,
+    "max_Gmed": 43.0,
+    "median_Gmax": 25.5,
+    "median_Gavg": 11.971428571428572,
+    "median_Gmed": 10.0
+  },
+  "final": {
+    "max_Gmax": 82.0,
+    "max_Gavg": 48.833333333333336,
+    "max_Gmed": 47.0,
+    "median_Gmax": 24.0,
+    "median_Gavg": 12.125,
+    "median_Gmed": 10.0
+  },
+  "step_status": {
+    "moved": 2500
+  },
+  "constraints": {
+    "none": 2498,
+    "region": 2
+  },
+  "blocked_constraints": {},
+  "total_distance_km": 206.31773543387823,
+  "moved_over_1e_7_km": 2500,
+  "initial_empty": 0,
+  "final_empty": 0,
+  "initial_load_range": [
+    20,
+    96
+  ],
+  "final_load_range": [
+    14,
+    96
+  ],
+  "validation": {
+    "checkpoints_recomputed": 51,
+    "steps_verified": 5000,
+    "permutations_verified": 50,
+    "all_assigned_each_round": true,
+    "all_sites_distinct_and_in_region": true,
+    "all_cells_convex": true,
+    "max_coverage_missing_km2": 0.0,
+    "max_coverage_extra_km2": 5.876050514219688e-15,
+    "max_absolute_overlap_residual_km2": 4.263256414560601e-14,
+    "min_site_separation_km": 1.0000066552619548e-08,
+    "independent_adjacency": [
+      {
+        "round": 0,
+        "edges": 247,
+        "all_pair_bisector_agreement": true
+      },
+      {
+        "round": 25,
+        "edges": 265,
+        "all_pair_bisector_agreement": true
+      },
+      {
+        "round": 50,
+        "edges": 263,
+        "all_pair_bisector_agreement": true
+      }
+    ],
+    "max_gradient_relative_error": 2.057343135943629e-09,
+    "max_area_rate_absolute_error": 4.490179061900079e-10
+  }
+}

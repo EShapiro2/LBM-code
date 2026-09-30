@@ -1,0 +1,7 @@
+
+## Documentation review and monitoring boundary (28 September, 10:50 UTC)
+
+- User requested every recovered alternative spelled out. Inspected recovered interactive cell, disk, vertex, Lloyd, and driver-dispatch archives without running simulations. Expanded the existing LaTeX to 23 compiled pages. Two pdflatex passes succeeded; seven overfull-box warnings remain, and visual QA/source-detail final review is pending. This is a draft, not a completed final document.
+- Monitoring request: Python/shell smoke check passed at 2026-09-28T10:50:35.285985+00:00. Process inventory showed no solver or remaining LaTeX process. No solver was restarted or advanced in this documentation turn.
+- Preserved checkpoint file timestamp: 2026-09-28T10:22:30.419318+00:00. Last full round 170; paused within 171 before root index 55/trial 9. Header counters: accepted 619408; tries 1049889; geometryReject 338769; coverageReject 14826. Last full-round M 9.6006144393%, partial-state M 8.5866606171%; manually stopped, unfinished, not converged.
+- Next action: finish formatting and visual/source review of expanded document, then replace the same LaTeX/PDF artifacts. Do not restart solver merely to finish documentation. Local Mac comparison/writeback remains pending.

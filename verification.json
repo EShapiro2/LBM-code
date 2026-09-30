@@ -1,0 +1,10 @@
+{
+  "date": "2026-09-30",
+  "manifest_entries": 264,
+  "unique_manifest_files": 264,
+  "checksum_mismatches": [],
+  "simulations_run": false,
+  "archive_bytes_recovered": 0,
+  "requested_checkpoint_files_recovered": [],
+  "completeness": "partial; see UNRECOVERED.md"
+}

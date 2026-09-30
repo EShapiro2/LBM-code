@@ -1,0 +1,39 @@
+@@ -80,10 +80,12 @@
+  for(int c=0;c<m.nc;c++)if(!m.valid(c)){cerr<<"Invalid starting shape "<<c<<'\n';return 1;}
+- auto best=m.energy();m.save(out,0);if(getenv("SAVE_HISTORY"))m.save("work/history/round-0.json",0);long long accepted=0,tries=0,geomReject=0,coverageReject=0;int lo=ceil(.9*m.np/m.nc),hi=floor(1.1*m.np/m.nc);double target=double(m.np)/m.nc;
+- vector<int> order(m.nv);iota(order.begin(),order.end(),0);int startRound=0;
+- if(argc>8){ifstream rs(argv[8]);if(!rs){cerr<<"Missing resume state"<<endl;return 2;}int nv,nc,np;rs>>nv>>nc>>np;if(nv!=m.nv||nc!=m.nc||np!=m.np)return 3;rs>>startRound>>best>>accepted>>tries>>geomReject>>coverageReject;rs>>rng>>ga;for(int&i:order)rs>>i;for(P&v:m.v)rs>>v.x>>v.y;for(int&n:m.count)rs>>n;for(int&o:m.owner)rs>>o;for(auto&ms:m.members){int n;rs>>n;ms.resize(n);for(int&i:ms)rs>>i;}if(!rs){cerr<<"Invalid resume state"<<endl;return 4;}cout<<"RESUMED after round "<<startRound<<endl;}
+- auto checkpoint=[&](int round){string dest=out+".resume.txt",tmp=dest+".tmp";ofstream f(tmp);f<<setprecision(17)<<m.nv<<' '<<m.nc<<' '<<m.np<<'\n'<<round<<' '<<best<<' '<<accepted<<' '<<tries<<' '<<geomReject<<' '<<coverageReject<<'\n'<<rng<<'\n'<<ga<<'\n';for(int i:order)f<<i<<' ';f<<'\n';for(P v:m.v)f<<v.x<<' '<<v.y<<'\n';for(int n:m.count)f<<n<<' ';f<<'\n';for(int o:m.owner)f<<o<<' ';f<<'\n';for(auto ms:m.members){f<<ms.size();for(int i:ms)f<<' '<<i;f<<'\n';}f.close();rename(tmp.c_str(),dest.c_str());};
++ auto best=m.energy();if(argc<=8)m.save(out,0);if(getenv("SAVE_HISTORY")&&argc<=8)m.save("work/history/round-0.json",0);long long accepted=0,tries=0,geomReject=0,coverageReject=0;int lo=ceil(.9*m.np/m.nc),hi=floor(1.1*m.np/m.nc);double target=double(m.np)/m.nc;
++ vector<int> order(m.nv);iota(order.begin(),order.end(),0);int startRound=0,nextRoot=0,nextTrial=0;
++ if(argc>8){ifstream rs(argv[8]);if(!rs){cerr<<"Missing resume state"<<endl;return 2;}int nv,nc,np;rs>>nv>>nc>>np;if(nv!=m.nv||nc!=m.nc||np!=m.np)return 3;rs>>startRound>>best>>accepted>>tries>>geomReject>>coverageReject>>nextRoot>>nextTrial;rs>>rng>>ga;for(int&i:order)rs>>i;for(P&v:m.v)rs>>v.x>>v.y;for(int&n:m.count)rs>>n;for(int&o:m.owner)rs>>o;for(auto&ms:m.members){int n;rs>>n;ms.resize(n);for(int&i:ms)rs>>i;}if(!rs){cerr<<"Invalid resume state"<<endl;return 4;}cout<<"RESUMED after completed round "<<startRound<<" next root "<<nextRoot<<" trial "<<nextTrial<<endl;}
++ auto checkpoint=[&](int round,int rootIndex,int trialIndex){string dest=out+".resume.txt",tmp=dest+".tmp";ofstream f(tmp);f<<setprecision(17)<<m.nv<<' '<<m.nc<<' '<<m.np<<'\n'<<round<<' '<<best<<' '<<accepted<<' '<<tries<<' '<<geomReject<<' '<<coverageReject<<' '<<rootIndex<<' '<<trialIndex<<'\n'<<rng<<'\n'<<ga<<'\n';for(int i:order)f<<i<<' ';f<<'\n';for(P v:m.v)f<<v.x<<' '<<v.y<<'\n';for(int n:m.count)f<<n<<' ';f<<'\n';for(int o:m.owner)f<<o<<' ';f<<'\n';for(auto ms:m.members){f<<ms.size();for(int i:ms)f<<' '<<i;f<<'\n';}f.close();rename(tmp.c_str(),dest.c_str());};
+ 
+  for(int round=startRound+1;round<=rounds;round++){
+-  shuffle(order.begin(),order.end(),rng);
+-  for(int root:order){
++  if(nextRoot==0&&nextTrial==0)shuffle(order.begin(),order.end(),rng);
++  bool partialStop=false;
++  for(int rootIndex=nextRoot;rootIndex<m.nv;rootIndex++){
++   int root=order[rootIndex];
+    vector<int> vs{root};for(int u:m.neighbors[root])vs.push_back(u);
+@@ -91,3 +93,9 @@
+    bool boundary=false;for(int u:vs)boundary=boundary||m.rim[u];
+-   for(int trial=0;trial<24;trial++){
++   for(int trial=(rootIndex==nextRoot?nextTrial:0);trial<24;trial++){
++    if(stopped||ifstream("work/median100/PAUSE").good()){
++     checkpoint(round-1,rootIndex,trial);
++     m.save(out+".partial.json.tmp",round-1);rename((out+".partial.json.tmp").c_str(),(out+".partial.json").c_str());
++     cout<<"PAUSED within round "<<round<<" before root-index "<<rootIndex<<" trial "<<trial<<"; completed round "<<round-1<<endl;
++     partialStop=true;break;
++    }
+     tries++;vector<P> old;for(int u:vs)old.push_back(m.v[u]);
+@@ -129,4 +137,7 @@
+    }
++   if(partialStop)break;
+   }
+-  m.save(out+".checkpoint.json.tmp",round);rename((out+".checkpoint.json.tmp").c_str(),(out+".checkpoint.json").c_str());checkpoint(round);{ofstream rf(out+".rng.txt");rf<<rng<<'\n'<<ga<<'\n';}cout<<setprecision(17)<<"CHECK "<<round<<" M "<<m.medianScore()<<" energy "<<m.energy()<<endl;
++  if(partialStop){cout<<"STOPPED WITHOUT FULL-ROUND TERMINATION CHECK"<<endl;return 0;}
++  nextRoot=nextTrial=0;
++  m.save(out+".checkpoint.json.tmp",round);rename((out+".checkpoint.json.tmp").c_str(),(out+".checkpoint.json").c_str());checkpoint(round,0,0);{ofstream rf(out+".rng.txt");rf<<rng<<'\n'<<ga<<'\n';}cout<<setprecision(17)<<"CHECK "<<round<<" M "<<m.medianScore()<<" energy "<<m.energy()<<endl;
+   if(getenv("SAVE_HISTORY"))m.save("work/history/round-"+to_string(round)+".json",round);

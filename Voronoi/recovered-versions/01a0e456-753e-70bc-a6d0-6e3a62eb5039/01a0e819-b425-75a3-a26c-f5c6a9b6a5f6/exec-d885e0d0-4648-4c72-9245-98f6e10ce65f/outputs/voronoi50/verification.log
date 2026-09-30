@@ -1,0 +1,90 @@
+{
+  "status": "COMPLETED_50_ROUNDS_NOT_CONVERGENCE",
+  "completed_rounds": 50,
+  "continuation_rounds": 25,
+  "last_checkpoint": "2026-09-28T13:02:12.908783+00:00",
+  "records": 5986,
+  "excluded_indices": [],
+  "seed": 20260928,
+  "original_initial": {
+    "max_Gmax": 298.0,
+    "max_Gavg": 201.33333333333334,
+    "max_Gmed": 200.0,
+    "median_Gmax": 87.5,
+    "median_Gavg": 42.06666666666666,
+    "median_Gmed": 35.75
+  },
+  "initial": {
+    "max_Gmax": 219.0,
+    "max_Gavg": 157.5,
+    "max_Gmed": 161.0,
+    "median_Gmax": 26.0,
+    "median_Gavg": 10.625,
+    "median_Gmed": 5.5
+  },
+  "final": {
+    "max_Gmax": 219.0,
+    "max_Gavg": 157.5,
+    "max_Gmed": 161.0,
+    "median_Gmax": 28.0,
+    "median_Gavg": 13.0,
+    "median_Gmed": 7.75
+  },
+  "step_status": {
+    "constrained_zero": 1796,
+    "moved": 629,
+    "zero_gradient": 75
+  },
+  "constraints": {
+    "new_neighbor": 1905,
+    "none": 584,
+    "region": 11
+  },
+  "blocked_constraints": {
+    "new_neighbor": 1788,
+    "region": 8
+  },
+  "total_distance_km": 12.077868931047258,
+  "moved_over_1e_7_km": 568,
+  "initial_empty": 7,
+  "final_empty": 7,
+  "initial_load_range": [
+    0,
+    273
+  ],
+  "final_load_range": [
+    0,
+    273
+  ],
+  "validation": {
+    "checkpoints_recomputed": 51,
+    "steps_verified": 5000,
+    "permutations_verified": 50,
+    "all_assigned_each_round": true,
+    "all_sites_distinct_and_in_region": true,
+    "all_cells_convex": true,
+    "max_coverage_missing_km2": 0.0,
+    "max_coverage_extra_km2": 6.47292865867856e-15,
+    "max_absolute_overlap_residual_km2": 7.105427357601002e-14,
+    "min_site_separation_km": 1.000000082740371e-08,
+    "independent_adjacency": [
+      {
+        "round": 0,
+        "edges": 247,
+        "all_pair_bisector_agreement": true
+      },
+      {
+        "round": 25,
+        "edges": 236,
+        "all_pair_bisector_agreement": true
+      },
+      {
+        "round": 50,
+        "edges": 237,
+        "all_pair_bisector_agreement": true
+      }
+    ],
+    "max_gradient_relative_error": 2.057343135943629e-09,
+    "max_area_rate_absolute_error": 4.490179061900079e-10
+  }
+}

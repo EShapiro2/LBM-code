@@ -1,0 +1,15 @@
+@@ -239,3 +239,3 @@
+         <div class="metric"><span class="k">Worst hexagon shape 4πA/P²</span><span class="v" id="mIso">–</span><canvas id="sIso"></canvas><span class="sub">A regular hexagon is 0.907; all movable cells must stay above 0.35.</span></div>
+-        <div class="metric"><span class="k">Moves refused this sweep</span><span class="v" id="mRej">–</span></div>
++        <div class="metric"><span class="k">Trial positions failing shape checks</span><span class="v" id="mRej">–</span></div>
+         <div class="metric"><span class="k">Corners that can move</span><span class="v" id="mCorners">–</span><span class="sub">Only a corner shared by three hexagons can move; corners on the outer rim stay fixed.</span></div>
+@@ -594,3 +594,3 @@
+   else if (st.unb === 0){ cls = "balanced"; label = "Balanced"; }
+-  else if (sweep > 5 && sweepTravel === 0){ cls = "jammed"; label = "Jammed: no move possible"; }
++  else if (sweep > 5 && sweepTravel === 0){ cls = "jammed"; label = "No improving move found this round"; }
+   else { cls = "moving"; label = "Corners moving"; }
+@@ -600,3 +600,3 @@
+   const side = net.s * 1000, step = P.eta * side;
+-  txt("etaNote", `Smallest search radius is ${step < 10 ? step.toFixed(1) : step.toFixed(0)} m (hexagon side ${side.toFixed(0)} m). Larger steps reshape the honeycomb faster but coarser.`);
++  txt("etaNote", `Smallest search radius is ${step < 10 ? step.toFixed(1) : step.toFixed(0)} m (hexagon side ${side.toFixed(0)} m). The search also tries larger radii up to 45% of a side.`);
+   let at = 0; for (let c = 0; c < net.m; c++) if (area(net, c) < 1.05 * P.floor * net.area0[c]) at++;

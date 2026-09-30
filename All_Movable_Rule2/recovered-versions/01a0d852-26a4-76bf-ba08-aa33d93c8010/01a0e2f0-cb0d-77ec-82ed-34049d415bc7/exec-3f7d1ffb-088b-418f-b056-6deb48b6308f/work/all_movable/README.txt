@@ -1,0 +1,6 @@
+All-movable complete-cell rule-2 experiment. Full original 5986 coordinates; SHA checked by run.js.
+Mesh: 35 cells in columns [11,13,11], 100 vertices, 32 degree-2 and 68 degree-3, all eligible.
+Run from extracted root: node work/all_movable/run.js. Existing stopped checkpoints are preserved and skipped. To reproduce trajectories from zero, work in a copy and remove only work/all_movable/seed_*.json first.
+The engine checks load success after every sweep. Numerical line-collapse was diagnosed externally from saved states and stopped manually; its diagnosis and exact retained stopping checkpoints are in collapse_report.json/results.json. These are failure checkpoints, not converged or balanced solutions.
+Nearest ties use 1e-14 squared-distance tolerance and lowest center index. Shuffling uses rng(seed+999). Empty pools are skipped; every other vertex moves to post-removal-load weighted neighbor positions, reclaiming only dots nearest to itself.
+Lloyd updates every nonempty center, globally assigns, repeatedly reseeds the lowest-index empty center to the farthest currently assigned input point (exact ties: lowest input index), reassigning after each reseed. It stops after five zero-change sweeps with movement <1e-6 initial edge length. This is Lloyd convergence, not load-balance success.

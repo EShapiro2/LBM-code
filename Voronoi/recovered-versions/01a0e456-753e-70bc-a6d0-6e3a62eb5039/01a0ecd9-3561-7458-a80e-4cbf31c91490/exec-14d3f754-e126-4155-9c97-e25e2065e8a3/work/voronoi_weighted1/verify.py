@@ -1,0 +1,9 @@
+import run as R
+import json,numpy as np,collections
+from pathlib import Path
+p=R.O;start=json.load(open(p/'start.json'));end=json.load(open(p/'final.json'));d=json.load(open(R.WPATH/'input.json'));P=R.Polygon(d['P']);pts=np.array(d['points']);c=np.array(start['centers']);rng=np.random.default_rng();rng.bit_generator.state=start['rng_state'];rows=[json.loads(l) for l in (p/'steps.jsonl').read_text().splitlines()];assert len(rows)==100
+for k,x in enumerate(rows):
+ ps,nb=R.base.geometry(c,P);W,_=R.base.counts(c,pts);C,G,B=R.scores(ps,nb,W.astype(float));pr=B/B.sum() if B.sum()>0 else np.ones(100)/100;assert np.allclose(pr,x['probabilities'],rtol=0,atol=1e-14);i=int(rng.choice(100,p=pr));kind='circularity' if rng.random()<.5 else 'gap';assert i==x['site'] and kind==x['kind'] and k==x['position'];assert c[i].tolist()==x['old_center'];rho=W/np.array([a.area for a in ps]);c[i]=x['new_center'];qs,qn=R.base.geometry(c,P);ac,ag,ab=R.scores(qs,qn,rho*np.array([a.area for a in qs]));assert np.allclose(ab,x['badness_after_modeled'],rtol=0,atol=1e-12)
+ if x['status']=='moved':assert ab[i]<B[i]-R.STRICT_F+1e-10;assert x['acceptance']['path_min_F']>=x['acceptance']['F0']-R.FTOL
+assert c.tolist()==end['centers'] and rng.bit_generator.state==end['rng_state'];vis=collections.Counter(r['site'] for r in rows);out=dict(selections=100,distinct_cells=len(vis),unselected_cells=100-len(vis),most_selections=max(vis.values()),selection_counts=dict(vis),status_counts=dict(collections.Counter(x['status'] for x in rows)),by_type={k:dict(collections.Counter(x['status'] for x in rows if x['kind']==k)) for k in ['gap','circularity']},probabilities_rng_and_modeled_acceptance_verified=True,final_audit=end['audit'],initial_metrics=start['metrics'],final_metrics=end['metrics'],initial_mean_C=float(np.mean(start['circularities'])),final_mean_C=float(np.mean(end['circularities'])))
+R.base.save(p/'summary.json',out);print(json.dumps(out,indent=2))

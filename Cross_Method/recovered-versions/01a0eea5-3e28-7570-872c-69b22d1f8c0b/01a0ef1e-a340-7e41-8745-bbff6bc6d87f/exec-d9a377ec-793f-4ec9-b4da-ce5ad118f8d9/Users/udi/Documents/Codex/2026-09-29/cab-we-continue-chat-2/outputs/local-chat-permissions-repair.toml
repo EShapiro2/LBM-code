@@ -1,0 +1,31 @@
+# Replacement block for ~/.codex/config.toml.
+# Replace ONLY the existing [permissions.grassroots-only] section and its
+# filesystem/network subsections with this block. Keep notify,
+# default_permissions = "grassroots-only", [desktop], plugins, and all
+# remaining settings unchanged. This is NOT a complete config.toml.
+# Quit and reopen the app after saving. This proposed repair is untested.
+
+[permissions.grassroots-only]
+description = "Read-only Grassroots access plus local Codex workspaces and runtime support; other personal folders denied."
+extends = ":workspace"
+
+[permissions.grassroots-only.filesystem]
+":root" = "deny"
+":minimal" = "read"
+"/Users/udi/Grassroots" = "read"
+"/Applications/ChatGPT.app" = "read"
+"/Users/udi/.cache/codex-runtimes" = "read"
+"/Users/udi/.codex/plugins" = "read"
+"/Users/udi/.codex/skills" = "read"
+"/Users/udi/.codex/AGENTS.md" = "read"
+"/Users/udi/.codex/AGENTS.override.md" = "read"
+"/Users/udi/.codex/computer-use" = "read"
+"/Users/udi/.codex/tmp" = "write"
+"/Users/udi/Documents/Codex" = "write"
+"/Users/udi/.codex/.chatgpt-projects/g-p-6ab6581db3888191bd30fc0866ac8ae4" = "write"
+
+[permissions.grassroots-only.filesystem.":workspace_roots"]
+"." = "write"
+
+[permissions.grassroots-only.network]
+enabled = false

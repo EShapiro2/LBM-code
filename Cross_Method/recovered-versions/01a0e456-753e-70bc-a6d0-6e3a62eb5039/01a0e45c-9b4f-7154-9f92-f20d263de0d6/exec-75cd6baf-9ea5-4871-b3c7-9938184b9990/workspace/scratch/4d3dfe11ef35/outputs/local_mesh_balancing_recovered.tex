@@ -1,0 +1,228 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,longtable,hyperref}
+\usepackage[T1]{fontenc}
+\title{Local Load Balancing on a Fixed Honeycomb Mesh\\Discussion, Decisions, and Preliminary Experiments}
+\author{Working research note}
+\date{27 September 2026}
+\begin{document}
+\maketitle
+
+\section{Purpose and current status}
+The objective is to distribute geographic dots among 100 movable vertices, obtaining balanced loads while retaining geographic locality and a simple local update. Manhattan pickup locations are the intended application.
+
+The final approach uses \textbf{vertices and dots only: no disks, radii, coverage requirement, or disk-overlap constraints}. The graph is a fixed honeycomb mesh. Each interior vertex has three neighbours. A local update pools the dots of a vertex and its three neighbours, moves that vertex toward the pooled centroid subject to the neighbours' triangle constraint, then reallocates the pooled dots among those four vertices.
+
+This note distinguishes agreed rules from implementation choices and unproved properties. Preliminary simulations were performed on synthetic dots. \textbf{No simulation on the actual Manhattan data was completed in this discussion.}
+
+\section{Notation and initialization}
+Let $P=\{p_1,\ldots,p_N\}\subset\mathbb R^2$ be the dot locations and $G=(V,E)$ the fixed honeycomb graph, with $|V|=100$. Vertex $v$ stores
+\[
+(c_v,D_v,w_v),\qquad c_v=(x_v,y_v),\qquad w_v=|D_v|.
+\]
+The sets $D_v$ form a partition of the dots. Write $N(v)$ for the graph neighbours of $v$. Interior vertices have $|N(v)|=3$; finite-mesh boundary vertices may have fewer neighbours.
+
+Initially, place the vertices at equally spaced honeycomb positions covering the region of interest and allocate every dot to its globally closest vertex. Resolve distance ties consistently, for example by vertex identifier.
+
+The intended Manhattan initialization has not yet been constructed or validated. Geographic coordinates should be converted into suitable planar distance coordinates before using Euclidean distances; raw longitude and latitude should not be treated as equal-length Cartesian units.
+
+The user explicitly allowed a directory containing all 100 vertex locations, which an external dot can query for initial or external assignment. Thus global nearest-center lookup for such dots is compatible with the intended system. Subsequent local redistribution is a separate rule.
+
+\section{The final local update}
+For an interior vertex $v$, let $N(v)=\{a,b,c\}$ and define
+\[
+U_v=\{v,a,b,c\},\qquad S_v=\bigcup_{u\in U_v}D_u.
+\]
+Use the state at the start of the update. The three neighbour positions remain fixed during the update.
+
+\subsection{Compute the pooled centroid}
+If $S_v$ is nonempty, calculate
+\[
+q_v=\frac{1}{|S_v|}\sum_{p\in S_v}p.
+\]
+There is no preliminary transfer of $v$'s dots to its neighbours. Such a transfer would not change the union $S_v$, so it is unnecessary for this proposal.
+
+If $S_v$ is empty, skip the update. This is a natural implementation convention, not a separately discussed objective choice.
+
+\subsection{Constrain the new position to the neighbours' triangle}
+Let
+\[
+T_v=\operatorname{conv}\{c_a,c_b,c_c\}.
+\]
+Set
+\[
+c_v^{\mathrm{new}}=\operatorname{proj}_{T_v}(q_v)
+=\arg\min_{z\in T_v}\|z-q_v\|^2.
+\]
+If $q_v$ is inside the triangle, use $q_v$ directly. Otherwise use the closest point on its boundary. No checks against other mesh edges are performed.
+
+The formula uses the closed triangle, so boundary positions are allowed. Degenerate triangles can be treated as their closed convex hull, a segment or point. Whether to require a positive interior margin, or to forbid coincident centers, remains an open implementation choice.
+
+\subsection{Redistribute the pooled dots}
+After moving $v$, allocate each dot in $S_v$ to its closest center among $U_v$, using the new position of $v$ and the unchanged positions of $a,b,c$:
+\[
+\operatorname{owner}_{\mathrm{new}}(p)
+=\arg\min_{u\in U_v}\|p-c_u^{\mathrm{new}}\|^2,
+\qquad p\in S_v.
+\]
+Here $c_u^{\mathrm{new}}=c_u$ for $u\ne v$. Replace the four allocation sets with the results. All other allocations and positions remain unchanged.
+
+This preserves the number of dots and unique ownership. It does not require the assigned owner to be globally closest among all 100 vertices.
+
+\subsection{Scheduling and boundary convention}
+The preliminary simulation used sequential updates, with eligible vertices shuffled each sweep. A sweep visits each interior vertex once. This avoids simultaneous overlapping updates.
+
+Boundary handling was not fully settled in the discussion. For the reported simulations, all 32 vertices with fewer than three neighbours were held fixed; the 68 interior vertices moved. Boundary vertices could still gain or lose dots when participating as neighbours in an interior vertex's update. This is a simulation convention, not a final Manhattan boundary design.
+
+\section{What the update optimizes, and what it does not}
+For the fixed pooled set $S_v$,
+\[
+\sum_{p\in S_v}\|p-z\|^2
+=\sum_{p\in S_v}\|p-q_v\|^2+|S_v|\|z-q_v\|^2.
+\]
+Therefore the projected centroid minimizes total squared distance from all pooled dots to a \emph{single} candidate position constrained to $T_v$.
+
+The actual allocation uses four competing centers. Consequently, the projected pooled centroid is a proposal heuristic, not a demonstrated minimizer of the four-center assignment cost or of load imbalance.
+
+Standard k-means moves each center to the centroid of its own assigned dots and reassigns dots globally. Our rule uses a four-vertex pool, a triangle constraint, and local reassignment. It is k-means-inspired but is not a standard Lloyd update.
+
+\subsection{Optional acceptance score discussed but not adopted}
+A possible local balance score is
+\[
+B_v=\sum_{u\in U_v}(w_u-\bar w_v)^2,
+\qquad
+\bar w_v=\frac{1}{4}\sum_{u\in U_v}w_u.
+\]
+Because the four loads have a constant sum during the update, the change in $B_v$ equals the change in the global sum $\sum_{u\in V}w_u^2$. Accepting only strict decreases would therefore give monotone global progress for that scalar score. It would not guarantee a balanced final state.
+
+A distance term could be added:
+\[
+J_v=B_v+\mu\sum_{u\in U_v}\sum_{p\in D_u}\|p-c_u\|^2.
+\]
+Its change also equals the corresponding global score change when only these four allocation sets and $v$'s position change. The coefficient $\mu$ depends on distance units.
+
+Neither this acceptance filter nor a value of $\mu$ was adopted. The reported synthetic experiments accepted every projected-centroid update.
+
+\section{Locality and geometric limitations}
+Each proposal and redistribution needs only the state of $v$ and its three graph neighbours. The graph connections are fixed; no triangulation rebuilding or global edge checks are part of the final rule.
+
+The triangle constraint is a local position restriction. It is \textbf{not a proved global guarantee} that a deformed honeycomb has no edge crossings. Moreover, as neighbours move, a vertex need not remain inside the triangle of its current neighbours between its own updates. No theorem establishing preserved mesh embedding or convergence was obtained.
+
+The final projected position is constrained; the discussion did not establish a separate continuous-motion path condition.
+
+\section{Alternatives considered}
+\subsection{Original disk formulation: superseded}
+The discussion began with non-intersecting disks, no full-coverage requirement, and an objective trading off covered dots against neighbour-load balance. Initially, two disks were neighbours when the segment connecting their centers passed through no third disk. A dot inside a disk belonged to it; otherwise it belonged to the nearest center.
+
+An illustrative objective rewarded the number of covered dots and penalized squared load differences on neighbour edges. This entire disk formulation was subsequently abandoned. It is recorded here only to explain the progression; none of its geometric constraints belongs to the final algorithm.
+
+\subsection{Honeycomb versus triangular lattice}
+An early interpretation incorrectly treated the requested mesh as a triangular lattice with six neighbours. The user clarified that vertices are the corners of a honeycomb, giving three neighbours per interior vertex. The final model follows that clarification.
+
+\subsection{Temporary removal and a lifted 3D triangle}
+An earlier proposal first allocated $v$'s dots to its three neighbours. Using their updated loads, it formed
+\[
+A=(x_a,y_a,w_a),\quad B=(x_b,y_b,w_b),\quad C=(x_c,y_c,w_c).
+\]
+It intersected this triangle with a horizontal plane $z=w'$, took the midpoint of the intersection segment, and used its horizontal coordinates to reposition $v$. A reclamation step then transferred eligible dots back to $v$.
+
+The arithmetic mean was considered for $w'$; a geometric mean was mentioned but not selected. With the arithmetic mean and loads $(100,10,10)$, $w'=40$, and the intersection endpoints are
+\[
+P=\tfrac13 A+\tfrac23 B,\qquad Q=\tfrac13 A+\tfrac23 C.
+\]
+Thus their midpoint is $(A+B+C)/3$. Its horizontal position is the spatial centroid, independent of which vertex carries the high load. This is a calculation in the lifted 3D triangle, not an approximation made by ignoring height.
+
+Other limitations of the arithmetic-mean construction were noted: all equal heights give an entire triangle rather than a unique intersection segment; nearly equal heights can yield a discontinuous midpoint limit; and a positive affine transformation of all heights leaves the horizontal proposal unchanged.
+
+\subsection{Load-weighted neighbour centroid}
+Another proposed rule was
+\[
+c_v'=\frac{w_a c_a+w_b c_b+w_c c_c}{w_a+w_b+w_c},
+\]
+using loads after temporary redistribution. This biases the proposal toward loaded neighbour centers but does not account for where their dots lie. It was superseded by the centroid of the actual pooled dots.
+
+\subsection{Rebuilding the mesh and Delaunay triangulation}
+Rebuilding connections after a move was considered. Maintaining degree three alone does not ensure a planar honeycomb with hexagonal faces. Delaunay triangulation provides a standard geometric neighbour graph with variable degree, roughly six on average for large planar point sets. Updates can use local edge flips, but are not guaranteed to remain confined to the original neighbours.
+
+The user chose to retain the original mesh, and then explicitly chose the neighbours' triangle constraint to avoid checking additional edges. Dynamic triangulation is therefore not part of the final method.
+
+\section{Synthetic experiments actually performed}
+The simulation ran in an available JavaScript execution tool. It used:
+\begin{itemize}
+\item 100 equally spaced honeycomb vertices, with initial edge length one;
+\item 68 movable interior vertices and 32 fixed boundary vertices;
+\item 4,000 dots in the rectangle $[0,5.5]\times[0,21.65]$;
+\item uniform dots, or a clustered distribution with a 20\% uniform component;
+\item three seeds: 11, 22, and 33;
+\item identical initial positions and nearest-center allocations across methods for each dataset;
+\item 80 sweeps, without an acceptance filter.
+\end{itemize}
+The clustered proposal distribution used Gaussian components centered at $(1.5,5)$, $(3.7,12)$, and $(2.4,19)$, with relative component probabilities $0.55,0.30,0.15$ within the clustered component. Standard deviations were $0.65$ horizontally and $1.25$ vertically. Samples outside the rectangle were rejected.
+
+For reproducibility of the initial mesh geometry, for $i=0,1,2,3$ and $b=0,1$, positions were
+\[
+\left(1.5i+b,\sqrt{3}\left(j+\tfrac12(i\bmod2)\right)\right),
+\]
+where $j=0,\ldots,12$ for $i<2$ and $j=0,\ldots,11$ otherwise. Initial pairs at distance one were connected.
+
+\subsection{Metrics}
+Load imbalance was measured by the coefficient of variation,
+\[
+\mathrm{CV}=\frac{\sqrt{|V|^{-1}\sum_v(w_v-N/|V|)^2}}{N/|V|}.
+\]
+Assignment distance was
+\[
+\mathrm{RMS}=\sqrt{\frac1N\sum_{p\in P}\|p-c_{\operatorname{owner}(p)}\|^2}.
+\]
+Lower is better for both. Distances are in initial mesh-edge units, not meters.
+
+\subsection{Results}
+The following are averages over the three runs:
+\begin{center}
+\begin{tabular}{llrr}
+\toprule
+Dots & Method & Load CV & RMS distance\\
+\midrule
+Uniform & Initial allocation & 0.304 & 0.545\\
+Uniform & Local triangle rule & 0.218 & 0.543\\
+Uniform & K-means, fixed boundary & 0.361 & 0.497\\
+Uniform & K-means, all centers movable & 0.198 & 0.432\\
+\midrule
+Clustered & Initial allocation & 1.530 & 0.513\\
+Clustered & Local triangle rule & 0.642 & 0.438\\
+Clustered & K-means, fixed boundary & 0.983 & 0.396\\
+Clustered & K-means, all centers movable & 0.874 & 0.358\\
+\bottomrule
+\end{tabular}
+\end{center}
+The k-means comparisons used global reassignment and no triangle constraints. Even the fixed-boundary comparison therefore gave interior centers more freedom than the proposed local rule.
+
+On clustered data, the local rule reduced load CV by approximately 58\% and RMS distance by approximately 15\% from initialization. It had better final load CV than either tested k-means variant, but longer assignment distances.
+
+Extending the three clustered runs to 320 sweeps left the reported metrics unchanged from sweep 40 onward. This is empirical stabilization for these cases, not a convergence theorem.
+
+After local updates, approximately 1.225\% of clustered dots and 0.15\% of uniform dots were not assigned to their globally closest center, averaged over the runs. This is allowed by the local reassignment rule. Projection altered fewer than 1.4\% of proposals in each reported 80-sweep run.
+
+Checks confirmed 100 initial vertices, 68 degree-three vertices, reciprocal adjacency and unit initial edge lengths. Extended clustered runs retained all 4,000 owner entries with valid vertex identifiers and unchanged boundary positions. No global no-crossing property was certified.
+
+\section{Manhattan data: what is known and what remains undone}
+Earlier conversations referred to a dataset of 5,986 Manhattan pickup dots. A prior task exposed an attachment named \texttt{Manhattan\_Taxi\_Regions.zip}. The user subsequently supplied \texttt{Manhattan\_Project\_Files.zip}.
+
+The latter archive's contents were not successfully inspected. Local command and file-reading runtimes repeatedly failed to start, reporting exit code 134. The available JavaScript tool could perform the synthetic computation but did not provide filesystem access to these archives.
+
+Consequently, no claims are made here about the new archive's precise contents, the actual Manhattan initialization, or performance on Manhattan dots. Requests to upload again did not resolve the execution problem. The pending work is to access the archive in a working file-analysis environment and run the real-data comparison.
+
+\section{Next experiment}
+Once the coordinates are accessible:
+\begin{enumerate}
+\item Verify the pickup count, coordinate units, duplicates, and geographic extent.
+\item Construct and record one 100-vertex equally spaced honeycomb initialization and its fixed adjacency.
+\item Specify boundary handling and use the same initial allocation for all methods.
+\item Run the local triangle rule with several shuffled update orders.
+\item Compare against the initial allocation and both k-means baselines above.
+\item Report load CV, minimum and maximum loads, empty vertices, RMS distance, nearest-center disagreement, and evolution by sweep.
+\item Inspect geometry as a diagnostic without silently adding global checks to the local algorithm.
+\end{enumerate}
+The current proposal is a fully local heuristic with encouraging synthetic balancing results. Its Manhattan performance and general convergence remain open.
+
+\end{document}

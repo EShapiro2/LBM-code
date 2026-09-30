@@ -1,0 +1,7 @@
+import run as R
+from pathlib import Path
+import json,numpy as np,shutil
+p=R.O;start=json.load(open(p/'start.json'));final=json.load(open(p/'final.json'));c=np.array(start['centers']);rng=np.random.default_rng();rng.bit_generator.state=start['rng_state'];d=json.load(open(R.WPATH/'input.json'));P=R.Polygon(d['P']);pts=np.array(d['points']);rows=[json.loads(l) for l in (p/'steps.jsonl').read_text().splitlines()];assert len(rows)==99
+for k,x in enumerate(rows):
+ ps,nb=R.base.geometry(c,P);W,_=R.base.counts(c,pts);C,G,B=R.scores(ps,nb,W.astype(float));pr=B/B.sum();assert np.allclose(pr,x['probabilities'],atol=1e-14,rtol=0);i=int(rng.choice(100,p=pr));kind='circularity' if rng.random()<.5 else 'gap';assert i==x['site'] and kind==x['kind'] and k==x['position'];c[i]=x['new_center']
+tmp=p/'last_record_recovery';tmp.mkdir(exist_ok=True);shutil.copy(p/'start.json',tmp/'start.json');R.base.save(tmp/'checkpoint.json',dict(centers=c.tolist(),rng_state=rng.bit_generator.state,next_position=99));R.O=tmp;R.run();replayed=json.load(open(tmp/'final.json'));assert replayed['centers']==final['centers'] and replayed['rng_state']==final['rng_state'];last=json.loads((tmp/'steps.jsonl').read_text());last['reconstructed_from_rng']=True;rows.append(last);R.base.save(p/'log_recovery.json',dict(missing_position=99,exact_final_geometry_and_rng_match=True));dest=p/'steps.jsonl';new=dest.with_suffix('.tmp');new.write_text(''.join(json.dumps(x)+'\n' for x in rows));new.replace(dest);print('FINAL_RECORD_RECOVERED_EXACT_STATE_MATCH')

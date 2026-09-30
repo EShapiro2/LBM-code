@@ -1,0 +1,11 @@
+@@ -88,3 +88,4 @@
+   for(let j=0;j<verts.length;j++){N.VX[verts[j]]=bx[j];N.VY[verts[j]]=by[j]}
+-  if(best!==base && verts.some(u=>!N.interior[u])){
++  const changed=verts.some((u,j)=>bx[j]!==xx[j]||by[j]!==yy[j]);
++  if(changed && verts.some(u=>!N.interior[u])){
+     if(!coversShoreline(N) || N.mustCover.some(p=>locate(N,p[0],p[1],-1)<0)){
+@@ -94,3 +95,3 @@
+   }
+-  if(best!==base){N.moves++;N.travel+=Math.hypot(bx[0]-xx[0],by[0]-yy[0]);
++  if(changed){N.moves++;N.travel+=Math.hypot(bx[0]-xx[0],by[0]-yy[0]);
+     // Rebuild ownership after a joint move, including cells in the extended neighbourhood.

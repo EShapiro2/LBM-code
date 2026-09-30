@@ -1,0 +1,218 @@
+@@ -10,2 +10,10 @@
+ 
++\paragraph{Reading this evolving note (updated 28 September 2026).}
++The earlier sections preserve the historical discussion of 100 vertex agents,
++including statements of what was then final or still untested. The appended
++compact-cell protocol and Section~\ref{sec:compact-cell-annealing} describe a
++different experiment with 100 cell loads and shared mesh vertices. The latter
++section documents the implemented movement and acceptance rules and the latest
++Manhattan run, which was manually stopped without reaching its termination target.
++
+ \section{Purpose and current status}
+@@ -318,2 +326,206 @@
+ 
++\clearpage
++\section{Compact-cell local annealing: implemented method and results}
++\label{sec:compact-cell-annealing}
++
++This section records the method actually executed in the recovered
++\texttt{work/median100/anneal.cpp}, and the bounded Stop/resume adaptation
++\texttt{anneal\_100\_bounded\_control.cpp}. It concerns cell loads in a
++shared-corner hexagonal mesh. The projected pooled-centroid rule discussed
++earlier belongs to the historical vertex-agent experiment.
++
++\subsection{Data, mesh, and initialization}
++The input retains all 5,986 original pickup records, including duplicates.
++The full-resolution NYC DCP26b Manhattan main-island polygon retains its hole.
++Records with zero-based indices 309, 4705, and 5212 lie outside this domain;
++the remaining 5,983 records supply the cell loads. Coordinates are in the
++recovered planar kilometre frame.
++
++The regular initializer searches hexagon side lengths from 0.520 to 0.700 km
++in increments of 0.002 km and six offset pairs. Among meshes with exactly
++100 positive-area domain intersections, it selects the smallest sum of
++squared clipped-shape excesses. The retained regular mesh has side length
++0.558 km, offset fractions $(0.25,0.25)$, and 257 shared vertices.
++Boundary vertices may move; mesh connectivity and the six vertex identifiers
++of each cell remain fixed.
++
++The regular seed does not satisfy the clipped-cell shape bound. A geometry
++repair phase, using seed 7, produced the saved feasible start after one
++repair round. Its geometry is the initial state for balancing (balancing
++round 0); it is not the historical round-151 optimized state.
++
++\subsection{Local activation and displacement proposals}
++Each round shuffles all 257 mesh vertices and visits each once. For active
++vertex $v$, let $U_v$ contain $v$ and its mesh-edge neighbours, and let $C_v$
++contain every cell incident to a vertex in $U_v$. There are 24 proposal
++attempts per activation. Every attempt uses the current committed state.
++The proposed vertex displacements are evaluated and committed together.
++
++For each attempt, sample a displacement scale $d$ logarithmically uniformly
++between $0.0008s$ and $0.45s$, where $s=0.558$ km, and choose one of seven
++modes using the generator's integer output modulo seven. Write $a$ for a
++shared Gaussian displacement and $z_u$ for the individual Gaussian
++displacements, each with independent coordinate standard deviation $d$.
++The proposal modes are:
++\begin{enumerate}
++\item Move only the active vertex by $z_v$.
++\item Move $v$ by $a$ and its edge neighbours by $0.65a$.
++\item Move each vertex $u\in U_v$ by $0.7a+0.3z_u$.
++\item Move $v$ by $z_v$; each other vertex independently either moves by
++      $z_u$ or remains fixed, selected by the generator's output modulo two.
++\item Move all vertices in $U_v$ independently by $z_u$.
++\item Use the data-directed displacement described below, with noise
++      coefficient $0.2$.
++\item Use that data-directed displacement with noise coefficient $0.6$.
++\end{enumerate}
++
++For either data-directed mode, choose the least-loaded cell incident to $v$
++whose load is below 54. Compute its vertex-average centre and find the
++nearest pickup among those owned by cells in $C_v$. Replace $a$ by a vector
++of length $d$ toward that pickup when the direction is nonzero. Vertices of
++the chosen cell receive displacement $a+\beta z_u$; the other vertices in
++$U_v$ receive $0.35a+\beta z_u$, with $\beta=0.2$ or $0.6$. If no deficient
++incident cell exists, the mode falls back to moving only $v$.
++
++These formulas describe the proposals; the retained source also fixes the
++order of random draws, including draws whose values are discarded. Exact
++continuation therefore preserves the generator and normal-distribution cache,
++rather than regenerating proposals from the formulas alone.
++
++\subsection{Reallocation and feasibility}
++Pool the pickups currently owned by the affected cells $C_v$, then assign
++each to the first containing proposed cell in increasing cell-identifier
++order. Initial ownership also uses the first containing cell in that order.
++The half-plane membership test uses tolerance $10^{-10}$ in squared
++kilometre units. If any pooled pickup has no owner, reject the proposal.
++All other pickup owners remain unchanged.
++
++For every affected underlying hexagon, require strict convexity, area at
++least 2\% of its original regular area, and diameter/minimum-width ratio
++at most 2. During balancing, require the clipped service-region ratio at
++most 2 as well. The implementation computes diameter and minimum projection
++width through the convex hull, which preserves both quantities for the
++clipped set. In geometry repair, the clipped ratio is instead the repair
++objective, so that initially infeasible clipped shapes can improve.
++
++For proposals involving outer-boundary vertices, additionally reject a
++self-intersecting outer boundary or uncovered domain area exceeding
++$10^{-10}$ km$^2$. Strictly convex shared faces and boundary checks preserve
++the intended mesh embedding; the implementation does not perform an
++exhaustive pairwise overlap test on every proposal. Independent saved-state
++audits explicitly check underlying and clipped overlaps, full coverage,
++100 positive-area service regions, and unique pickup assignment.
++
++Only after all acceptance and feasibility checks pass are positions and
++ownership committed atomically. Equal-energy proposals undergo the same
++geometric checks as other proposals.
++
++\subsection{Balancing energy and local annealing acceptance}
++Let $n_i$ denote cell load and define the affected-cell energy
++\[
++ E_v=\sum_{i\in C_v}n_i^2.
++\]
++Since the affected cells conserve their total pickup count, its change
++equals the change in the global squared-load sum. For a fixed total load,
++minimizing that sum is equivalent to minimizing load variance.
++
++Set
++\[
++ \ell=\left\lceil0.9\frac{5983}{100}\right\rceil=54,
++ \qquad u=\left\lfloor1.1\frac{5983}{100}\right\rfloor=65,
++ \qquad e_i=\max\{\ell-n_i,0,n_i-u\}.
++\]
++For the current patch, put $Q_v=\sum_{i\in C_v}e_i^2$. If $Q_v=0$, skip
++the proposal attempt. Otherwise use
++\[
++ T_v=0.02\max\{Q_v,0.01\},\qquad
++ p_{\mathrm{accept}}=
++ \begin{cases}
++  1,& E_v^{\mathrm{new}}\le E_v^{\mathrm{old}},\\
++  \exp\bigl(-(E_v^{\mathrm{new}}-E_v^{\mathrm{old}})/T_v\bigr),
++     & E_v^{\mathrm{new}}>E_v^{\mathrm{old}}.
++ \end{cases}
++\]
++Acceptance remains conditional on feasibility. The band $[54,65]$ controls
++the local temperature and deficient-cell direction; it is not a load
++constraint or a termination criterion. There is no cooling schedule:
++the coefficient 0.02 is fixed, while temperature depends on current local
++loads. Balancing uses seed 17.
++
++In the repair phase, replace the cell energy by
++\[
++ E_i^{\mathrm{repair}}=
++ \bigl(\max\{r(S_i)-1.98,0\}\bigr)^2,
++\]
++where $r$ is the diameter/minimum-width ratio. Use the affected-cell repair
++energy in place of $Q_v$ and the load energy in the acceptance formula.
++Repair ends after a full round with total repair energy below $10^{-12}$;
++the resulting geometry is audited before balancing.
++
++\subsection{What the termination score does and does not measure}
++The median-of-local-median neighbour gap $M$ is defined in
++Section~\ref{sec:compact-hexagon-protocol}, with service-border adjacency,
++the focal cell's load as denominator, and the stated zero-load convention.
++It is evaluated after completed balancing rounds. Success requires the
++first such round with $M\le5\%$.
++
++\textbf{The acceptance energy is squared load, whereas the stopping score
++is the median neighbour gap.} A move reducing squared load can increase
++$M$, and annealing can also accept increases in squared load. Thus neither
++$M$ nor squared load is monotone in this execution. The protocol supplies
++no proof that the 5\% condition will eventually be reached. Even attaining
++that median condition would not establish good balance for every cell.
++
++\subsection{Observed Manhattan results and manual stop}
++The following records distinguish geometry repair, completed balancing
++rounds, and a partial round:
++\begin{center}
++\begin{tabular}{lrr}
++\toprule
++State & Completed balancing round & $M$ (\%)\\
++\midrule
++Feasible initial geometry & 0 & 76.1364\\
++Stop/resume preflight & 1 & 53.4150\\
++Recovered historical checkpoint & 151 & 7.6752\\
++Best completed round in the continuation & 158 & 6.1730\\
++Last completed round before manual stop & 170 & 9.6006\\
++\bottomrule
++\end{tabular}
++\end{center}
++The fresh initial state had 18 empty cells and maximum whole/clipped shape
++ratios 1.92425 and 1.97860. The preflight round had 15 empty cells. After
++the preflight, the user explicitly chose to continue the historical
++round-151 state; these were separate executions, not one newly replayed
++trajectory from round 1 to round 151.
++
++The continuation completed rounds 152--170. None reached the 5\% target.
++On the user's Stop request, it stopped during round 171, immediately before
++proposal trial 9 at shuffled root index 55 (both zero-based). The partial
++state's audited median was 8.5867\%, but this is not a completed-round
++termination score. Its audit verified 100 positive-area service regions,
++the shape bounds, no measured overlaps, full coverage within numerical
++tolerance, and 5,983 uniquely assigned inside pickups. The process exited
++and its consistent state was saved. \textbf{The run is manually stopped,
++unfinished, and not converged.}
++
++\subsection{Reproducibility and bounded stopping}
++The controlled implementation checks Stop before each proposal trial and
++finishes any in-progress atomic proposal before saving. Checkpoints retain
++geometry, counts, exact ownership and member ordering, shuffled vertex
++order, generator state, cached normal variate, last completed round, and
++the next root/trial position. Resume skips a shuffle already performed
++for a partial round. Full-round termination semantics are retained.
++
++The control test stopped during round 1, resumed, and completed that round.
++Its geometry and complete resume state were byte-identical to a separately
++executed uninterrupted round 1. The historical round-151 import appended
++only the two new position fields to the old checkpoint header; original
++state text was retained. A Stop-before-first-proposal test confirmed that
++the loaded geometry and counts matched the saved round-151 state.
++Original files were preserved under their existing names and the
++continuation used a separate output prefix.
++
++The merged document is a recovered-source cloud copy. The current Mac file
++\texttt{local\_mesh\_balancing.tex} has not been compared or overwritten.
++
+ \end{document}

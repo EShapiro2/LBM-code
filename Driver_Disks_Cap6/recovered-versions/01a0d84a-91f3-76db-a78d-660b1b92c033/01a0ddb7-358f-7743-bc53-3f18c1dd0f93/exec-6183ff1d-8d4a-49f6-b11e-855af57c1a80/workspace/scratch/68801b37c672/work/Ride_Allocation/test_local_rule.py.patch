@@ -1,0 +1,12 @@
+@@ -88,4 +88,9 @@
+     import argparse
+-    p=argparse.ArgumentParser();p.add_argument('--unbalanced',action='store_true');args=p.parse_args()
+-    if args.unbalanced:
++    p=argparse.ArgumentParser();p.add_argument('--start',choices=['original','driver_unbalanced','driver_balanced'],default='original');args=p.parse_args()
++    if args.start=='original':
++        s=LocalRule(ROOT/'original_pickups_initial_disks.npz')
++        before=s.stats();connections=s.connect()
++        (ROOT/'pareto_original_setup.json').write_text(json.dumps(dict(original_saved_initial=before,connecting_expansions=connections,connected_initial=s.stats()),indent=2))
++        s.run_rule('pareto_original')
++    elif args.start=='driver_unbalanced':
+         s=LocalRule(ROOT/'initial_unbalanced_disks.npz');s.connect();s.run_rule('pareto_unbalanced')

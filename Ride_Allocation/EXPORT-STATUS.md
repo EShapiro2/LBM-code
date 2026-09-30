@@ -1,0 +1,17 @@
+# Global nearest-free-driver construction and local-dispatch prototype
+
+Catalogue grouping: `Ride_Allocation`.
+
+11 preserved file versions or patches. See the root README and manifest for provenance and unresolved versions. Historical run claims are not new verification.
+
+- `recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddbc-c46d-751e-b563-02e4732055f2/exec-08861e7e-83c2-4dbb-b1fe-4015f42b3b44/workspace/scratch/68801b37c672/work/Ride_Allocation/NEIGHBOR_ANNEALING_RULE.md` — source snapshot from recorded successful file creation; subsequent edits may exist
+- `recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddbc-c46d-751e-b563-02e4732055f2/exec-08861e7e-83c2-4dbb-b1fe-4015f42b3b44/workspace/scratch/68801b37c672/work/Ride_Allocation/test_neighbor_annealing.py` — source snapshot from recorded successful file creation; subsequent edits may exist
+- `recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0ddb7-358f-7743-bc53-3f18c1dd0f93/exec-bf326d28-1e71-4c99-ae63-f2d31e5f4e8b/work/Ride_Allocation/pareto_original_setup.json` — complete cat output snapshot; recorded output not marked truncated
+- `recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dda9-0f01-7234-b67a-b7427b3da83b/exec-1f3a2b3a-73b3-4526-89de-69ab55db0cca/work/Ride_Allocation/unbounded_from_stall.log` — complete cat output snapshot; recorded output not marked truncated
+- `recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dda9-0f01-7234-b67a-b7427b3da83b/exec-b9602b07-751c-47ae-bc5e-87472bd07d44/workspace/scratch/68801b37c672/work/Ride_Allocation/README.md` — source snapshot from recorded successful file creation; subsequent edits may exist
+- `recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dda9-0f01-7234-b67a-b7427b3da83b/exec-b9602b07-751c-47ae-bc5e-87472bd07d44/workspace/scratch/68801b37c672/work/Ride_Allocation/plot_unbounded.py` — source snapshot from recorded successful file creation; subsequent edits may exist
+- `recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd95-1d5e-700d-bd56-5c608c0cb077/exec-a708947c-5d24-4e3d-95e8-a3c6a3df5730/workspace/scratch/68801b37c672/work/Ride_Allocation/prepare.py` — source snapshot from recorded successful file creation; subsequent edits may exist
+- `recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd95-1d5e-700d-bd56-5c608c0cb077/exec-a708947c-5d24-4e3d-95e8-a3c6a3df5730/workspace/scratch/68801b37c672/work/Ride_Allocation/simulation.py` — source snapshot from recorded successful file creation; subsequent edits may exist
+- `recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd95-1d5e-700d-bd56-5c608c0cb077/exec-d253b705-7011-4673-a900-6f69685cc734/workspace/scratch/68801b37c672/work/Ride_Allocation/retrieve.py` — source snapshot from recorded successful file creation; subsequent edits may exist
+- `recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd95-1d5e-700d-bd56-5c608c0cb077/exec-d253b705-7011-4673-a900-6f69685cc734/workspace/scratch/68801b37c672/work/Ride_Allocation/run_local.py` — source snapshot from recorded successful file creation; subsequent edits may exist
+- `recovered-versions/01a0d84a-91f3-76db-a78d-660b1b92c033/01a0dd95-1d5e-700d-bd56-5c608c0cb077/exec-1a00bdbd-a092-41b0-ac50-bf30befdb9e3/workspace/scratch/68801b37c672/work/Ride_Allocation/balance_initial.py` — source snapshot from recorded successful file creation; subsequent edits may exist

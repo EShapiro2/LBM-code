@@ -1,0 +1,47 @@
+@@ -80,2 +80,38 @@
+         return False
++    def block_attempt(self,i,scale):
++        """Atomic moves of two or three neighboring disks, retaining hard invariants."""
++        neighbors=np.flatnonzero(self.e[i])
++        if not len(neighbors):return False
++        size=min(len(neighbors),int(self.rng.choice([1,2])))
++        ids=np.r_[i,self.rng.choice(neighbors,size=size,replace=False)]
++        n=self.fleet.n
++        z=self.z[ids]+self.rng.normal(size=(len(ids),2))*(scale*self.r[ids,None]+.003)
++        r=np.maximum(.00001,self.r[ids]*(1+.10*(1-self.l[ids]/self.target))+self.rng.normal(size=len(ids))*scale*self.r[ids])
++        ds=cdist(self.pts,z)
++        old=self.c[:n,ids]
++        protected=self.m[:n]==old.sum(1)
++        uncovered=np.flatnonzero(protected & ~(ds<=r).any(1))
++        # Assign each lost protected point to the disk needing least relative expansion.
++        for j in self.rng.permutation(uncovered):
++            if np.any(ds[j]<=r):continue
++            k=int(np.argmin((ds[j]-r)/np.maximum(self.r[ids],.01)))
++            r[k]=ds[j,k]+1e-7
++        zz=self.z.copy();rr=self.r.copy();zz[ids]=z;rr[ids]=r
++        ee=cdist(zz,zz)<=rr[:,None]+rr;np.fill_diagonal(ee,False)
++        dd=ee.sum(1)
++        if dd.max()>self.cap:return False
++        new=ds<=r;delta=new.astype(int)-old.astype(int)
++        change=np.flatnonzero(np.any(delta,axis=1));m=self.m[change]+delta[change].sum(1)
++        if np.any(m<=0):return False
++        load=self.l.copy()
++        if len(change):
++            load+=self.c[change].T@(1/m-1/self.m[change])
++            load[ids]+=(delta[change]/m[:,None]).sum(0)
++        affected=(abs(load-self.l)>1e-10)|self.e[ids].any(0)|ee[ids].any(0);affected[ids]=True
++        olderr=(self.l[affected]/self.target-1)**2;newerr=(load[affected]/self.target-1)**2
++        de=float(sum(newerr-olderr));temp=.035*float(olderr.mean())
++        if de<=0 or (temp>0 and self.rng.random()<np.exp(-de/temp)):
++            self.z=zz;self.r=rr;self.e=ee;self.d=dd
++            self.c[:n,ids]=new;self.m[change]=m;self.l=load;return True
++        return False
+     def relax(self,t,reason,max_attempts=1000000):
+@@ -90,3 +126,6 @@
+                 scale=float(self.rng.choice([.008,.03,.1,.25],p=[.25,.35,.3,.1]))
+-                attempts+=1;accepted+=self.attempt(i,scale)
++                attempts+=1
++                if attempts>20000 and self.rng.random()<.25:
++                    accepted+=self.block_attempt(i,scale)
++                else:accepted+=self.attempt(i,scale)
+                 if attempts>=max_attempts:

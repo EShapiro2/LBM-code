@@ -1,0 +1,13 @@
+@@ -31,3 +31,3 @@
+ const cross=(a,b)=>a[0]*b[1]-a[1]*b[0],sub=(a,b)=>[a[0]-b[0],a[1]-b[1]];
+-let outsideLength=0,intersections=0,uncoveredSegments=0;
++let outsideLength=0,intersections=0,uncoveredSegments=0,gaps=[];
+ for(let i=0;i<outline.length;i++){
+@@ -44,2 +44,3 @@
+       outsideLength+=Math.hypot(...r)*(ts[j+1]-ts[j]);uncoveredSegments++;
++      gaps.push({outlineEdge:i,from:[p[0]+ts[j]*r[0],p[1]+ts[j]*r[1]],to:[p[0]+ts[j+1]*r[0],p[1]+ts[j+1]*r[1]]});
+     }
+@@ -50,2 +51,2 @@
+ const total=(snap.counts||[]).reduce((a,b)=>a+b,0);
+-console.log(JSON.stringify({snapshot:process.argv[2],round:snap.round,shorelineLengthOutside:outsideLength,uncoveredSegments,shorelineMeshIntersections:intersections,meshBoundaryEdges:edges.length,boundaryComponents,boundaryDegrees:[...new Set([...boundaryVertexAdj.values()].map(x=>x.length))],nonconvex,minshape,total,countRange:[Math.min(...snap.counts),Math.max(...snap.counts)]},null,2));
++console.log(JSON.stringify({snapshot:process.argv[2],round:snap.round,shorelineLengthOutside:outsideLength,uncoveredSegments,gaps,shorelineMeshIntersections:intersections,meshBoundaryEdges:edges.length,boundaryComponents,boundaryDegrees:[...new Set([...boundaryVertexAdj.values()].map(x=>x.length))],nonconvex,minshape,total,countRange:[Math.min(...snap.counts),Math.max(...snap.counts)]},null,2));

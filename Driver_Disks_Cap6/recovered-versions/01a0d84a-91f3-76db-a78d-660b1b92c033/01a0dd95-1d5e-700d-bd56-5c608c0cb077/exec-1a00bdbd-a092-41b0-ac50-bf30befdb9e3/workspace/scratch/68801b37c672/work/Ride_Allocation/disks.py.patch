@@ -1,0 +1,10 @@
+@@ -75,3 +75,3 @@
+         old=(self.l[affected]/self.target-1)**2;newerr=(load[affected]/self.target-1)**2
+-        de=float(sum(newerr-old));temp=.035*float(old.mean())
++        de=float(sum(np.maximum(np.sqrt(newerr)-.10,0)**2-np.maximum(np.sqrt(old)-.10,0)**2));temp=.035*float(old.mean())
+         if de<=0 or (temp>0 and rng.random()<np.exp(-de/temp)):
+@@ -111,3 +111,3 @@
+         olderr=(self.l[affected]/self.target-1)**2;newerr=(load[affected]/self.target-1)**2
+-        de=float(sum(newerr-olderr));temp=.035*float(olderr.mean())
++        de=float(sum(np.maximum(np.sqrt(newerr)-.10,0)**2-np.maximum(np.sqrt(olderr)-.10,0)**2));temp=.035*float(olderr.mean())
+         if de<=0 or (temp>0 and self.rng.random()<np.exp(-de/temp)):

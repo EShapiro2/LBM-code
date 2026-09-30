@@ -1,0 +1,19 @@
+@@ -85,3 +85,3 @@
+ for(let i=0;i<D.MAN_PTS.n;i++)if(D.MAN_PTS.t[i]<900){N.world.alive[i]=1;ids.push(i)}
+-const snap=JSON.parse(fs.readFileSync('work/last_localtemp.json','utf8'));
++const snap=JSON.parse(fs.readFileSync(process.env.START_SNAPSHOT || 'work/last_localtemp.json','utf8'));
+ N.VX.set(snap.verticesX);N.VY.set(snap.verticesY);
+@@ -96,4 +96,4 @@
+ console.log('WARM START',snap.round,'samples',N.mustCover.length);
+-let rounds=0,best=Infinity,bestAt=0,baseline=0;
+-for(;rounds<60;rounds++){
++let rounds=0,best=snap.score || Infinity,bestAt=snap.round || 0,baseline=0;
++for(;rounds<Number(process.env.RUN_ROUNDS || 60);rounds++){
+   const before=[...N.count].reduce((a,b)=>a+b*b,0);
+@@ -101,4 +101,4 @@
+   const after=[...N.count].reduce((a,b)=>a+b*b,0);
+-  if(rounds===26)baseline=after;
+-  if(after<best){best=after;bestAt=rounds+1;
++  if(rounds===0)baseline=before;
++  if(after<best){best=after;bestAt=(snap.round || 0)+rounds+1;
+     fs.writeFileSync('work/best_movable_rim.json',JSON.stringify({round:bestAt,score:best,verticesX:[...N.VX],verticesY:[...N.VY],counts:[...N.count],owners:[...N.world.owner]}));}

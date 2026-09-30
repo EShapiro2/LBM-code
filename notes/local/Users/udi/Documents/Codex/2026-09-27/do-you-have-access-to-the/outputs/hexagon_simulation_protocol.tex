@@ -1,0 +1,91 @@
+% Insert before \end{document} in local_mesh_balancing.tex.
+\section{Compact hexagonal cells: simulation protocol}
+\label{sec:compact-hexagon-protocol}
+
+The next experiment uses 100 cells. The earlier choice of 38 matched
+the clustering baseline; it was not an optimized cell count.
+Keep the same data, movement proposals, acceptance rule, and geometric
+constraints. Use a finer initial mesh. The median score below controls
+termination only, not acceptance of movements.
+
+\paragraph{Data and coverage.}
+Use the original 5,986 taxi pickups from 15 January 2015,
+08:00--08:15, and the verified Manhattan main-island boundary with
+its hole retained. Assign the 5,983 inside-domain records exactly once.
+Retain and flag the three outside records. Record input identifiers,
+boundary version, coordinate transform, and random seeds.
+
+Let $D$ denote the island, $H_i$ an underlying convex six-sided cell
+in the shared-vertex mesh, and $S_i=H_i\cap D$ its service region.
+All 100 service regions must have positive area, cover $D$ completely,
+and have no positive-area overlaps. Shared borders are allowed.
+Use a documented deterministic assignment convention for pickups on
+shared borders. Require, for every underlying and clipped cell,
+\[
+ \frac{\operatorname{diam}(A)}{w_{\min}(A)}\leq 2,
+ \qquad A\in\{H_i,S_i\},
+\]
+where $w_{\min}$ is the minimum projection width over all directions.
+Clipped service regions need not have six sides.
+Repair initial geometry before balancing, without silently relaxing
+the cell count, coverage, or shape constraints.
+
+\paragraph{Median termination rule.}
+Let $L_i$ be the load of cell $i$, and $N_i$ its neighbors sharing a
+positive-length service-region border inside Manhattan. Point contact
+alone does not establish adjacency. For $L_i>0$, define
+\[
+ g_i=\operatorname{median}_{j\in N_i}
+       \left(100\,\frac{|L_i-L_j|}{L_i}\right),
+ \qquad
+ M=\operatorname{median}_{i=1,\ldots,100} g_i.
+\]
+Each percentage uses the focal cell's own load as denominator.
+For an empty cell, set $g_i=+\infty$ if any neighbor has positive
+load, and $g_i=0$ if all neighbors are empty. Report an empty neighbor
+set as an invalid adjacency state rather than excluding that cell.
+Include all 100 cells, including infinite scores. For an even number
+of values, the median is the average of the two middle sorted values.
+
+Report the initial score separately. Stop successfully at the first
+completed balancing round with $M\leq5\%$. A manual stop, round cap,
+time limit, or small movement does not establish convergence under
+this rule. The median condition permits empty or poorly balanced
+individual cells; it does not certify balance everywhere.
+
+\paragraph{Test control before starting.}
+Check that the execution environment works and that no unintended
+duplicate solver is running. Demonstrate a short test that produces
+a map, saves a resumable checkpoint, and stops on command.
+Verify checkpoint retrieval and resumption before starting the full
+experiment. Display the initial map before balancing.
+
+\paragraph{Progress and snapshots every minute.}
+During initialization, repair, and balancing, publish progress and a
+saved map at least once per minute. Identify the run, timestamp,
+stage, completed rounds, current score, best completed-round score
+and its round, empty-cell count, and actual solver status.
+Report coverage, overlap, assignment, and shape checks with their
+audit timestamp; distinguish older audits from current measurements.
+Map labels show loads. Captions distinguish initial, intermediate,
+manually stopped, and converged states. If a snapshot is taken during
+a round, label it and identify the last completed round used for the
+termination score.
+
+Use short interruptible work batches so that a long round or repair
+operation cannot block reporting or stopping. Save consistent
+checkpoints atomically, retaining geometry, ownership, random-number
+state, update order, and the within-round position needed for exact
+continuation. Keep timestamped snapshots and a latest checkpoint.
+Monitoring reads saved state without restarting or duplicating the
+solver.
+
+\paragraph{Stop control and failure reporting.}
+Provide a stop control checked between bounded work batches.
+On request, preserve the latest consistent state, cease further
+updates, and return a final map with confirmed process status.
+Label manual stopping separately from convergence.
+An active conversation indicator is not evidence of solver progress:
+verify the process and advancing logs or checkpoints.
+If execution, snapshot retrieval, or monitoring fails, report the
+failure explicitly instead of claiming continued progress.
