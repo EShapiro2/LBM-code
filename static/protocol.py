@@ -16,12 +16,14 @@ HALVINGS = 3            # (superseded by LENGTHS)
 LENGTHS = 7             # step lengths tried per direction: dist/2, dist/4, ..., dist/128, where dist is the distance to the heaviest neighbour
 NEW_NEIGHBOURS = True   # a move may change the neighbours; the objective is then taken over the old and the new neighbourhood together
 RELOC_RATIO = 3.0       # compactness bound on the cells a departure or split makes; the moves round them off
-RW_RETRIES = 1          # after a failed departure or split: one random walk, which takes no time, and one more attempt in the same turn
+RW_RETRIES = 0          # random walks are off (Udi, 2026-09-30 15:25): a failed departure or split leaves the dispatcher where it is
 DIRECTIONS = 32         # directions scanned for the move (1 = toward the heaviest neighbour only)
 LOOKAHEAD = True        # the walk of a departure or split looks one hop ahead (two-hop knowledge)
 OBJECTIVE = "squares"   # "gap": sum of the neighbourhood mean absolute gaps; "squares": sum of squared loads of the cells whose loads change
 BLOCKED_CONTENT = True  # a dispatcher lighter than its neighbours whose departure is blocked by compactness is content
-RESTARTS = 10           # a walk whose host is rejected restarts from a random neighbour of the host, this many times, within the turn
+RESTARTS = 0            # (superseded by BACKTRACK)
+BACKTRACK = True        # at the end of the walk, try the host, then each of its neighbours, then backtrack one step and try again, to the start; deterministic
+EXTREMES = True         # departure at every local minimum and splitting at every local maximum, ties by identifier; the objective decides
 
 
 class Config:
@@ -206,6 +208,9 @@ class Sim:
         d = len(nb)
         if cfg.load[i] == 0:
             return any(cfg.load[j] > 0 for j in nb)
+        if EXTREMES:
+            Li = int(cfg.load[i])
+            return all(Li < cfg.load[j] or (Li == cfg.load[j] and i < j) for j in nb) and any(cfg.load[j] > Li for j in nb)
         return cfg.load[i] < min(cfg.load[j] for j in nb) and cfg.load[i] < d / (d + 1) * cfg.median_nb(i)
 
     def wants_split(self, i):
@@ -213,7 +218,29 @@ class Sim:
         if not nb:
             return False
         d = len(nb)
+        if EXTREMES:
+            Li = int(cfg.load[i])
+            return all(Li > cfg.load[j] or (Li == cfg.load[j] and i < j) for j in nb) and any(cfg.load[j] < Li for j in nb)
         return cfg.load[i] > max(cfg.load[j] for j in nb) and cfg.load[i] > (d + 1) / d * cfg.median_nb(i)
+
+    @staticmethod
+    def walk_path(cfg, start, up):
+        """The path of the walk, from start to its end."""
+        sign = 1 if up else -1
+        k = start; seen = {k}; path = [k]
+        while True:
+            nb = [j for j in cfg.nb(k) if j not in seen]
+            if not nb:
+                return path
+            def reach(j):
+                v = sign * int(cfg.load[j])
+                if LOOKAHEAD:
+                    v = max([v] + [sign * int(cfg.load[m]) for m in cfg.nb(j) if m != k])
+                return v
+            best = max(nb, key=reach)
+            if reach(best) > sign * int(cfg.load[k]):
+                k = best; seen.add(k); path.append(k); continue
+            return path
 
     @staticmethod
     def walk(cfg, start, up):
@@ -235,7 +262,10 @@ class Sim:
             return k
 
     def relocate(self, i, stats):
-        """Departure of i (light) or split by i (heavy). None if neither applies; else True/False for done/rejected."""
+        """Departure of i (light) or split by i (heavy). None if neither applies; else True/False for done/rejected.
+
+        The walk ends at a host; the host is tried, then each of its neighbours, then the walk backtracks one step and tries
+        again, down to its start. The first candidate that keeps the structure and lowers the objective is taken. Deterministic."""
         depart = self.wants_departure(i)
         split = self.wants_split(i)
         if not (depart or split):
@@ -244,56 +274,61 @@ class Sim:
         S = {i} | cfg.nb(i)
         kind = "departure" if depart else "split"
         if depart:
+            # the walk is on the loads before the departure, from i's heaviest neighbour; the split uses the cells after it
             others = [k for k in range(cfg.n) if k != i]
             red = self.make(c0[others])
-            start = max(range(len(others)), key=lambda j: red.load[j] if others[j] in S else -1)
-            walk_cfg, up = red, True
+            idx = {t: k for k, t in enumerate(others)}
+            start = max(cfg.nb(i), key=lambda j: cfg.load[j])
+            path = [t for t in self.walk_path(cfg, start, up=True) if t != i]
         else:
             cm0, cp0 = G.split_cell(cfg.cell(i), self.req[cfg.owner == i])
             if np.hypot(*(cm0 - c0[i])) > np.hypot(*(cp0 - c0[i])):
                 cm0, cp0 = cp0, cm0
             start = min(cfg.nb(i), key=lambda j: cfg.load[j])
-            walk_cfg, up = cfg, False
-        why = "objective"
-        for attempt in range(RESTARTS + 1):
-            k = self.walk(walk_cfg, start, up=up)
+            path = self.walk_path(cfg, start, up=False)
+        # candidates: the host, its neighbours, then backtrack
+        cands = []
+        for k in reversed(path):
+            for c in [k] + sorted(cfg.nb(k)):
+                if c != i and c not in cands:
+                    cands.append(c)
+            if not BACKTRACK:
+                break
+        why = "objective"; tried = 0
+        for k in cands:
             if depart:
-                target = others[k]
-                cm, cp = G.split_cell(red.cell(k), self.req[red.owner == k])
+                target = k; kr = idx[k]
+                cm, cp = G.split_cell(red.cell(kr), self.req[red.owner == kr])
                 if np.hypot(*(cm - c0[target])) > np.hypot(*(cp - c0[target])):
                     cm, cp = cp, cm
                 new = c0.copy(); new[target] = cm; new[i] = cp
                 touched = S | {target} | cfg.nb(target)
             else:
-                if k == i:
-                    why = "objective"
-                else:
-                    new = c0.copy(); new[i] = cm0; new[k] = cp0
-                    touched = S | {k} | cfg.nb(k)
-            if not (split and k == i):
-                if all(self.inside(new[t]) for t in touched):
-                    newcfg = self.make(new)
-                    S2 = set(touched)
-                    for t in list(touched):
-                        S2 |= cfg.nb(t) | newcfg.nb(t)
-                    before = cfg.objective(S2)
-                    after = newcfg.objective(S2)
-                    comp = newcfg.compact(S2, RELOC_RATIO, cfg)
-                    if after < before - 1e-12 and comp:
-                        self.cfg = newcfg
-                        self.blocked.pop(i, None)
-                        stats[kind] += 1
-                        stats["restarts"] += attempt
-                        return True
-                    why = "compact" if (depart and not comp) else "objective"
-            if why == "compact":
-                break
-            # the host is rejected: restart the walk from a random neighbour of the host; the walk takes no time
-            nbk = [j for j in walk_cfg.nb(k)]
-            if not nbk:
-                break
-            start = int(self.rng.choice(nbk))
-        self.blocked[i] = why
+                new = c0.copy(); new[i] = cm0; new[k] = cp0
+                touched = S | {k} | cfg.nb(k)
+            tried += 1
+            if not all(self.inside(new[t]) for t in touched):
+                continue
+            newcfg = self.make(new)
+            S2 = set(touched)
+            for t in list(touched):
+                S2 |= cfg.nb(t) | newcfg.nb(t)
+            before = cfg.objective(S2)
+            after = newcfg.objective(S2)
+            comp = newcfg.compact(S2, RELOC_RATIO, cfg)
+            if after < before - 1e-12 and comp:
+                self.cfg = newcfg
+                self.blocked.pop(i, None)
+                stats[kind] += 1
+                stats["restarts"] += tried - 1
+                return True
+            if depart and not comp and why != "objective_seen":
+                why = "compact"
+            if after < before - 1e-12 and not comp:
+                pass
+            elif comp:
+                why = "objective_seen"
+        self.blocked[i] = "compact" if why == "compact" else "objective"
         stats[kind + "_rejected"] += 1
         return False
 
@@ -328,6 +363,8 @@ class Sim:
             r = self.relocate(i, stats)
             if r is False and BLOCKED_CONTENT and self.blocked.get(i) == "compact":
                 stats["blocked"] += 1
+                return
+            if r is False and RW_RETRIES == 0:
                 return
             if r is None:
                 self.move(i, stats)
@@ -413,7 +450,7 @@ def render(sim, path, title):
 
 
 def main():
-    global HALVINGS, RELOC_RATIO, RW_RETRIES, DIRECTIONS, LOOKAHEAD, OBJECTIVE, LENGTHS, NEW_NEIGHBOURS
+    global HALVINGS, RELOC_RATIO, RW_RETRIES, DIRECTIONS, LOOKAHEAD, OBJECTIVE, LENGTHS, NEW_NEIGHBOURS, EXTREMES
     ap = argparse.ArgumentParser()
     ap.add_argument("--inputs", default="../inputs")
     ap.add_argument("--n", type=int, default=100)
@@ -421,6 +458,8 @@ def main():
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--out", default="runs/run1")
     ap.add_argument("--resume", action="store_true")
+    ap.add_argument("--start", default=None, help="state.json to start from, as round 0")
+    ap.add_argument("--no-extremes", action="store_true")
     ap.add_argument("--halvings", type=int, default=HALVINGS)
     ap.add_argument("--reloc-ratio", type=float, default=RELOC_RATIO)
     ap.add_argument("--rw-retries", type=int, default=RW_RETRIES)
@@ -430,7 +469,7 @@ def main():
     ap.add_argument("--lengths", type=int, default=LENGTHS)
     ap.add_argument("--no-new-neighbours", action="store_true")
     a = ap.parse_args()
-    OBJECTIVE = a.objective; LENGTHS = a.lengths; NEW_NEIGHBOURS = not a.no_new_neighbours
+    OBJECTIVE = a.objective; LENGTHS = a.lengths; NEW_NEIGHBOURS = not a.no_new_neighbours; EXTREMES = not a.no_extremes
     HALVINGS = a.halvings; RELOC_RATIO = a.reloc_ratio; RW_RETRIES = a.rw_retries; DIRECTIONS = a.directions; LOOKAHEAD = not a.no_lookahead
     os.makedirs(a.out, exist_ok=True)
     city = G.load_city(f"{a.inputs}/manhattan_main_island_km.json")
@@ -442,6 +481,9 @@ def main():
         s = json.load(open(f"{a.out}/state.json")); centres = np.array(s["centres"]); r0 = s["round"]
         rng = np.random.default_rng([a.seed, r0])
         log = open(f"{a.out}/log.jsonl", "a")
+    elif a.start:
+        centres = np.array(json.load(open(a.start))["centres"])
+        log = open(f"{a.out}/log.jsonl", "w")
     else:
         centres = lattice(city, a.n)
         log = open(f"{a.out}/log.jsonl", "w")
