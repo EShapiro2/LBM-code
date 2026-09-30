@@ -9,7 +9,7 @@ from shapely.geometry import Polygon, Point, LineString
 
 import geometry as G
 
-CONTENT = 0.10          # a dispatcher is content when its load is within 10% of each neighbour's (5% until 2026-09-30 14:48)
+CONTENT = 0.07          # a dispatcher is content when its load is within 7% of each neighbour's (5% until 14:48, 10% until 16:42 on 2026-09-30)
 RATIO = 2.0             # compactness: diameter / width <= 2
 RW_TRIES = 10           # random-walk directions tried before giving up
 HALVINGS = 3            # (superseded by LENGTHS)
@@ -24,7 +24,7 @@ BLOCKED_CONTENT = True  # a dispatcher lighter than its neighbours whose departu
 RESTARTS = 0            # (superseded by BACKTRACK)
 BACKTRACK = True        # at the end of the walk, try the host, then each of its neighbours, then backtrack one step and try again, to the start; deterministic
 EXTREMES = True         # departure at every local minimum and splitting at every local maximum, ties by identifier; the objective decides
-COMPACT = "cell"        # "cell": each cell compact; "neighbourhood": each cell together with its neighbours compact (Udi, 2026-09-30 16:06)
+COMPACT = "neighbourhood"  # "cell": each cell compact; "neighbourhood": each cell together with its neighbours compact (Udi, 2026-09-30 16:06; default since 16:42)
 
 
 class Config:
@@ -422,7 +422,40 @@ def lattice(city, n):
     return best
 
 
-def render(sim, path, title):
+def _lab_to_rgb(L, a, b):
+    fy = (L + 16) / 116; fx = fy + a / 500; fz = fy - b / 200
+    def finv(f): return f ** 3 if f ** 3 > 0.008856 else (f - 16 / 116) / 7.787
+    X, Y, Z = 0.95047 * finv(fx), 1.0 * finv(fy), 1.08883 * finv(fz)
+    r = 3.2406 * X - 1.5372 * Y - 0.4986 * Z
+    g = -0.9689 * X + 1.8758 * Y + 0.0415 * Z
+    bb = 0.0557 * X - 0.2040 * Y + 1.0570 * Z
+    def gam(c):
+        c = min(max(c, 0.0), 1.0)
+        return 1.055 * c ** (1 / 2.4) - 0.055 if c > 0.0031308 else 12.92 * c
+    return (gam(r), gam(g), gam(bb))
+
+
+def _rgb_to_lab(r, g, b):
+    def lin(c): return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
+    r, g, b = lin(r), lin(g), lin(b)
+    X = (0.4124 * r + 0.3576 * g + 0.1805 * b) / 0.95047
+    Y = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 1.0
+    Z = (0.0193 * r + 0.1192 * g + 0.9505 * b) / 1.08883
+    def f(t): return t ** (1 / 3) if t > 0.008856 else 7.787 * t + 16 / 116
+    return 116 * f(Y) - 16, 500 * (f(X) - f(Y)), 200 * (f(Y) - f(Z))
+
+
+def lab_colour(t):
+    """The colour at t in [0,1]: the hue of the scale light blue, blue, yellow, orange, deep red, with the lightness replaced by one falling steadily from 93 to 22 (Udi, 2026-09-30 16:35)."""
+    import matplotlib.pyplot as plt
+    from matplotlib.colors import LinearSegmentedColormap
+    base = LinearSegmentedColormap.from_list("base", [(0.0, "#cfe8ff"), (0.3, "#7fbfff"), (0.55, "#ffe066"), (0.75, "#ff8c1a"), (0.9, "#e03000"), (1.0, "#7a0000")])
+    r, g, b, _ = base(t)
+    L, a, bb = _rgb_to_lab(r, g, b)
+    return _lab_to_rgb(93 - 71 * t, a, bb)
+
+
+def render(sim, path, title, vmax=None):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -431,19 +464,21 @@ def render(sim, path, title):
     from matplotlib.cm import ScalarMappable
     cfg = sim.cfg
     fig, ax = plt.subplots(figsize=(7, 12))
-    vmax = max(1, int(cfg.load.max()))
+    # the scale is 0 to the largest load plus the smallest, so the loads present sit in its middle (Udi, 2026-09-30 16:27)
+    vmax = max(1, int(cfg.load.max()) + int(cfg.load.min())) if vmax is None else vmax
     # white for empty, light blue for sparse, through yellow and orange to deep red for the densest
-    # the scale spans the loads present, lightest to heaviest; an empty cell is white
-    vmin = int(cfg.load.min())
-    cmap = LinearSegmentedColormap.from_list("loads", [(0.0, "#cfe8ff"), (0.3, "#7fbfff"), (0.55, "#ffe066"), (0.75, "#ff8c1a"), (0.9, "#e03000"), (1.0, "#7a0000")])
-    norm = Normalize(vmin, max(vmax, vmin + 1))
+    # white for empty, light blue for sparse, deep red for the densest, darkening continuously: the hues of the scale with the lightness falling linearly in CIELAB (Udi, 2026-09-30 16:31)
+    # white, then yellow, orange, red, deep red, darkening steadily (Udi, 2026-09-30 16:37): matplotlib's YlOrRd, which is monotone in lightness, with white at zero
+    base = plt.cm.YlOrRd
+    cmap = LinearSegmentedColormap.from_list("loads", [(0.0, "white")] + [(t, base(0.05 + 0.95 * t)) for t in np.linspace(0.02, 1, 60)])
+    norm = Normalize(0, vmax)
     for i in range(cfg.n):
         cell = cfg.cell(i)
         polys = [cell] if cell.geom_type == "Polygon" else [g for g in cell.geoms if g.geom_type == "Polygon"]
         for p in polys:
-            ax.add_patch(MPoly(np.array(p.exterior.coords), closed=True, facecolor="white" if cfg.load[i] == 0 else cmap(norm(cfg.load[i])), edgecolor="k", linewidth=0.4))
+            ax.add_patch(MPoly(np.array(p.exterior.coords), closed=True, facecolor=cmap(norm(cfg.load[i])), edgecolor="k", linewidth=0.4))
         cx, cy = cfg.c[i]
-        ax.text(cx, cy, str(int(cfg.load[i])), fontsize=5, ha="center", va="center", color="w" if norm(cfg.load[i]) > 0.7 else "k")
+        ax.text(cx, cy, str(int(cfg.load[i])), fontsize=5, ha="center", va="center", color="w" if cfg.load[i] > 0.6 * vmax else "k")
     x, y = cfg.city.exterior.xy
     ax.plot(x, y, "k-", lw=0.6)
     ax.set_aspect("equal"); ax.set_title(title, fontsize=9)
