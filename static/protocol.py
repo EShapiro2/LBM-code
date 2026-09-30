@@ -494,6 +494,7 @@ def main():
     global HALVINGS, RELOC_RATIO, RW_RETRIES, DIRECTIONS, LOOKAHEAD, OBJECTIVE, LENGTHS, NEW_NEIGHBOURS, EXTREMES, CONTENT, COMPACT
     ap = argparse.ArgumentParser()
     ap.add_argument("--inputs", default="../inputs")
+    ap.add_argument("--period", default="0800-0815", help="the pickups file: pickups_2015-01-15_<period>_quantized.json")
     ap.add_argument("--n", type=int, default=100)
     ap.add_argument("--rounds", type=int, default=100)
     ap.add_argument("--seed", type=int, default=1)
@@ -517,7 +518,7 @@ def main():
     HALVINGS = a.halvings; RELOC_RATIO = a.reloc_ratio; RW_RETRIES = a.rw_retries; DIRECTIONS = a.directions; LOOKAHEAD = not a.no_lookahead
     os.makedirs(a.out, exist_ok=True)
     city = G.load_city(f"{a.inputs}/manhattan_main_island_km.json")
-    req = G.load_requests(f"{a.inputs}/pickups_2015-01-15_0800-0815_quantized.json")
+    req = G.load_requests(f"{a.inputs}/pickups_2015-01-15_{a.period}_quantized.json")
     req = req[[city.contains(Point(p)) for p in req]]
     rng = np.random.default_rng(a.seed)
     r0 = 0
