@@ -24,6 +24,7 @@ BLOCKED_CONTENT = True  # a dispatcher lighter than its neighbours whose departu
 RESTARTS = 0            # (superseded by BACKTRACK)
 BACKTRACK = True        # at the end of the walk, try the host, then each of its neighbours, then backtrack one step and try again, to the start; deterministic
 EXTREMES = True         # departure at every local minimum and splitting at every local maximum, ties by identifier; the objective decides
+COMPACT = "cell"        # "cell": each cell compact; "neighbourhood": each cell together with its neighbours compact (Udi, 2026-09-30 16:06)
 
 
 class Config:
@@ -83,7 +84,12 @@ class Config:
         return all(abs(Li - int(self.load[j])) <= CONTENT * max(Li, int(self.load[j])) for j in self.nb(i))
 
     def ratio(self, k):
-        d, w = G.width_and_diameter(self.cell(k))
+        if COMPACT == "neighbourhood":
+            from shapely.ops import unary_union
+            u = unary_union([self.cell(k)] + [self.cell(j) for j in self.nb(k)])
+            d, w = G.width_and_diameter(u)
+        else:
+            d, w = G.width_and_diameter(self.cell(k))
         return d / w if w > G.TOL else np.inf
 
     def compact(self, S, bound=RATIO, before=None):
@@ -379,9 +385,7 @@ class Sim:
     def report(self):
         cfg = self.cfg; n = cfg.n
         cont = sum(cfg.content(i) or (BLOCKED_CONTENT and self.blocked.get(i) == "compact") for i in range(n))
-        dw = []
-        for i in range(n):
-            d, w = G.width_and_diameter(cfg.cell(i)); dw.append(d / w if w > G.TOL else np.inf)
+        dw = [cfg.ratio(i) for i in range(n)]
         gaps = [cfg.gap(i) for i in range(n)]
         return dict(content=int(cont), min_load=int(cfg.load.min()), max_load=int(cfg.load.max()),
                     ratio=float(cfg.load.max() / max(1, cfg.load.min())), empty=int((cfg.load == 0).sum()),
@@ -429,15 +433,17 @@ def render(sim, path, title):
     fig, ax = plt.subplots(figsize=(7, 12))
     vmax = max(1, int(cfg.load.max()))
     # white for empty, light blue for sparse, through yellow and orange to deep red for the densest
-    cmap = LinearSegmentedColormap.from_list("loads", [(0.0, "white"), (0.02, "#cfe8ff"), (0.3, "#7fbfff"), (0.55, "#ffe066"), (0.75, "#ff8c1a"), (0.9, "#e03000"), (1.0, "#7a0000")])
-    norm = Normalize(0, vmax)
+    # the scale spans the loads present, lightest to heaviest; an empty cell is white
+    vmin = int(cfg.load.min())
+    cmap = LinearSegmentedColormap.from_list("loads", [(0.0, "#cfe8ff"), (0.3, "#7fbfff"), (0.55, "#ffe066"), (0.75, "#ff8c1a"), (0.9, "#e03000"), (1.0, "#7a0000")])
+    norm = Normalize(vmin, max(vmax, vmin + 1))
     for i in range(cfg.n):
         cell = cfg.cell(i)
         polys = [cell] if cell.geom_type == "Polygon" else [g for g in cell.geoms if g.geom_type == "Polygon"]
         for p in polys:
-            ax.add_patch(MPoly(np.array(p.exterior.coords), closed=True, facecolor=cmap(norm(cfg.load[i])), edgecolor="k", linewidth=0.4))
+            ax.add_patch(MPoly(np.array(p.exterior.coords), closed=True, facecolor="white" if cfg.load[i] == 0 else cmap(norm(cfg.load[i])), edgecolor="k", linewidth=0.4))
         cx, cy = cfg.c[i]
-        ax.text(cx, cy, str(int(cfg.load[i])), fontsize=5, ha="center", va="center", color="w" if cfg.load[i] > 0.6 * vmax else "k")
+        ax.text(cx, cy, str(int(cfg.load[i])), fontsize=5, ha="center", va="center", color="w" if norm(cfg.load[i]) > 0.7 else "k")
     x, y = cfg.city.exterior.xy
     ax.plot(x, y, "k-", lw=0.6)
     ax.set_aspect("equal"); ax.set_title(title, fontsize=9)
@@ -450,7 +456,7 @@ def render(sim, path, title):
 
 
 def main():
-    global HALVINGS, RELOC_RATIO, RW_RETRIES, DIRECTIONS, LOOKAHEAD, OBJECTIVE, LENGTHS, NEW_NEIGHBOURS, EXTREMES
+    global HALVINGS, RELOC_RATIO, RW_RETRIES, DIRECTIONS, LOOKAHEAD, OBJECTIVE, LENGTHS, NEW_NEIGHBOURS, EXTREMES, CONTENT, COMPACT
     ap = argparse.ArgumentParser()
     ap.add_argument("--inputs", default="../inputs")
     ap.add_argument("--n", type=int, default=100)
@@ -460,6 +466,8 @@ def main():
     ap.add_argument("--resume", action="store_true")
     ap.add_argument("--start", default=None, help="state.json to start from, as round 0")
     ap.add_argument("--no-extremes", action="store_true")
+    ap.add_argument("--content", type=float, default=CONTENT)
+    ap.add_argument("--compact", default=COMPACT, choices=["cell", "neighbourhood"])
     ap.add_argument("--halvings", type=int, default=HALVINGS)
     ap.add_argument("--reloc-ratio", type=float, default=RELOC_RATIO)
     ap.add_argument("--rw-retries", type=int, default=RW_RETRIES)
@@ -470,6 +478,7 @@ def main():
     ap.add_argument("--no-new-neighbours", action="store_true")
     a = ap.parse_args()
     OBJECTIVE = a.objective; LENGTHS = a.lengths; NEW_NEIGHBOURS = not a.no_new_neighbours; EXTREMES = not a.no_extremes
+    CONTENT = a.content; COMPACT = a.compact; DIRECTIONS = a.directions
     HALVINGS = a.halvings; RELOC_RATIO = a.reloc_ratio; RW_RETRIES = a.rw_retries; DIRECTIONS = a.directions; LOOKAHEAD = not a.no_lookahead
     os.makedirs(a.out, exist_ok=True)
     city = G.load_city(f"{a.inputs}/manhattan_main_island_km.json")
