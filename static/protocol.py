@@ -12,10 +12,12 @@ import geometry as G
 CONTENT = 0.05          # a dispatcher is content when its load is within 5% of each neighbour's
 RATIO = 2.0             # compactness: diameter / width <= 2
 RW_TRIES = 10           # random-walk directions tried before giving up
-EMPTY_DEPARTS = False   # variant: an empty dispatcher is not content and departs
-RW_AFTER = 1            # variant: random walk only after this many consecutive failed turns
-HALVINGS = 0            # variant: if the proposed step is rejected, try s/2, s/4, ... this many times
-RELOC_RATIO = 2.0       # variant: compactness bound applied to the cells after a departure or split
+HALVINGS = 3            # if the proposed step is rejected, try s/2, s/4, s/8
+RELOC_RATIO = 3.0       # compactness bound on the cells a departure or split makes; the moves round them off
+RW_RETRIES = 1          # after a failed departure or split: one random walk, which takes no time, and one more attempt in the same turn
+DIRECTIONS = 16         # directions scanned for the move (1 = toward the heaviest neighbour only)
+LOOKAHEAD = True        # the walk of a departure or split looks one hop ahead (two-hop knowledge)
+OBJECTIVE = "squares"   # "gap": sum of the neighbourhood mean absolute gaps; "squares": sum of squared loads of the cells whose loads change
 
 
 class Config:
@@ -66,12 +68,12 @@ class Config:
         return float(np.mean([abs(int(self.load[i]) - int(self.load[j])) for j in nb]))
 
     def objective(self, S):
+        if OBJECTIVE == "squares":
+            return float(sum(int(self.load[k]) ** 2 for k in S))
         return sum(self.gap(k) for k in S)
 
     def content(self, i):
         Li = int(self.load[i])
-        if EMPTY_DEPARTS and Li == 0:
-            return False
         return all(abs(Li - int(self.load[j])) <= CONTENT * max(Li, int(self.load[j])) for j in self.nb(i))
 
     def compact(self, S):
@@ -91,7 +93,6 @@ class Sim:
         self.far = np.array([[minx - pad, miny - pad], [maxx + pad, miny - pad], [maxx + pad, maxy + pad], [minx - pad, maxy + pad]])
         self.evals = 0
         self.cfg = self.make(centres)
-        self.fails = np.zeros(self.cfg.n, int)
 
     def make(self, centres):
         self.evals += 1
@@ -137,29 +138,41 @@ class Sim:
         dist = np.hypot(*d)
         if dist < 1e-9 or Li == Lh:
             return False
-        u = d / dist
+        u0 = d / dist
         if Lh < Li:
-            u = -u
+            u0 = -u0
         frac = abs(Li - Lh) / max(Li, Lh)
         s = frac * dist
         S = {i} | nb0
         before = cfg.objective(S)
-        s2, cut = self.cut_short(i, u, s, nb0)
-        if s2 <= 1e-9:
+        if DIRECTIONS <= 1:
+            dirs = [u0]
+        else:
+            a0 = np.arctan2(u0[1], u0[0])
+            dirs = [np.array([np.cos(a0 + 2 * np.pi * k / DIRECTIONS), np.sin(a0 + 2 * np.pi * k / DIRECTIONS)]) for k in range(DIRECTIONS)]
+        best = None
+        for u in dirs:
+            s2 = s
+            for h_ in range(HALVINGS + 1):
+                p = cfg.c[i] + s2 * u
+                if self.inside(p) and not self.collides(cfg.c, p, i):
+                    new = self.with_centre(i, p)
+                    if new.nb(i) == nb0:
+                        after = new.objective(S)
+                        if after < before - 1e-12 and new.compact({i} | new.nb(i)):
+                            if best is None or after < best[0]:
+                                best = (after, new, h_ > 0, h_)
+                            break
+                s2 /= 2
+        if best is None:
             stats["rejected"] += 1
             return False
-        for h_ in range(HALVINGS + 1):
-            new = self.with_centre(i, cfg.c[i] + s2 * u)
-            after = new.objective(S)
-            if after < before - 1e-12 and new.compact({i} | new.nb(i)):
-                self.cfg = new
-                stats["accepted"] += 1
-                stats["cut"] += int(cut)
-                stats["halved"] += h_
-                return True
-            s2 /= 2
-        stats["rejected"] += 1
-        return False
+        after, new, cut, h_ = best
+        self.cfg = new
+        stats["accepted"] += 1
+        stats["cut"] += int(cut)
+        stats["halved"] += h_
+        return True
 
     # ---- departure and splitting ----
     def wants_departure(self, i):
@@ -167,8 +180,8 @@ class Sim:
         if not nb:
             return False
         d = len(nb)
-        if EMPTY_DEPARTS and cfg.load[i] == 0:
-            return True
+        if cfg.load[i] == 0:
+            return any(cfg.load[j] > 0 for j in nb)
         return cfg.load[i] < min(cfg.load[j] for j in nb) and cfg.load[i] < d / (d + 1) * cfg.median_nb(i)
 
     def wants_split(self, i):
@@ -180,20 +193,21 @@ class Sim:
 
     @staticmethod
     def walk(cfg, start, up):
-        """From start, step to the heaviest (up) or lightest (down) neighbour until at a local extremum."""
+        """From start, step towards the heaviest (up) or lightest (down) load within two hops until none is better than the current."""
+        sign = 1 if up else -1
         k = start; seen = {k}
         while True:
-            nb = cfg.nb(k)
+            nb = [j for j in cfg.nb(k) if j not in seen]
             if not nb:
                 return k
-            best = max(nb, key=lambda j: cfg.load[j]) if up else min(nb, key=lambda j: cfg.load[j])
-            better = cfg.load[best] > cfg.load[k] if up else cfg.load[best] < cfg.load[k]
-            if better and best not in seen:
+            def reach(j):
+                v = sign * int(cfg.load[j])
+                if LOOKAHEAD:
+                    v = max([v] + [sign * int(cfg.load[m]) for m in cfg.nb(j) if m != k])
+                return v
+            best = max(nb, key=reach)
+            if reach(best) > sign * int(cfg.load[k]):
                 k = best; seen.add(k); continue
-            # on a plateau, continue to an unvisited neighbour of equal load
-            eq = [j for j in nb if cfg.load[j] == cfg.load[k] and j not in seen]
-            if eq:
-                k = min(eq); seen.add(k); continue
             return k
 
     def relocate(self, i, stats):
@@ -211,14 +225,14 @@ class Sim:
             start = max(range(len(others)), key=lambda j: red.load[j] if others[j] in S else -1)
             k = self.walk(red, start, up=True)
             target = others[k]
-            cm, cp = G.split_cell(red.cell(k))
+            cm, cp = G.split_cell(red.cell(k), self.req[red.owner == k])
             if np.hypot(*(cm - c0[target])) > np.hypot(*(cp - c0[target])):
                 cm, cp = cp, cm
             new = c0.copy(); new[target] = cm; new[i] = cp
             kind = "departure"; touched = S | {target} | cfg.nb(target)
         else:
             # i splits; the anti-dispatcher walks downhill from i's lightest neighbour to a local minimum k, which is eliminated and takes the new half
-            cm, cp = G.split_cell(cfg.cell(i))
+            cm, cp = G.split_cell(cfg.cell(i), self.req[cfg.owner == i])
             if np.hypot(*(cm - c0[i])) > np.hypot(*(cp - c0[i])):
                 cm, cp = cp, cm
             start = min(cfg.nb(i), key=lambda j: cfg.load[j])
@@ -270,16 +284,17 @@ class Sim:
     # ---- a turn ----
     def turn(self, i, stats):
         if self.cfg.content(i):
-            self.fails[i] = 0
             return
-        r = self.relocate(i, stats)
-        if r is True or (r is None and self.move(i, stats)):
-            self.fails[i] = 0
-            return
-        self.fails[i] += 1
-        if self.fails[i] >= RW_AFTER:
-            self.random_walk(i, stats)
-            self.fails[i] = 0
+        for _ in range(RW_RETRIES + 1):
+            r = self.relocate(i, stats)
+            if r is None:
+                self.move(i, stats)
+                return
+            if r is True:
+                return
+            # a departure or split failed: random walk, which takes no time, and try again
+            if not self.random_walk(i, stats):
+                return
 
     # ---- reporting ----
     def report(self):
@@ -349,6 +364,7 @@ def render(sim, path, title):
 
 
 def main():
+    global HALVINGS, RELOC_RATIO, RW_RETRIES, DIRECTIONS, LOOKAHEAD, OBJECTIVE
     ap = argparse.ArgumentParser()
     ap.add_argument("--inputs", default="../inputs")
     ap.add_argument("--n", type=int, default=100)
@@ -356,13 +372,15 @@ def main():
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--out", default="runs/run1")
     ap.add_argument("--resume", action="store_true")
-    ap.add_argument("--empty-departs", action="store_true")
-    ap.add_argument("--rw-after", type=int, default=1)
-    ap.add_argument("--halvings", type=int, default=0)
-    ap.add_argument("--reloc-ratio", type=float, default=2.0)
+    ap.add_argument("--halvings", type=int, default=HALVINGS)
+    ap.add_argument("--reloc-ratio", type=float, default=RELOC_RATIO)
+    ap.add_argument("--rw-retries", type=int, default=RW_RETRIES)
+    ap.add_argument("--directions", type=int, default=DIRECTIONS)
+    ap.add_argument("--no-lookahead", action="store_true")
+    ap.add_argument("--objective", default=OBJECTIVE, choices=["gap", "squares"])
     a = ap.parse_args()
-    global EMPTY_DEPARTS, RW_AFTER, HALVINGS, RELOC_RATIO
-    EMPTY_DEPARTS = a.empty_departs; RW_AFTER = a.rw_after; HALVINGS = a.halvings; RELOC_RATIO = a.reloc_ratio
+    OBJECTIVE = a.objective
+    HALVINGS = a.halvings; RELOC_RATIO = a.reloc_ratio; RW_RETRIES = a.rw_retries; DIRECTIONS = a.directions; LOOKAHEAD = not a.no_lookahead
     os.makedirs(a.out, exist_ok=True)
     city = G.load_city(f"{a.inputs}/manhattan_main_island_km.json")
     req = G.load_requests(f"{a.inputs}/pickups_2015-01-15_0800-0815_quantized.json")

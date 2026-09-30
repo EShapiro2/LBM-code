@@ -146,8 +146,8 @@ def compact(poly, ratio=2.0):
     return w > TOL and d / w <= ratio + 1e-9
 
 
-def split_cell(poly):
-    """Cut a convex cell into two halves of equal area by a line perpendicular to its long axis; return the two centroids."""
+def split_cell(poly, requests=None):
+    """Cut a convex cell by a line perpendicular to its long axis, into halves of equal load (equal area when no requests are given); return the two centroids."""
     hull = poly.convex_hull
     pts = np.array(hull.exterior.coords)[:-1]
     # area centroid and covariance of the polygon (uniform density)
@@ -180,13 +180,19 @@ def split_cell(poly):
         hp = Polygon([m + tt * L, m - tt * L, m - tt * L - n * L, m + tt * L - n * L])
         return hull.intersection(hp)
 
-    for _ in range(80):
-        mid = (lo + hi) / 2
-        if half(mid).area < total / 2:
-            lo = mid
-        else:
-            hi = mid
-    t = (lo + hi) / 2
+    if requests is not None and len(requests) >= 2:
+        pr = np.sort(np.asarray(requests) @ u)
+        m = len(pr)
+        t = (pr[m // 2 - 1] + pr[m // 2]) / 2 if m % 2 == 0 else (pr[m // 2 - 1] + pr[m // 2 + 1]) / 2
+        t = min(max(t, lo + 1e-9), hi - 1e-9)
+    else:
+        for _ in range(80):
+            mid = (lo + hi) / 2
+            if half(mid).area < total / 2:
+                lo = mid
+            else:
+                hi = mid
+        t = (lo + hi) / 2
     hm = half(t)
     hp = hull.difference(hm)
     return np.array(hm.centroid.coords[0]), np.array(hp.centroid.coords[0])
