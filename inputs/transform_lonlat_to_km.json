@@ -1,0 +1,19 @@
+{
+ "description": "Fitted transform from longitude/latitude to the simulator quantised frame, by least squares over the 5,986 pickups matched to the NYC Open Data trips of 2015-01-15 08:00-08:15",
+ "qx": "A*lon+B",
+ "qy": "C*lat+D",
+ "A": 626921.8969742522,
+ "B": 46404844.12307547,
+ "C": 384329.3367704617,
+ "D": -15642175.540955588,
+ "W_km": 8.8103,
+ "H_km": 18.8542,
+ "km_per_degree_lon": 84.28122360436795,
+ "km_per_degree_lat": 110.57026293335834,
+ "lon_at_x0": -74.02013607602755,
+ "lat_at_y0": 40.69992593434984,
+ "max_residual_quantisation_units": 0.6960500769591605,
+ "median_residual_quantisation_units": 0.3976581744078558,
+ "trips_source": "inputs/source/lbm-trips-0800-0815.json (https://data.cityofnewyork.us/resource/2yzn-sicd.json, pickup_datetime in [2015-01-15T08:00, 08:15), downloaded 2026-09-30)",
+ "trips_sha256": "0e0fbc823d94b60159bb7d60ce841a8e1a688004da81bb28411d53fd7ec10344"
+}
