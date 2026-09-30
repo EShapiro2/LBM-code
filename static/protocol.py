@@ -9,17 +9,19 @@ from shapely.geometry import Polygon, Point, LineString
 
 import geometry as G
 
-CONTENT = 0.05          # a dispatcher is content when its load is within 5% of each neighbour's
+CONTENT = 0.10          # a dispatcher is content when its load is within 10% of each neighbour's (5% until 2026-09-30 14:48)
 RATIO = 2.0             # compactness: diameter / width <= 2
 RW_TRIES = 10           # random-walk directions tried before giving up
 HALVINGS = 3            # (superseded by LENGTHS)
-LENGTHS = 6             # step lengths tried per direction: dist/2, dist/4, ..., dist/64, where dist is the distance to the heaviest neighbour
+LENGTHS = 7             # step lengths tried per direction: dist/2, dist/4, ..., dist/128, where dist is the distance to the heaviest neighbour
+NEW_NEIGHBOURS = True   # a move may change the neighbours; the objective is then taken over the old and the new neighbourhood together
 RELOC_RATIO = 3.0       # compactness bound on the cells a departure or split makes; the moves round them off
 RW_RETRIES = 1          # after a failed departure or split: one random walk, which takes no time, and one more attempt in the same turn
-DIRECTIONS = 16         # directions scanned for the move (1 = toward the heaviest neighbour only)
+DIRECTIONS = 32         # directions scanned for the move (1 = toward the heaviest neighbour only)
 LOOKAHEAD = True        # the walk of a departure or split looks one hop ahead (two-hop knowledge)
 OBJECTIVE = "squares"   # "gap": sum of the neighbourhood mean absolute gaps; "squares": sum of squared loads of the cells whose loads change
 BLOCKED_CONTENT = True  # a dispatcher lighter than its neighbours whose departure is blocked by compactness is content
+RESTARTS = 10           # a walk whose host is rejected restarts from a random neighbour of the host, this many times, within the turn
 
 
 class Config:
@@ -174,19 +176,25 @@ class Sim:
                 p = cfg.c[i] + s2 * u
                 if self.inside(p) and not self.collides(cfg.c, p, i):
                     new = self.with_centre(i, p)
-                    if new.nb(i) == nb0:
-                        after = new.objective(S)
-                        if after < before - 1e-12 and new.compact({i} | new.nb(i), RATIO, cfg):
-                            if best is None or after < best[0]:
-                                best = (after, new, h_ > 0, h_)
-                            break
+                    nb1 = new.nb(i)
+                    if nb1 == nb0:
+                        b, a = before, new.objective(S)
+                    elif NEW_NEIGHBOURS:
+                        S2 = S | nb1
+                        b, a = cfg.objective(S2), new.objective(S2)
+                    else:
+                        s2 = None
+                    if s2 is not None and a < b - 1e-12 and new.compact({i} | nb1, RATIO, cfg):
+                        if best is None or a - b < best[0]:
+                            best = (a - b, new, nb1 != nb0, h_)
+                        break
         if best is None:
             stats["rejected"] += 1
             return False
-        after, new, cut, h_ = best
+        gain, new, changed, h_ = best
         self.cfg = new
         stats["accepted"] += 1
-        stats["cut"] += int(cut)
+        stats["cut"] += int(changed)
         stats["halved"] += h_
         return True
 
@@ -234,46 +242,58 @@ class Sim:
             return None
         cfg = self.cfg; c0 = cfg.c
         S = {i} | cfg.nb(i)
+        kind = "departure" if depart else "split"
         if depart:
-            # i's cell is absorbed; on the loads after absorption, the freed dispatcher walks uphill from i's heaviest neighbour
             others = [k for k in range(cfg.n) if k != i]
             red = self.make(c0[others])
             start = max(range(len(others)), key=lambda j: red.load[j] if others[j] in S else -1)
-            k = self.walk(red, start, up=True)
-            target = others[k]
-            cm, cp = G.split_cell(red.cell(k), self.req[red.owner == k])
-            if np.hypot(*(cm - c0[target])) > np.hypot(*(cp - c0[target])):
-                cm, cp = cp, cm
-            new = c0.copy(); new[target] = cm; new[i] = cp
-            kind = "departure"; touched = S | {target} | cfg.nb(target)
+            walk_cfg, up = red, True
         else:
-            # i splits; the anti-dispatcher walks downhill from i's lightest neighbour to a local minimum k, which is eliminated and takes the new half
-            cm, cp = G.split_cell(cfg.cell(i), self.req[cfg.owner == i])
-            if np.hypot(*(cm - c0[i])) > np.hypot(*(cp - c0[i])):
-                cm, cp = cp, cm
+            cm0, cp0 = G.split_cell(cfg.cell(i), self.req[cfg.owner == i])
+            if np.hypot(*(cm0 - c0[i])) > np.hypot(*(cp0 - c0[i])):
+                cm0, cp0 = cp0, cm0
             start = min(cfg.nb(i), key=lambda j: cfg.load[j])
-            k = self.walk(cfg, start, up=False)
-            if k == i:
-                stats["split_rejected"] += 1
-                return False
-            new = c0.copy(); new[i] = cm; new[k] = cp
-            kind = "split"; touched = S | {k} | cfg.nb(k)
-        if not all(self.inside(new[t]) for t in touched):
-            stats[kind + "_rejected"] += 1
-            return False
-        newcfg = self.make(new)
-        S2 = set(touched)
-        for t in list(touched):
-            S2 |= cfg.nb(t) | newcfg.nb(t)
-        before = cfg.objective(S2)
-        after = newcfg.objective(S2)
-        comp = newcfg.compact(S2, RELOC_RATIO, cfg)
-        if after < before - 1e-12 and comp:
-            self.cfg = newcfg
-            self.blocked.pop(i, None)
-            stats[kind] += 1
-            return True
-        self.blocked[i] = "compact" if (kind == "departure" and not comp) else "objective"
+            walk_cfg, up = cfg, False
+        why = "objective"
+        for attempt in range(RESTARTS + 1):
+            k = self.walk(walk_cfg, start, up=up)
+            if depart:
+                target = others[k]
+                cm, cp = G.split_cell(red.cell(k), self.req[red.owner == k])
+                if np.hypot(*(cm - c0[target])) > np.hypot(*(cp - c0[target])):
+                    cm, cp = cp, cm
+                new = c0.copy(); new[target] = cm; new[i] = cp
+                touched = S | {target} | cfg.nb(target)
+            else:
+                if k == i:
+                    why = "objective"
+                else:
+                    new = c0.copy(); new[i] = cm0; new[k] = cp0
+                    touched = S | {k} | cfg.nb(k)
+            if not (split and k == i):
+                if all(self.inside(new[t]) for t in touched):
+                    newcfg = self.make(new)
+                    S2 = set(touched)
+                    for t in list(touched):
+                        S2 |= cfg.nb(t) | newcfg.nb(t)
+                    before = cfg.objective(S2)
+                    after = newcfg.objective(S2)
+                    comp = newcfg.compact(S2, RELOC_RATIO, cfg)
+                    if after < before - 1e-12 and comp:
+                        self.cfg = newcfg
+                        self.blocked.pop(i, None)
+                        stats[kind] += 1
+                        stats["restarts"] += attempt
+                        return True
+                    why = "compact" if (depart and not comp) else "objective"
+            if why == "compact":
+                break
+            # the host is rejected: restart the walk from a random neighbour of the host; the walk takes no time
+            nbk = [j for j in walk_cfg.nb(k)]
+            if not nbk:
+                break
+            start = int(self.rng.choice(nbk))
+        self.blocked[i] = why
         stats[kind + "_rejected"] += 1
         return False
 
@@ -366,27 +386,34 @@ def render(sim, path, title):
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     from matplotlib.patches import Polygon as MPoly
+    from matplotlib.colors import LinearSegmentedColormap, Normalize
+    from matplotlib.cm import ScalarMappable
     cfg = sim.cfg
-    fig, ax = plt.subplots(figsize=(6, 12))
-    vmax = max(1, cfg.load.max())
+    fig, ax = plt.subplots(figsize=(7, 12))
+    vmax = max(1, int(cfg.load.max()))
+    # white for empty, light blue for sparse, through yellow and orange to deep red for the densest
+    cmap = LinearSegmentedColormap.from_list("loads", [(0.0, "white"), (0.02, "#cfe8ff"), (0.3, "#7fbfff"), (0.55, "#ffe066"), (0.75, "#ff8c1a"), (0.9, "#e03000"), (1.0, "#7a0000")])
+    norm = Normalize(0, vmax)
     for i in range(cfg.n):
         cell = cfg.cell(i)
         polys = [cell] if cell.geom_type == "Polygon" else [g for g in cell.geoms if g.geom_type == "Polygon"]
         for p in polys:
-            ax.add_patch(MPoly(np.array(p.exterior.coords), closed=True, facecolor=plt.cm.viridis(cfg.load[i] / vmax), edgecolor="k", linewidth=0.4))
+            ax.add_patch(MPoly(np.array(p.exterior.coords), closed=True, facecolor=cmap(norm(cfg.load[i])), edgecolor="k", linewidth=0.4))
         cx, cy = cfg.c[i]
-        ax.text(cx, cy, str(int(cfg.load[i])), fontsize=5, ha="center", va="center", color="w")
+        ax.text(cx, cy, str(int(cfg.load[i])), fontsize=5, ha="center", va="center", color="w" if cfg.load[i] > 0.6 * vmax else "k")
     x, y = cfg.city.exterior.xy
     ax.plot(x, y, "k-", lw=0.6)
     ax.set_aspect("equal"); ax.set_title(title, fontsize=9)
     b = cfg.city.bounds
     ax.set_xlim(b[0] - 0.2, b[2] + 0.2); ax.set_ylim(b[1] - 0.2, b[3] + 0.2)
     ax.axis("off")
+    cb = fig.colorbar(ScalarMappable(norm=norm, cmap=cmap), ax=ax, fraction=0.04, pad=0.02)
+    cb.set_label("requests in the cell", fontsize=8); cb.ax.tick_params(labelsize=7)
     fig.savefig(path, dpi=150, bbox_inches="tight"); plt.close(fig)
 
 
 def main():
-    global HALVINGS, RELOC_RATIO, RW_RETRIES, DIRECTIONS, LOOKAHEAD, OBJECTIVE
+    global HALVINGS, RELOC_RATIO, RW_RETRIES, DIRECTIONS, LOOKAHEAD, OBJECTIVE, LENGTHS, NEW_NEIGHBOURS
     ap = argparse.ArgumentParser()
     ap.add_argument("--inputs", default="../inputs")
     ap.add_argument("--n", type=int, default=100)
@@ -400,8 +427,10 @@ def main():
     ap.add_argument("--directions", type=int, default=DIRECTIONS)
     ap.add_argument("--no-lookahead", action="store_true")
     ap.add_argument("--objective", default=OBJECTIVE, choices=["gap", "squares"])
+    ap.add_argument("--lengths", type=int, default=LENGTHS)
+    ap.add_argument("--no-new-neighbours", action="store_true")
     a = ap.parse_args()
-    OBJECTIVE = a.objective
+    OBJECTIVE = a.objective; LENGTHS = a.lengths; NEW_NEIGHBOURS = not a.no_new_neighbours
     HALVINGS = a.halvings; RELOC_RATIO = a.reloc_ratio; RW_RETRIES = a.rw_retries; DIRECTIONS = a.directions; LOOKAHEAD = not a.no_lookahead
     os.makedirs(a.out, exist_ok=True)
     city = G.load_city(f"{a.inputs}/manhattan_main_island_km.json")
@@ -422,7 +451,7 @@ def main():
         render(sim, f"{a.out}/round_000.png", f"round 0: {rep['content']} content, loads {rep['min_load']}-{rep['max_load']}")
     t0 = time.time()
     for r in range(r0 + 1, a.rounds + 1):
-        stats = dict(accepted=0, cut=0, halved=0, rejected=0, blocked=0, departure=0, departure_rejected=0, split=0, split_rejected=0, random=0, random_failed=0)
+        stats = dict(accepted=0, cut=0, halved=0, rejected=0, blocked=0, restarts=0, departure=0, departure_rejected=0, split=0, split_rejected=0, random=0, random_failed=0)
         sim.evals = 0
         for i in rng.permutation(sim.cfg.n):
             sim.turn(int(i), stats)
