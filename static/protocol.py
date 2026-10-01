@@ -572,8 +572,8 @@ def lab_colour(t):
     return _lab_to_rgb(93 - 71 * t, a, bb)
 
 
-def render(sim, path, title, vmax=None, cars=None):
-    """The map: cells coloured by load, with the load at each centre; `cars`, if given, are drawn as small blue dots (the dynamic case)."""
+def render(sim, path, title, vmax=None, cars=None, waiting=None):
+    """The map: cells coloured by load, with the load at each centre; `cars`, if given, are drawn as small blue dots and `waiting` calls as red ones (the dynamic case)."""
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -602,6 +602,9 @@ def render(sim, path, title, vmax=None, cars=None):
     if cars is not None and len(cars):
         cars = np.asarray(cars, float)
         ax.plot(cars[:, 0], cars[:, 1], ".", ms=1.5, color="royalblue", alpha=0.7, lw=0)
+    if waiting is not None and len(waiting):
+        waiting = np.asarray(waiting, float)
+        ax.plot(waiting[:, 0], waiting[:, 1], ".", ms=2.5, color="red", alpha=0.9, lw=0)
     ax.set_aspect("equal"); ax.set_title(title, fontsize=9)
     b = cfg.city.bounds
     ax.set_xlim(b[0] - 0.2, b[2] + 0.2); ax.set_ylim(b[1] - 0.2, b[3] + 0.2)
